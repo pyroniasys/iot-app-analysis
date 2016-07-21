@@ -25,6 +25,7 @@ def file_module_function_of(code):
         
     funcname = code.co_name
     clsname = None
+    function = None
     if code in _caller_cache:
         if _caller_cache[code] is not None:
             clsname = _caller_cache[code]
@@ -54,12 +55,12 @@ def file_module_function_of(code):
     if clsname is not None:
         funcname = "%s.%s" % (clsname, funcname)
 
-    return filename, modulename, funcname
+    return filename, modulename, funcname, function
 
 def test_tracer(frame, event, arg):
     if event == "call":
-        call_to_file, call_to_mod, call_to_func = file_module_function_of(frame.f_code)
-        call_from_file, call_from_mod, call_from_func = file_module_function_of(frame.f_back.f_code)
+        call_to_file, call_to_mod, call_to_func, to_func = file_module_function_of(frame.f_code)
+        call_from_file, call_from_mod, call_from_func, from_func = file_module_function_of(frame.f_back.f_code)
         sys.stdout.write(call_from_file+"-->"+call_to_file+"\n")
         sys.stdout.write(call_from_mod+"-->"+call_to_mod+"\n")
         sys.stdout.write(call_from_func+"-->"+call_to_func+"\n")
@@ -69,30 +70,67 @@ def test_tracer(frame, event, arg):
         return test_tracer
     return None
 
+def _print_func_call_relationship(callee, caller):
+    sys.stdout.write(str(caller.__module__)+"."+caller.__qualname__+" --> "+str(callee.__module__)+"."+callee.__qualname__+"\n")
+
 def test_tracer2(frame, event, arg):
-    co = frame.f_code
-    func_name = co.co_name
-    func_filename = co.co_filename
-    caller = frame.f_back.f_code
-    caller_func = caller.co_name
-    caller_filename = caller.co_filename
+    # get the callee and caller code objects and filenames
+    callee_code = frame.f_code
+    callee_filename = callee_code.co_filename
+    caller_code = frame.f_back.f_code
+    caller_filename = caller_code.co_filename
+
+    # get the callee and caller function objects
+    gc.collect()
+    ee_f = [f for f in gc.get_referrers(callee_code)
+            if inspect.isroutine(f)]
+    er_f = [f for f in gc.get_referrers(caller_code)
+            if inspect.isroutine(f)]
+
     if event == "call":
-        sys.stdout.write(caller_filename+"-->"+func_filename+"\n")
-        sys.stdout.write(caller_func+"-->"+func_name+"\n")
-        tup = inspect.getframeinfo(frame)
-        func = tup.function
-        for a in func.argument_list:
-            sys.stdout.write(a+"\n")
+        sys.stdout.write(caller_filename+" --> "+callee_filename+"\n")
+
+        callee = ee_f[0]
+        
+        caller = None
+        if len(er_f) > 0:
+            caller = er_f[0]
+            _print_func_call_relationship(callee, caller)
+        else:
+            sys.stdout.write(caller_code.co_name+" --> "+str(callee.__module__)+"."+callee.__qualname__+"\n")
+        args = callee_code.co_varnames[:callee_code.co_argcount]
+        vals = frame.f_locals
+        for a in args:
+            sys.stdout.write(a+"="+str(vals[a])+"\n")
         return test_tracer2
     elif event == "c_call":
-        sys.stdout.write("function:"+arg.__qualname__+"\n")
-        sys.stdout.write(arg.__module__+"\n")
+        sys.stdout.write("C: "+caller_filename+" --> "+callee_filename+"\n")
+
+        sys.stdout.write("C: ")
+        caller = None
+        if len(er_f) > 0:
+            caller = er_f[0]
+            _print_func_call_relationship(arg, caller)
+        else:
+            sys.stdout.write(caller_code.co_name+" --> "+str(arg.__module__)+"."+arg.__qualname__+"\n")
+
+        args = callee_code.co_varnames[:callee_code.co_argcount]
+        vals = frame.f_locals
+        for a in args:
+            sys.stdout.write(a+"="+str(vals[a])+"\n")
         return test_tracer2
     elif event == "return":
         ret = arg
         if arg == None:
             ret = "None"
-        sys.stdout.write(func_name+" => "+ret+"\n")
+        sys.stdout.write(callee_code.co_name+" => "+ret+"\n")
+        return test_tracer2
+    elif event == "c_return":
+        ret = arg
+        if arg == None:
+            ret = "None"
+        sys.stdout.write("C: "+callee_code.co_name+" => "+str(ret)+"\n")
+        return test_tracer2
     return None
     
     
