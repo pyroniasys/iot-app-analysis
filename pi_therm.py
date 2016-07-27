@@ -7,9 +7,6 @@ import requests
 from datetime import datetime, timedelta, timezone
 
 from get_cur_temp import read_temp, error
-import trace
-
-sys.setprofile(trace.test_tracer2)
 
 server = 'http://www.cs.princeton.edu/~melara/pi_thermometer/temp_sensing_web_server.php'
 

@@ -1,6 +1,6 @@
 import sys
 import trace
-import cProfile, pstats
+from inspect import signature
 
 def hello():
     f = open("test.txt", "w")
@@ -23,5 +23,6 @@ def start_trace():
     except SystemExit:
         pass
 
-sys.setprofile(trace.test_tracer2)
+sys.setprofile(trace.test_tracer3)
 hello()
+
