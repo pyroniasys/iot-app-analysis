@@ -123,7 +123,7 @@ def test_tracer2(frame, event, arg):
         ret = arg
         if arg == None:
             ret = "None"
-        sys.stdout.write(callee_code.co_name+" => "+ret+"\n")
+        sys.stdout.write(callee_code.co_name+" => "+str(ret)+"\n")
         return test_tracer2
     elif event == "c_return":
         ret = arg
