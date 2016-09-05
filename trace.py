@@ -84,6 +84,3 @@ def test_tracer2(frame, event, arg):
             level -= 1
 
     return None
-    
-    
-
