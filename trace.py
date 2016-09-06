@@ -11,7 +11,7 @@ levels = OrderedDict()
 levels["0"] = OrderedDict()
 
 def _get_caller_func(caller_code):
-    gc.collect()
+    #gc.collect()
     er_f = [f for f in gc.get_referrers(caller_code)
             if inspect.isroutine(f)]
 
@@ -22,7 +22,7 @@ def _get_caller_func(caller_code):
     return caller
 
 def _get_callee_func(callee_code):
-    gc.collect()
+    #gc.collect()
     ee_f = [f for f in gc.get_referrers(callee_code)
             if inspect.isroutine(f)]
 
@@ -31,6 +31,33 @@ def _get_callee_func(callee_code):
         callee = ee_f[0]
 
     return callee
+
+INDENT = 2
+SPACE = " "
+NEWLINE = "\n"
+
+# custom JSON serializer for printing small lists and dictionaries
+# Source: http://stackoverflow.com/questions/21866774/pretty-print-json-dumps
+def _to_custom_json(o, level=0):
+    ret = ""
+    if isinstance(o, dict):
+        ret += "{" + NEWLINE
+        comma = ""
+        for k,v in o.items():
+            ret += comma
+            comma = "\n"
+            ret += SPACE * INDENT * (level+1)
+            ret += str(k) + ':' + SPACE
+            ret += _to_custom_json(v, level + 1)
+
+        ret += NEWLINE + SPACE * INDENT * level + "}"
+    elif isinstance(o, str):
+        ret += o
+    elif isinstance(o, list):
+        ret += "[" + ", ".join([_to_custom_json(e, level+1) for e in o]) +"]"
+    else:
+        raise TypeError("Unknown type '%s' for json serialization" % str(type(o)))
+    return ret
 
 def _print_func_call_relationship(callee, caller):
 
@@ -47,28 +74,42 @@ def _print_func_call_relationship(callee, caller):
     sys.stdout.write(caller_name+" --> "+callee_name+"\n")
     return (caller_name, callee_name)
 
-def _build_call_graph_inner(level, caller):
+def _build_call_graph(level, caller):
+    lvl_str = str(level)
     global levels
-    if level == len(levels)-1:
-        return levels[str(level)][caller]
 
-    g = OrderedDict()
-    for caller, callees in levels[str(level)].items():
-        g[caller] = []
-        for callee in callees:
-            g[caller].append({callee: _build_call_graph_inner(level+1,callee, )})
-    return g
+    lvl_dict = levels[lvl_str]
+
+    if level == len(levels)-1:
+
+        # let's dedup the function names
+        l = []
+        for callee in lvl_dict[caller]:
+            if callee not in l:
+                l.append(callee)
+                
+        return {caller: l}
+    else:
+        g = OrderedDict()
+        for c, callees in lvl_dict.items():
+            g[c] = []
+            for callee in callees:
+                if callee not in levels[str(level+1)]:
+                    # this is also for dedup
+                    if callee not in g[c]:
+                        g[c].append(callee)
+                else:
+                    g[c].append(_build_call_graph(level+1, callee))  
+        return g
 
 # build the call graph and pretty print it in json
 def _collect_call_graph(app_filename):
     global levels
-
-    graph = OrderedDict()
-    for c in levels["0"]:
-        graph[c] = _build_call_graph_inner(0, c)
+    
+    graph = _build_call_graph(0, "")
 
     f = open("traces/"+app_filename+"_cg", "w")
-    f.write(json.dumps(graph, indent=4, separators=(',', ': ')))
+    f.write(_to_custom_json(graph))
     f.close()
 
 def tracer(frame, event, arg):
@@ -121,6 +162,7 @@ def tracer(frame, event, arg):
         
         if cur_caller != caller_name:
             cur_caller = caller_name
+            level += 1
             
         return tracer
 
