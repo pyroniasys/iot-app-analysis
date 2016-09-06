@@ -1,6 +1,6 @@
 import sys
 import trace
-sys.setprofile(trace.test_tracer2)
+sys.setprofile(trace.tracer)
 
 def hello():
     f = open("test.txt", "w")
