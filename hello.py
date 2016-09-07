@@ -1,5 +1,6 @@
 import sys
 import trace
+
 sys.setprofile(trace.tracer)
 
 def hello():
@@ -10,3 +11,4 @@ def hello():
 
 hello()
 
+print("Blah")
