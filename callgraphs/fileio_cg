@@ -1,0 +1,31 @@
+{
+  __main__.fileio: [
+  {
+      io.open: [
+      {
+          _bootlocale.getpreferredencoding: [ _locale.nl_langinfo ]
+        }, 
+      {
+          codecs.BufferedIncrementalDecoder.__init__: [ codecs.IncrementalDecoder.__init__ ]
+        }, 
+      codecs.IncrementalEncoder.__init__
+      ]
+    }, 
+  {
+      TextIOWrapper.read: [
+      codecs.BufferedIncrementalDecoder.getstate, 
+      {
+          codecs.BufferedIncrementalDecoder.decode: [ _codecs.utf_8_decode ]
+        }
+      ]
+    }, 
+  {
+      TextIOWrapper.write: [
+      {
+          codecs.BufferedIncrementalDecoder.reset: [ codecs.IncrementalDecoder.reset ]
+        }
+      ]
+    }, 
+  TextIOWrapper.close
+  ]
+}

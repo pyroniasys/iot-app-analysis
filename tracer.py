@@ -4,12 +4,10 @@ from collections import OrderedDict
 
 _caller_cache = dict()
 level = 0
-last_caller = ""
-last_callee = ""
-returned = False
 tlm = None
 
 last_callers = dict()
+last_callees = dict()
 
 # want to keep track of each level's call dict
 levels = OrderedDict()
@@ -78,53 +76,59 @@ def _build_call_graph(level, caller):
     lvl_str = str(level)
     global levels
 
+    if level == len(levels):
+        return None
+    
     lvl_dict = levels[lvl_str]
 
     if level > 1 and lvl_dict.get(caller) == None:
         return None
     
-    elif level == len(levels)-1:        
-        # let's dedup the function names
+    else:
         l = []
         for callee in lvl_dict[caller]:
-            if callee not in l:
-                l.append(callee)
-                
-        return {caller: l}
-    else:
-        g = OrderedDict()
-        for c, callees in lvl_dict.items():
-            g[c] = []
-            for callee in callees:
-                d = _build_call_graph(level+1, callee)
+            d = _build_call_graph(level+1, callee)
 
-                if d == None:
-                    if callee not in g[c]:
-                        g[c].append(callee)
-                else:
-                    if d not in g[c]:                    
-                        g[c].append(d)
-            # prune away this branch of the call graph
-            lvl_dict[c] = []
-        return g
+            if d == None:
+                if callee not in l:
+                    l.append(callee)
+            else:
+                # dedup the dict if we already have a dict with
+                # the same callee in the list for this caller
+                # need this more tedious check bc we're pruning away
+                # branches of the call graph
+                exists = False
+                for i in l:
+                    if isinstance(i, dict):
+                        if i.get(callee) != None:
+                            exists = True
+                            break
+                if exists == False:
+                    l.append(d)
+                            
+        # prune away this branch of the call graph
+        lvl_dict[caller] = []
+        return {caller: l}
 
 # build the call graph and pretty print it in json
 def _collect_call_graph(app_filename):
     global levels
 
-    print("num levels: "+str(len(levels)-1))
-    graph = _build_call_graph(1, "trace.start_tracer")
+    #print("num levels: "+str(len(levels)-1))
+    #print(str(levels))
+    main = levels["0"]["tracer.start_tracer"][0]
+    #print(main)
+    graph = _build_call_graph(1, main)
 
-    f = open("traces/"+app_filename+"_cg", "w")
-    f.write(_to_custom_json(graph))
+    f = open("callgraphs/"+app_filename+"_cg", "w")
+    f.write(_to_custom_json(graph)+"\n")
     f.close()
 
 def tracer(frame, event, arg):
     global level
     global levels
     global last_callers
-    global last_callee
-    global returned
+    global last_callees
     global tlm
 
     callee_code = frame.f_code
@@ -136,12 +140,6 @@ def tracer(frame, event, arg):
 
         caller_frame = frame.f_back
 
-        #if caller_frame == None:
-            # we've reached the top-level module again
-            # we don't have a previous frame, so set the code
-            # to the cached top-level module code
-            #caller_code = tlm
-        #else:
         caller_code = caller_frame.f_code
 
         if tlm == None and level == 0:
@@ -158,14 +156,14 @@ def tracer(frame, event, arg):
             # this is the first time we enter this level
             last_callers[lvl_str] = caller_name
 
+        if level > 0 and last_callers[str(level-1)] == caller_name:
+            caller_name = last_callees[str(level-1)]
+            
         callee_name = ""
         if event == "c_call":
             callee_name = _full_funcname(arg)
         else:
             callee_name = _get_func_name(callee_code)
-            
-        if level > 0 and last_callers[str(level-1)] == caller_name and returned == False:
-            caller_name = last_callee
 
         #sys.stdout.write(caller_name+" --> "+callee_name+"\n")
 
@@ -181,14 +179,12 @@ def tracer(frame, event, arg):
         lvl_dict[caller_name].append(callee_name)
 
         level += 1
-        last_callee = callee_name
+        last_callees[lvl_str] = callee_name
         last_callers[lvl_str] = caller_name
-        returned = False
             
         return tracer
 
     elif event == "return" or event == "c_return":
-        returned = True
         level -= 1
 
     return None
