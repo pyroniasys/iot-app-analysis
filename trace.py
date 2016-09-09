@@ -7,55 +7,12 @@ level = 0
 last_caller = ""
 last_callee = ""
 returned = False
+tlm = None
 
 last_callers = dict()
 
 # want to keep track of each level's call dict
 levels = OrderedDict()
-
-# unapologetically ripped off from cpython tracer.py
-def _function_name(code):
-    '''
-    filename = code.co_filename
-    if filename:
-        modulename = modname(filename)
-    else:
-        modulename = None
-    '''
-    
-    funcname = code.co_name
-    clsname = None
-    if code in _caller_cache:
-        if _caller_cache[code] is not None:
-            clsname = _caller_cache[code]
-    else:
-        _caller_cache[code] = None
-            ## use of gc.get_referrers() was suggested by Michael Hudson
-            # all functions which refer to this code object
-        funcs = [f for f in gc.get_referrers(code)
-                 if inspect.isfunction(f)]
-            # require len(func) == 1 to avoid ambiguity caused by calls to
-            # new.function(): "In the face of ambiguity, refuse the
-            # temptation to guess."
-        if len(funcs) == 1:
-            # add the module name to the funcname
-            dicts = [d for d in gc.get_referrers(funcs[0])
-                     if isinstance(d, dict)]            
-            if len(dicts) == 1:
-                classes = [c for c in gc.get_referrers(dicts[0])
-                           if hasattr(c, "__bases__")]
-                if len(classes) == 1:
-                    # ditto for new.classobj()
-                    clsname = classes[0].__name__
-                    # cache the result - assumption is that new.* is
-                    # not called later to disturb this relationship
-                    # _caller_cache could be flushed if functions in
-                    # the new module get called.
-                    _caller_cache[code] = clsname
-    if clsname is not None:
-        funcname = "%s.%s" % (clsname, funcname)
-
-    return funcname
 
 INDENT = 2
 SPACE = " "
@@ -70,7 +27,7 @@ def _to_custom_json(o, level=0):
         comma = ""
         for k,v in o.items():
             ret += comma
-            comma = "\n"
+            comma = ","+NEWLINE
             ret += SPACE * INDENT * (level+1)
             ret += str(k) + ':' + SPACE
             ret += _to_custom_json(v, level + 1)
@@ -79,10 +36,15 @@ def _to_custom_json(o, level=0):
     elif isinstance(o, str):
         ret += o
     elif isinstance(o, list):
-        ret += "["+NEWLINE + (SPACE * INDENT * level)
-        comma = ", "+NEWLINE+ (SPACE * INDENT * level)
-        ret += comma.join([_to_custom_json(e, level+1) for e in o])
-        ret += NEWLINE + SPACE * INDENT * level + "]"
+        if len(o) == 0:
+            ret += "[]"
+        elif len(o) == 1 and isinstance(o[0], str):
+            ret += "[ " + o[0] + " ]"
+        else:            
+            ret += "["+NEWLINE + (SPACE * INDENT * level)
+            comma = ", "+NEWLINE+ (SPACE * INDENT * level)
+            ret += comma.join([_to_custom_json(e, level+1) for e in o])
+            ret += NEWLINE + SPACE * INDENT * level + "]"
     else:
         raise TypeError("Unknown type '%s' for json serialization" % str(type(o)))
     return ret
@@ -118,7 +80,7 @@ def _build_call_graph(level, caller):
 
     lvl_dict = levels[lvl_str]
 
-    if level > 0 and lvl_dict.get(caller) == None:
+    if level > 1 and lvl_dict.get(caller) == None:
         return None
     
     elif level == len(levels)-1:        
@@ -129,19 +91,11 @@ def _build_call_graph(level, caller):
                 l.append(callee)
                 
         return {caller: l}
-    
     else:
         g = OrderedDict()
         for c, callees in lvl_dict.items():
             g[c] = []
             for callee in callees:
-                '''
-                if callee not in levels[str(level+1)].keys():
-                    # this is also for dedup
-                    if callee not in g[c]:
-                        g[c].append(callee)
-                else:
-                '''
                 d = _build_call_graph(level+1, callee)
 
                 if d == None:
@@ -149,14 +103,17 @@ def _build_call_graph(level, caller):
                         g[c].append(callee)
                 else:
                     if d not in g[c]:                    
-                        g[c].append(d)  
+                        g[c].append(d)
+            # prune away this branch of the call graph
+            lvl_dict[c] = []
         return g
 
 # build the call graph and pretty print it in json
 def _collect_call_graph(app_filename):
     global levels
-    
-    graph = _build_call_graph(0, "")
+
+    print("num levels: "+str(len(levels)-1))
+    graph = _build_call_graph(1, "trace.start_tracer")
 
     f = open("traces/"+app_filename+"_cg", "w")
     f.write(_to_custom_json(graph))
@@ -168,42 +125,38 @@ def tracer(frame, event, arg):
     global last_callers
     global last_callee
     global returned
+    global tlm
 
     callee_code = frame.f_code
-    callee_filename = callee_code.co_filename
 
     lvl_str = str(level)
-    print(lvl_str)
-    
-    # we're at the top of the call stack
-    if frame.f_back == None:
-
-        if level != 0:
-            raise Exception("Bad level: "+lvl_str)
-        
-        print(str(len(levels)))
-        _collect_call_graph(callee_filename)
-        return None
+    #print(lvl_str)
 
     if event == "call" or event == "c_call":
-        
-        caller_code = frame.f_back.f_code
-        caller_filename = caller_code.co_filename
+
+        caller_frame = frame.f_back
+
+        #if caller_frame == None:
+            # we've reached the top-level module again
+            # we don't have a previous frame, so set the code
+            # to the cached top-level module code
+            #caller_code = tlm
+        #else:
+        caller_code = caller_frame.f_code
+
+        if tlm == None and level == 0:
+            tlm = callee_code
         
         if event == "c_call":
             # if we're in a c call, the caller of the c function
             # is actually the callee of the last python frame
             caller_code = callee_code
-        
-        #sys.stdout.write(caller_filename+" --> "+callee_filename+"\n")
 
-        caller_name = ""
+        # get the caller's name
+        caller_name = _get_func_name(caller_code)
         if last_callers.get(lvl_str) == None:
             # this is the first time we enter this level
-            caller_name = _get_func_name(caller_code)
-        else:
-            # we're back to this level
-            caller_name = last_callers[lvl_str]
+            last_callers[lvl_str] = caller_name
 
         callee_name = ""
         if event == "c_call":
@@ -231,7 +184,7 @@ def tracer(frame, event, arg):
         last_callee = callee_name
         last_callers[lvl_str] = caller_name
         returned = False
-        
+            
         return tracer
 
     elif event == "return" or event == "c_return":
@@ -239,3 +192,37 @@ def tracer(frame, event, arg):
         level -= 1
 
     return None
+
+# from:
+# https://github.com/kantai/passe-framework-prototype/blob/master/django/analysis/tracer.py
+def modname(path):
+    """Return a plausible module name for the path."""
+    for p in sys.path:
+        if path.startswith(p):
+            base = path[len(p):]
+            if base.startswith("/"):
+                base = base[1:]
+            name, ext = os.path.splitext(base)
+            return name.replace("/",".")    
+    base = os.path.basename(path)
+    filename, ext = os.path.splitext(base)
+    return filename
+
+# adapted from:
+# https://github.com/kantai/passe-framework-prototype/blob/master/django/analysis/tracer.py
+def start_tracer(callback):
+    global tlm
+    try:
+        sys.setprofile(tracer)
+        try:
+            return callback()
+        finally:
+            sys.setprofile(None)
+            _collect_call_graph(modname(tlm.co_filename))
+
+    except IOError as err:
+        sys.setprofile(None)
+        print ("Cannot run file %r because: %s" % (sys.argv[0], err))
+        sys.exit(-1)
+    except SystemExit:
+        pass
