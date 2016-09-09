@@ -1,0 +1,109 @@
+{
+  __main__.send_tweet: [
+  {
+      __main__.SetupTweepy: [
+      {
+          _frozen_importlib._find_and_load: [
+          _frozen_importlib._ModuleLockManager.__init__, 
+          {
+              _frozen_importlib._ModuleLockManager.__enter__: [
+              {
+                  _frozen_importlib._get_module_lock: [
+                  {
+                      _frozen_importlib._ModuleLock.__init__: [ _thread.allocate_lock ]
+                    }
+                  ]
+                }, 
+              _imp.release_lock, 
+              {
+                  _frozen_importlib._ModuleLock.acquire: [ _thread.get_ident ]
+                }
+              ]
+            }, 
+          {
+              _frozen_importlib._find_and_load_unlocked: [
+              str.rpartition, 
+              {
+                  _frozen_importlib._find_spec: [
+                  {
+                      _frozen_importlib._ImportLockContext.__enter__: [ _imp.acquire_lock ]
+                    }, 
+                  {
+                      _frozen_importlib.BuiltinImporter.find_spec: [ _imp.is_builtin ]
+                    }, 
+                  {
+                      _frozen_importlib._ImportLockContext.__exit__: [ _imp.release_lock ]
+                    }, 
+                  {
+                      _frozen_importlib.FrozenImporter.find_spec: [ _imp.is_frozen ]
+                    }, 
+                  {
+                      _frozen_importlib_external.PathFinder.find_spec: [
+                      {
+                          _frozen_importlib_external.PathFinder._get_spec: [
+                          builtins.isinstance, 
+                          _frozen_importlib_external.PathFinder._path_importer_cache, 
+                          builtins.hasattr, 
+                          {
+                              _frozen_importlib_external.FileFinder.find_spec: [
+                              str.rpartition, 
+                              {
+                                  _frozen_importlib_external._path_stat: [ posix.stat ]
+                                }, 
+                              _frozen_importlib_external._make_relax_case.<locals>._relax_case, 
+                              {
+                                  _frozen_importlib_external._path_join: [
+                                  {
+                                      importlib._bootstrap_external._path_join.<locals>.<listcomp>: [ str.rstrip ]
+                                    }, 
+                                  str.join
+                                  ]
+                                }, 
+                              str.format, 
+                              _frozen_importlib_external._verbose_message, 
+                              {
+                                  _frozen_importlib_external._path_isfile: [
+                                  {
+                                      _frozen_importlib_external._path_is_mode_type: [
+                                      {
+                                          _frozen_importlib_external._path_stat: [ posix.stat ]
+                                        }
+                                      ]
+                                    }, 
+                                  {
+                                      _frozen_importlib_external._path_join: [
+                                      {
+                                          importlib._bootstrap_external._path_join.<locals>.<listcomp>: [ str.rstrip ]
+                                        }, 
+                                      str.join
+                                      ]
+                                    }, 
+                                  {
+                                      _frozen_importlib_external._path_isfile: [
+                                      {
+                                          _frozen_importlib_external._path_is_mode_type: [
+                                          {
+                                              _frozen_importlib_external._path_stat: [ posix.stat ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
