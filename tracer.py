@@ -204,17 +204,29 @@ def modname(path):
     filename, ext = os.path.splitext(base)
     return filename
 
+def test_tracer(frame, event, arg):
+    callee = frame.f_code
+    if event == "call":
+        caller = frame.f_back.f_code
+        sys.stdout.write(caller.co_filename+"-->"+callee.co_filename+"\n")
+        sys.stdout.write(caller.co_name+"-->"+callee.co_name+"\n")
+        return test_tracer
+    elif event == "c_call":
+        sys.stdout.write(callee.co_name+"-->"+arg.__qualname__+"\n")
+        return test_tracer
+    return None
+
 # adapted from:
 # https://github.com/kantai/passe-framework-prototype/blob/master/django/analysis/tracer.py
 def start_tracer(callback):
     global tlm
     try:
-        sys.setprofile(tracer)
+        sys.setprofile(test_tracer)
         try:
             return callback()
         finally:
             sys.setprofile(None)
-            _collect_call_graph(modname(tlm.co_filename))
+            #_collect_call_graph(modname(tlm.co_filename))
 
     except IOError as err:
         sys.setprofile(None)
