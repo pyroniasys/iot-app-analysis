@@ -152,6 +152,13 @@ def tracer(frame, event, arg):
 
         # get the caller's name
         caller_name = _get_func_name(caller_code)
+
+        # this is to make up for any in-line imports because calls
+        # to the import lib don't call return, so the level isn't
+        # brought back to the level that called the import
+        if level > 1 and caller_name == levels["0"]["tracer.start_tracer"][0]:
+            level = 1
+        
         if last_callers.get(lvl_str) == None:
             # this is the first time we enter this level
             last_callers[lvl_str] = caller_name
@@ -221,12 +228,12 @@ def test_tracer(frame, event, arg):
 def start_tracer(callback):
     global tlm
     try:
-        sys.setprofile(test_tracer)
+        sys.setprofile(tracer)
         try:
             return callback()
         finally:
             sys.setprofile(None)
-            #_collect_call_graph(modname(tlm.co_filename))
+            _collect_call_graph(modname(tlm.co_filename))
 
     except IOError as err:
         sys.setprofile(None)
