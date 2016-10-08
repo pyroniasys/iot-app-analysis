@@ -38,7 +38,7 @@ def _to_custom_json(o, level=0):
             ret += "[]"
         elif len(o) == 1 and isinstance(o[0], str):
             ret += "[ " + o[0] + " ]"
-        else:            
+        else:
             ret += "["+NEWLINE + (SPACE * INDENT * level)
             comma = ", "+NEWLINE+ (SPACE * INDENT * level)
             ret += comma.join([_to_custom_json(e, level+1) for e in o])
@@ -51,11 +51,11 @@ def _get_func(code):
     #gc.collect()
     funcs = [f for f in gc.get_referrers(code)
              if inspect.isroutine(f)]
-    
+
     func = None
     if len(funcs) > 0:
         func = funcs[0]
-        
+
     return func
 
 def _full_funcname(f):
@@ -78,12 +78,12 @@ def _build_call_graph(level, caller):
 
     if level == len(levels):
         return None
-    
+
     lvl_dict = levels[lvl_str]
 
     if level > 1 and lvl_dict.get(caller) == None:
         return None
-    
+
     else:
         l = []
         for callee in lvl_dict[caller]:
@@ -143,7 +143,7 @@ def tracer(frame, event, arg):
 
         if tlm == None and level == 0:
             tlm = callee_code
-        
+
         if event == "c_call":
             # if we're in a c call, the caller of the c function
             # is actually the callee of the last python frame
@@ -158,14 +158,14 @@ def tracer(frame, event, arg):
         if level > 1 and caller_name == levels["0"]["tracer.start_tracer"][0]:
             level = 1
             lvl_str = str(level)
-        
+
         if last_callers.get(lvl_str) == None:
             # this is the first time we enter this level
             last_callers[lvl_str] = caller_name
 
         if level > 0 and last_callers[str(level-1)] == caller_name:
             caller_name = last_callees[str(level-1)]
-            
+
         callee_name = ""
         if event == "c_call":
             callee_name = _full_funcname(arg)
@@ -188,7 +188,7 @@ def tracer(frame, event, arg):
         level += 1
         last_callees[lvl_str] = callee_name
         last_callers[lvl_str] = caller_name
-            
+
         return tracer
 
     elif event == "return" or event == "c_return":
@@ -206,7 +206,7 @@ def modname(path):
             if base.startswith("/"):
                 base = base[1:]
             name, ext = os.path.splitext(base)
-            return name.replace("/",".")    
+            return name.replace("/",".")
     base = os.path.basename(path)
     filename, ext = os.path.splitext(base)
     return filename
@@ -231,6 +231,8 @@ def start_tracer(callback):
         sys.setprofile(tracer)
         try:
             return callback()
+        except Exception as err:
+            print("Failed because %s" % err)
         finally:
             sys.setprofile(None)
             _collect_call_graph(modname(tlm.co_filename))
