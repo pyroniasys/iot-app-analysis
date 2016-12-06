@@ -1,0 +1,41 @@
+{
+  __main__.detect_bluetooth: [
+  builtins.print, 
+  builtins.input, 
+  {
+      bluetooth.bluez.discover_devices: [
+      bluetooth._bluetooth.hci_get_route, 
+      {
+          bluetooth.bluez._gethcisock: [ bluetooth._bluetooth.hci_open_dev ]
+        }, 
+      bluetooth._bluetooth.hci_inquiry, 
+      bluetooth._bluetooth.hci_read_remote_name, 
+      list.append, 
+      btsocket.close
+      ]
+    }, 
+  builtins.len, 
+  {
+      bluetooth.bluez.lookup_name: [
+      {
+          bluetooth.btcommon.is_valid_address: [
+          str.split, 
+          builtins.len
+          ]
+        }, 
+      {
+          bluetooth.bluez._gethcisock: []
+        }, 
+      bluetooth._bluetooth.hci_read_remote_name, 
+      btsocket.close
+      ]
+    }, 
+  {
+      bluetooth.bluez.find_service: [
+      SDPSession.connect, 
+      SDPSession.browse, 
+      list.extend
+      ]
+    }
+  ]
+}
