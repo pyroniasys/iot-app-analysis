@@ -1,4 +1,3 @@
-https://www.pubnub.com/blog/2015-06-30-create-realtime-raspberry-pi-security-camera-w-parse/
 http://www.pyimagesearch.com/2015/06/01/home-surveillance-and-motion-detection-with-the-raspberry-pi-python-and-opencv/
 https://www.hackster.io/idreams/control-gpio-and-pi-camera-using-raspberry-pi-telegram-app-3a776a
 https://developer.ibm.com/recipes/tutorials/sending-and-receiving-pictures-from-a-raspberry-pi-via-mqtt/
@@ -16,11 +15,13 @@ https://www.hackster.io/FutureSharks/raspberry-pi-security-system-with-motion-de
 https://www.hackster.io/pidoorbell-team/pidoorbell-7ef917?ref=search&ref_id=home%20security%20python&offset=6
 https://www.hackster.io/Hoefnix/monitoring-the-doorbell-6a2000?ref=search&ref_id=home%20security%20python&offset=13
 https://github.com/wyolum/TouchSelfie, https://www.hackster.io/kevino/raspberry-pi-photo-booth-for-your-next-party-b8e76d?ref=search&ref_id=home%20security%20python&offset=14
-http://www.thingiverse.com/thing:1706105
-http://www.instructables.com/id/Raspberry-Pi-Smart-Mirror/step4/Update-We-Added-Artificial-Intelligence-to-the-Mir/
+http://www.instructables.com/id/Raspberry-Pi-Smart-Mirror/?ALLSTEPS
 http://www.instructables.com/id/Smart-JPEG-Camera-for-Home-Security/
 http://www.instructables.com/id/Raspberry-Pi-Laser-Security-System/
 http://www.instructables.com/id/Lininger-Rood-Photo-Booth/
 http://www.instructables.com/id/Raspberry-Pi-IoT-Doorbell/
 http://www.instructables.com/id/Who-Is-at-the-Coffee-Machine-Facial-Recognition-Us/
-http://www.instructables.com/id/Biometria-de-las-venas-de-la-mano-Raspberry-Pi-LCD-1/?ALLSTEPS
+http://www.instructables.com/id/PiNoculars-Raspberry-Pi-Binoculars/?ALLSTEPS
+http://www.instructables.com/id/Wifi-Photobooth-With-a-Raspberry-Pi/?ALLSTEPS
+http://www.instructables.com/id/Easy-Raspberry-Pi-Security-Cam-With-Automatic-Web-/?ALLSTEPS
+http://www.instructables.com/id/Mobile-Station-Prototype-for-Environmental-Data-Ca/?ALLSTEPS
