@@ -7,7 +7,7 @@ set1_p = sys.argv[2]
 set2_p = sys.argv[3]
 
 def read_set(name):
-    s_f = open(name+".txt", "r")
+    s_f = open(name, "r")
     s = s_f.readlines()
     s_f.close()
     return s

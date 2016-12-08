@@ -1,3 +1,4 @@
+https://www.pubnub.com/blog/2015-06-30-create-realtime-raspberry-pi-security-camera-w-parse/
 http://www.pyimagesearch.com/2015/06/01/home-surveillance-and-motion-detection-with-the-raspberry-pi-python-and-opencv/
 https://www.hackster.io/idreams/control-gpio-and-pi-camera-using-raspberry-pi-telegram-app-3a776a
 https://developer.ibm.com/recipes/tutorials/sending-and-receiving-pictures-from-a-raspberry-pi-via-mqtt/
@@ -25,3 +26,6 @@ http://www.instructables.com/id/PiNoculars-Raspberry-Pi-Binoculars/?ALLSTEPS
 http://www.instructables.com/id/Wifi-Photobooth-With-a-Raspberry-Pi/?ALLSTEPS
 http://www.instructables.com/id/Easy-Raspberry-Pi-Security-Cam-With-Automatic-Web-/?ALLSTEPS
 http://www.instructables.com/id/Mobile-Station-Prototype-for-Environmental-Data-Ca/?ALLSTEPS
+http://www.instructables.com/id/Dog-Bot-Lego-Robot-Rover-With-Webcam/?ALLSTEPS
+http://www.instructables.com/id/Use-the-Raspberry-Pi-Camera-to-Detect-Company-Logo/?ALLSTEPS
+http://www.instructables.com/id/Twitter-Photo-Live-Feed/?ALLSTEPS
