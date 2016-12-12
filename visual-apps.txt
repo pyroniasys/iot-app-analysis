@@ -29,3 +29,5 @@ http://www.instructables.com/id/Mobile-Station-Prototype-for-Environmental-Data-
 http://www.instructables.com/id/Dog-Bot-Lego-Robot-Rover-With-Webcam/?ALLSTEPS
 http://www.instructables.com/id/Use-the-Raspberry-Pi-Camera-to-Detect-Company-Logo/?ALLSTEPS
 http://www.instructables.com/id/Twitter-Photo-Live-Feed/?ALLSTEPS
+http://www.instructables.com/id/Vintage-Raspberry-Pi-Camera/?ALLSTEPS
+http://www.instructables.com/id/Uber-Cheap-360-Video-Camera/?ALLSTEPS
