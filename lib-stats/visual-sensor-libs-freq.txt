@@ -1,0 +1,16 @@
+Total # libs = 13
+{
+    "picamera": 17,
+    "RPi.GPIO": 10,
+    "fswebcam": 5,
+    "openCV": 4,
+    "pygame": 4,
+    "SimpleCV.Camera": 1,
+    "tkinter": 1,
+    "imutils.video": 1,
+    "smbus": 1,
+    "raspistill": 1,
+    "mjpg_streamer": 1,
+    "motion": 1,
+    "pygame.camera": 1
+}
