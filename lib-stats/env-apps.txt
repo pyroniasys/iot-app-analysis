@@ -24,3 +24,10 @@ http://www.instructables.com/id/Wireless-Doorbell-Raspberry-PI-Amazon-Dash/
 http://www.instructables.com/id/Raspberry-Pi-IoT-Temperature-and-Humidity-Monitor/
 http://www.instructables.com/id/Send-EmailTXT-when-you-return-home-detects-when-iP/?ALLSTEPS
 http://www.instructables.com/id/Mobile-Station-Prototype-for-Environmental-Data-Ca/?ALLSTEPS
+http://www.instructables.com/id/Raspberry-PI-and-DHT22-temperature-and-humidity-lo/?ALLSTEPS
+http://www.instructables.com/id/Home-Room-Temprature-and-Humidity-Monitor-with-Web/?ALLSTEPS
+http://www.instructables.com/id/Raspberry-Pi-Weather-Station/?ALLSTEPS
+http://www.instructables.com/id/A-Raspberry-Pi-Weight-Tracking-Wise-Cracking-IoT-B/?ALLSTEPS
+http://www.instructables.com/id/Home-Ventilation/?ALLSTEPS
+http://www.instructables.com/id/Raspberry-Pi-controlled-room-temperature-monitorin/?ALLSTEPS
+http://www.instructables.com/id/Home-Environment-Monitor/?ALLSTEPS
