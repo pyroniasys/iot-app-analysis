@@ -1,0 +1,37 @@
+Number of apps: 85
+Number of libs: 150
+Number of native calls: 32
+{
+    "mpg123": 7,
+    "fswebcam": 5,
+    "curl": 4,
+    "convert": 2,
+    "espeak": 2,
+    "flac": 2,
+    "voicecommand": 2,
+    "arecord": 2,
+    "mplayer": 2,
+    "modprobe": 1,
+    "exec": 1,
+    "raspistill": 1,
+    "play": 1,
+    "smptplib": 1,
+    "scan": 1,
+    "qrencode": 1,
+    "sox": 1,
+    "nmap": 1,
+    "aplay": 1,
+    "gpio": 1,
+    "micarray": 1,
+    "Adafruit_DHT": 1,
+    "rmmod": 1,
+    "device powerup": 1,
+    "montage": 1,
+    "smtplib": 1,
+    "arerecord": 1,
+    "mjpg_streamer": 1,
+    "net status": 1,
+    "motion": 1,
+    "speed": 1,
+    "mutt": 1
+}
