@@ -25,3 +25,6 @@ http://www.instructables.com/id/1970s-Raspberry-Pi-Amazon-AlexaPhone/?ALLSTEPS
 http://www.instructables.com/id/Alexabot-Amazon-Alexa-Controlled-Robot-With-the-Ra/?ALLSTEPS
 http://www.instructables.com/id/Raspberry-Pi-based-answering-Ganesha/?ALLSTEPS
 http://www.instructables.com/id/Using-a-sound-sensor-with-a-Raspberry-Pi-to-contro/?ALLSTEPS
+http://www.instructables.com/id/Speech-to-Text/?ALLSTEPS
+http://www.instructables.com/id/Audio-Server-and-Recorder-With-Intel-Edison/?ALLSTEPS
+http://www.instructables.com/id/Rasberry-Pi-Alexa/?ALLSTEPS
