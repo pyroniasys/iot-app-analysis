@@ -30,7 +30,7 @@ jasper
 mplayer - CLI
 voicecommand - CLI
 voicecommand - CLI
-arerecord - bash
+arerecord - CLI
 mplayer - subprocess.call
 pyaudio
 serial

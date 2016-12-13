@@ -54,3 +54,31 @@ for cat, l in libs.items():
 write_val(len(native_calls), "native calls")
 
 write_freq_map(native_calls)
+
+# get all common sensor libs
+common_sens_libs = get_common("sens", libs)
+
+write_val(len(common_sens_libs), "common sensor libs")
+write_freq_map(common_sens_libs)
+
+# get all common processing libs
+common_proc_libs = get_common("proc", libs)
+
+write_val(len(common_proc_libs), "common data processing libs")
+write_freq_map(common_proc_libs)
+
+# get all common networking libs
+common_net_libs = get_common("net", libs)
+
+write_val(len(common_net_libs), "common networking libs")
+write_freq_map(common_net_libs)
+
+# get all unique sensor libs
+only_sens_libs = get_unique("sens", libs)
+
+write_val(len(only_sens_libs['vis']), "visual-only sensor libs")
+write_freq_map(only_sens_libs['vis'])
+write_val(len(only_sens_libs['audio']), "audio-only sensor libs")
+write_freq_map(only_sens_libs['audio'])
+write_val(len(only_sens_libs['env']), "env-only sensor libs")
+write_freq_map(only_sens_libs['env'])
