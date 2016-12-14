@@ -39,21 +39,7 @@ num_libs = len(distinct_libs)
 
 write_val(num_libs, "libs")
 
-# get all the native lib calls
-native_calls = dict()
-
-for cat, l in libs.items():
-    for i in l:
-        if is_native(i):
-            lib = get_lib_name(i)
-            if native_calls.get(lib) == None:
-                native_calls[lib] = 1
-            else:
-                native_calls[lib] += 1
-
-write_val(len(native_calls), "native calls")
-
-write_freq_map(native_calls)
+distinct_
 
 # get all common sensor libs
 common_sens_libs = get_common("sens", libs)
@@ -82,3 +68,19 @@ write_val(len(only_sens_libs['audio']), "audio-only sensor libs")
 write_freq_map(only_sens_libs['audio'])
 write_val(len(only_sens_libs['env']), "env-only sensor libs")
 write_freq_map(only_sens_libs['env'])
+
+# get all the native lib calls
+native_calls = dict()
+
+for cat, l in libs.items():
+    for i in l:
+        if is_native(i):
+            lib = get_lib_name(i)
+            if native_calls.get(lib) == None:
+                native_calls[lib] = 1
+            else:
+                native_calls[lib] += 1
+
+write_val(len(native_calls), "native calls")
+
+write_freq_map(native_calls)
