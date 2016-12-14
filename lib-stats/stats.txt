@@ -1,46 +1,20 @@
-Number of apps: 85
-Number of libs: 150
-Number of native calls: 32
-{
-    "mpg123": 7,
-    "fswebcam": 5,
-    "curl": 4,
-    "mplayer": 2,
-    "flac": 2,
-    "arecord": 2,
-    "convert": 2,
-    "espeak": 2,
-    "voicecommand": 2,
-    "qrencode": 1,
-    "play": 1,
-    "arerecord": 1,
-    "scan": 1,
-    "rmmod": 1,
-    "micarray": 1,
-    "speed": 1,
-    "sox": 1,
-    "smptplib": 1,
-    "modprobe": 1,
-    "Adafruit_DHT": 1,
-    "aplay": 1,
-    "mutt": 1,
-    "montage": 1,
-    "exec": 1,
-    "nmap": 1,
-    "mjpg_streamer": 1,
-    "raspistill": 1,
-    "gpio": 1,
-    "device powerup": 1,
-    "net status": 1,
-    "smtplib": 1,
-    "motion": 1
-}
+Number of total apps, visual, audio, env: 85, 33, 30, 33
+Number of libs: 149
+Number of vis-sens libs: 13
+Number of audio-sens libs: 27
+Number of env-sens libs: 33
+Number of vis-proc libs: 16
+Number of audio-proc libs: 20
+Number of env-proc libs: 15
+Number of vis-net libs: 27
+Number of audio-net libs: 15
+Number of env-net libs: 21
 Number of common sensor libs: 6
 {
     "RPi.GPIO": 28,
     "smbus": 5,
-    "serial": 4,
     "mraa": 4,
+    "serial": 4,
     "Adafruit_GPIO.SPI": 3,
     "Adafruit_SSD1306": 2
 }
@@ -48,24 +22,24 @@ Number of common data processing libs: 7
 {
     "json": 20,
     "PIL.Image": 6,
-    "MySQLdb": 3,
-    "urllib": 3,
-    "PIL.ImageFont": 3,
     "PIL.ImageDraw": 3,
+    "urllib": 3,
+    "MySQLdb": 3,
+    "PIL.ImageFont": 3,
     "yaml": 2
 }
 Number of common networking libs: 10
 {
     "requests": 19,
     "smtplib": 6,
+    "urllib2": 5,
     "tweepy": 5,
     "flask": 5,
-    "urllib2": 5,
-    "curl": 3,
     "httplib": 3,
-    "boto3": 2,
+    "curl": 3,
+    "cgi": 2,
     "urllib": 2,
-    "cgi": 2
+    "boto3": 2
 }
 Number of visual-only sensor libs: 11
 {
@@ -73,15 +47,15 @@ Number of visual-only sensor libs: 11
     "fswebcam": 5,
     "openCV": 4,
     "pygame": 4,
-    "mjpg_streamer": 1,
-    "tkinter": 1,
     "raspistill": 1,
-    "SimpleCV.Camera": 1,
     "motion": 1,
+    "tkinter": 1,
+    "mjpg_streamer": 1,
+    "SimpleCV.Camera": 1,
     "pygame.camera": 1,
     "imutils.video": 1
 }
-Number of audio-only sensor libs: 23
+Number of audio-only sensor libs: 22
 {
     "alsaaudio": 9,
     "wave": 7,
@@ -89,51 +63,180 @@ Number of audio-only sensor libs: 23
     "speech_recognition": 6,
     "pyaudio": 5,
     "espeak": 3,
-    "mplayer": 2,
     "arecord": 2,
     "voicecommand": 2,
-    "arerecord": 1,
-    "play": 1,
-    "cec": 1,
+    "arerecord": 2,
+    "mplayer": 2,
     "rmmod": 1,
-    "micarray": 1,
+    "pydub": 1,
+    "jasper": 1,
     "gopigo": 1,
+    "cec": 1,
     "pyglet": 1,
     "aplay": 1,
-    "arerecord - bash": 1,
     "vlc": 1,
-    "pydub": 1,
+    "play": 1,
+    "wiringpi2": 1,
     "gpio": 1,
-    "jasper": 1,
-    "wiringpi2": 1
+    "micarray": 1
 }
 Number of env-only sensor libs: 27
 {
     "Adafruit_DHT": 9,
     "bluetooth": 3,
     "scapy": 2,
-    "netaddr": 1,
+    "MPL3115A2": 1,
     "scan": 1,
-    "Adafruit_BMP": 1,
-    "Adafruit_MCP230XX": 1,
+    "w1thermsensor": 1,
+    "pi_switch": 1,
     "APDS9300": 1,
-    "pigpio": 1,
     "device powerup": 1,
     "envirophat": 1,
+    "hdc1000": 1,
+    "modprobe": 1,
+    "adxl345": 1,
+    "net status": 1,
+    "Adafruit_I2C": 1,
+    "Adafruit_BMP": 1,
+    "pigpio": 1,
+    "Adafruit_Nokia_LCD": 1,
+    "asyncio": 1,
+    "netifaces": 1,
+    "Adafruit_MCP230XX": 1,
     "speed": 1,
     "nmap": 1,
-    "MPL3115A2": 1,
     "netdisco": 1,
     "Adafruit_CharLCDPlate": 1,
-    "Adafruit_I2C": 1,
-    "libMPL - ctypes": 1,
-    "adxl345": 1,
-    "w1thermsensor": 1,
-    "netifaces": 1,
-    "pi_switch": 1,
-    "hdc1000": 1,
-    "asyncio": 1,
+    "netaddr": 1,
+    "libMPL - ctypes": 1
+}
+Number of visual-only data processing libs: 13
+{
+    "openCV": 5,
+    "convert": 2,
+    "yuv2rgb": 2,
+    "montage": 1,
+    "SimpleCV": 1,
+    "opencv": 1,
+    "imutils": 1,
+    "qrencode": 1,
+    "oauth2client": 1,
+    "Image": 1,
+    "pygame": 1,
+    "numpy": 1,
+    "cPickle": 1
+}
+Number of audio-only data processing libs: 14
+{
+    "memcached": 9,
+    "pocketsphinx": 6,
+    "wave": 3,
+    "webrtcvad": 3,
+    "gtts": 3,
+    "flac": 2,
+    "email": 2,
+    "base64": 1,
+    "sox": 1,
+    "simpleNLG - py4j": 1,
+    "pydub": 1,
+    "sphinxbase": 1,
+    "xml.etree": 1,
+    "audioop": 1
+}
+Number of env-only data processing libs: 8
+{
+    "sqlite3": 2,
+    "tkinter": 1,
+    "Queue": 1,
+    "flask.jsonify": 1,
+    "gnuplot": 1,
+    "matplotlib": 1,
+    "voluptuous": 1,
+    "serial": 1
+}
+Number of visual-only networking libs: 20
+{
+    "pubnub": 2,
+    "dropbox.client": 1,
+    "googleapiclient": 1,
+    "curl": 1,
+    "tgl": 1,
+    "smtplib": 1,
+    "sigfox": 1,
+    "http.client": 1,
+    "email": 1,
+    "mutt": 1,
+    "azure.storage.blob": 1,
+    "email.mime": 1,
+    "SimpleCV.JpegStreamer": 1,
+    "exec": 1,
+    "dropbox": 1,
+    "telegram": 1,
+    "ibmiotf.device": 1,
+    "webiopi": 1,
+    "gdata": 1,
+    "smptplib": 1
+}
+Number of audio-only networking libs: 9
+{
+    "speech_recognition": 6,
+    "pycurl": 3,
+    "paho.mqtt": 2,
+    "wolframalpha": 2,
+    "qhue": 1,
+    "unirest": 1,
+    "paho.mqtt.Client": 1,
+    "grequests": 1,
+    "telepot": 1
+}
+Number of env-only networking libs: 13
+{
+    "mqtt": 2,
+    "AWSIoTPythonSDK.MQTTLib": 2,
+    "ISStreamer.Streamer": 2,
+    "urllib.request": 1,
+    "aiohttp": 1,
+    "flask_socketio": 1,
+    "ouimeaux.environment": 1,
+    "xively": 1,
+    "ubidots.ApiClient": 1,
+    "email.mime.text": 1,
+    "httplib2": 1,
+    "feedparser": 1,
+    "cgitb": 1
+}
+Number of external process calls: 32
+{
+    "mpg123": 7,
+    "fswebcam": 5,
+    "curl": 4,
+    "convert": 2,
+    "arecord": 2,
+    "voicecommand": 2,
+    "flac": 2,
+    "espeak": 2,
+    "arerecord": 2,
+    "mplayer": 2,
+    "scan": 1,
+    "rmmod": 1,
+    "montage": 1,
+    "mutt": 1,
+    "device powerup": 1,
+    "exec": 1,
+    "qrencode": 1,
+    "raspistill": 1,
+    "modprobe": 1,
     "net status": 1,
-    "Adafruit_Nokia_LCD": 1,
-    "modprobe": 1
+    "sox": 1,
+    "mjpg_streamer": 1,
+    "aplay": 1,
+    "play": 1,
+    "speed": 1,
+    "nmap": 1,
+    "motion": 1,
+    "gpio": 1,
+    "micarray": 1,
+    "smptplib": 1,
+    "Adafruit_DHT": 1,
+    "smtplib": 1
 }

@@ -41,7 +41,7 @@ def get_distinct(d):
     dis = []
     # iterate over the dict
     for cat in d:
-        l = get_distinct_cat(cat, d):
+        l = get_distinct_cat(cat, d)
         dis = list(set(dis + l))
     return dis
 
