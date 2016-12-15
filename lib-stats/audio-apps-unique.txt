@@ -1,0 +1,25 @@
+https://www.hackster.io/memeka/baby-nap-night-activity-program-aa5ab0?ref=search&ref_id=IoT%20python&offset=19
+https://www.hackster.io/fileark/alexapi-mqtt-smart-hub-984dcf?ref=search&ref_id=home%20security%20python&offset=7
+https://www.hackster.io/matrix-creator-team/build-a-diy-amazon-s-alexa-with-a-raspberry-pi-and-a-matr-8ad22d?ref=search&ref_id=home%20security%20python&offset=15
+http://www.thingiverse.com/thing:1706105
+http://www.instructables.com/id/Build-an-Alexa-With-Raspio-Pro-Hat-and-Raspberry-P/
+http://www.instructables.com/id/RaspberryPI-HAL9000/
+http://www.instructables.com/id/Raspberri-Personal-Assistant, https://oscarliang.com/raspberry-pi-voice-recognition-works-like-siri/
+http://www.instructables.com/id/Wireless-Multi-Channel-Voice-Controlled-Electrical/
+http://www.daveconroy.com/turn-raspberry-pi-translator-speech-recognition-playback-60-languages/, https://github.com/dconroy/PiTranslate/blob/master/PiTranslate.py
+http://makezine.com/projects/use-raspberry-pi-for-voice-control/, https://github.com/bynds/makevoicedemo
+http://www.cnx-software.com/2016/08/27/getting-started-with-respeaker-wifi-iot-board-audio-capabilities-voice-recognition-and-synthesis/, https://github.com/respeaker/microsoft_cognitive_services
+https://www.artik.io/blog/2016/07/building-photo-booth-samsung-artik-10/
+https://kazuar.github.io/raspberry_pi_voice_recognition/, https://github.com/kazuar/raspberrypi_voice_control
+https://pythonspot.com/en/personal-assistant-jarvis-in-python/
+https://www.hackster.io/parttimehacker/alexa-voice-alarm-clock-42ab05?ref=search&ref_id=voice%20control%20python&offset=1
+https://www.hackster.io/krvarma/respeaker-messenger-27e5ca?ref=search&ref_id=voice control python&offset=6
+https://hackaday.io/project/9413-hey-athena-jarviss-better-half
+https://www.hackster.io/25439/voice-controlled-smart-home-36e37e?ref=search&ref_id=voice%20control&offset=2
+http://www.instructables.com/id/1970s-Raspberry-Pi-Amazon-AlexaPhone/?ALLSTEPS
+http://www.instructables.com/id/Alexabot-Amazon-Alexa-Controlled-Robot-With-the-Ra/?ALLSTEPS
+http://www.instructables.com/id/Raspberry-Pi-based-answering-Ganesha/?ALLSTEPS
+http://www.instructables.com/id/Using-a-sound-sensor-with-a-Raspberry-Pi-to-contro/?ALLSTEPS
+http://www.instructables.com/id/Speech-to-Text/?ALLSTEPS
+http://www.instructables.com/id/Audio-Server-and-Recorder-With-Intel-Edison/?ALLSTEPS
+http://www.instructables.com/id/Rasberry-Pi-Alexa/?ALLSTEPS

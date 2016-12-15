@@ -1,0 +1,10 @@
+https://hackaday.io/project/5083-diy-smartphone
+https://hackaday.io/project/1205-andy-a-multi-purpose-humanoid-robot
+https://www.hackster.io/awshome/awshome-home-automation-using-rpi-alexa-iot-a3d3dc?ref=search&ref_id=IoT%20python&offset=6
+https://www.hackster.io/fcooper27/beaglealexa-56f174?ref=search&ref_id=IoT%20python&offset=13
+http://www.instructables.com/id/Raspberry-Pi-Smart-Mirror/?ALLSTEPS
+https://hackaday.io/project/11688-iot-twitter-sentry-ward-using-intel-edison
+https://www.hackster.io/archieroques/iot-tweeting-plants-w-raspberry-pi-f99da2?ref=search&ref_id=IoT%20python&offset=11
+https://www.hackster.io/terren/simple-gardening-service-manage-indoor-gardens-using-iot-be95d1?ref=search&ref_id=IoT%20python&offset=8
+https://www.hackster.io/FutureSharks/raspberry-pi-security-system-with-motion-detection-camera-bed172?ref=search&ref_id=home%20security%20python&offset=1
+http://www.instructables.com/id/Mobile-Station-Prototype-for-Environmental-Data-Ca/?ALLSTEPS

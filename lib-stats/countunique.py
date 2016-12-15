@@ -15,8 +15,14 @@ set2 = read_set(set2_p)
 to_count_name = get_name(to_count_p)
 
 count = 0
+unique = []
 for i in to_count:
     if i not in set1 and i not in set2:
         count += 1
+        unique.append(i)
 
 print("Number of unique "+to_count_name+" = "+str(count))
+
+f = open(to_count_name+"-unique.txt", "w+")
+f.writelines(unique)
+f.close()
