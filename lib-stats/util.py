@@ -122,8 +122,11 @@ def write_val(v, name):
     f.write("Number of "+name+": "+str(v)+"\n")
     f.close()
 
+def write_map(m, filename):
+    f = open(filename, "a+")
+    f.write(json.dumps(m, indent=4)+"\n")
+    f.close()
+
 def write_freq_map(m):
     d = OrderedDict(sorted(m.items(), key=itemgetter(1), reverse=True))
-    f = open("stats.txt", "a+")
-    f.write(json.dumps(d, indent=4)+"\n")
-    f.close()
+    write_map(d, "stats.txt")
