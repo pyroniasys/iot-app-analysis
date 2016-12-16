@@ -34,16 +34,26 @@ for i in raw_imports:
     module = imp[0]
     stmt = imp[1]
 
+    # first see if the import is aliasing
+
     # get the libs
     toks = stmt.split(" ")
     if toks[0] != "import":
         print("Unexpected import statement")
         sys.exit(-1)
 
-    toks.del(0)
+    del toks[0]
     libs = []
     for l in toks:
-        libs.append(l.strip(","))
+        if l != "as":
+            libs.append(l.strip(","))
 
     if module_imports.get(module) == None:
-        module.imports[module] = libs
+        module_imports[module] = libs
+    else:
+        module_imports[module] += libs
+
+for m in module_imports:
+    print(m+": ")
+    for l in module_imports[m]:
+        print(l)
