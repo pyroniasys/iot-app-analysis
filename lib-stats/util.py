@@ -122,8 +122,10 @@ def write_val(v, name):
     f.write("Number of "+name+": "+str(v)+"\n")
     f.close()
 
-def write_map(m, filename):
+def write_map(m, filename, name=None):
     f = open(filename, "a+")
+    if name != None:
+        f.write(str(name)+": \n")
     f.write(json.dumps(m, indent=4)+"\n")
     f.close()
 

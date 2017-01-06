@@ -8,6 +8,8 @@ import os
 import sys
 
 from util import write_map
+from pyflakes import reporter as modReporter
+from pyflakes.api import checkRecursive
 
 # pass in the category: visual, audio or env
 cat = sys.argv[1]
@@ -15,12 +17,22 @@ cat = sys.argv[1]
 # expect apps to be located in apps/cat/
 app_path = "apps/"+cat+"/"
 
+reporter = modReporter._makeDefaultReporter()
+num, imps, unused, py2 = checkRecursive([app_path], reporter)
+
+write_map(imps, cat+"-flakes-imports.txt", "imported libs")
+write_map(unused, cat+"-flakes-imports.txt", "unused libs")
+
+'''
+
 # scrape the apps using 2 grep commands
 grep_imports = "cd "+app_path+"; grep -R --include \*.py \"^import \" >> ../../"+cat+"-libs-raw-imports.txt"
 grep_froms = "cd "+app_path+"; grep -R --include \*.py \"^from [a-zA-Z0-9]* import \" >> ../../"+cat+"-libs-raw-froms.txt"
 
 os.system(grep_imports)
 os.system(grep_froms)
+
+
 
 # read the raw imports
 f = open(cat+"-libs-raw-imports.txt", "r")
@@ -57,3 +69,4 @@ for m in module_imports:
     print(m+": ")
     for l in module_imports[m]:
         print(l)
+'''
