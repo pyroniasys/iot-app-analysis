@@ -117,15 +117,28 @@ def get_unique(typ, libs):
     unique_libs['env'] = env
     return unique_libs
 
+def read_map(filename):
+    f = open(filename, "r")
+    m = json.loads(f)
+    f.close()
+    return m
+
 def write_val(v, name):
     f = open("stats.txt", "a+")
     f.write("Number of "+name+": "+str(v)+"\n")
     f.close()
 
+def write_list(l, filename, name=None):
+    f = open(filename, "a+")
+    if name != None:
+        f.write(str(name)+":\n")
+    f.write(json.dumps(l, indent=4)+"\n")
+    f.close()
+
 def write_map(m, filename, name=None):
     f = open(filename, "a+")
     if name != None:
-        f.write(str(name)+": \n")
+        f.write(str(name)+":\n")
     f.write(json.dumps(m, indent=4)+"\n")
     f.close()
 

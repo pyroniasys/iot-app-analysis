@@ -7,7 +7,7 @@
 import os
 import sys
 
-from util import write_map
+from util import write_map, read_map
 from pyflakes import reporter as modReporter
 from pyflakes.api import checkRecursive
 
@@ -20,53 +20,15 @@ app_path = "apps/"+cat+"/"
 reporter = modReporter._makeDefaultReporter()
 num, imps, unused, py2 = checkRecursive([app_path], reporter)
 
-write_map(imps, cat+"-flakes-imports.txt", "imported libs")
-write_map(unused, cat+"-flakes-imports.txt", "unused libs")
+# the modules in this list are likely written in python2 so run pyflakes
+# on python2
+os.system("python2 -m pyflakes "+app_path)
 
-'''
+# now, let's parse the imports and unused
+imps_2 = read_map(cat+"-flakes-imports-py2.txt")
+unused_2 = read_map(cat+"-flakes-unused-py2.txt")
 
-# scrape the apps using 2 grep commands
-grep_imports = "cd "+app_path+"; grep -R --include \*.py \"^import \" >> ../../"+cat+"-libs-raw-imports.txt"
-grep_froms = "cd "+app_path+"; grep -R --include \*.py \"^from [a-zA-Z0-9]* import \" >> ../../"+cat+"-libs-raw-froms.txt"
-
-os.system(grep_imports)
-os.system(grep_froms)
-
-
-
-# read the raw imports
-f = open(cat+"-libs-raw-imports.txt", "r")
-raw_imports = f.readlines()
-f.close()
-
-# extract the libs from the import statements, map them to their modules
-module_imports = dict()
-for i in raw_imports:
-    imp = i.rstrip().split(":") # module in [0], import stmt in [1]
-    module = imp[0]
-    stmt = imp[1]
-
-    # first see if the import is aliasing
-
-    # get the libs
-    toks = stmt.split(" ")
-    if toks[0] != "import":
-        print("Unexpected import statement")
-        sys.exit(-1)
-
-    del toks[0]
-    libs = []
-    for l in toks:
-        if l != "as":
-            libs.append(l.strip(","))
-
-    if module_imports.get(module) == None:
-        module_imports[module] = libs
-    else:
-        module_imports[module] += libs
-
-for m in module_imports:
-    print(m+": ")
-    for l in module_imports[m]:
-        print(l)
-'''
+# the py2 run of flakes probably finds imports found by the py3 run
+# let's dedup
+imported_libs = dict()
+unused_libs = dict()

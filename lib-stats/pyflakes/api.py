@@ -8,6 +8,7 @@ import os
 import _ast
 
 from collections import OrderedDict
+import json
 
 from pyflakes import checker, __version__
 from pyflakes import reporter as modReporter
@@ -128,7 +129,14 @@ def iterSourceCode(paths):
             yield path
 
 
-def checkRecursive(paths, reporter):
+def write_map(m, filename, name=None):
+    f = open(filename, "a+")
+    if name != None:
+        f.write(str(name)+":\n")
+    f.write(json.dumps(m, indent=4)+"\n")
+    f.close()
+
+def checkRecursive(paths, reporter, cat=None):
     """
     Recursively check all source files in C{paths}.
 
@@ -143,6 +151,9 @@ def checkRecursive(paths, reporter):
     d_unused = OrderedDict()
     py2 = []
     for sourcePath in iterSourceCode(paths):
+        if cat == None:
+            # from the path name, the category should be in "apps/cat/srcs"
+            cat = sourcePath.split("/")[1]
         (num, imps, unused) = checkPath(sourcePath, reporter)
         warnings += num
 
@@ -150,10 +161,15 @@ def checkRecursive(paths, reporter):
             py2.append(sourcePath)
 
         else:
-            if imps != None:
+            if imps != None and len(imps) > 0:
                 d_imp[sourcePath] = imps
-            if unused != None:
+            if unused != None and len(unused) > 0:
                 d_unused[sourcePath] = unused
+
+    # save the imports and unused to the file if we're running in python2.x
+    if sys.version_info < (3, ):
+        write_map(d_imp, cat+"-flakes-imports-py2.txt")
+        write_map(d_unused, cat+"-flakes-unused-py2.txt")
 
     return warnings, d_imp, d_unused, py2
 
