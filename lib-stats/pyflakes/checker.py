@@ -598,10 +598,10 @@ class Checker(object):
                     used = value.used or value.name in all_names
                     if not used:
                         messg = messages.UnusedImport
-                        self.unused_imports.append(str(value))
+                        self.unused_imports.append(str(value.name))
                         self.report(messg, value.source, str(value))
                     else:
-                        self.imports.append(str(value))
+                        self.imports.append(str(value.name))
                     for node in value.redefined:
                         if isinstance(self.getParent(node), ast.For):
                             messg = messages.ImportShadowedByLoopVar

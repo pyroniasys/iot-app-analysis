@@ -149,7 +149,6 @@ def checkRecursive(paths, reporter, cat=None):
     warnings = 0
     d_imp = OrderedDict()
     d_unused = OrderedDict()
-    py2 = []
     for sourcePath in iterSourceCode(paths):
         if cat == None:
             # from the path name, the category should be in "apps/cat/srcs"
@@ -158,8 +157,7 @@ def checkRecursive(paths, reporter, cat=None):
         warnings += num
 
         if imps == None and unused == None:
-            py2.append(sourcePath)
-
+            pass
         else:
             if imps != None and len(imps) > 0:
                 d_imp[sourcePath] = imps
@@ -171,7 +169,7 @@ def checkRecursive(paths, reporter, cat=None):
         write_map(d_imp, cat+"-flakes-imports-py2.txt")
         write_map(d_unused, cat+"-flakes-unused-py2.txt")
 
-    return warnings, d_imp, d_unused, py2
+    return warnings, d_imp, d_unused
 
 
 def _exitOnSignal(sigName, message):

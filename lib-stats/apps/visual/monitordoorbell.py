@@ -24,4 +24,4 @@ except KeyboardInterrupt:
         print "Cleaning up..."
         GPIO.remove_event_detect(24)
         GPIO.cleanup()
-        print "Done
+        print "Done"

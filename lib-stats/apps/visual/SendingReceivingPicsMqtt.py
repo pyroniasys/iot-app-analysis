@@ -16,7 +16,7 @@ import base64
 
 def convertImageToBase64():
     with open("image_test.jpg", "rb") as image_file:
-    encoded = base64.b64encode(image_file.read())
+        encoded = base64.b64encode(image_file.read())
     return encoded
  
 import ibmiotf.device
@@ -43,8 +43,8 @@ def publishEncodedImage(encoded):
     no_of_packets = math.ceil(length/packet_size)
  
     while start <= len(encoded):
-    data = {"data": encoded[start:end], "pic_id":picId, "pos": pos, "size": no_of_packets}
-    client.publishEvent("Image-Data",json.JSONEncoder().encode(data))
-    end += packet_size
-    start += packet_size
-    pos = pos +1
+        data = {"data": encoded[start:end], "pic_id":picId, "pos": pos, "size": no_of_packets}
+        client.publishEvent("Image-Data",json.JSONEncoder().encode(data))
+        end += packet_size
+        start += packet_size
+        pos = pos +1
