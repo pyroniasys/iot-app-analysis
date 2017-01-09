@@ -15,6 +15,19 @@ from util import write_map, read_map, remove_dups
 from pyflakes import reporter as modReporter
 from pyflakes.api import checkRecursive
 
+def group_by_app(a, apps, ungrouped, target, target2=None):
+    libs = remove_dups(ungrouped)
+    if a.endswith(".py"):
+        # single-module apps don't have first-party imports
+        if target2:
+            apps[a][target2] = libs
+        else:
+            apps[a][target] = libs
+    else:
+        if apps[a].get(target) == None:
+            apps[a][target] = OrderedDict()
+        apps[a][target][src] = libs
+
 def get_prefix(path):
     dirs = path.split('/')
     script_idx = len(dirs)
@@ -49,8 +62,13 @@ def replace_fp_mod(prefix, mod, d, visited):
     s = make_super_mod_name(prefix, mod)
     print("Looking at "+n+" and "+s)
     if d.get(n) == None and d.get(s) == None:
-        print("Adding "+mod)
-        return [mod]
+        # we only want to store the top-level package
+        tlp = get_supermod(mod)
+        if tlp == "":
+           tlp = mod
+        else:
+            tlp = tlp.lstrip("/")
+        return [tlp]
     else:
         insuper = False
         if d.get(n) != None:
@@ -60,7 +78,7 @@ def replace_fp_mod(prefix, mod, d, visited):
             mo = s
 
         if mo in visited:
-            print(mo+" is either imported recursively, or doesn't have imports")
+            print(mo+" is imported recursively, so don't go deeper")
             return []
         else:
             visited.append(mo)
@@ -73,6 +91,24 @@ def replace_fp_mod(prefix, mod, d, visited):
                 tmp = replace_fp_mod(next_mod, m, d, visited)
                 l.extend(tmp)
             return l
+
+def replace_fp_mod_app(app, target):
+    print("Replacing the first-party imports for group: "+target)
+    libs = []
+    for src, i in app[target].items():
+        pref = get_prefix(src)
+        print(" *** "+src)
+        for l in i:
+            try:
+                # add entry for each src once we've tried to replace it
+                recurs_limit = []
+                tmp = replace_fp_mod(pref, l, app['raw_imports'], recurs_limit)
+                print("replacing "+l+" with "+str(tmp))
+                libs.extend(tmp)
+            except RecursionError:
+                print("died trying to replace "+l+" in "+src)
+                sys.exit(-1)
+    return remove_dups(libs)
 
 # pass in the category: visual, audio or env
 cat = sys.argv[1]
@@ -118,56 +154,35 @@ print("Number of "+cat+" apps being scraped: "+str(len(apps)))
 
 # iterate through all apps to organize the imports
 for a in apps:
+    print("--- current app: "+a)
     for src, i in imports_raw.items():
         if a in src:
-            libs = remove_dups(i)
-
-            if a.endswith(".py"):
-                # single-module apps don't have first-party imports
-                apps[a]['imports'] = libs
-            else:
-                if apps[a].get('imports') == None:
-                    apps[a]['imports'] = OrderedDict()
-                apps[a]['imports'][src] = libs
+            # want raw_imports AND imports since raw_imports is used
+            # in the unused parsing as well
+            group_by_app(a, apps, i, 'raw_imports', 'imports')
 
     # iterate over each source file's imports to find
     # the first-party imports
     if not a.endswith(".py"):
         # make sure to sort the sources to have a deterministic analysis
-        apps[a]['imports'] = OrderedDict(sorted(apps[a]['imports'].items(), key=lambda t: t[0]))
+        apps[a]['raw_imports'] = OrderedDict(sorted(apps[a]['raw_imports'].items(), key=lambda t: t[0]))
 
-        libs = []
-        print("--- current app: "+a)
-        for src, i in apps[a]['imports'].items():
-             pref = get_prefix(src)
-             print(" *** "+src)
-             print(pref)
-             for l in i:
-                # TODO: add checks for subprocess.call, subprocess.Popen
-                # os.system, os.spawn, etc
-                try:
-                    # add entry for each src once we've tried to replace it
-                    recurs_limit = []
-                    tmp = replace_fp_mod(pref, l, apps[a]['imports'], recurs_limit)
-                    print("replacing "+l+" with "+str(tmp))
-                    libs.extend(tmp)
-                except RecursionError:
-                    print("died trying to replace "+l+" in "+src)
-                    sys.exit(-1)
+        apps[a]['imports'] = replace_fp_mod_app(apps[a], 'raw_imports')
 
-        apps[a]['imports'] = remove_dups(libs)
-
-# remove all __init__.py unused imports since they aren't actually unused
-for a in apps:
+    # remove all __init__.py unused imports since they aren't actually unused
     for src, i in unused_raw.items():
         if a in src and not src.endswith("__init__.py"):
-            libs = remove_dups(i)
+            group_by_app(a, apps, i, 'unused')
 
-            if a.endswith(".py"):
-                apps[a]['unused'] = libs
-            else:
-                if apps[a].get('unused') == None:
-                    apps[a]['unused'] = OrderedDict()
-                apps[a]['unused'][src] = libs
+    # iterate of each source's files imports to remove unused imports that actually appear
+    # in the list of imports
+    if not a.endswith(".py"):
+        # make sure to sort the sources to have a deterministic analysis
+        apps[a]['unused'] = OrderedDict(sorted(apps[a]['unused'].items(), key=lambda t: t[0]))
+
+        apps[a]['unused'] = replace_fp_mod_app(apps[a], 'unused')
+
+        # remove the raw imports once we're done with all the parsing
+        del apps[a]['raw_imports']
 
 write_map(apps, cat+"-app-imports.txt")

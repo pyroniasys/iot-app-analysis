@@ -1,0 +1,2717 @@
+Number of visual apps being scraped: 24
+--- current app: apps/visual/RPiLaserSecurity.py
+--- current app: apps/visual/PiScream.py
+--- current app: apps/visual/RPiPhotobooth
+Replacing the first-party imports for group: raw_imports
+ *** apps/visual/RPiPhotobooth/boothcam.py
+Looking at apps/visual/RPiPhotobooth/PIL/Image.py and apps/visual/RPiPhotobooth/PIL.py
+replacing PIL.Image with ['PIL']
+Looking at apps/visual/RPiPhotobooth/config.py and 
+Looking at apps/visual/RPiPhotobooth/getpass.py and 
+Looking at apps/visual/RPiPhotobooth/os/path.py and apps/visual/RPiPhotobooth/os.py
+replacing config with ['getpass', 'os']
+Looking at apps/visual/RPiPhotobooth/constants/SCREEN_H.py and apps/visual/RPiPhotobooth/constants.py
+replacing constants.SCREEN_H with []
+Looking at apps/visual/RPiPhotobooth/constants/SCREEN_W.py and apps/visual/RPiPhotobooth/constants.py
+replacing constants.SCREEN_W with []
+Looking at apps/visual/RPiPhotobooth/credentials/OAuth2Login.py and apps/visual/RPiPhotobooth/credentials.py
+Looking at apps/visual/RPiPhotobooth/datetime/datetime.py and apps/visual/RPiPhotobooth/datetime.py
+Looking at apps/visual/RPiPhotobooth/datetime/timedelta.py and apps/visual/RPiPhotobooth/datetime.py
+Looking at apps/visual/RPiPhotobooth/gdata/gauth.py and apps/visual/RPiPhotobooth/gdata.py
+Looking at apps/visual/RPiPhotobooth/httplib2.py and 
+Looking at apps/visual/RPiPhotobooth/oauth2client/client.py and apps/visual/RPiPhotobooth/oauth2client.py
+Looking at apps/visual/RPiPhotobooth/oauth2client/file.py and apps/visual/RPiPhotobooth/oauth2client.py
+Looking at apps/visual/RPiPhotobooth/webbrowser.py and 
+replacing credentials.OAuth2Login with ['datetime', 'datetime', 'gdata', 'httplib2', 'oauth2client', 'oauth2client', 'webbrowser']
+Looking at apps/visual/RPiPhotobooth/custom.py and 
+Looking at apps/visual/RPiPhotobooth/ConfigParser.py and 
+Looking at apps/visual/RPiPhotobooth/Image.py and 
+Looking at apps/visual/RPiPhotobooth/ImageTk.py and 
+Looking at apps/visual/RPiPhotobooth/Tkinter.py and 
+Looking at apps/visual/RPiPhotobooth/constants/SCREEN_H.py and apps/visual/RPiPhotobooth/constants.py
+Looking at apps/visual/RPiPhotobooth/constants/SCREEN_W.py and apps/visual/RPiPhotobooth/constants.py
+apps/visual/RPiPhotobooth/constants.py is imported recursively, so don't go deeper
+Looking at apps/visual/RPiPhotobooth/listalbums.py and 
+Looking at apps/visual/RPiPhotobooth/Tkinter.py and 
+Looking at apps/visual/RPiPhotobooth/credentials/OAuth2Login.py and apps/visual/RPiPhotobooth/credentials.py
+Looking at apps/visual/RPiPhotobooth/datetime/datetime.py and apps/visual/RPiPhotobooth/datetime.py
+Looking at apps/visual/RPiPhotobooth/datetime/timedelta.py and apps/visual/RPiPhotobooth/datetime.py
+Looking at apps/visual/RPiPhotobooth/gdata/gauth.py and apps/visual/RPiPhotobooth/gdata.py
+Looking at apps/visual/RPiPhotobooth/httplib2.py and 
+Looking at apps/visual/RPiPhotobooth/oauth2client/client.py and apps/visual/RPiPhotobooth/oauth2client.py
+Looking at apps/visual/RPiPhotobooth/oauth2client/file.py and apps/visual/RPiPhotobooth/oauth2client.py
+Looking at apps/visual/RPiPhotobooth/webbrowser.py and 
+Looking at apps/visual/RPiPhotobooth/os.py and 
+Looking at apps/visual/RPiPhotobooth/sys.py and 
+Looking at apps/visual/RPiPhotobooth/tkkb.py and 
+Looking at apps/visual/RPiPhotobooth/Tkinter.py and 
+Looking at apps/visual/RPiPhotobooth/os/path.py and apps/visual/RPiPhotobooth/os.py
+Looking at apps/visual/RPiPhotobooth/tkFileDialog.py and 
+Looking at apps/visual/RPiPhotobooth/tkSimpleDialog.py and 
+replacing custom with ['ConfigParser', 'Image', 'ImageTk', 'Tkinter', 'Tkinter', 'datetime', 'datetime', 'gdata', 'httplib2', 'oauth2client', 'oauth2client', 'webbrowser', 'os', 'sys', 'Tkinter', 'os', 'tkFileDialog', 'tkSimpleDialog']
+Looking at apps/visual/RPiPhotobooth/cv2_camera.py and 
+Looking at apps/visual/RPiPhotobooth/cv2.py and 
+Looking at apps/visual/RPiPhotobooth/time.py and 
+replacing cv2_camera with ['cv2', 'time']
+Looking at apps/visual/RPiPhotobooth/glob.py and 
+replacing glob with ['glob']
+Looking at apps/visual/RPiPhotobooth/os/path.py and apps/visual/RPiPhotobooth/os.py
+replacing os.path with ['os']
+Looking at apps/visual/RPiPhotobooth/serial.py and 
+replacing serial with ['serial']
+Looking at apps/visual/RPiPhotobooth/subprocess/call.py and apps/visual/RPiPhotobooth/subprocess.py
+replacing subprocess.call with ['subprocess']
+Looking at apps/visual/RPiPhotobooth/time.py and 
+replacing time with ['time']
+ *** apps/visual/RPiPhotobooth/config.py
+Looking at apps/visual/RPiPhotobooth/getpass.py and 
+replacing getpass with ['getpass']
+Looking at apps/visual/RPiPhotobooth/os/path.py and apps/visual/RPiPhotobooth/os.py
+replacing os.path with ['os']
+ *** apps/visual/RPiPhotobooth/constants.py
+ *** apps/visual/RPiPhotobooth/countdown_test.py
+Looking at apps/visual/RPiPhotobooth/picamera.py and 
+replacing picamera with ['picamera']
+Looking at apps/visual/RPiPhotobooth/pygame.py and 
+replacing pygame with ['pygame']
+Looking at apps/visual/RPiPhotobooth/time.py and 
+replacing time with ['time']
+ *** apps/visual/RPiPhotobooth/credentials.py
+Looking at apps/visual/RPiPhotobooth/datetime/datetime.py and apps/visual/RPiPhotobooth/datetime.py
+replacing datetime.datetime with ['datetime']
+Looking at apps/visual/RPiPhotobooth/datetime/timedelta.py and apps/visual/RPiPhotobooth/datetime.py
+replacing datetime.timedelta with ['datetime']
+Looking at apps/visual/RPiPhotobooth/gdata/gauth.py and apps/visual/RPiPhotobooth/gdata.py
+replacing gdata.gauth with ['gdata']
+Looking at apps/visual/RPiPhotobooth/httplib2.py and 
+replacing httplib2 with ['httplib2']
+Looking at apps/visual/RPiPhotobooth/oauth2client/client.py and apps/visual/RPiPhotobooth/oauth2client.py
+replacing oauth2client.client with ['oauth2client']
+Looking at apps/visual/RPiPhotobooth/oauth2client/file.py and apps/visual/RPiPhotobooth/oauth2client.py
+replacing oauth2client.file with ['oauth2client']
+Looking at apps/visual/RPiPhotobooth/webbrowser.py and 
+replacing webbrowser with ['webbrowser']
+ *** apps/visual/RPiPhotobooth/custom.py
+Looking at apps/visual/RPiPhotobooth/ConfigParser.py and 
+replacing ConfigParser with ['ConfigParser']
+Looking at apps/visual/RPiPhotobooth/Image.py and 
+replacing Image with ['Image']
+Looking at apps/visual/RPiPhotobooth/ImageTk.py and 
+replacing ImageTk with ['ImageTk']
+Looking at apps/visual/RPiPhotobooth/Tkinter.py and 
+replacing Tkinter with ['Tkinter']
+Looking at apps/visual/RPiPhotobooth/constants/SCREEN_H.py and apps/visual/RPiPhotobooth/constants.py
+replacing constants.SCREEN_H with []
+Looking at apps/visual/RPiPhotobooth/constants/SCREEN_W.py and apps/visual/RPiPhotobooth/constants.py
+replacing constants.SCREEN_W with []
+Looking at apps/visual/RPiPhotobooth/listalbums.py and 
+Looking at apps/visual/RPiPhotobooth/Tkinter.py and 
+Looking at apps/visual/RPiPhotobooth/credentials/OAuth2Login.py and apps/visual/RPiPhotobooth/credentials.py
+Looking at apps/visual/RPiPhotobooth/datetime/datetime.py and apps/visual/RPiPhotobooth/datetime.py
+Looking at apps/visual/RPiPhotobooth/datetime/timedelta.py and apps/visual/RPiPhotobooth/datetime.py
+Looking at apps/visual/RPiPhotobooth/gdata/gauth.py and apps/visual/RPiPhotobooth/gdata.py
+Looking at apps/visual/RPiPhotobooth/httplib2.py and 
+Looking at apps/visual/RPiPhotobooth/oauth2client/client.py and apps/visual/RPiPhotobooth/oauth2client.py
+Looking at apps/visual/RPiPhotobooth/oauth2client/file.py and apps/visual/RPiPhotobooth/oauth2client.py
+Looking at apps/visual/RPiPhotobooth/webbrowser.py and 
+Looking at apps/visual/RPiPhotobooth/os.py and 
+Looking at apps/visual/RPiPhotobooth/sys.py and 
+Looking at apps/visual/RPiPhotobooth/tkkb.py and 
+Looking at apps/visual/RPiPhotobooth/Tkinter.py and 
+replacing listalbums with ['Tkinter', 'datetime', 'datetime', 'gdata', 'httplib2', 'oauth2client', 'oauth2client', 'webbrowser', 'os', 'sys', 'Tkinter']
+Looking at apps/visual/RPiPhotobooth/os/path.py and apps/visual/RPiPhotobooth/os.py
+replacing os.path with ['os']
+Looking at apps/visual/RPiPhotobooth/tkFileDialog.py and 
+replacing tkFileDialog with ['tkFileDialog']
+Looking at apps/visual/RPiPhotobooth/tkSimpleDialog.py and 
+replacing tkSimpleDialog with ['tkSimpleDialog']
+ *** apps/visual/RPiPhotobooth/cv2_camera.py
+Looking at apps/visual/RPiPhotobooth/cv2.py and 
+replacing cv2 with ['cv2']
+Looking at apps/visual/RPiPhotobooth/time.py and 
+replacing time with ['time']
+ *** apps/visual/RPiPhotobooth/email_logger.py
+ *** apps/visual/RPiPhotobooth/listalbums.py
+Looking at apps/visual/RPiPhotobooth/Tkinter.py and 
+replacing Tkinter with ['Tkinter']
+Looking at apps/visual/RPiPhotobooth/credentials/OAuth2Login.py and apps/visual/RPiPhotobooth/credentials.py
+Looking at apps/visual/RPiPhotobooth/datetime/datetime.py and apps/visual/RPiPhotobooth/datetime.py
+Looking at apps/visual/RPiPhotobooth/datetime/timedelta.py and apps/visual/RPiPhotobooth/datetime.py
+Looking at apps/visual/RPiPhotobooth/gdata/gauth.py and apps/visual/RPiPhotobooth/gdata.py
+Looking at apps/visual/RPiPhotobooth/httplib2.py and 
+Looking at apps/visual/RPiPhotobooth/oauth2client/client.py and apps/visual/RPiPhotobooth/oauth2client.py
+Looking at apps/visual/RPiPhotobooth/oauth2client/file.py and apps/visual/RPiPhotobooth/oauth2client.py
+Looking at apps/visual/RPiPhotobooth/webbrowser.py and 
+replacing credentials.OAuth2Login with ['datetime', 'datetime', 'gdata', 'httplib2', 'oauth2client', 'oauth2client', 'webbrowser']
+Looking at apps/visual/RPiPhotobooth/os.py and 
+replacing os with ['os']
+Looking at apps/visual/RPiPhotobooth/sys.py and 
+replacing sys with ['sys']
+Looking at apps/visual/RPiPhotobooth/tkkb.py and 
+Looking at apps/visual/RPiPhotobooth/Tkinter.py and 
+replacing tkkb with ['Tkinter']
+ *** apps/visual/RPiPhotobooth/mailfile.py
+Looking at apps/visual/RPiPhotobooth/config.py and 
+Looking at apps/visual/RPiPhotobooth/getpass.py and 
+Looking at apps/visual/RPiPhotobooth/os/path.py and apps/visual/RPiPhotobooth/os.py
+replacing config with ['getpass', 'os']
+Looking at apps/visual/RPiPhotobooth/email/MIMEAudio.py and apps/visual/RPiPhotobooth/email.py
+replacing email.MIMEAudio with ['email']
+Looking at apps/visual/RPiPhotobooth/email/MIMEBase.py and apps/visual/RPiPhotobooth/email.py
+replacing email.MIMEBase with ['email']
+Looking at apps/visual/RPiPhotobooth/email/MIMEImage.py and apps/visual/RPiPhotobooth/email.py
+replacing email.MIMEImage with ['email']
+Looking at apps/visual/RPiPhotobooth/email/MIMEMultipart.py and apps/visual/RPiPhotobooth/email.py
+replacing email.MIMEMultipart with ['email']
+Looking at apps/visual/RPiPhotobooth/email/MIMEText.py and apps/visual/RPiPhotobooth/email.py
+replacing email.MIMEText with ['email']
+Looking at apps/visual/RPiPhotobooth/email_logger.py and 
+replacing email_logger with []
+Looking at apps/visual/RPiPhotobooth/mimetypes.py and 
+replacing mimetypes with ['mimetypes']
+Looking at apps/visual/RPiPhotobooth/os.py and 
+replacing os with ['os']
+Looking at apps/visual/RPiPhotobooth/smtplib.py and 
+replacing smtplib with ['smtplib']
+ *** apps/visual/RPiPhotobooth/matchbox_test.py
+Looking at apps/visual/RPiPhotobooth/Tkinter.py and 
+replacing Tkinter with ['Tkinter']
+Looking at apps/visual/RPiPhotobooth/subprocess.py and 
+replacing subprocess with ['subprocess']
+ *** apps/visual/RPiPhotobooth/photobooth_gui.py
+Looking at apps/visual/RPiPhotobooth/Image.py and 
+replacing Image with ['Image']
+Looking at apps/visual/RPiPhotobooth/ImageTk.py and 
+replacing ImageTk with ['ImageTk']
+Looking at apps/visual/RPiPhotobooth/Tkinter.py and 
+replacing Tkinter with ['Tkinter']
+Looking at apps/visual/RPiPhotobooth/boothcam.py and 
+Looking at apps/visual/RPiPhotobooth/PIL/Image.py and apps/visual/RPiPhotobooth/PIL.py
+Looking at apps/visual/RPiPhotobooth/config.py and 
+Looking at apps/visual/RPiPhotobooth/getpass.py and 
+Looking at apps/visual/RPiPhotobooth/os/path.py and apps/visual/RPiPhotobooth/os.py
+Looking at apps/visual/RPiPhotobooth/constants/SCREEN_H.py and apps/visual/RPiPhotobooth/constants.py
+Looking at apps/visual/RPiPhotobooth/constants/SCREEN_W.py and apps/visual/RPiPhotobooth/constants.py
+apps/visual/RPiPhotobooth/constants.py is imported recursively, so don't go deeper
+Looking at apps/visual/RPiPhotobooth/credentials/OAuth2Login.py and apps/visual/RPiPhotobooth/credentials.py
+Looking at apps/visual/RPiPhotobooth/datetime/datetime.py and apps/visual/RPiPhotobooth/datetime.py
+Looking at apps/visual/RPiPhotobooth/datetime/timedelta.py and apps/visual/RPiPhotobooth/datetime.py
+Looking at apps/visual/RPiPhotobooth/gdata/gauth.py and apps/visual/RPiPhotobooth/gdata.py
+Looking at apps/visual/RPiPhotobooth/httplib2.py and 
+Looking at apps/visual/RPiPhotobooth/oauth2client/client.py and apps/visual/RPiPhotobooth/oauth2client.py
+Looking at apps/visual/RPiPhotobooth/oauth2client/file.py and apps/visual/RPiPhotobooth/oauth2client.py
+Looking at apps/visual/RPiPhotobooth/webbrowser.py and 
+Looking at apps/visual/RPiPhotobooth/custom.py and 
+Looking at apps/visual/RPiPhotobooth/ConfigParser.py and 
+Looking at apps/visual/RPiPhotobooth/Image.py and 
+Looking at apps/visual/RPiPhotobooth/ImageTk.py and 
+Looking at apps/visual/RPiPhotobooth/Tkinter.py and 
+Looking at apps/visual/RPiPhotobooth/constants/SCREEN_H.py and apps/visual/RPiPhotobooth/constants.py
+apps/visual/RPiPhotobooth/constants.py is imported recursively, so don't go deeper
+Looking at apps/visual/RPiPhotobooth/constants/SCREEN_W.py and apps/visual/RPiPhotobooth/constants.py
+apps/visual/RPiPhotobooth/constants.py is imported recursively, so don't go deeper
+Looking at apps/visual/RPiPhotobooth/listalbums.py and 
+Looking at apps/visual/RPiPhotobooth/Tkinter.py and 
+Looking at apps/visual/RPiPhotobooth/credentials/OAuth2Login.py and apps/visual/RPiPhotobooth/credentials.py
+apps/visual/RPiPhotobooth/credentials.py is imported recursively, so don't go deeper
+Looking at apps/visual/RPiPhotobooth/os.py and 
+Looking at apps/visual/RPiPhotobooth/sys.py and 
+Looking at apps/visual/RPiPhotobooth/tkkb.py and 
+Looking at apps/visual/RPiPhotobooth/Tkinter.py and 
+Looking at apps/visual/RPiPhotobooth/os/path.py and apps/visual/RPiPhotobooth/os.py
+Looking at apps/visual/RPiPhotobooth/tkFileDialog.py and 
+Looking at apps/visual/RPiPhotobooth/tkSimpleDialog.py and 
+Looking at apps/visual/RPiPhotobooth/cv2_camera.py and 
+Looking at apps/visual/RPiPhotobooth/cv2.py and 
+Looking at apps/visual/RPiPhotobooth/time.py and 
+Looking at apps/visual/RPiPhotobooth/glob.py and 
+Looking at apps/visual/RPiPhotobooth/os/path.py and apps/visual/RPiPhotobooth/os.py
+Looking at apps/visual/RPiPhotobooth/serial.py and 
+Looking at apps/visual/RPiPhotobooth/subprocess/call.py and apps/visual/RPiPhotobooth/subprocess.py
+Looking at apps/visual/RPiPhotobooth/time.py and 
+replacing boothcam with ['PIL', 'getpass', 'os', 'datetime', 'datetime', 'gdata', 'httplib2', 'oauth2client', 'oauth2client', 'webbrowser', 'ConfigParser', 'Image', 'ImageTk', 'Tkinter', 'Tkinter', 'os', 'sys', 'Tkinter', 'os', 'tkFileDialog', 'tkSimpleDialog', 'cv2', 'time', 'glob', 'os', 'serial', 'subprocess', 'time']
+Looking at apps/visual/RPiPhotobooth/constants.py and 
+replacing constants with []
+Looking at apps/visual/RPiPhotobooth/custom.py and 
+Looking at apps/visual/RPiPhotobooth/ConfigParser.py and 
+Looking at apps/visual/RPiPhotobooth/Image.py and 
+Looking at apps/visual/RPiPhotobooth/ImageTk.py and 
+Looking at apps/visual/RPiPhotobooth/Tkinter.py and 
+Looking at apps/visual/RPiPhotobooth/constants/SCREEN_H.py and apps/visual/RPiPhotobooth/constants.py
+Looking at apps/visual/RPiPhotobooth/constants/SCREEN_W.py and apps/visual/RPiPhotobooth/constants.py
+apps/visual/RPiPhotobooth/constants.py is imported recursively, so don't go deeper
+Looking at apps/visual/RPiPhotobooth/listalbums.py and 
+Looking at apps/visual/RPiPhotobooth/Tkinter.py and 
+Looking at apps/visual/RPiPhotobooth/credentials/OAuth2Login.py and apps/visual/RPiPhotobooth/credentials.py
+Looking at apps/visual/RPiPhotobooth/datetime/datetime.py and apps/visual/RPiPhotobooth/datetime.py
+Looking at apps/visual/RPiPhotobooth/datetime/timedelta.py and apps/visual/RPiPhotobooth/datetime.py
+Looking at apps/visual/RPiPhotobooth/gdata/gauth.py and apps/visual/RPiPhotobooth/gdata.py
+Looking at apps/visual/RPiPhotobooth/httplib2.py and 
+Looking at apps/visual/RPiPhotobooth/oauth2client/client.py and apps/visual/RPiPhotobooth/oauth2client.py
+Looking at apps/visual/RPiPhotobooth/oauth2client/file.py and apps/visual/RPiPhotobooth/oauth2client.py
+Looking at apps/visual/RPiPhotobooth/webbrowser.py and 
+Looking at apps/visual/RPiPhotobooth/os.py and 
+Looking at apps/visual/RPiPhotobooth/sys.py and 
+Looking at apps/visual/RPiPhotobooth/tkkb.py and 
+Looking at apps/visual/RPiPhotobooth/Tkinter.py and 
+Looking at apps/visual/RPiPhotobooth/os/path.py and apps/visual/RPiPhotobooth/os.py
+Looking at apps/visual/RPiPhotobooth/tkFileDialog.py and 
+Looking at apps/visual/RPiPhotobooth/tkSimpleDialog.py and 
+replacing custom with ['ConfigParser', 'Image', 'ImageTk', 'Tkinter', 'Tkinter', 'datetime', 'datetime', 'gdata', 'httplib2', 'oauth2client', 'oauth2client', 'webbrowser', 'os', 'sys', 'Tkinter', 'os', 'tkFileDialog', 'tkSimpleDialog']
+Looking at apps/visual/RPiPhotobooth/mailfile.py and 
+Looking at apps/visual/RPiPhotobooth/config.py and 
+Looking at apps/visual/RPiPhotobooth/getpass.py and 
+Looking at apps/visual/RPiPhotobooth/os/path.py and apps/visual/RPiPhotobooth/os.py
+Looking at apps/visual/RPiPhotobooth/email/MIMEAudio.py and apps/visual/RPiPhotobooth/email.py
+Looking at apps/visual/RPiPhotobooth/email/MIMEBase.py and apps/visual/RPiPhotobooth/email.py
+Looking at apps/visual/RPiPhotobooth/email/MIMEImage.py and apps/visual/RPiPhotobooth/email.py
+Looking at apps/visual/RPiPhotobooth/email/MIMEMultipart.py and apps/visual/RPiPhotobooth/email.py
+Looking at apps/visual/RPiPhotobooth/email/MIMEText.py and apps/visual/RPiPhotobooth/email.py
+Looking at apps/visual/RPiPhotobooth/email_logger.py and 
+Looking at apps/visual/RPiPhotobooth/mimetypes.py and 
+Looking at apps/visual/RPiPhotobooth/os.py and 
+Looking at apps/visual/RPiPhotobooth/smtplib.py and 
+replacing mailfile with ['getpass', 'os', 'email', 'email', 'email', 'email', 'email', 'mimetypes', 'os', 'smtplib']
+Looking at apps/visual/RPiPhotobooth/screenshot.py and 
+Looking at apps/visual/RPiPhotobooth/datetime.py and 
+Looking at apps/visual/RPiPhotobooth/os.py and 
+Looking at apps/visual/RPiPhotobooth/pyscreenshot.py and 
+replacing screenshot with ['datetime', 'os', 'pyscreenshot']
+Looking at apps/visual/RPiPhotobooth/signal.py and 
+replacing signal with ['signal']
+Looking at apps/visual/RPiPhotobooth/time.py and 
+replacing time with ['time']
+Looking at apps/visual/RPiPhotobooth/tkMessageBox.py and 
+replacing tkMessageBox with ['tkMessageBox']
+Looking at apps/visual/RPiPhotobooth/tkkb/Tkkb.py and apps/visual/RPiPhotobooth/tkkb.py
+Looking at apps/visual/RPiPhotobooth/Tkinter.py and 
+replacing tkkb.Tkkb with ['Tkinter']
+ *** apps/visual/RPiPhotobooth/screenshot.py
+Looking at apps/visual/RPiPhotobooth/datetime.py and 
+replacing datetime with ['datetime']
+Looking at apps/visual/RPiPhotobooth/os.py and 
+replacing os with ['os']
+Looking at apps/visual/RPiPhotobooth/pyscreenshot.py and 
+replacing pyscreenshot with ['pyscreenshot']
+ *** apps/visual/RPiPhotobooth/tkkb.py
+Looking at apps/visual/RPiPhotobooth/Tkinter.py and 
+replacing Tkinter with ['Tkinter']
+Replacing the first-party imports for group: unused
+ *** apps/visual/RPiPhotobooth/boothcam.py
+Looking at apps/visual/RPiPhotobooth/constants/BLACK.py and apps/visual/RPiPhotobooth/constants.py
+replacing constants.BLACK with []
+Looking at apps/visual/RPiPhotobooth/constants/WHITE.py and apps/visual/RPiPhotobooth/constants.py
+replacing constants.WHITE with []
+Looking at apps/visual/RPiPhotobooth/datetime/datetime.py and apps/visual/RPiPhotobooth/datetime.py
+replacing datetime.datetime with ['datetime']
+Looking at apps/visual/RPiPhotobooth/datetime/timedelta.py and apps/visual/RPiPhotobooth/datetime.py
+replacing datetime.timedelta with ['datetime']
+Looking at apps/visual/RPiPhotobooth/gdata/gauth.py and apps/visual/RPiPhotobooth/gdata.py
+replacing gdata.gauth with ['gdata']
+Looking at apps/visual/RPiPhotobooth/httplib2.py and 
+replacing httplib2 with ['httplib2']
+Looking at apps/visual/RPiPhotobooth/oauth2client/client.py and apps/visual/RPiPhotobooth/oauth2client.py
+replacing oauth2client.client with ['oauth2client']
+Looking at apps/visual/RPiPhotobooth/oauth2client/file.py and apps/visual/RPiPhotobooth/oauth2client.py
+replacing oauth2client.file with ['oauth2client']
+Looking at apps/visual/RPiPhotobooth/time/sleep.py and apps/visual/RPiPhotobooth/time.py
+replacing time.sleep with ['time']
+Looking at apps/visual/RPiPhotobooth/tkFileDialog.py and 
+replacing tkFileDialog with ['tkFileDialog']
+Looking at apps/visual/RPiPhotobooth/webbrowser.py and 
+replacing webbrowser with ['webbrowser']
+ *** apps/visual/RPiPhotobooth/config.py
+ *** apps/visual/RPiPhotobooth/constants.py
+ *** apps/visual/RPiPhotobooth/countdown_test.py
+ *** apps/visual/RPiPhotobooth/credentials.py
+Looking at apps/visual/RPiPhotobooth/os.py and 
+replacing os with ['os']
+ *** apps/visual/RPiPhotobooth/custom.py
+ *** apps/visual/RPiPhotobooth/cv2_camera.py
+Looking at apps/visual/RPiPhotobooth/numpy.py and 
+replacing numpy with ['numpy']
+ *** apps/visual/RPiPhotobooth/email_logger.py
+ *** apps/visual/RPiPhotobooth/listalbums.py
+ *** apps/visual/RPiPhotobooth/mailfile.py
+Looking at apps/visual/RPiPhotobooth/email/Encoders.py and apps/visual/RPiPhotobooth/email.py
+replacing email.Encoders with ['email']
+ *** apps/visual/RPiPhotobooth/matchbox_test.py
+ *** apps/visual/RPiPhotobooth/photobooth_gui.py
+Looking at apps/visual/RPiPhotobooth/config.py and 
+Looking at apps/visual/RPiPhotobooth/getpass.py and 
+Looking at apps/visual/RPiPhotobooth/os/path.py and apps/visual/RPiPhotobooth/os.py
+replacing config with ['getpass', 'os']
+ *** apps/visual/RPiPhotobooth/screenshot.py
+Looking at apps/visual/RPiPhotobooth/time.py and 
+replacing time with ['time']
+ *** apps/visual/RPiPhotobooth/tkkb.py
+--- current app: apps/visual/WhoIsAtCoffeeMachine
+Replacing the first-party imports for group: raw_imports
+ *** apps/visual/WhoIsAtCoffeeMachine/lcd/__init__.py
+ *** apps/visual/WhoIsAtCoffeeMachine/lcd/backlight.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/smbus/SMBus.py and apps/visual/WhoIsAtCoffeeMachine/lcd/smbus.py
+replacing smbus.SMBus with ['smbus']
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/time.py and 
+replacing time with ['time']
+ *** apps/visual/WhoIsAtCoffeeMachine/lcd/display.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/backlight.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/smbus/SMBus.py and apps/visual/WhoIsAtCoffeeMachine/lcd/smbus.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/time.py and 
+replacing backlight with ['smbus', 'time']
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/math.py and 
+replacing math with ['math']
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/screen.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/smbus/SMBus.py and apps/visual/WhoIsAtCoffeeMachine/lcd/smbus.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/time.py and 
+replacing screen with ['smbus', 'time']
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/smbus/SMBus.py and apps/visual/WhoIsAtCoffeeMachine/lcd/smbus.py
+replacing smbus.SMBus with ['smbus']
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/time.py and 
+replacing time with ['time']
+ *** apps/visual/WhoIsAtCoffeeMachine/lcd/screen.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/smbus/SMBus.py and apps/visual/WhoIsAtCoffeeMachine/lcd/smbus.py
+replacing smbus.SMBus with ['smbus']
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/time.py and 
+replacing time with ['time']
+ *** apps/visual/WhoIsAtCoffeeMachine/opencv/__init__.py
+ *** apps/visual/WhoIsAtCoffeeMachine/opencv/capture-positives.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/config.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/config.py and 
+apps/visual/WhoIsAtCoffeeMachine/opencv/config.py is imported recursively, so don't go deeper
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/cv2.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/io.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/numpy.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/picamera.py and 
+replacing config with ['cv2', 'io', 'numpy', 'picamera']
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/cv2.py and 
+replacing cv2 with ['cv2']
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/face.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/config.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/config.py and 
+apps/visual/WhoIsAtCoffeeMachine/opencv/config.py is imported recursively, so don't go deeper
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/cv2.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/io.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/numpy.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/picamera.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/cv2.py and 
+replacing face with ['cv2', 'io', 'numpy', 'picamera', 'cv2']
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/glob.py and 
+replacing glob with ['glob']
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/os.py and 
+replacing os with ['os']
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/select.py and 
+replacing select with ['select']
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/sys.py and 
+replacing sys with ['sys']
+ *** apps/visual/WhoIsAtCoffeeMachine/opencv/config.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/config.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py and 
+apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py is imported recursively, so don't go deeper
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/cv2.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/io.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/numpy.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/picamera.py and 
+replacing picam with ['cv2', 'io', 'numpy', 'picamera']
+ *** apps/visual/WhoIsAtCoffeeMachine/opencv/face.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/config.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/config.py and 
+apps/visual/WhoIsAtCoffeeMachine/opencv/config.py is imported recursively, so don't go deeper
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/cv2.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/io.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/numpy.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/picamera.py and 
+replacing config with ['cv2', 'io', 'numpy', 'picamera']
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/cv2.py and 
+replacing cv2 with ['cv2']
+ *** apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/config.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/config.py and 
+apps/visual/WhoIsAtCoffeeMachine/opencv/config.py is imported recursively, so don't go deeper
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/cv2.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/io.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/numpy.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/picamera.py and 
+replacing config with ['cv2', 'io', 'numpy', 'picamera']
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/cv2.py and 
+replacing cv2 with ['cv2']
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/io.py and 
+replacing io with ['io']
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/numpy.py and 
+replacing numpy with ['numpy']
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/picamera.py and 
+replacing picamera with ['picamera']
+ *** apps/visual/WhoIsAtCoffeeMachine/opencv/train.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/config.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/config.py and 
+apps/visual/WhoIsAtCoffeeMachine/opencv/config.py is imported recursively, so don't go deeper
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/cv2.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/io.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/numpy.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/picamera.py and 
+replacing config with ['cv2', 'io', 'numpy', 'picamera']
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/cv2.py and 
+replacing cv2 with ['cv2']
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/face.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/config.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/config.py and 
+apps/visual/WhoIsAtCoffeeMachine/opencv/config.py is imported recursively, so don't go deeper
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/cv2.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/io.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/numpy.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/picamera.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/cv2.py and 
+replacing face with ['cv2', 'io', 'numpy', 'picamera', 'cv2']
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/fnmatch.py and 
+replacing fnmatch with ['fnmatch']
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/numpy.py and 
+replacing numpy with ['numpy']
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/os.py and 
+replacing os with ['os']
+ *** apps/visual/WhoIsAtCoffeeMachine/run.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/cv2.py and 
+replacing cv2 with ['cv2']
+Looking at apps/visual/WhoIsAtCoffeeMachine/imutils.py and 
+replacing imutils with ['imutils']
+Looking at apps/visual/WhoIsAtCoffeeMachine/imutils/video.py and apps/visual/WhoIsAtCoffeeMachine/imutils.py
+replacing imutils.video with ['imutils']
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/backlight.py and apps/visual/WhoIsAtCoffeeMachine/lcd.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/smbus/SMBus.py and apps/visual/WhoIsAtCoffeeMachine/lcd/smbus.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/time.py and 
+replacing lcd.backlight with ['smbus', 'time']
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/display.py and apps/visual/WhoIsAtCoffeeMachine/lcd.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/backlight.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/smbus/SMBus.py and apps/visual/WhoIsAtCoffeeMachine/lcd/smbus.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/time.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/math.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/screen.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/smbus/SMBus.py and apps/visual/WhoIsAtCoffeeMachine/lcd/smbus.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/time.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/smbus/SMBus.py and apps/visual/WhoIsAtCoffeeMachine/lcd/smbus.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/time.py and 
+replacing lcd.display with ['smbus', 'time', 'math', 'smbus', 'time', 'smbus', 'time']
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/config.py and apps/visual/WhoIsAtCoffeeMachine/opencv.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/config.py and 
+apps/visual/WhoIsAtCoffeeMachine/opencv/config.py is imported recursively, so don't go deeper
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/cv2.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/io.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/numpy.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/picamera.py and 
+replacing opencv.config with ['cv2', 'io', 'numpy', 'picamera']
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/face.py and apps/visual/WhoIsAtCoffeeMachine/opencv.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/config.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/config.py and 
+apps/visual/WhoIsAtCoffeeMachine/opencv/config.py is imported recursively, so don't go deeper
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/cv2.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/io.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/numpy.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/picamera.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/cv2.py and 
+replacing opencv.face with ['cv2', 'io', 'numpy', 'picamera', 'cv2']
+Looking at apps/visual/WhoIsAtCoffeeMachine/sigfox/sendsigfox.py and apps/visual/WhoIsAtCoffeeMachine/sigfox.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/sigfox/serial.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/sigfox/sys.py and 
+Looking at apps/visual/WhoIsAtCoffeeMachine/sigfox/time/sleep.py and apps/visual/WhoIsAtCoffeeMachine/sigfox/time.py
+replacing sigfox.sendsigfox with ['serial', 'sys', 'time']
+Looking at apps/visual/WhoIsAtCoffeeMachine/smbus/SMBus.py and apps/visual/WhoIsAtCoffeeMachine/smbus.py
+replacing smbus.SMBus with ['smbus']
+Looking at apps/visual/WhoIsAtCoffeeMachine/time.py and 
+replacing time with ['time']
+ *** apps/visual/WhoIsAtCoffeeMachine/sigfox/__init__.py
+ *** apps/visual/WhoIsAtCoffeeMachine/sigfox/sendreceivesigfox.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/sigfox/re.py and 
+replacing re with ['re']
+Looking at apps/visual/WhoIsAtCoffeeMachine/sigfox/serial.py and 
+replacing serial with ['serial']
+Looking at apps/visual/WhoIsAtCoffeeMachine/sigfox/sys.py and 
+replacing sys with ['sys']
+Looking at apps/visual/WhoIsAtCoffeeMachine/sigfox/time/sleep.py and apps/visual/WhoIsAtCoffeeMachine/sigfox/time.py
+replacing time.sleep with ['time']
+ *** apps/visual/WhoIsAtCoffeeMachine/sigfox/sendsigfox.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/sigfox/serial.py and 
+replacing serial with ['serial']
+Looking at apps/visual/WhoIsAtCoffeeMachine/sigfox/sys.py and 
+replacing sys with ['sys']
+Looking at apps/visual/WhoIsAtCoffeeMachine/sigfox/time/sleep.py and apps/visual/WhoIsAtCoffeeMachine/sigfox/time.py
+replacing time.sleep with ['time']
+Replacing the first-party imports for group: unused
+ *** apps/visual/WhoIsAtCoffeeMachine/lcd/backlight.py
+ *** apps/visual/WhoIsAtCoffeeMachine/lcd/display.py
+ *** apps/visual/WhoIsAtCoffeeMachine/lcd/screen.py
+ *** apps/visual/WhoIsAtCoffeeMachine/opencv/capture-positives.py
+ *** apps/visual/WhoIsAtCoffeeMachine/opencv/config.py
+ *** apps/visual/WhoIsAtCoffeeMachine/opencv/face.py
+ *** apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/opencv/time.py and 
+replacing time with ['time']
+ *** apps/visual/WhoIsAtCoffeeMachine/opencv/train.py
+ *** apps/visual/WhoIsAtCoffeeMachine/run.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/argparse.py and 
+replacing argparse with ['argparse']
+Looking at apps/visual/WhoIsAtCoffeeMachine/datetime.py and 
+replacing datetime with ['datetime']
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/screen.py and apps/visual/WhoIsAtCoffeeMachine/lcd.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/smbus/SMBus.py and apps/visual/WhoIsAtCoffeeMachine/lcd/smbus.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/lcd/time.py and 
+replacing lcd.screen with ['smbus', 'time']
+ *** apps/visual/WhoIsAtCoffeeMachine/sigfox/sendreceivesigfox.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/sigfox/time.py and 
+replacing time with ['time']
+ *** apps/visual/WhoIsAtCoffeeMachine/sigfox/sendsigfox.py
+Looking at apps/visual/WhoIsAtCoffeeMachine/sigfox/time.py and 
+replacing time with ['time']
+--- current app: apps/visual/HomeSecurityEmailAlert.py
+--- current app: apps/visual/Fishtank
+Replacing the first-party imports for group: raw_imports
+ *** apps/visual/Fishtank/Camera.py
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+replacing Config with ['configparser']
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+replacing FishTank with ['configparser', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback', 'datetime', 'pygame', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'datetime', 'time', 'datetime', 'configparser', 'datetime', 'time']
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+replacing Log with ['configparser', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'datetime', 'time', 'datetime', 'configparser', 'datetime', 'time', 'datetime', 'pygame', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback']
+Looking at apps/visual/Fishtank/datetime.py and 
+replacing datetime with ['datetime']
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+replacing pygame.transform with ['pygame']
+ *** apps/visual/Fishtank/Config.py
+Looking at apps/visual/Fishtank/configparser.py and 
+replacing configparser with ['configparser']
+ *** apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+replacing datetime with ['datetime']
+Looking at apps/visual/Fishtank/time.py and 
+replacing time with ['time']
+ *** apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+replacing Camera with ['configparser', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback', 'datetime', 'time', 'datetime', 'configparser', 'datetime', 'time', 'datetime', 'pygame']
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+replacing Config with ['configparser']
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+replacing FishFeeder with ['datetime', 'serial', 'thread', 'time']
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+replacing FishTank with ['configparser', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback', 'datetime', 'pygame', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'datetime', 'time', 'datetime', 'configparser', 'datetime', 'time']
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+replacing FoodStore with ['configparser', 'datetime', 'time']
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+replacing Lights with ['configparser', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback', 'datetime', 'pygame', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'datetime', 'time', 'datetime', 'configparser', 'datetime', 'time', 'subprocess']
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+replacing Log with ['configparser', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'datetime', 'time', 'datetime', 'configparser', 'datetime', 'time', 'datetime', 'pygame', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback']
+Looking at apps/visual/Fishtank/datetime.py and 
+replacing datetime with ['datetime']
+Looking at apps/visual/Fishtank/time.py and 
+replacing time with ['time']
+ *** apps/visual/Fishtank/EventList.py
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+replacing Event.FeedEvent with ['configparser', 'datetime', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback', 'configparser', 'datetime', 'time', 'datetime', 'pygame', 'datetime', 'time']
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+replacing Event.LightEvent with ['configparser', 'datetime', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback', 'configparser', 'datetime', 'time', 'datetime', 'pygame', 'datetime', 'time']
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+replacing Event.PictureEvent with ['configparser', 'datetime', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback', 'configparser', 'datetime', 'time', 'datetime', 'pygame', 'datetime', 'time']
+Looking at apps/visual/Fishtank/datetime.py and 
+replacing datetime with ['datetime']
+ *** apps/visual/Fishtank/FishFeeder.py
+Looking at apps/visual/Fishtank/datetime.py and 
+replacing datetime with ['datetime']
+Looking at apps/visual/Fishtank/serial.py and 
+replacing serial with ['serial']
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+replacing thread.start_new_thread with ['thread']
+Looking at apps/visual/Fishtank/time.py and 
+replacing time with ['time']
+ *** apps/visual/Fishtank/FishTank.py
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+replacing Camera with ['configparser', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback', 'datetime', 'time', 'datetime', 'configparser', 'datetime', 'time', 'datetime', 'pygame']
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/EventList.py and 
+apps/visual/Fishtank/EventList.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+replacing EventList with ['configparser', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback', 'configparser', 'datetime', 'time', 'datetime', 'pygame', 'datetime', 'time', 'datetime']
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+replacing FishFeeder with ['datetime', 'serial', 'thread', 'time']
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+replacing FoodStore with ['configparser', 'datetime', 'time']
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+replacing Lights with ['configparser', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback', 'datetime', 'pygame', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'datetime', 'time', 'datetime', 'configparser', 'datetime', 'time', 'subprocess']
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+replacing Log with ['configparser', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'datetime', 'time', 'datetime', 'configparser', 'datetime', 'time', 'datetime', 'pygame', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback']
+Looking at apps/visual/Fishtank/configparser.py and 
+replacing configparser with ['configparser']
+Looking at apps/visual/Fishtank/datetime.py and 
+replacing datetime with ['datetime']
+Looking at apps/visual/Fishtank/time.py and 
+replacing time with ['time']
+ *** apps/visual/Fishtank/FlaskServer.py
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+replacing Camera with ['configparser', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback', 'datetime', 'time', 'datetime', 'configparser', 'datetime', 'time', 'datetime', 'pygame']
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+replacing Config with ['configparser']
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/EventList.py and 
+apps/visual/Fishtank/EventList.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+replacing EventList with ['configparser', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback', 'configparser', 'datetime', 'time', 'datetime', 'pygame', 'datetime', 'time', 'datetime']
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+replacing FishFeeder with ['datetime', 'serial', 'thread', 'time']
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+replacing FishTank with ['configparser', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback', 'datetime', 'pygame', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'datetime', 'time', 'datetime', 'configparser', 'datetime', 'time']
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+replacing FoodStore with ['configparser', 'datetime', 'time']
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+replacing Lights with ['configparser', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback', 'datetime', 'pygame', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'datetime', 'time', 'datetime', 'configparser', 'datetime', 'time', 'subprocess']
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+replacing Log with ['configparser', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'datetime', 'time', 'datetime', 'configparser', 'datetime', 'time', 'datetime', 'pygame', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback']
+Looking at apps/visual/Fishtank/configparser.py and 
+replacing configparser with ['configparser']
+Looking at apps/visual/Fishtank/datetime.py and 
+replacing datetime with ['datetime']
+Looking at apps/visual/Fishtank/flask.py and 
+replacing flask with ['flask']
+Looking at apps/visual/Fishtank/flask.ext.login.py and 
+replacing flask.ext.login with ['flask.ext.login']
+Looking at apps/visual/Fishtank/flask_login.py and 
+replacing flask_login with ['flask_login']
+Looking at apps/visual/Fishtank/hashlib.py and 
+replacing hashlib with ['hashlib']
+Looking at apps/visual/Fishtank/json.py and 
+replacing json with ['json']
+Looking at apps/visual/Fishtank/string.py and 
+replacing string with ['string']
+Looking at apps/visual/Fishtank/thread.py and 
+replacing thread with ['thread']
+Looking at apps/visual/Fishtank/time.py and 
+replacing time with ['time']
+ *** apps/visual/Fishtank/FoodStore.py
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+replacing Config with ['configparser']
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+replacing Container.Container with ['datetime', 'time']
+ *** apps/visual/Fishtank/Lights.py
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+replacing Config with ['configparser']
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+replacing FishTank with ['configparser', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback', 'datetime', 'pygame', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'datetime', 'time', 'datetime', 'configparser', 'datetime', 'time']
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+replacing subprocess.call with ['subprocess']
+ *** apps/visual/Fishtank/Log.py
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+replacing Camera with ['configparser', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback', 'datetime', 'time', 'datetime', 'configparser', 'datetime', 'time', 'datetime', 'pygame']
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+replacing Config with ['configparser']
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+replacing FishTank with ['configparser', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback', 'datetime', 'pygame', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'datetime', 'time', 'datetime', 'configparser', 'datetime', 'time']
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+replacing MySQLdb with ['MySQLdb']
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+replacing pushbullet.PushBullet with ['json', 'magic', 'requests', 'requests', 'websocket']
+Looking at apps/visual/Fishtank/sys.py and 
+replacing sys with ['sys']
+Looking at apps/visual/Fishtank/thread.py and 
+replacing thread with ['thread']
+Looking at apps/visual/Fishtank/time.py and 
+replacing time with ['time']
+Looking at apps/visual/Fishtank/traceback.py and 
+replacing traceback with ['traceback']
+ *** apps/visual/Fishtank/elro.py
+Looking at apps/visual/Fishtank/sys.py and 
+replacing sys with ['sys']
+Looking at apps/visual/Fishtank/time.py and 
+replacing time with ['time']
+Looking at apps/visual/Fishtank/wiringpi.py and 
+replacing wiringpi with ['wiringpi']
+ *** apps/visual/Fishtank/keys.py
+ *** apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+replacing json with ['json']
+Looking at apps/visual/Fishtank/magic.py and 
+replacing magic with ['magic']
+Looking at apps/visual/Fishtank/requests.py and 
+replacing requests with ['requests']
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+replacing requests.auth with ['requests']
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+replacing websocket.create_connection with ['websocket']
+ *** apps/visual/Fishtank/server.py
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+replacing FishTank with ['configparser', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback', 'datetime', 'pygame', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'datetime', 'time', 'datetime', 'configparser', 'datetime', 'time']
+Looking at apps/visual/Fishtank/os.py and 
+replacing os with ['os']
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+replacing thread.start_new_thread with ['thread']
+Looking at apps/visual/Fishtank/time.py and 
+replacing time with ['time']
+Replacing the first-party imports for group: unused
+ *** apps/visual/Fishtank/Camera.py
+ *** apps/visual/Fishtank/Config.py
+ *** apps/visual/Fishtank/Container.py
+ *** apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/sys.py and 
+replacing sys with ['sys']
+Looking at apps/visual/Fishtank/traceback.py and 
+replacing traceback with ['traceback']
+ *** apps/visual/Fishtank/EventList.py
+ *** apps/visual/Fishtank/FishFeeder.py
+ *** apps/visual/Fishtank/FishTank.py
+Looking at apps/visual/Fishtank/sys.py and 
+replacing sys with ['sys']
+ *** apps/visual/Fishtank/FlaskServer.py
+Looking at apps/visual/Fishtank/flask.ext.login.py and 
+replacing flask.ext.login with ['flask.ext.login']
+ *** apps/visual/Fishtank/FoodStore.py
+ *** apps/visual/Fishtank/Lights.py
+ *** apps/visual/Fishtank/Log.py
+ *** apps/visual/Fishtank/elro.py
+ *** apps/visual/Fishtank/keys.py
+ *** apps/visual/Fishtank/pushbullet.py
+ *** apps/visual/Fishtank/server.py
+Looking at apps/visual/Fishtank/FlaskServer/app.py and apps/visual/Fishtank/FlaskServer.py
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/EventList.py and 
+apps/visual/Fishtank/EventList.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/flask.py and 
+Looking at apps/visual/Fishtank/flask.ext.login.py and 
+Looking at apps/visual/Fishtank/flask_login.py and 
+Looking at apps/visual/Fishtank/hashlib.py and 
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/string.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+replacing FlaskServer.app with ['configparser', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback', 'datetime', 'time', 'datetime', 'configparser', 'datetime', 'time', 'datetime', 'pygame', 'configparser', 'datetime', 'flask', 'flask.ext.login', 'flask_login', 'hashlib', 'json', 'string', 'thread', 'time']
+Looking at apps/visual/Fishtank/Log.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/EventList.py and 
+Looking at apps/visual/Fishtank/Event/FeedEvent.py and apps/visual/Fishtank/Event.py
+Looking at apps/visual/Fishtank/Camera.py and 
+apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/serial.py and 
+Looking at apps/visual/Fishtank/thread/start_new_thread.py and apps/visual/Fishtank/thread.py
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Container/Container.py and apps/visual/Fishtank/Container.py
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Lights.py and 
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/subprocess/call.py and apps/visual/Fishtank/subprocess.py
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Event/LightEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Event/PictureEvent.py and apps/visual/Fishtank/Event.py
+apps/visual/Fishtank/Event.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/FishFeeder.py and 
+apps/visual/Fishtank/FishFeeder.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FoodStore.py and 
+apps/visual/Fishtank/FoodStore.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Lights.py and 
+apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/configparser.py and 
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/Log.py and 
+apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/datetime.py and 
+Looking at apps/visual/Fishtank/pygame/transform.py and apps/visual/Fishtank/pygame.py
+Looking at apps/visual/Fishtank/Config.py and 
+apps/visual/Fishtank/Config.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/FishTank.py and 
+apps/visual/Fishtank/FishTank.py is imported recursively, so don't go deeper
+Looking at apps/visual/Fishtank/MySQLdb.py and 
+Looking at apps/visual/Fishtank/pushbullet/PushBullet.py and apps/visual/Fishtank/pushbullet.py
+Looking at apps/visual/Fishtank/json.py and 
+Looking at apps/visual/Fishtank/magic.py and 
+Looking at apps/visual/Fishtank/requests.py and 
+Looking at apps/visual/Fishtank/requests/auth.py and apps/visual/Fishtank/requests.py
+Looking at apps/visual/Fishtank/websocket/create_connection.py and apps/visual/Fishtank/websocket.py
+Looking at apps/visual/Fishtank/sys.py and 
+Looking at apps/visual/Fishtank/thread.py and 
+Looking at apps/visual/Fishtank/time.py and 
+Looking at apps/visual/Fishtank/traceback.py and 
+replacing Log with ['configparser', 'datetime', 'serial', 'thread', 'time', 'datetime', 'time', 'subprocess', 'datetime', 'time', 'datetime', 'configparser', 'datetime', 'time', 'datetime', 'pygame', 'MySQLdb', 'json', 'magic', 'requests', 'requests', 'websocket', 'sys', 'thread', 'time', 'traceback']
+--- current app: apps/visual/pidoorbell.py
+--- current app: apps/visual/monitordoorbell.py
+--- current app: apps/visual/surocam.py
+--- current app: apps/visual/robot.py
+--- current app: apps/visual/WifiPhotobooth
+Replacing the first-party imports for group: raw_imports
+ *** apps/visual/WifiPhotobooth/photobooth_control.py
+Looking at apps/visual/WifiPhotobooth/Image.py and 
+replacing Image with ['Image']
+Looking at apps/visual/WifiPhotobooth/RPi/GPIO.py and apps/visual/WifiPhotobooth/RPi.py
+replacing RPi.GPIO with ['RPi']
+Looking at apps/visual/WifiPhotobooth/os.py and 
+replacing os with ['os']
+Looking at apps/visual/WifiPhotobooth/picamera.py and 
+replacing picamera with ['picamera']
+Looking at apps/visual/WifiPhotobooth/pygame.py and 
+replacing pygame with ['pygame']
+Looking at apps/visual/WifiPhotobooth/random.py and 
+replacing random with ['random']
+Looking at apps/visual/WifiPhotobooth/subprocess.py and 
+replacing subprocess with ['subprocess']
+Looking at apps/visual/WifiPhotobooth/time.py and 
+replacing time with ['time']
+Replacing the first-party imports for group: unused
+ *** apps/visual/WifiPhotobooth/photobooth_control.py
+Looking at apps/visual/WifiPhotobooth/pygame/locals.py and apps/visual/WifiPhotobooth/pygame.py
+replacing pygame.locals with ['pygame']
+--- current app: apps/visual/CodeYourOwnPhotobooth.py
+--- current app: apps/visual/GPIO&PiCameraUsingTelegram.py
+--- current app: apps/visual/smartJpegCamera.py
+--- current app: apps/visual/TwitterPhotoLiveFeed.py
+--- current app: apps/visual/SecurityCam
+Replacing the first-party imports for group: raw_imports
+ *** apps/visual/SecurityCam/Overlay/overlay.py
+Looking at apps/visual/SecurityCam/Overlay/cv2.py and 
+replacing cv2 with ['cv2']
+ *** apps/visual/SecurityCam/detector.py
+Looking at apps/visual/SecurityCam/cv2.py and 
+replacing cv2 with ['cv2']
+Looking at apps/visual/SecurityCam/random.py and 
+replacing random with ['random']
+ *** apps/visual/SecurityCam/pirCam.py
+Looking at apps/visual/SecurityCam/Pubnub/Pubnub.py and apps/visual/SecurityCam/Pubnub.py
+replacing Pubnub.Pubnub with ['Pubnub']
+Looking at apps/visual/SecurityCam/RPi/GPIO.py and apps/visual/SecurityCam/RPi.py
+replacing RPi.GPIO with ['RPi']
+Looking at apps/visual/SecurityCam/base64.py and 
+replacing base64 with ['base64']
+Looking at apps/visual/SecurityCam/detector/Detector.py and apps/visual/SecurityCam/detector.py
+Looking at apps/visual/SecurityCam/cv2.py and 
+Looking at apps/visual/SecurityCam/random.py and 
+replacing detector.Detector with ['cv2', 'random']
+Looking at apps/visual/SecurityCam/httplib.py and 
+replacing httplib with ['httplib']
+Looking at apps/visual/SecurityCam/json.py and 
+replacing json with ['json']
+Looking at apps/visual/SecurityCam/os.py and 
+replacing os with ['os']
+Looking at apps/visual/SecurityCam/picamera.py and 
+replacing picamera with ['picamera']
+Looking at apps/visual/SecurityCam/sys.py and 
+replacing sys with ['sys']
+Looking at apps/visual/SecurityCam/threading.py and 
+replacing threading with ['threading']
+Looking at apps/visual/SecurityCam/time.py and 
+replacing time with ['time']
+Replacing the first-party imports for group: unused
+ *** apps/visual/SecurityCam/Overlay/overlay.py
+ *** apps/visual/SecurityCam/detector.py
+Looking at apps/visual/SecurityCam/sys.py and 
+replacing sys with ['sys']
+ *** apps/visual/SecurityCam/pirCam.py
+--- current app: apps/visual/RPiIoTDoorbell
+Replacing the first-party imports for group: raw_imports
+ *** apps/visual/RPiIoTDoorbell/IOTNOTIFY2.py
+Looking at apps/visual/RPiIoTDoorbell/email.mime.application.py and 
+replacing email.mime.application with ['email.mime.application']
+Looking at apps/visual/RPiIoTDoorbell/email.mime.multipart.py and 
+replacing email.mime.multipart with ['email.mime.multipart']
+Looking at apps/visual/RPiIoTDoorbell/email.mime.text.py and 
+replacing email.mime.text with ['email.mime.text']
+Looking at apps/visual/RPiIoTDoorbell/smtplib.py and 
+replacing smtplib with ['smtplib']
+Looking at apps/visual/RPiIoTDoorbell/sys.py and 
+replacing sys with ['sys']
+ *** apps/visual/RPiIoTDoorbell/bell.py
+Looking at apps/visual/RPiIoTDoorbell/RPi/GPIO.py and apps/visual/RPiIoTDoorbell/RPi.py
+replacing RPi.GPIO with ['RPi']
+Looking at apps/visual/RPiIoTDoorbell/os.py and 
+replacing os with ['os']
+Looking at apps/visual/RPiIoTDoorbell/time.py and 
+replacing time with ['time']
+Replacing the first-party imports for group: unused
+ *** apps/visual/RPiIoTDoorbell/IOTNOTIFY2.py
+Looking at apps/visual/RPiIoTDoorbell/smtplib/SMTP.py and apps/visual/RPiIoTDoorbell/smtplib.py
+replacing smtplib.SMTP with ['smtplib']
+ *** apps/visual/RPiIoTDoorbell/bell.py
+Looking at apps/visual/RPiIoTDoorbell/glob.py and 
+replacing glob with ['glob']
+--- current app: apps/visual/PiNoculars.py
+--- current app: apps/visual/SendingReceivingPicsMqtt.py
+--- current app: apps/visual/camera-vision-logo.py
+--- current app: apps/visual/EasyRPISecCam.py
+--- current app: apps/visual/360_pi_cam
+Replacing the first-party imports for group: raw_imports
+ *** apps/visual/360_pi_cam/new_dewarp.py
+Looking at apps/visual/360_pi_cam/SimpleCV/Display.py and apps/visual/360_pi_cam/SimpleCV.py
+replacing SimpleCV.Display with ['SimpleCV']
+Looking at apps/visual/360_pi_cam/SimpleCV/Image.py and apps/visual/360_pi_cam/SimpleCV.py
+replacing SimpleCV.Image with ['SimpleCV']
+Looking at apps/visual/360_pi_cam/SimpleCV/VirtualCamera.py and apps/visual/360_pi_cam/SimpleCV.py
+replacing SimpleCV.VirtualCamera with ['SimpleCV']
+Looking at apps/visual/360_pi_cam/cv2.py and 
+replacing cv2 with ['cv2']
+Looking at apps/visual/360_pi_cam/numpy.py and 
+replacing numpy with ['numpy']
+ *** apps/visual/360_pi_cam/streamer.py
+Looking at apps/visual/360_pi_cam/SimpleCV.py and 
+replacing SimpleCV with ['SimpleCV']
+Looking at apps/visual/360_pi_cam/time.py and 
+replacing time with ['time']
+Replacing the first-party imports for group: unused
+ *** apps/visual/360_pi_cam/new_dewarp.py
+Looking at apps/visual/360_pi_cam/SimpleCV/Camera.py and apps/visual/360_pi_cam/SimpleCV.py
+replacing SimpleCV.Camera with ['SimpleCV']
+Looking at apps/visual/360_pi_cam/SimpleCV/Color.py and apps/visual/360_pi_cam/SimpleCV.py
+replacing SimpleCV.Color with ['SimpleCV']
+Looking at apps/visual/360_pi_cam/SimpleCV/VideoStream.py and apps/visual/360_pi_cam/SimpleCV.py
+replacing SimpleCV.VideoStream with ['SimpleCV']
+Looking at apps/visual/360_pi_cam/time.py and 
+replacing time with ['time']
+ *** apps/visual/360_pi_cam/streamer.py
+--- current app: apps/visual/vintage_raspi_cam
+Replacing the first-party imports for group: raw_imports
+ *** apps/visual/vintage_raspi_cam/python_camera.py
+Looking at apps/visual/vintage_raspi_cam/RPi/GPIO.py and apps/visual/vintage_raspi_cam/RPi.py
+replacing RPi.GPIO with ['RPi']
+Looking at apps/visual/vintage_raspi_cam/os.py and 
+replacing os with ['os']
+Looking at apps/visual/vintage_raspi_cam/pygame/camera.py and apps/visual/vintage_raspi_cam/pygame.py
+replacing pygame.camera with ['pygame']
+Looking at apps/visual/vintage_raspi_cam/python_dropbox.py and 
+Looking at apps/visual/vintage_raspi_cam/dropbox/client.py and apps/visual/vintage_raspi_cam/dropbox.py
+Looking at apps/visual/vintage_raspi_cam/os.py and 
+Looking at apps/visual/vintage_raspi_cam/urllib2.py and 
+replacing python_dropbox with ['dropbox', 'os', 'urllib2']
+Looking at apps/visual/vintage_raspi_cam/sys.py and 
+replacing sys with ['sys']
+Looking at apps/visual/vintage_raspi_cam/time/sleep.py and apps/visual/vintage_raspi_cam/time.py
+replacing time.sleep with ['time']
+Looking at apps/visual/vintage_raspi_cam/time/strftime.py and apps/visual/vintage_raspi_cam/time.py
+replacing time.strftime with ['time']
+ *** apps/visual/vintage_raspi_cam/python_dropbox.py
+Looking at apps/visual/vintage_raspi_cam/dropbox/client.py and apps/visual/vintage_raspi_cam/dropbox.py
+replacing dropbox.client with ['dropbox']
+Looking at apps/visual/vintage_raspi_cam/os.py and 
+replacing os with ['os']
+Looking at apps/visual/vintage_raspi_cam/urllib2.py and 
+replacing urllib2 with ['urllib2']
+Replacing the first-party imports for group: unused
+ *** apps/visual/vintage_raspi_cam/python_camera.py
+ *** apps/visual/vintage_raspi_cam/python_dropbox.py
+Looking at apps/visual/vintage_raspi_cam/sys.py and 
+replacing sys with ['sys']
+--- current app: apps/visual/pi-home-surveillance
+Replacing the first-party imports for group: raw_imports
+ *** apps/visual/pi-home-surveillance/pi_surveillance.py
+Looking at apps/visual/pi-home-surveillance/argparse.py and 
+replacing argparse with ['argparse']
+Looking at apps/visual/pi-home-surveillance/cv2.py and 
+replacing cv2 with ['cv2']
+Looking at apps/visual/pi-home-surveillance/datetime.py and 
+replacing datetime with ['datetime']
+Looking at apps/visual/pi-home-surveillance/dropbox/client.py and apps/visual/pi-home-surveillance/dropbox.py
+replacing dropbox.client with ['dropbox']
+Looking at apps/visual/pi-home-surveillance/imutils.py and 
+replacing imutils with ['imutils']
+Looking at apps/visual/pi-home-surveillance/json.py and 
+replacing json with ['json']
+Looking at apps/visual/pi-home-surveillance/picamera/PiCamera.py and apps/visual/pi-home-surveillance/picamera.py
+replacing picamera.PiCamera with ['picamera']
+Looking at apps/visual/pi-home-surveillance/picamera/array.py and apps/visual/pi-home-surveillance/picamera.py
+replacing picamera.array with ['picamera']
+Looking at apps/visual/pi-home-surveillance/pyimagesearch/tempimage.py and apps/visual/pi-home-surveillance/pyimagesearch.py
+Looking at apps/visual/pi-home-surveillance/pyimagesearch/os.py and 
+Looking at apps/visual/pi-home-surveillance/pyimagesearch/uuid.py and 
+replacing pyimagesearch.tempimage with ['os', 'uuid']
+Looking at apps/visual/pi-home-surveillance/time.py and 
+replacing time with ['time']
+Looking at apps/visual/pi-home-surveillance/warnings.py and 
+replacing warnings with ['warnings']
+ *** apps/visual/pi-home-surveillance/pyimagesearch/__init__.py
+ *** apps/visual/pi-home-surveillance/pyimagesearch/tempimage.py
+Looking at apps/visual/pi-home-surveillance/pyimagesearch/os.py and 
+replacing os with ['os']
+Looking at apps/visual/pi-home-surveillance/pyimagesearch/uuid.py and 
+replacing uuid with ['uuid']
+Replacing the first-party imports for group: unused
+ *** apps/visual/pi-home-surveillance/pi_surveillance.py
+ *** apps/visual/pi-home-surveillance/pyimagesearch/tempimage.py
