@@ -208,6 +208,7 @@ class Importation(Definition):
     def __init__(self, name, source, full_name=None):
         self.fullName = full_name or name
         self.redefined = []
+        self.mod = full_name
         super(Importation, self).__init__(name, source)
 
     def redefines(self, other):
@@ -259,6 +260,7 @@ class SubmoduleImportation(Importation):
         package_name = name.split('.')[0]
         super(SubmoduleImportation, self).__init__(package_name, source)
         self.fullName = name
+        self.mod = name
 
     def redefines(self, other):
         if isinstance(other, Importation):
@@ -285,6 +287,7 @@ class ImportationFrom(Importation):
             full_name = module + '.' + self.real_name
 
         super(ImportationFrom, self).__init__(name, source, full_name)
+        self.mod = module
 
     def __str__(self):
         """Return import full name with alias."""
@@ -312,6 +315,7 @@ class StarImportation(Importation):
         # may not be the module name otherwise it will be deemed imported
         self.name = name + '.*'
         self.fullName = name
+        self.mod = name
 
     @property
     def source_statement(self):
@@ -598,10 +602,10 @@ class Checker(object):
                     used = value.used or value.name in all_names
                     if not used:
                         messg = messages.UnusedImport
-                        self.unused_imports.append(str(value.name))
+                        self.unused_imports.append(str(value.mod))
                         self.report(messg, value.source, str(value))
                     else:
-                        self.imports.append(str(value.name))
+                        self.imports.append(str(value.mod))
                     for node in value.redefined:
                         if isinstance(self.getParent(node), ast.For):
                             messg = messages.ImportShadowedByLoopVar

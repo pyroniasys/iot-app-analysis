@@ -1,0 +1,214 @@
+apps/visual/camera-vision-logo.py:49:19: invalid syntax
+        print label
+                  ^
+apps/visual/CodeYourOwnPhotobooth.py:3: 'from tkinter import *' used; unable to detect undefined names
+apps/visual/CodeYourOwnPhotobooth.py:7: 'os' imported but unused
+apps/visual/CodeYourOwnPhotobooth.py:8: 'tkinter.filedialog' imported but unused
+apps/visual/CodeYourOwnPhotobooth.py:10: 'PIL.Image' imported but unused
+apps/visual/CodeYourOwnPhotobooth.py:31: 'Tk' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:39: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:40: 'BooleanVar' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:41: 'BooleanVar' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:42: 'BooleanVar' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:43: 'BooleanVar' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:44: 'BooleanVar' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:45: 'BooleanVar' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:46: 'IntVar' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:47: 'StringVar' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:48: 'StringVar' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:49: 'StringVar' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:50: 'StringVar' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:51: 'StringVar' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:144: 'FALSE' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:146: 'TRUE' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:159: 'Toplevel' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:170: 'Toplevel' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:180: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:189: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:196: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:200: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:240: 'Toplevel' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:252: 'W' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:254: 'Text' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:255: 'E' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:255: 'W' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:257: 'HORIZONTAL' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:257: 'E' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:257: 'W' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:264: 'HORIZONTAL' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:264: 'E' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:264: 'W' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:267: 'SW' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:270: 'SW' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:290: 'Toplevel' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:300: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:310: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:314: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:319: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:354: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:359: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:364: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:369: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:438: 'StringVar' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:440: 'StringVar' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:458: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:461: 'Toplevel' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:482: 'N' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:482: 'W' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:482: 'E' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:482: 'S' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:487: 'S' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:521: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:526: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:530: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:537: 'Toplevel' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:548: 'W' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:550: 'E' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:550: 'W' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:551: 'W' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:553: 'E' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:553: 'W' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:554: 'HORIZONTAL' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:554: 'E' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:554: 'W' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:557: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:561: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:565: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:569: 'HORIZONTAL' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:569: 'E' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:569: 'W' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:572: 'Spinbox' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:577: 'E' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:592: 'Menu' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:594: 'Menu' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:595: 'Menu' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:596: 'Menu' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:624: 'N' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:624: 'W' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:624: 'E' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:624: 'S' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:641: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:643: 'N' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:644: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:646: 'N' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:647: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:649: 'N' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:650: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:652: 'N' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:653: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:654: 'N' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:655: 'PhotoImage' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:656: 'S' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:659: 'W' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:659: 'S' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:659: 'E' may be undefined, or defined from star imports: tkinter
+apps/visual/CodeYourOwnPhotobooth.py:664: 'mainloop' may be undefined, or defined from star imports: tkinter
+apps/visual/EasyRPISecCam.py:72:18: invalid syntax
+        print resp.text
+                 ^
+apps/visual/GPIO&PiCameraUsingTelegram.py:17:10: invalid syntax
+print ppth
+         ^
+apps/visual/HomeSecurityEmailAlert.py:33:19: inconsistent use of tabs and spaces in indentation
+	if current_state:
+	                 ^
+apps/visual/monitordoorbell.py:24:30: invalid syntax
+        print "Cleaning up..."
+                             ^
+apps/visual/pidoorbell.py:68:33: invalid syntax
+print 'Doorbell Server Started\r'
+                                ^
+apps/visual/PiNoculars.py:450:16: invalid syntax
+	    print errno.errorcode[e.errno]
+	              ^
+apps/visual/PiScream.py:17:30: invalid syntax
+                print "Posted"
+                             ^
+apps/visual/robot.py:55:30: inconsistent use of tabs and spaces in indentation
+        GPIO.output(20, True)
+                             ^
+apps/visual/RPiLaserSecurity.py:11: 'subprocess' imported but unused
+apps/visual/SendingReceivingPicsMqtt.py:47: undefined name 'json'
+apps/visual/smartJpegCamera.py:16:31: inconsistent use of tabs and spaces in indentation
+	now = datetime.datetime.now()
+	                             ^
+apps/visual/360_pi_cam/new_dewarp.py:33:34: inconsistent use of tabs and spaces in indentation
+	map_x[y] = Cx + rMap[y] * sinMap
+	                                ^
+apps/visual/360_pi_cam/streamer.py:1: 'from SimpleCV import *' used; unable to detect undefined names
+apps/visual/360_pi_cam/streamer.py:3: 'Camera' may be undefined, or defined from star imports: SimpleCV
+apps/visual/360_pi_cam/streamer.py:4: 'JpegStreamer' may be undefined, or defined from star imports: SimpleCV
+apps/visual/pi-home-surveillance/pi_surveillance.py:34:46: invalid syntax
+	print "[INFO] Authorize this application: {}".format(flow.start())
+	                                            ^
+apps/visual/RPiIoTDoorbell/bell.py:4: 'glob' imported but unused
+apps/visual/RPiIoTDoorbell/IOTNOTIFY2.py:4: 'smtplib.SMTP' imported but unused
+apps/visual/RPiPhotobooth/boothcam.py:55:21: invalid syntax
+    except Exception, e:
+                    ^
+apps/visual/RPiPhotobooth/config.py:15: undefined name 'raw_input'
+apps/visual/RPiPhotobooth/credentials.py:1: 'os' imported but unused
+apps/visual/RPiPhotobooth/credentials.py:24: undefined name 'raw_input'
+apps/visual/RPiPhotobooth/custom.py:219:23: invalid syntax
+            lxsize = 0l
+                      ^
+apps/visual/RPiPhotobooth/cv2_camera.py:55:28: invalid syntax
+    print 'type "q" to quit'
+                           ^
+apps/visual/RPiPhotobooth/email_logger.py:16:11: invalid syntax
+    print f.read()
+          ^
+apps/visual/RPiPhotobooth/listalbums.py:116:32: invalid syntax
+            print 'selection is', choice
+                               ^
+apps/visual/RPiPhotobooth/mailfile.py:10: 'email.Encoders.encode_base64' imported but unused
+apps/visual/RPiPhotobooth/mailfile.py:43: undefined name 'email'
+apps/visual/RPiPhotobooth/matchbox_test.py:2: 'from Tkinter import *' used; unable to detect undefined names
+apps/visual/RPiPhotobooth/matchbox_test.py:22: 'Tk' may be undefined, or defined from star imports: Tkinter
+apps/visual/RPiPhotobooth/matchbox_test.py:23: 'Label' may be undefined, or defined from star imports: Tkinter
+apps/visual/RPiPhotobooth/matchbox_test.py:24: 'Entry' may be undefined, or defined from star imports: Tkinter
+apps/visual/RPiPhotobooth/matchbox_test.py:25: 'Button' may be undefined, or defined from star imports: Tkinter
+apps/visual/RPiPhotobooth/photobooth_gui.py:89:24: invalid syntax
+    print 'interrupted!'
+                       ^
+apps/visual/RPiPhotobooth/screenshot.py:33:17: invalid syntax
+    print 'saved', fn
+                ^
+apps/visual/RPiPhotobooth/tkkb.py:215:29: invalid syntax
+        print 'Enter Pressed'
+                            ^
+apps/visual/SecurityCam/detector.py:2: 'sys' imported but unused
+apps/visual/SecurityCam/pirCam.py:49:18: invalid syntax
+    print "FACE: ", det.drawColors[det.drawn-1 % len(det.drawColors)], faces
+                 ^
+apps/visual/vintage_raspi_cam/python_camera.py:56:46: inconsistent use of tabs and spaces in indentation
+        curr_time = strftime("%Y%m%d-%H%M%S")
+                                             ^
+apps/visual/vintage_raspi_cam/python_dropbox.py:20:25: invalid syntax
+	except urllib2.URLError, e:
+	                       ^
+apps/visual/WhoIsAtCoffeeMachine/run.py:27:29: invalid syntax
+        print 'Display ready'
+                            ^
+apps/visual/WhoIsAtCoffeeMachine/lcd/__init__.py:1: 'backlight' imported but unused
+apps/visual/WhoIsAtCoffeeMachine/lcd/__init__.py:2: 'screen' imported but unused
+apps/visual/WhoIsAtCoffeeMachine/lcd/__init__.py:3: 'display' imported but unused
+apps/visual/WhoIsAtCoffeeMachine/opencv/__init__.py:1: 'config' imported but unused
+apps/visual/WhoIsAtCoffeeMachine/opencv/__init__.py:2: 'face' imported but unused
+apps/visual/WhoIsAtCoffeeMachine/opencv/capture-positives.py:44:44: invalid syntax
+	print 'Capturing positive training images.'
+	                                          ^
+apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py:9: 'time' imported but unused
+apps/visual/WhoIsAtCoffeeMachine/opencv/train.py:58:35: invalid syntax
+	print "Reading training images..."
+	                                 ^
+apps/visual/WhoIsAtCoffeeMachine/sigfox/__init__.py:1: 'sendsigfox' imported but unused
+apps/visual/WhoIsAtCoffeeMachine/sigfox/sendreceivesigfox.py:50:19: invalid syntax
+		print 'Failure (' + currentMsg.replace('\r\n', '') + ')'
+		                ^
+apps/visual/WhoIsAtCoffeeMachine/sigfox/sendsigfox.py:31:30: invalid syntax
+        print 'Serial port : ' + portName
+                             ^
+apps/visual/WifiPhotobooth/photobooth_control.py:27:53: invalid syntax
+            print "I'm running under X display = {0}".format(disp_no)
+                                                    ^

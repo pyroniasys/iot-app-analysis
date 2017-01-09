@@ -26,21 +26,6 @@ def get_lib_name(l):
         lib = lib[:lib.find("-")-1]
     return lib
 
-def sanitize_imports(i):
-    libs = []
-    for l in i:
-        lib = l
-        # if the library is aliased, get the actual library name
-        if "as" in l:
-            lib = l.split(" ")[0]
-        # if the import does a * import, just keep the lib name
-        elif l.endswith("*"):
-            lib = l.split(".")[0]
-
-        libs.append(lib)
-    return libs
-
-
 def count_freq(to_count):
     m = dict()
     for i in to_count:
@@ -132,9 +117,13 @@ def get_unique(typ, libs):
     unique_libs['env'] = env
     return unique_libs
 
+# remove duplicate entries from a list
+def remove_dups(l):
+    return list(set(l))
+
 def read_map(filename):
     with open(filename, "r") as f:
-        m = json.loads(f.read())
+        m = json.loads(f.read(), object_pairs_hook=OrderedDict)
     return m
 
 def write_val(v, name):
