@@ -119,7 +119,7 @@ def get_unique(typ, libs):
 
 # remove duplicate entries from a list
 def remove_dups(l):
-    return list(set(l))
+    return sorted(list(set(l)))
 
 def read_map(filename):
     with open(filename, "r") as f:

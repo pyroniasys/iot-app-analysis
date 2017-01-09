@@ -1,0 +1,367 @@
+{
+    "apps/visual/WhoIsAtCoffeeMachine/lcd/screen.py": [
+        "smbus",
+        "time"
+    ],
+    "apps/visual/RPiLaserSecurity.py": [
+        "time",
+        "RPi.GPIO",
+        "os"
+    ],
+    "apps/visual/RPiPhotobooth/screenshot.py": [
+        "os",
+        "datetime",
+        "pyscreenshot"
+    ],
+    "apps/visual/PiNoculars.py": [
+        "atexit",
+        "io",
+        "pygame.locals",
+        "yuv2rgb",
+        "errno",
+        "subprocess",
+        "pygame",
+        "stat",
+        "cPickle",
+        "picamera",
+        "threading",
+        "time",
+        "fnmatch",
+        "os.path"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/opencv/face.py": [
+        "cv2",
+        "config"
+    ],
+    "apps/visual/RPiIoTDoorbell/bell.py": [
+        "time",
+        "RPi.GPIO",
+        "os"
+    ],
+    "apps/visual/SendingReceivingPicsMqtt.py": [
+        "base64",
+        "string",
+        "ibmiotf.device",
+        "picamera",
+        "random",
+        "time",
+        "math"
+    ],
+    "apps/visual/SecurityCam/detector.py": [
+        "random",
+        "cv2"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py": [
+        "cv2",
+        "picamera",
+        "io",
+        "numpy",
+        "config"
+    ],
+    "apps/visual/PiScream.py": [
+        "picamera",
+        "time",
+        "RPi.GPIO",
+        "requests"
+    ],
+    "apps/visual/RPiPhotobooth/credentials.py": [
+        "gdata.gauth",
+        "datetime",
+        "oauth2client.file",
+        "oauth2client.client",
+        "datetime",
+        "webbrowser",
+        "httplib2"
+    ],
+    "apps/visual/GPIO&PiCameraUsingTelegram.py": [
+        "functools",
+        "datetime",
+        "RPi.GPIO",
+        "tgl",
+        "datetime",
+        "datetime",
+        "subprocess",
+        "picamera",
+        "time",
+        "os"
+    ],
+    "apps/visual/HomeSecurityEmailAlert.py": [
+        "email",
+        "datetime",
+        "email.MIMEText",
+        "RPi.GPIO",
+        "cv2",
+        "email.MIMEBase",
+        "smtplib",
+        "email.MIMEMultipart",
+        "os"
+    ],
+    "apps/visual/pi-home-surveillance/pi_surveillance.py": [
+        "picamera",
+        "datetime",
+        "imutils",
+        "picamera.array",
+        "cv2",
+        "json",
+        "dropbox.client",
+        "warnings",
+        "pyimagesearch.tempimage",
+        "argparse",
+        "dropbox.client",
+        "time"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/opencv/capture-positives.py": [
+        "os",
+        "glob",
+        "cv2",
+        "face",
+        "sys",
+        "config",
+        "select"
+    ],
+    "apps/visual/RPiPhotobooth/config.py": [
+        "getpass",
+        "os.path"
+    ],
+    "apps/visual/EasyRPISecCam.py": [
+        "picamera",
+        "datetime",
+        "requests",
+        "os.path"
+    ],
+    "apps/visual/360_pi_cam/new_dewarp.py": [
+        "cv2",
+        "numpy",
+        "SimpleCV",
+        "SimpleCV",
+        "SimpleCV"
+    ],
+    "apps/visual/RPiPhotobooth/cv2_camera.py": [
+        "cv2",
+        "time"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/lcd/backlight.py": [
+        "smbus",
+        "time"
+    ],
+    "apps/visual/RPiIoTDoorbell/IOTNOTIFY2.py": [
+        "email.mime.multipart",
+        "email.mime.application",
+        "sys",
+        "email.mime.text",
+        "smtplib"
+    ],
+    "apps/visual/360_pi_cam/streamer.py": [
+        "SimpleCV",
+        "time"
+    ],
+    "apps/visual/monitordoorbell.py": [
+        "RPi.GPIO",
+        "subprocess",
+        "time"
+    ],
+    "apps/visual/RPiPhotobooth/photobooth_gui.py": [
+        "screenshot",
+        "Tkinter",
+        "constants",
+        "boothcam",
+        "ImageTk",
+        "tkkb",
+        "custom",
+        "mailfile",
+        "Image",
+        "tkMessageBox",
+        "time",
+        "signal"
+    ],
+    "apps/visual/pidoorbell.py": [
+        "MySQLdb",
+        "time",
+        "RPi.GPIO",
+        "urllib",
+        "http.client",
+        "datetime",
+        "socket",
+        "os"
+    ],
+    "apps/visual/RPiPhotobooth/mailfile.py": [
+        "email.MIMEMultipart",
+        "mimetypes",
+        "email.MIMEAudio",
+        "config",
+        "email_logger",
+        "email.MIMEBase",
+        "email.MIMEText",
+        "email.MIMEImage",
+        "smtplib",
+        "os"
+    ],
+    "apps/visual/smartJpegCamera.py": [
+        "picamera",
+        "datetime",
+        "time",
+        "RPi.GPIO"
+    ],
+    "apps/visual/CodeYourOwnPhotobooth.py": [
+        "tkinter",
+        "RPi.GPIO",
+        "tkinter",
+        "picamera",
+        "tkinter",
+        "time",
+        "subprocess",
+        "shelve"
+    ],
+    "apps/visual/RPiPhotobooth/boothcam.py": [
+        "serial",
+        "constants",
+        "custom",
+        "constants",
+        "subprocess",
+        "config",
+        "credentials",
+        "glob",
+        "cv2_camera",
+        "PIL",
+        "time",
+        "os.path"
+    ],
+    "apps/visual/camera-vision-logo.py": [
+        "base64",
+        "picamera",
+        "oauth2client.client",
+        "googleapiclient"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/lcd/display.py": [
+        "screen",
+        "math",
+        "time",
+        "smbus",
+        "backlight"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/sigfox/sendreceivesigfox.py": [
+        "sys",
+        "re",
+        "time",
+        "serial"
+    ],
+    "apps/visual/RPiPhotobooth/countdown_test.py": [
+        "picamera",
+        "pygame",
+        "time"
+    ],
+    "apps/visual/surocam.py": [
+        "webiopi"
+    ],
+    "apps/visual/RPiPhotobooth/matchbox_test.py": [
+        "subprocess",
+        "Tkinter"
+    ],
+    "apps/visual/RPiPhotobooth/tkkb.py": [
+        "Tkinter"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/opencv/config.py": [
+        "picam"
+    ],
+    "apps/visual/robot.py": [
+        "keys",
+        "pubnub",
+        "time",
+        "RPi.GPIO"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/opencv/train.py": [
+        "cv2",
+        "numpy",
+        "config",
+        "face",
+        "fnmatch",
+        "os"
+    ],
+    "apps/visual/vintage_raspi_cam/python_camera.py": [
+        "time",
+        "RPi.GPIO",
+        "pygame.camera",
+        "sys",
+        "os",
+        "time",
+        "python_dropbox"
+    ],
+    "apps/visual/RPiPhotobooth/custom.py": [
+        "tkFileDialog",
+        "tkSimpleDialog",
+        "ImageTk",
+        "constants",
+        "constants",
+        "ConfigParser",
+        "Tkinter",
+        "listalbums",
+        "os.path",
+        "Image"
+    ],
+    "apps/visual/WifiPhotobooth/photobooth_control.py": [
+        "random",
+        "subprocess",
+        "RPi.GPIO",
+        "pygame",
+        "Image",
+        "picamera",
+        "time",
+        "os"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/sigfox/sendsigfox.py": [
+        "sys",
+        "time",
+        "serial"
+    ],
+    "apps/visual/vintage_raspi_cam/python_dropbox.py": [
+        "os",
+        "urllib2",
+        "dropbox.client"
+    ],
+    "apps/visual/TwitterPhotoLiveFeed.py": [
+        "random",
+        "datetime",
+        "subprocess",
+        "time",
+        "tweepy"
+    ],
+    "apps/visual/pi-home-surveillance/pyimagesearch/tempimage.py": [
+        "os",
+        "uuid"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/run.py": [
+        "imutils",
+        "lcd",
+        "cv2",
+        "sigfox",
+        "smbus",
+        "opencv",
+        "imutils.video",
+        "opencv",
+        "time",
+        "lcd"
+    ],
+    "apps/visual/SecurityCam/pirCam.py": [
+        "Pubnub",
+        "RPi.GPIO",
+        "detector",
+        "base64",
+        "json",
+        "sys",
+        "httplib",
+        "picamera",
+        "threading",
+        "time",
+        "os"
+    ],
+    "apps/visual/RPiPhotobooth/listalbums.py": [
+        "Tkinter",
+        "credentials",
+        "tkkb",
+        "sys",
+        "os"
+    ],
+    "apps/visual/SecurityCam/Overlay/overlay.py": [
+        "cv2"
+    ]
+}

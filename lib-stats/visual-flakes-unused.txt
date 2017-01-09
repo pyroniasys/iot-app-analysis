@@ -1,0 +1,110 @@
+{
+    "apps/visual/WhoIsAtCoffeeMachine/sigfox/sendreceivesigfox.py": [
+        "time"
+    ],
+    "apps/visual/RPiLaserSecurity.py": [
+        "subprocess"
+    ],
+    "apps/visual/RPiPhotobooth/screenshot.py": [
+        "time"
+    ],
+    "apps/visual/RPiIoTDoorbell/bell.py": [
+        "glob"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/sigfox/__init__.py": [
+        "sendsigfox"
+    ],
+    "apps/visual/EasyRPISecCam.py": [
+        "time"
+    ],
+    "apps/visual/robot.py": [
+        "sys"
+    ],
+    "apps/visual/SecurityCam/detector.py": [
+        "sys"
+    ],
+    "apps/visual/RPiPhotobooth/credentials.py": [
+        "os"
+    ],
+    "apps/visual/GPIO&PiCameraUsingTelegram.py": [
+        "sys",
+        "shlex"
+    ],
+    "apps/visual/HomeSecurityEmailAlert.py": [
+        "numpy",
+        "time"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/lcd/__init__.py": [
+        "screen",
+        "display",
+        "backlight"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/sigfox/sendsigfox.py": [
+        "time"
+    ],
+    "apps/visual/WifiPhotobooth/photobooth_control.py": [
+        "pygame.locals"
+    ],
+    "apps/visual/360_pi_cam/new_dewarp.py": [
+        "SimpleCV",
+        "SimpleCV",
+        "SimpleCV",
+        "time"
+    ],
+    "apps/visual/RPiPhotobooth/cv2_camera.py": [
+        "numpy"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/run.py": [
+        "datetime",
+        "lcd",
+        "argparse"
+    ],
+    "apps/visual/vintage_raspi_cam/python_dropbox.py": [
+        "sys"
+    ],
+    "apps/visual/RPiIoTDoorbell/IOTNOTIFY2.py": [
+        "smtplib"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py": [
+        "time"
+    ],
+    "apps/visual/monitordoorbell.py": [
+        "os"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/opencv/__init__.py": [
+        "config",
+        "face"
+    ],
+    "apps/visual/RPiPhotobooth/photobooth_gui.py": [
+        "config"
+    ],
+    "apps/visual/pidoorbell.py": [
+        "subprocess",
+        "fcntl",
+        "struct"
+    ],
+    "apps/visual/RPiPhotobooth/mailfile.py": [
+        "email.Encoders"
+    ],
+    "apps/visual/CodeYourOwnPhotobooth.py": [
+        "tkinter",
+        "os",
+        "PIL"
+    ],
+    "apps/visual/RPiPhotobooth/boothcam.py": [
+        "tkFileDialog",
+        "oauth2client.file",
+        "datetime",
+        "time",
+        "gdata.gauth",
+        "oauth2client.client",
+        "datetime",
+        "webbrowser",
+        "httplib2",
+        "constants",
+        "constants"
+    ],
+    "apps/visual/camera-vision-logo.py": [
+        "argparse"
+    ]
+}
