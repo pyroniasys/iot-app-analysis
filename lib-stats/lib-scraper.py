@@ -15,19 +15,64 @@ from util import write_map, read_map, remove_dups
 from pyflakes import reporter as modReporter
 from pyflakes.api import checkRecursive
 
+def get_prefix(path):
+    dirs = path.split('/')
+    script_idx = len(dirs)
+    prefix = "/".join(dirs[0:script_idx-1])
+    return prefix
+
+def get_supermod(name):
+     if name.count('.') == 1:
+        mod = name.split('.')
+        return "/"+mod[0]
+     else:
+         return ""
+
+def make_super_mod_name(prefix, name):
+    supermod =  prefix+get_supermod(name)+".py"
+
+    # this case is true if the module doesn't have a supermodule
+    if supermod == prefix+".py":
+        return ""
+
+    return supermod
+
 def make_mod_name(prefix, name):
+    if name.count('.') == 1:
+        mod = name.split('.')
+        return prefix+"/"+mod[0]+"/"+mod[1]+".py"
+
     return prefix+"/"+name+".py"
 
-def replace_fp_mod(prefix, mod, d):
+def replace_fp_mod(prefix, mod, d, visited):
     n = make_mod_name(prefix, mod)
-    if d.get(n) == None:
+    s = make_super_mod_name(prefix, mod)
+    print("Looking at "+n+" and "+s)
+    if d.get(n) == None and d.get(s) == None:
+        print("Adding "+mod)
         return [mod]
     else:
-        l = []
-        for m in d[n]:
-            tmp = replace_fp_mod(prefix, m, d)
-            l.extend(tmp)
-        return l
+        insuper = False
+        if d.get(n) != None:
+            mo = n
+        elif d.get(s) != None:
+            insuper = True
+            mo = s
+
+        if mo in visited:
+            print(mo+" is either imported recursively, or doesn't have imports")
+            return []
+        else:
+            visited.append(mo)
+            l = []
+            for m in d[mo]:
+                next_mod = prefix+get_supermod(mod)
+                if insuper:
+                    next_mod = prefix
+
+                tmp = replace_fp_mod(next_mod, m, d, visited)
+                l.extend(tmp)
+            return l
 
 # pass in the category: visual, audio or env
 cat = sys.argv[1]
@@ -63,6 +108,9 @@ un_2 = read_map(cat+"-flakes-unused-py2.txt")
 imports_raw = {**imps, **imps_2}
 unused_raw = {**un, **un_2}
 
+#write_map(imports_raw, cat+"-flakes-imports.txt")
+#write_map(unused_raw, cat+"-flakes-unused.txt")
+
 os.remove(cat+"-flakes-imports-py2.txt")
 os.remove(cat+"-flakes-unused-py2.txt")
 
@@ -89,21 +137,24 @@ for a in apps:
         apps[a]['imports'] = OrderedDict(sorted(apps[a]['imports'].items(), key=lambda t: t[0]))
 
         libs = []
-        print("current app: "+a)
+        print("--- current app: "+a)
         for src, i in apps[a]['imports'].items():
-            for l in i:
+             pref = get_prefix(src)
+             print(" *** "+src)
+             print(pref)
+             for l in i:
                 # TODO: add checks for subprocess.call, subprocess.Popen
                 # os.system, os.spawn, etc
-                if apps[a]['imports'].get(make_mod_name(a, l)) != None:
-                    try:
-                        tmp = replace_fp_mod(a, l, apps[a]['imports'])
-                        print("replacing "+l+" with "+str(tmp))
-                        libs.extend(tmp)
-                    except RecursionError:
-                        print("died trying to replace "+l+" in "+src)
-                        sys.exit(-1)
-                else:
-                    libs.append(l)
+                try:
+                    # add entry for each src once we've tried to replace it
+                    recurs_limit = []
+                    tmp = replace_fp_mod(pref, l, apps[a]['imports'], recurs_limit)
+                    print("replacing "+l+" with "+str(tmp))
+                    libs.extend(tmp)
+                except RecursionError:
+                    print("died trying to replace "+l+" in "+src)
+                    sys.exit(-1)
+
         apps[a]['imports'] = remove_dups(libs)
 
 # remove all __init__.py unused imports since they aren't actually unused

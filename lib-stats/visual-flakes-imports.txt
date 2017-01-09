@@ -1,17 +1,179 @@
 {
-    "apps/visual/WhoIsAtCoffeeMachine/lcd/screen.py": [
-        "smbus",
-        "time"
-    ],
-    "apps/visual/RPiLaserSecurity.py": [
+    "apps/visual/RPiIoTDoorbell/bell.py": [
         "time",
         "RPi.GPIO",
         "os"
     ],
-    "apps/visual/RPiPhotobooth/screenshot.py": [
+    "apps/visual/robot.py": [
+        "keys",
+        "pubnub.Pubnub",
+        "time",
+        "RPi.GPIO"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/sigfox/__init__.py": [],
+    "apps/visual/monitordoorbell.py": [
+        "RPi.GPIO",
+        "subprocess",
+        "time"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/opencv/train.py": [
+        "cv2",
+        "numpy",
+        "config",
+        "face",
+        "fnmatch",
+        "os"
+    ],
+    "apps/visual/vintage_raspi_cam/python_dropbox.py": [
         "os",
+        "urllib2",
+        "dropbox.client"
+    ],
+    "apps/visual/Fishtank/keys.py": [],
+    "apps/visual/camera-vision-logo.py": [
+        "base64",
+        "picamera",
+        "oauth2client.client",
+        "googleapiclient.discovery"
+    ],
+    "apps/visual/pi-home-surveillance/pyimagesearch/__init__.py": [],
+    "apps/visual/RPiPhotobooth/credentials.py": [
+        "gdata.gauth",
+        "datetime.timedelta",
+        "oauth2client.file",
+        "oauth2client.client",
+        "datetime.datetime",
+        "webbrowser",
+        "httplib2"
+    ],
+    "apps/visual/WifiPhotobooth/photobooth_control.py": [
+        "random",
+        "subprocess",
+        "RPi.GPIO",
+        "pygame",
+        "Image",
+        "picamera",
+        "time",
+        "os"
+    ],
+    "apps/visual/CodeYourOwnPhotobooth.py": [
+        "tkinter.ttk",
+        "RPi.GPIO",
+        "tkinter.font",
+        "picamera.PiCamera",
+        "tkinter",
+        "time",
+        "subprocess",
+        "shelve"
+    ],
+    "apps/visual/pidoorbell.py": [
+        "MySQLdb",
+        "time.sleep",
+        "RPi.GPIO",
+        "urllib",
+        "http.client",
         "datetime",
-        "pyscreenshot"
+        "socket",
+        "os"
+    ],
+    "apps/visual/RPiPhotobooth/tkkb.py": [
+        "Tkinter"
+    ],
+    "apps/visual/RPiPhotobooth/matchbox_test.py": [
+        "subprocess",
+        "Tkinter"
+    ],
+    "apps/visual/360_pi_cam/streamer.py": [
+        "SimpleCV",
+        "time"
+    ],
+    "apps/visual/PiScream.py": [
+        "picamera",
+        "time",
+        "RPi.GPIO",
+        "requests"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/opencv/capture-positives.py": [
+        "os",
+        "glob",
+        "cv2",
+        "face",
+        "sys",
+        "config",
+        "select"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/opencv/__init__.py": [],
+    "apps/visual/RPiPhotobooth/listalbums.py": [
+        "Tkinter",
+        "credentials.OAuth2Login",
+        "tkkb",
+        "sys",
+        "os"
+    ],
+    "apps/visual/RPiPhotobooth/boothcam.py": [
+        "serial",
+        "constants.SCREEN_W",
+        "custom",
+        "constants.SCREEN_H",
+        "subprocess.call",
+        "config",
+        "credentials.OAuth2Login",
+        "glob",
+        "cv2_camera",
+        "PIL.Image",
+        "time",
+        "os.path"
+    ],
+    "apps/visual/Fishtank/EventList.py": [
+        "Event.FeedEvent",
+        "datetime",
+        "Event.PictureEvent",
+        "Event.LightEvent"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/opencv/config.py": [
+        "picam"
+    ],
+    "apps/visual/HomeSecurityEmailAlert.py": [
+        "email.Encoders",
+        "datetime.datetime",
+        "email.MIMEText",
+        "RPi.GPIO",
+        "cv2",
+        "email.MIMEBase",
+        "smtplib",
+        "email.MIMEMultipart",
+        "os"
+    ],
+    "apps/visual/RPiIoTDoorbell/IOTNOTIFY2.py": [
+        "email.mime.multipart",
+        "email.mime.application",
+        "sys",
+        "email.mime.text",
+        "smtplib"
+    ],
+    "apps/visual/RPiPhotobooth/constants.py": [],
+    "apps/visual/WhoIsAtCoffeeMachine/run.py": [
+        "imutils",
+        "lcd.backlight",
+        "cv2",
+        "sigfox.sendsigfox",
+        "smbus.SMBus",
+        "opencv.config",
+        "imutils.video",
+        "opencv.face",
+        "time",
+        "lcd.display"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/opencv/face.py": [
+        "cv2",
+        "config"
+    ],
+    "apps/visual/Fishtank/pushbullet.py": [
+        "magic",
+        "requests.auth",
+        "websocket.create_connection",
+        "json",
+        "requests"
     ],
     "apps/visual/PiNoculars.py": [
         "atexit",
@@ -19,7 +181,7 @@
         "pygame.locals",
         "yuv2rgb",
         "errno",
-        "subprocess",
+        "subprocess.call",
         "pygame",
         "stat",
         "cPickle",
@@ -29,75 +191,74 @@
         "fnmatch",
         "os.path"
     ],
-    "apps/visual/WhoIsAtCoffeeMachine/opencv/face.py": [
-        "cv2",
-        "config"
+    "apps/visual/WhoIsAtCoffeeMachine/sigfox/sendreceivesigfox.py": [
+        "sys",
+        "re",
+        "time.sleep",
+        "serial"
     ],
-    "apps/visual/RPiIoTDoorbell/bell.py": [
+    "apps/visual/smartJpegCamera.py": [
+        "picamera",
+        "datetime",
+        "time",
+        "RPi.GPIO"
+    ],
+    "apps/visual/RPiLaserSecurity.py": [
         "time",
         "RPi.GPIO",
         "os"
     ],
-    "apps/visual/SendingReceivingPicsMqtt.py": [
-        "base64",
-        "string",
-        "ibmiotf.device",
-        "picamera",
-        "random",
+    "apps/visual/RPiPhotobooth/custom.py": [
+        "tkFileDialog",
+        "tkSimpleDialog",
+        "ImageTk",
+        "constants.SCREEN_W",
+        "constants.SCREEN_H",
+        "ConfigParser",
+        "Tkinter",
+        "listalbums",
+        "os.path",
+        "Image"
+    ],
+    "apps/visual/RPiPhotobooth/photobooth_gui.py": [
+        "screenshot",
+        "Tkinter",
+        "constants",
+        "boothcam",
+        "ImageTk",
+        "tkkb.Tkkb",
+        "custom",
+        "mailfile",
+        "Image",
+        "tkMessageBox",
         "time",
-        "math"
+        "signal"
     ],
-    "apps/visual/SecurityCam/detector.py": [
-        "random",
-        "cv2"
-    ],
-    "apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py": [
+    "apps/visual/RPiPhotobooth/cv2_camera.py": [
         "cv2",
-        "picamera",
-        "io",
-        "numpy",
-        "config"
+        "time"
     ],
-    "apps/visual/PiScream.py": [
-        "picamera",
+    "apps/visual/WhoIsAtCoffeeMachine/lcd/display.py": [
+        "screen",
+        "math",
         "time",
-        "RPi.GPIO",
-        "requests"
+        "smbus.SMBus",
+        "backlight"
     ],
-    "apps/visual/RPiPhotobooth/credentials.py": [
-        "gdata.gauth",
-        "datetime",
-        "oauth2client.file",
-        "oauth2client.client",
-        "datetime",
-        "webbrowser",
-        "httplib2"
-    ],
-    "apps/visual/GPIO&PiCameraUsingTelegram.py": [
-        "functools",
-        "datetime",
+    "apps/visual/vintage_raspi_cam/python_camera.py": [
+        "time.sleep",
         "RPi.GPIO",
-        "tgl",
-        "datetime",
-        "datetime",
-        "subprocess",
-        "picamera",
-        "time",
-        "os"
+        "pygame.camera",
+        "sys",
+        "os",
+        "time.strftime",
+        "python_dropbox"
     ],
-    "apps/visual/HomeSecurityEmailAlert.py": [
-        "email",
-        "datetime",
-        "email.MIMEText",
-        "RPi.GPIO",
-        "cv2",
-        "email.MIMEBase",
-        "smtplib",
-        "email.MIMEMultipart",
-        "os"
+    "apps/visual/surocam.py": [
+        "webiopi"
     ],
     "apps/visual/pi-home-surveillance/pi_surveillance.py": [
-        "picamera",
+        "picamera.PiCamera",
         "datetime",
         "imutils",
         "picamera.array",
@@ -110,79 +271,47 @@
         "dropbox.client",
         "time"
     ],
-    "apps/visual/WhoIsAtCoffeeMachine/opencv/capture-positives.py": [
-        "os",
-        "glob",
-        "cv2",
-        "face",
-        "sys",
-        "config",
-        "select"
+    "apps/visual/Fishtank/Container.py": [
+        "time",
+        "datetime"
     ],
-    "apps/visual/RPiPhotobooth/config.py": [
-        "getpass",
-        "os.path"
-    ],
-    "apps/visual/EasyRPISecCam.py": [
-        "picamera",
+    "apps/visual/Fishtank/FishTank.py": [
+        "Log",
+        "FishFeeder",
         "datetime",
-        "requests",
-        "os.path"
-    ],
-    "apps/visual/360_pi_cam/new_dewarp.py": [
-        "cv2",
-        "numpy",
-        "SimpleCV",
-        "SimpleCV",
-        "SimpleCV"
-    ],
-    "apps/visual/RPiPhotobooth/cv2_camera.py": [
-        "cv2",
+        "Lights",
+        "Camera",
+        "configparser",
+        "FoodStore",
+        "EventList",
         "time"
     ],
-    "apps/visual/WhoIsAtCoffeeMachine/lcd/backlight.py": [
-        "smbus",
-        "time"
-    ],
-    "apps/visual/RPiIoTDoorbell/IOTNOTIFY2.py": [
-        "email.mime.multipart",
-        "email.mime.application",
-        "sys",
-        "email.mime.text",
-        "smtplib"
-    ],
-    "apps/visual/360_pi_cam/streamer.py": [
-        "SimpleCV",
-        "time"
-    ],
-    "apps/visual/monitordoorbell.py": [
+    "apps/visual/GPIO&PiCameraUsingTelegram.py": [
+        "functools.partial",
+        "datetime.datetime",
         "RPi.GPIO",
+        "tgl",
+        "datetime.timedelta",
+        "datetime",
         "subprocess",
-        "time"
-    ],
-    "apps/visual/RPiPhotobooth/photobooth_gui.py": [
-        "screenshot",
-        "Tkinter",
-        "constants",
-        "boothcam",
-        "ImageTk",
-        "tkkb",
-        "custom",
-        "mailfile",
-        "Image",
-        "tkMessageBox",
+        "picamera",
         "time",
-        "signal"
-    ],
-    "apps/visual/pidoorbell.py": [
-        "MySQLdb",
-        "time",
-        "RPi.GPIO",
-        "urllib",
-        "http.client",
-        "datetime",
-        "socket",
         "os"
+    ],
+    "apps/visual/SecurityCam/detector.py": [
+        "random",
+        "cv2"
+    ],
+    "apps/visual/Fishtank/Log.py": [
+        "Camera",
+        "thread",
+        "traceback",
+        "sys",
+        "MySQLdb",
+        "FishTank",
+        "time",
+        "Config",
+        "pushbullet.PushBullet"
     ],
     "apps/visual/RPiPhotobooth/mailfile.py": [
         "email.MIMEMultipart",
@@ -196,53 +325,76 @@
         "smtplib",
         "os"
     ],
-    "apps/visual/smartJpegCamera.py": [
-        "picamera",
+    "apps/visual/RPiPhotobooth/screenshot.py": [
+        "os",
         "datetime",
-        "time",
-        "RPi.GPIO"
+        "pyscreenshot"
     ],
-    "apps/visual/CodeYourOwnPhotobooth.py": [
-        "tkinter",
-        "RPi.GPIO",
-        "tkinter",
+    "apps/visual/RPiPhotobooth/email_logger.py": [],
+    "apps/visual/Fishtank/server.py": [
+        "thread.start_new_thread",
+        "time",
+        "os",
+        "FishTank"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/lcd/screen.py": [
+        "smbus.SMBus",
+        "time"
+    ],
+    "apps/visual/pi-home-surveillance/pyimagesearch/tempimage.py": [
+        "os",
+        "uuid"
+    ],
+    "apps/visual/EasyRPISecCam.py": [
         "picamera",
-        "tkinter",
-        "time",
-        "subprocess",
-        "shelve"
-    ],
-    "apps/visual/RPiPhotobooth/boothcam.py": [
-        "serial",
-        "constants",
-        "custom",
-        "constants",
-        "subprocess",
-        "config",
-        "credentials",
-        "glob",
-        "cv2_camera",
-        "PIL",
-        "time",
+        "datetime.datetime",
+        "requests",
         "os.path"
     ],
-    "apps/visual/camera-vision-logo.py": [
+    "apps/visual/SendingReceivingPicsMqtt.py": [
         "base64",
+        "string",
+        "ibmiotf.device",
         "picamera",
-        "oauth2client.client",
-        "googleapiclient"
+        "random",
+        "time.sleep",
+        "math"
     ],
-    "apps/visual/WhoIsAtCoffeeMachine/lcd/display.py": [
-        "screen",
-        "math",
-        "time",
-        "smbus",
-        "backlight"
+    "apps/visual/Fishtank/Lights.py": [
+        "subprocess.call",
+        "Config",
+        "FishTank"
     ],
-    "apps/visual/WhoIsAtCoffeeMachine/sigfox/sendreceivesigfox.py": [
+    "apps/visual/Fishtank/FoodStore.py": [
+        "Container.Container",
+        "Config"
+    ],
+    "apps/visual/SecurityCam/Overlay/overlay.py": [
+        "cv2"
+    ],
+    "apps/visual/Fishtank/Camera.py": [
+        "Log",
+        "datetime",
+        "pygame.transform",
+        "Config",
+        "FishTank"
+    ],
+    "apps/visual/Fishtank/Config.py": [
+        "configparser"
+    ],
+    "apps/visual/Fishtank/FishFeeder.py": [
+        "thread.start_new_thread",
+        "datetime",
+        "serial",
+        "time"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/lcd/backlight.py": [
+        "smbus.SMBus",
+        "time"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/sigfox/sendsigfox.py": [
         "sys",
-        "re",
-        "time",
+        "time.sleep",
         "serial"
     ],
     "apps/visual/RPiPhotobooth/countdown_test.py": [
@@ -250,101 +402,47 @@
         "pygame",
         "time"
     ],
-    "apps/visual/surocam.py": [
-        "webiopi"
-    ],
-    "apps/visual/RPiPhotobooth/matchbox_test.py": [
-        "subprocess",
-        "Tkinter"
-    ],
-    "apps/visual/RPiPhotobooth/tkkb.py": [
-        "Tkinter"
-    ],
-    "apps/visual/WhoIsAtCoffeeMachine/opencv/config.py": [
-        "picam"
-    ],
-    "apps/visual/robot.py": [
-        "keys",
-        "pubnub",
-        "time",
-        "RPi.GPIO"
-    ],
-    "apps/visual/WhoIsAtCoffeeMachine/opencv/train.py": [
-        "cv2",
-        "numpy",
-        "config",
-        "face",
-        "fnmatch",
-        "os"
-    ],
-    "apps/visual/vintage_raspi_cam/python_camera.py": [
-        "time",
-        "RPi.GPIO",
-        "pygame.camera",
-        "sys",
-        "os",
-        "time",
-        "python_dropbox"
-    ],
-    "apps/visual/RPiPhotobooth/custom.py": [
-        "tkFileDialog",
-        "tkSimpleDialog",
-        "ImageTk",
-        "constants",
-        "constants",
-        "ConfigParser",
-        "Tkinter",
-        "listalbums",
-        "os.path",
-        "Image"
-    ],
-    "apps/visual/WifiPhotobooth/photobooth_control.py": [
-        "random",
-        "subprocess",
-        "RPi.GPIO",
-        "pygame",
-        "Image",
-        "picamera",
-        "time",
-        "os"
-    ],
-    "apps/visual/WhoIsAtCoffeeMachine/sigfox/sendsigfox.py": [
-        "sys",
-        "time",
-        "serial"
-    ],
-    "apps/visual/vintage_raspi_cam/python_dropbox.py": [
-        "os",
-        "urllib2",
-        "dropbox.client"
+    "apps/visual/RPiPhotobooth/config.py": [
+        "getpass",
+        "os.path"
     ],
     "apps/visual/TwitterPhotoLiveFeed.py": [
         "random",
-        "datetime",
-        "subprocess",
+        "datetime.datetime",
+        "subprocess.call",
         "time",
         "tweepy"
     ],
-    "apps/visual/pi-home-surveillance/pyimagesearch/tempimage.py": [
-        "os",
-        "uuid"
-    ],
-    "apps/visual/WhoIsAtCoffeeMachine/run.py": [
-        "imutils",
-        "lcd",
-        "cv2",
-        "sigfox",
-        "smbus",
-        "opencv",
-        "imutils.video",
-        "opencv",
+    "apps/visual/WhoIsAtCoffeeMachine/lcd/__init__.py": [],
+    "apps/visual/Fishtank/FlaskServer.py": [
+        "Log",
+        "thread",
+        "flask.ext.login",
+        "FishFeeder",
+        "datetime",
+        "Lights",
+        "Camera",
+        "flask_login",
+        "Config",
+        "configparser",
+        "flask.ext.login",
+        "json",
+        "flask.ext.login",
+        "flask.ext.login",
+        "flask.ext.login",
+        "FoodStore",
+        "flask.ext.login",
+        "string",
+        "EventList",
+        "flask",
+        "hashlib",
         "time",
-        "lcd"
+        "FishTank"
     ],
     "apps/visual/SecurityCam/pirCam.py": [
-        "Pubnub",
+        "Pubnub.Pubnub",
         "RPi.GPIO",
-        "detector",
+        "detector.Detector",
         "base64",
         "json",
         "sys",
@@ -354,14 +452,34 @@
         "time",
         "os"
     ],
-    "apps/visual/RPiPhotobooth/listalbums.py": [
-        "Tkinter",
-        "credentials",
-        "tkkb",
-        "sys",
-        "os"
+    "apps/visual/360_pi_cam/new_dewarp.py": [
+        "cv2",
+        "numpy",
+        "SimpleCV.VirtualCamera",
+        "SimpleCV.Display",
+        "SimpleCV.Image"
     ],
-    "apps/visual/SecurityCam/Overlay/overlay.py": [
-        "cv2"
+    "apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py": [
+        "cv2",
+        "picamera",
+        "io",
+        "numpy",
+        "config"
+    ],
+    "apps/visual/Fishtank/Event.py": [
+        "Log",
+        "FishFeeder",
+        "datetime",
+        "Lights",
+        "Camera",
+        "FoodStore",
+        "time",
+        "Config",
+        "FishTank"
+    ],
+    "apps/visual/Fishtank/elro.py": [
+        "wiringpi",
+        "sys",
+        "time"
     ]
 }

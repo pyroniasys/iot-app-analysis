@@ -159,9 +159,9 @@ def checkRecursive(paths, reporter, cat=None):
         if imps == None and unused == None:
             pass
         else:
-            if imps != None and len(imps) > 0:
+            if imps != None:
                 d_imp[sourcePath] = imps
-            if unused != None and len(unused) > 0:
+            if unused != None:
                 d_unused[sourcePath] = unused
 
     # save the imports and unused to the file if we're running in python2.x

@@ -1,189 +1,4 @@
 {
-    "apps/visual/360_pi_cam": {
-        "imports": [
-            "SimpleCV",
-            "cv2",
-            "numpy",
-            "time"
-        ],
-        "unused": {
-            "apps/visual/360_pi_cam/new_dewarp.py": [
-                "SimpleCV",
-                "time"
-            ]
-        }
-    },
-    "apps/visual/camera-vision-logo.py": {
-        "imports": [
-            "base64",
-            "googleapiclient",
-            "oauth2client.client",
-            "picamera"
-        ],
-        "unused": [
-            "argparse"
-        ]
-    },
-    "apps/visual/CodeYourOwnPhotobooth.py": {
-        "imports": [
-            "RPi.GPIO",
-            "picamera",
-            "shelve",
-            "subprocess",
-            "time",
-            "tkinter"
-        ],
-        "unused": [
-            "PIL",
-            "os",
-            "tkinter"
-        ]
-    },
-    "apps/visual/EasyRPISecCam.py": {
-        "imports": [
-            "datetime",
-            "os.path",
-            "picamera",
-            "requests"
-        ],
-        "unused": [
-            "time"
-        ]
-    },
-    "apps/visual/GPIO&PiCameraUsingTelegram.py": {
-        "imports": [
-            "RPi.GPIO",
-            "datetime",
-            "functools",
-            "os",
-            "picamera",
-            "subprocess",
-            "tgl",
-            "time"
-        ],
-        "unused": [
-            "shlex",
-            "sys"
-        ]
-    },
-    "apps/visual/HomeSecurityEmailAlert.py": {
-        "imports": [
-            "RPi.GPIO",
-            "cv2",
-            "datetime",
-            "email",
-            "email.MIMEBase",
-            "email.MIMEMultipart",
-            "email.MIMEText",
-            "os",
-            "smtplib"
-        ],
-        "unused": [
-            "numpy",
-            "time"
-        ]
-    },
-    "apps/visual/monitordoorbell.py": {
-        "imports": [
-            "RPi.GPIO",
-            "subprocess",
-            "time"
-        ],
-        "unused": [
-            "os"
-        ]
-    },
-    "apps/visual/pi-home-surveillance": {
-        "imports": [
-            "argparse",
-            "cv2",
-            "datetime",
-            "dropbox.client",
-            "imutils",
-            "json",
-            "os",
-            "picamera",
-            "picamera.array",
-            "pyimagesearch.tempimage",
-            "time",
-            "uuid",
-            "warnings"
-        ]
-    },
-    "apps/visual/pidoorbell.py": {
-        "imports": [
-            "MySQLdb",
-            "RPi.GPIO",
-            "datetime",
-            "http.client",
-            "os",
-            "socket",
-            "time",
-            "urllib"
-        ],
-        "unused": [
-            "fcntl",
-            "struct",
-            "subprocess"
-        ]
-    },
-    "apps/visual/PiNoculars.py": {
-        "imports": [
-            "atexit",
-            "cPickle",
-            "errno",
-            "fnmatch",
-            "io",
-            "os.path",
-            "picamera",
-            "pygame",
-            "pygame.locals",
-            "stat",
-            "subprocess",
-            "threading",
-            "time",
-            "yuv2rgb"
-        ]
-    },
-    "apps/visual/PiScream.py": {
-        "imports": [
-            "RPi.GPIO",
-            "picamera",
-            "requests",
-            "time"
-        ]
-    },
-    "apps/visual/robot.py": {
-        "imports": [
-            "RPi.GPIO",
-            "keys",
-            "pubnub",
-            "time"
-        ],
-        "unused": [
-            "sys"
-        ]
-    },
-    "apps/visual/RPiIoTDoorbell": {
-        "imports": [
-            "RPi.GPIO",
-            "email.mime.application",
-            "email.mime.multipart",
-            "email.mime.text",
-            "os",
-            "smtplib",
-            "sys",
-            "time"
-        ],
-        "unused": {
-            "apps/visual/RPiIoTDoorbell/bell.py": [
-                "glob"
-            ],
-            "apps/visual/RPiIoTDoorbell/IOTNOTIFY2.py": [
-                "smtplib"
-            ]
-        }
-    },
     "apps/visual/RPiLaserSecurity.py": {
         "imports": [
             "RPi.GPIO",
@@ -194,22 +9,31 @@
             "subprocess"
         ]
     },
+    "apps/visual/PiScream.py": {
+        "imports": [
+            "RPi.GPIO",
+            "picamera",
+            "requests",
+            "time"
+        ],
+        "unused": []
+    },
     "apps/visual/RPiPhotobooth": {
         "imports": [
             "ConfigParser",
             "Image",
             "ImageTk",
-            "PIL",
+            "PIL.Image",
             "Tkinter",
-            "constants",
             "cv2",
             "datetime",
+            "datetime.datetime",
+            "datetime.timedelta",
             "email.MIMEAudio",
             "email.MIMEBase",
             "email.MIMEImage",
             "email.MIMEMultipart",
             "email.MIMEText",
-            "email_logger",
             "gdata.gauth",
             "getpass",
             "glob",
@@ -226,6 +50,7 @@
             "signal",
             "smtplib",
             "subprocess",
+            "subprocess.call",
             "sys",
             "time",
             "tkFileDialog",
@@ -237,144 +62,199 @@
             "apps/visual/RPiPhotobooth/screenshot.py": [
                 "time"
             ],
-            "apps/visual/RPiPhotobooth/credentials.py": [
-                "os"
-            ],
-            "apps/visual/RPiPhotobooth/cv2_camera.py": [
-                "numpy"
-            ],
+            "apps/visual/RPiPhotobooth/countdown_test.py": [],
+            "apps/visual/RPiPhotobooth/config.py": [],
+            "apps/visual/RPiPhotobooth/tkkb.py": [],
+            "apps/visual/RPiPhotobooth/custom.py": [],
             "apps/visual/RPiPhotobooth/photobooth_gui.py": [
                 "config"
             ],
-            "apps/visual/RPiPhotobooth/mailfile.py": [
-                "email.Encoders"
-            ],
+            "apps/visual/RPiPhotobooth/matchbox_test.py": [],
             "apps/visual/RPiPhotobooth/boothcam.py": [
-                "constants",
-                "datetime",
+                "constants.BLACK",
+                "constants.WHITE",
+                "datetime.datetime",
+                "datetime.timedelta",
                 "gdata.gauth",
                 "httplib2",
                 "oauth2client.client",
                 "oauth2client.file",
-                "time",
+                "time.sleep",
                 "tkFileDialog",
                 "webbrowser"
-            ]
-        }
-    },
-    "apps/visual/SecurityCam": {
-        "imports": [
-            "Pubnub",
-            "RPi.GPIO",
-            "base64",
-            "cv2",
-            "httplib",
-            "json",
-            "os",
-            "picamera",
-            "random",
-            "sys",
-            "threading",
-            "time"
-        ],
-        "unused": {
-            "apps/visual/SecurityCam/detector.py": [
-                "sys"
-            ]
-        }
-    },
-    "apps/visual/SendingReceivingPicsMqtt.py": {
-        "imports": [
-            "base64",
-            "ibmiotf.device",
-            "math",
-            "picamera",
-            "random",
-            "string",
-            "time"
-        ]
-    },
-    "apps/visual/smartJpegCamera.py": {
-        "imports": [
-            "RPi.GPIO",
-            "datetime",
-            "picamera",
-            "time"
-        ]
-    },
-    "apps/visual/surocam.py": {
-        "imports": [
-            "webiopi"
-        ]
-    },
-    "apps/visual/TwitterPhotoLiveFeed.py": {
-        "imports": [
-            "datetime",
-            "random",
-            "subprocess",
-            "time",
-            "tweepy"
-        ]
-    },
-    "apps/visual/vintage_raspi_cam": {
-        "imports": [
-            "RPi.GPIO",
-            "dropbox.client",
-            "os",
-            "pygame.camera",
-            "sys",
-            "time",
-            "urllib2"
-        ],
-        "unused": {
-            "apps/visual/vintage_raspi_cam/python_dropbox.py": [
-                "sys"
-            ]
+            ],
+            "apps/visual/RPiPhotobooth/listalbums.py": [],
+            "apps/visual/RPiPhotobooth/cv2_camera.py": [
+                "numpy"
+            ],
+            "apps/visual/RPiPhotobooth/mailfile.py": [
+                "email.Encoders"
+            ],
+            "apps/visual/RPiPhotobooth/email_logger.py": [],
+            "apps/visual/RPiPhotobooth/credentials.py": [
+                "os"
+            ],
+            "apps/visual/RPiPhotobooth/constants.py": []
         }
     },
     "apps/visual/WhoIsAtCoffeeMachine": {
         "imports": [
-            "backlight",
-            "config",
             "cv2",
-            "face",
             "fnmatch",
             "glob",
             "imutils",
             "imutils.video",
             "io",
-            "lcd",
             "math",
             "numpy",
-            "opencv",
             "os",
-            "picam",
             "picamera",
             "re",
-            "screen",
             "select",
             "serial",
-            "sigfox",
-            "smbus",
+            "smbus.SMBus",
             "sys",
-            "time"
+            "time",
+            "time.sleep"
         ],
         "unused": {
-            "apps/visual/WhoIsAtCoffeeMachine/sigfox/sendreceivesigfox.py": [
-                "time"
-            ],
+            "apps/visual/WhoIsAtCoffeeMachine/lcd/backlight.py": [],
             "apps/visual/WhoIsAtCoffeeMachine/sigfox/sendsigfox.py": [
                 "time"
             ],
             "apps/visual/WhoIsAtCoffeeMachine/run.py": [
                 "argparse",
                 "datetime",
-                "lcd"
+                "lcd.screen"
             ],
+            "apps/visual/WhoIsAtCoffeeMachine/opencv/face.py": [],
+            "apps/visual/WhoIsAtCoffeeMachine/lcd/display.py": [],
             "apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py": [
                 "time"
-            ]
+            ],
+            "apps/visual/WhoIsAtCoffeeMachine/sigfox/sendreceivesigfox.py": [
+                "time"
+            ],
+            "apps/visual/WhoIsAtCoffeeMachine/opencv/train.py": [],
+            "apps/visual/WhoIsAtCoffeeMachine/lcd/screen.py": [],
+            "apps/visual/WhoIsAtCoffeeMachine/opencv/config.py": [],
+            "apps/visual/WhoIsAtCoffeeMachine/opencv/capture-positives.py": []
         }
+    },
+    "apps/visual/HomeSecurityEmailAlert.py": {
+        "imports": [
+            "RPi.GPIO",
+            "cv2",
+            "datetime.datetime",
+            "email.Encoders",
+            "email.MIMEBase",
+            "email.MIMEMultipart",
+            "email.MIMEText",
+            "os",
+            "smtplib"
+        ],
+        "unused": [
+            "numpy",
+            "time"
+        ]
+    },
+    "apps/visual/Fishtank": {
+        "imports": [
+            "MySQLdb",
+            "configparser",
+            "datetime",
+            "flask",
+            "flask.ext.login",
+            "flask_login",
+            "hashlib",
+            "json",
+            "magic",
+            "os",
+            "pygame.transform",
+            "requests",
+            "requests.auth",
+            "serial",
+            "string",
+            "subprocess.call",
+            "sys",
+            "thread",
+            "thread.start_new_thread",
+            "time",
+            "traceback",
+            "websocket.create_connection",
+            "wiringpi"
+        ],
+        "unused": {
+            "apps/visual/Fishtank/FishFeeder.py": [],
+            "apps/visual/Fishtank/Log.py": [],
+            "apps/visual/Fishtank/FoodStore.py": [],
+            "apps/visual/Fishtank/server.py": [
+                "FlaskServer.app",
+                "Log"
+            ],
+            "apps/visual/Fishtank/FishTank.py": [
+                "sys"
+            ],
+            "apps/visual/Fishtank/FlaskServer.py": [
+                "flask.ext.login"
+            ],
+            "apps/visual/Fishtank/Lights.py": [],
+            "apps/visual/Fishtank/pushbullet.py": [],
+            "apps/visual/Fishtank/keys.py": [],
+            "apps/visual/Fishtank/elro.py": [],
+            "apps/visual/Fishtank/Event.py": [
+                "sys",
+                "traceback"
+            ],
+            "apps/visual/Fishtank/Config.py": [],
+            "apps/visual/Fishtank/Camera.py": [],
+            "apps/visual/Fishtank/EventList.py": [],
+            "apps/visual/Fishtank/Container.py": []
+        }
+    },
+    "apps/visual/pidoorbell.py": {
+        "imports": [
+            "MySQLdb",
+            "RPi.GPIO",
+            "datetime",
+            "http.client",
+            "os",
+            "socket",
+            "time.sleep",
+            "urllib"
+        ],
+        "unused": [
+            "fcntl",
+            "struct",
+            "subprocess"
+        ]
+    },
+    "apps/visual/monitordoorbell.py": {
+        "imports": [
+            "RPi.GPIO",
+            "subprocess",
+            "time"
+        ],
+        "unused": [
+            "os"
+        ]
+    },
+    "apps/visual/surocam.py": {
+        "imports": [
+            "webiopi"
+        ],
+        "unused": []
+    },
+    "apps/visual/robot.py": {
+        "imports": [
+            "RPi.GPIO",
+            "keys",
+            "pubnub.Pubnub",
+            "time"
+        ],
+        "unused": [
+            "sys.exit"
+        ]
     },
     "apps/visual/WifiPhotobooth": {
         "imports": [
@@ -391,6 +271,214 @@
             "apps/visual/WifiPhotobooth/photobooth_control.py": [
                 "pygame.locals"
             ]
+        }
+    },
+    "apps/visual/CodeYourOwnPhotobooth.py": {
+        "imports": [
+            "RPi.GPIO",
+            "picamera.PiCamera",
+            "shelve",
+            "subprocess",
+            "time",
+            "tkinter",
+            "tkinter.font",
+            "tkinter.ttk"
+        ],
+        "unused": [
+            "PIL.Image",
+            "os",
+            "tkinter.filedialog"
+        ]
+    },
+    "apps/visual/GPIO&PiCameraUsingTelegram.py": {
+        "imports": [
+            "RPi.GPIO",
+            "datetime",
+            "datetime.datetime",
+            "datetime.timedelta",
+            "functools.partial",
+            "os",
+            "picamera",
+            "subprocess",
+            "tgl",
+            "time"
+        ],
+        "unused": [
+            "shlex",
+            "sys"
+        ]
+    },
+    "apps/visual/smartJpegCamera.py": {
+        "imports": [
+            "RPi.GPIO",
+            "datetime",
+            "picamera",
+            "time"
+        ],
+        "unused": []
+    },
+    "apps/visual/TwitterPhotoLiveFeed.py": {
+        "imports": [
+            "datetime.datetime",
+            "random",
+            "subprocess.call",
+            "time",
+            "tweepy"
+        ],
+        "unused": []
+    },
+    "apps/visual/SecurityCam": {
+        "imports": [
+            "Pubnub.Pubnub",
+            "RPi.GPIO",
+            "base64",
+            "cv2",
+            "httplib",
+            "json",
+            "os",
+            "picamera",
+            "random",
+            "sys",
+            "threading",
+            "time"
+        ],
+        "unused": {
+            "apps/visual/SecurityCam/detector.py": [
+                "sys"
+            ],
+            "apps/visual/SecurityCam/Overlay/overlay.py": [],
+            "apps/visual/SecurityCam/pirCam.py": []
+        }
+    },
+    "apps/visual/RPiIoTDoorbell": {
+        "imports": [
+            "RPi.GPIO",
+            "email.mime.application",
+            "email.mime.multipart",
+            "email.mime.text",
+            "os",
+            "smtplib",
+            "sys",
+            "time"
+        ],
+        "unused": {
+            "apps/visual/RPiIoTDoorbell/IOTNOTIFY2.py": [
+                "smtplib.SMTP"
+            ],
+            "apps/visual/RPiIoTDoorbell/bell.py": [
+                "glob"
+            ]
+        }
+    },
+    "apps/visual/PiNoculars.py": {
+        "imports": [
+            "atexit",
+            "cPickle",
+            "errno",
+            "fnmatch",
+            "io",
+            "os.path",
+            "picamera",
+            "pygame",
+            "pygame.locals",
+            "stat",
+            "subprocess.call",
+            "threading",
+            "time",
+            "yuv2rgb"
+        ],
+        "unused": []
+    },
+    "apps/visual/SendingReceivingPicsMqtt.py": {
+        "imports": [
+            "base64",
+            "ibmiotf.device",
+            "math",
+            "picamera",
+            "random",
+            "string",
+            "time.sleep"
+        ],
+        "unused": []
+    },
+    "apps/visual/camera-vision-logo.py": {
+        "imports": [
+            "base64",
+            "googleapiclient.discovery",
+            "oauth2client.client",
+            "picamera"
+        ],
+        "unused": [
+            "argparse"
+        ]
+    },
+    "apps/visual/EasyRPISecCam.py": {
+        "imports": [
+            "datetime.datetime",
+            "os.path",
+            "picamera",
+            "requests"
+        ],
+        "unused": [
+            "time"
+        ]
+    },
+    "apps/visual/360_pi_cam": {
+        "imports": [
+            "SimpleCV",
+            "SimpleCV.Display",
+            "SimpleCV.Image",
+            "SimpleCV.VirtualCamera",
+            "cv2",
+            "numpy",
+            "time"
+        ],
+        "unused": {
+            "apps/visual/360_pi_cam/streamer.py": [],
+            "apps/visual/360_pi_cam/new_dewarp.py": [
+                "SimpleCV.Camera",
+                "SimpleCV.Color",
+                "SimpleCV.VideoStream",
+                "time"
+            ]
+        }
+    },
+    "apps/visual/vintage_raspi_cam": {
+        "imports": [
+            "RPi.GPIO",
+            "dropbox.client",
+            "os",
+            "pygame.camera",
+            "sys",
+            "time.sleep",
+            "time.strftime",
+            "urllib2"
+        ],
+        "unused": {
+            "apps/visual/vintage_raspi_cam/python_dropbox.py": [
+                "sys"
+            ],
+            "apps/visual/vintage_raspi_cam/python_camera.py": []
+        }
+    },
+    "apps/visual/pi-home-surveillance": {
+        "imports": [
+            "argparse",
+            "cv2",
+            "datetime",
+            "dropbox.client",
+            "imutils",
+            "json",
+            "os",
+            "picamera.PiCamera",
+            "picamera.array",
+            "time",
+            "uuid",
+            "warnings"
+        ],
+        "unused": {
+            "apps/visual/pi-home-surveillance/pi_surveillance.py": [],
+            "apps/visual/pi-home-surveillance/pyimagesearch/tempimage.py": []
         }
     }
 }
