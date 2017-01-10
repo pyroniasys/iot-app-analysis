@@ -2,20 +2,22 @@
 
 import speech_recognition as sr
 
-r = sr.Recognizer() with sr.WavFile("test.wav") as source: # use "test.wav" as the audio source
+r = sr.Recognizer()
 
-r.energy_threshold = 4000 audio = r.record(source) # extract audio data from the file
+with sr.WavFile("test.wav") as source: # use "test.wav" as the audio source
+    r.energy_threshold = 4000
+    audio = r.record(source) # extract audio data from the file
 
 try:
 
-print("You said " + r.recognize(audio)) # recognize speech using Google Speech Recognition except IndexError: # the API key didn't work
+    print("You said " + r.recognize(audio)) # recognize speech using Google Speech Recognition except IndexError: # the API key didn't work
 
-print("No internet connection")
+    print("No internet connection")
 
 except KeyError: # the API key didn't work
 
-print("Invalid API key or quota maxed out")
+    print("Invalid API key or quota maxed out")
 
 except LookupError: # speech is unintelligible
 
-print("Could not understand audio")
+    print("Could not understand audio")

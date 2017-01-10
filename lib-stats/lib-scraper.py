@@ -212,14 +212,11 @@ for a in apps:
                     print("Use ctypes")
                     hybrid_srcs.append(src)
 
-            # iterate over the raw_imports to collect the ones that are hybrid
-            print("Collecting apps that are hybrid python-C")
-
     if len(proc_srcs) > 0:
         call_to_native[a] = remove_dups(proc_srcs)
 
     if len(hybrid_srcs) > 0:
-        hybrid[a] = remove_dupes(hybrid_srcs)
+        hybrid[a] = remove_dups(hybrid_srcs)
 
     # iterate over each source file's imports to find
     # the first-party imports

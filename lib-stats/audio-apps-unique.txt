@@ -4,7 +4,6 @@ https://www.hackster.io/matrix-creator-team/build-a-diy-amazon-s-alexa-with-a-ra
 http://www.thingiverse.com/thing:1706105
 http://www.instructables.com/id/Build-an-Alexa-With-Raspio-Pro-Hat-and-Raspberry-P/?ALLSTEPS
 http://www.instructables.com/id/Raspberri-Personal-Assistant, https://oscarliang.com/raspberry-pi-voice-recognition-works-like-siri/?ALLSTEPS
-http://www.instructables.com/id/Wireless-Multi-Channel-Voice-Controlled-Electrical/?ALLSTEPS
 http://www.daveconroy.com/turn-raspberry-pi-translator-speech-recognition-playback-60-languages/, https://github.com/dconroy/PiTranslate/blob/master/PiTranslate.py
 http://makezine.com/projects/use-raspberry-pi-for-voice-control/, https://github.com/bynds/makevoicedemo
 http://www.cnx-software.com/2016/08/27/getting-started-with-respeaker-wifi-iot-board-audio-capabilities-voice-recognition-and-synthesis/, https://github.com/respeaker/microsoft_cognitive_services
