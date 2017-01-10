@@ -6,14 +6,14 @@
 
 import os
 import sys
-import copy
 
 from collections import OrderedDict
-import json
 
 from util import write_map, read_map, remove_dups, write_list
 from pyflakes import reporter as modReporter
 from pyflakes.api import checkRecursive
+
+from stdlib_list import stdlib_list
 
 def group_by_app(a, apps, src, ungrouped, target, target2=None):
     print("Grouping all "+target+" by app")
@@ -36,23 +36,28 @@ def get_prefix(path):
     return prefix
 
 def get_supermod(name):
-     if name.count('.') >= 1:
+    if name.count('.') >= 1:
         mod = name.split('.')
         return "/"+mod[0]
-     else:
-         return ""
+    else:
+        return ""
 
 # we only want to store the top-level package
 def get_pkg_names(app, target):
     print("Extracting package names for "+target)
     pkgs = []
     for lib in app[target]:
-        tlp = get_supermod(lib)
-        if tlp == "" or lib == "RPi.GPIO":
-            # let's make an exception for RPi.GPIO -- that's the pkg name
-            tlp = lib
+        # this is a case where we have a subpackage import
+        if lib.count('.') > 1:
+            mod = lib.split(".")
+            tlp = mod[0]+"."+mod[1]
         else:
-            tlp = tlp.lstrip("/")
+            tlp = get_supermod(lib)
+            if tlp == "" or lib == "RPi.GPIO":
+                # let's make an exception for RPi.GPIO -- that's the pkg name
+                tlp = lib
+            else:
+                tlp = tlp.lstrip("/")
         pkgs.append(tlp)
     return remove_dups(pkgs)
 
@@ -144,14 +149,14 @@ cat = sys.argv[1]
 # expect apps to be located in apps/cat/
 app_path = "apps/"+cat+"/"
 
-f = open(cat+"-pyflakes-py3-report.txt", "w+")
+f = open("pyflakes-out/"+cat+"-py3-report.txt", "w+")
 reporter = modReporter.Reporter(f, f)
 num, imps, un = checkRecursive([app_path], reporter)
 f.close()
 
 # the modules in this list are likely written in python2 so run pyflakes
 # on python2
-os.system("python2 -m pyflakes "+app_path+" > "+cat+"-pyflakes-py2-report.txt")
+os.system("python2 -m pyflakes "+app_path+" > pyflakes-out/"+cat+"-py2-report.txt")
 
 # let's organize our imports by app
 app_list = os.listdir(app_path)
@@ -163,8 +168,8 @@ for a in app_list:
         apps[app] = OrderedDict()
 
 # now, let's parse the imports and unused, and organize them by app
-imps_2 = read_map(cat+"-flakes-imports-py2.txt")
-un_2 = read_map(cat+"-flakes-unused-py2.txt")
+imps_2 = read_map("pyflakes-out/"+cat+"-imports-py2.txt")
+un_2 = read_map("pyflakes-out/"+cat+"-unused-py2.txt")
 
 # the py2 run of flakes probably finds imports found by the py3 run
 # let's merge the two dicts
@@ -172,11 +177,11 @@ un_2 = read_map(cat+"-flakes-unused-py2.txt")
 imports_raw = {**imps, **imps_2}
 unused_raw = {**un, **un_2}
 
-#write_map(imports_raw, cat+"-flakes-imports.txt")
-#write_map(unused_raw, cat+"-flakes-unused.txt")
+write_map(imports_raw, "pyflakes-out/"+cat+"-imports.txt", perm="w+")
+write_map(unused_raw, "pyflakes-out/"+cat+"-unused.txt", perm="w+")
 
-os.remove(cat+"-flakes-imports-py2.txt")
-os.remove(cat+"-flakes-unused-py2.txt")
+os.remove("pyflakes-out/"+cat+"-imports-py2.txt")
+os.remove("pyflakes-out/"+cat+"-unused-py2.txt")
 
 print("Number of "+cat+" apps being scraped: "+str(len(apps)))
 
@@ -227,6 +232,16 @@ for a in apps:
     # we only want to store the pkg names
     apps[a]['imports'] = get_pkg_names(apps[a], 'imports')
 
+    # iterate over all imports and prune away all std lib imports
+    print("Removing all python std lib imports")
+    libs2 = stdlib_list("2.7")
+    libs3 = stdlib_list("3.4")
+    libs_3p = []
+    for l in apps[a]['imports']:
+        if not l in libs2 and not l in libs3:
+            libs_3p.append(l)
+    apps[a]['imports'] = libs_3p
+
     # remove all __init__.py unused imports since they aren't actually unused
     for src, i in unused_raw.items():
         if a in src and not src.endswith("__init__.py"):
@@ -257,10 +272,17 @@ for a in apps:
 
     apps[a]['unused'] = pruned_unused
 
-    # let's get rid of all the empty unused lists
-    if len(apps[a]['unused']) == 0:
-        del apps[a]['unused']
+write_map(call_to_native, cat+"-call-native.txt", perm="w+")
+write_map(hybrid, cat+"-hybrid-apps.txt", perm="w+")
 
-write_map(call_to_native, cat+"-call-native.txt")
-write_map(hybrid, cat+"-hybrid-apps.txt")
-write_map(apps, cat+"-app-imports.txt")
+f = open(cat+"-libs.txt", "w+")
+for a in apps:
+    for i in apps[a]['imports']:
+        f.write(str(i)+"\n")
+f.close()
+
+f = open(cat+"-unused-libs.txt", "w+")
+for a in apps:
+    for i in apps[a]['unused']:
+        f.write(str(i)+"\n")
+f.close()

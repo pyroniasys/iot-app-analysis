@@ -129,8 +129,8 @@ def iterSourceCode(paths):
             yield path
 
 
-def write_map(m, filename, name=None):
-    f = open(filename, "a+")
+def write_map(m, filename, name=None, perm="a+"):
+    f = open(filename, perm)
     if name != None:
         f.write(str(name)+":\n")
     f.write(json.dumps(m, indent=4)+"\n")
@@ -166,8 +166,8 @@ def checkRecursive(paths, reporter, cat=None):
 
     # save the imports and unused to the file if we're running in python2.x
     if sys.version_info < (3, ):
-        write_map(d_imp, cat+"-flakes-imports-py2.txt")
-        write_map(d_unused, cat+"-flakes-unused-py2.txt")
+        write_map(d_imp, "pyflakes-out/"+cat+"-imports-py2.txt", perm="w+")
+        write_map(d_unused, "pyflakes-out/"+cat+"-unused-py2.txt", perm="w+")
 
     return warnings, d_imp, d_unused
 

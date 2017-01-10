@@ -6,6 +6,7 @@ Collecting apps that call a native process or are hybrid python-C
 Found call to native proc in code: sm_pid = os.spawnlp(os.P_NOWAIT, "/usr/bin/python3","python3","/home/pi/Desktop/security/send_mail.py")
 Collecting apps that are hybrid python-C
 Extracting package names for imports
+Removing all python std lib imports
  *** apps/visual/RPiLaserSecurity.py
 Grouping all unused by app
 Extracting package names for unused
@@ -15,16 +16,25 @@ Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
 Extracting package names for imports
+Removing all python std lib imports
  *** apps/visual/PiScream.py
 Grouping all unused by app
 Extracting package names for unused
 --- current app: apps/visual/RPiPhotobooth
- *** apps/visual/RPiPhotobooth/matchbox_test.py
+ *** apps/visual/RPiPhotobooth/custom.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
-Found call to native proc in code: matchbox = subprocess.Popen(["matchbox-keyboard"])
 Collecting apps that are hybrid python-C
- *** apps/visual/RPiPhotobooth/listalbums.py
+ *** apps/visual/RPiPhotobooth/boothcam.py
+Grouping all raw_imports by app
+Collecting apps that call a native process or are hybrid python-C
+Call to native proc
+Collecting apps that are hybrid python-C
+ *** apps/visual/RPiPhotobooth/countdown_test.py
+Grouping all raw_imports by app
+Collecting apps that call a native process or are hybrid python-C
+Collecting apps that are hybrid python-C
+ *** apps/visual/RPiPhotobooth/mailfile.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
@@ -36,32 +46,19 @@ Collecting apps that are hybrid python-C
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
- *** apps/visual/RPiPhotobooth/photobooth_gui.py
+ *** apps/visual/RPiPhotobooth/constants.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
- *** apps/visual/RPiPhotobooth/boothcam.py
+ *** apps/visual/RPiPhotobooth/photobooth_gui.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
-Call to native proc
 Collecting apps that are hybrid python-C
  *** apps/visual/RPiPhotobooth/config.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
- *** apps/visual/RPiPhotobooth/custom.py
-Grouping all raw_imports by app
-Collecting apps that call a native process or are hybrid python-C
-Collecting apps that are hybrid python-C
  *** apps/visual/RPiPhotobooth/tkkb.py
-Grouping all raw_imports by app
-Collecting apps that call a native process or are hybrid python-C
-Collecting apps that are hybrid python-C
- *** apps/visual/RPiPhotobooth/countdown_test.py
-Grouping all raw_imports by app
-Collecting apps that call a native process or are hybrid python-C
-Collecting apps that are hybrid python-C
- *** apps/visual/RPiPhotobooth/constants.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
@@ -73,9 +70,14 @@ Collecting apps that are hybrid python-C
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
- *** apps/visual/RPiPhotobooth/mailfile.py
+ *** apps/visual/RPiPhotobooth/listalbums.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
+Collecting apps that are hybrid python-C
+ *** apps/visual/RPiPhotobooth/matchbox_test.py
+Grouping all raw_imports by app
+Collecting apps that call a native process or are hybrid python-C
+Found call to native proc in code: matchbox = subprocess.Popen(["matchbox-keyboard"])
 Collecting apps that are hybrid python-C
 Replacing the first-party imports for group: raw_imports
 replacing config with ['getpass', 'os.path']
@@ -104,33 +106,34 @@ replacing mailfile with ['getpass', 'os.path', 'email.MIMEAudio', 'email.MIMEBas
 replacing screenshot with ['datetime', 'os', 'pyscreenshot']
 replacing tkkb.Tkkb with ['Tkinter']
 Extracting package names for imports
- *** apps/visual/RPiPhotobooth/matchbox_test.py
+Removing all python std lib imports
+ *** apps/visual/RPiPhotobooth/custom.py
 Grouping all unused by app
- *** apps/visual/RPiPhotobooth/listalbums.py
+ *** apps/visual/RPiPhotobooth/boothcam.py
+Grouping all unused by app
+ *** apps/visual/RPiPhotobooth/countdown_test.py
+Grouping all unused by app
+ *** apps/visual/RPiPhotobooth/mailfile.py
 Grouping all unused by app
  *** apps/visual/RPiPhotobooth/screenshot.py
 Grouping all unused by app
  *** apps/visual/RPiPhotobooth/cv2_camera.py
 Grouping all unused by app
- *** apps/visual/RPiPhotobooth/photobooth_gui.py
+ *** apps/visual/RPiPhotobooth/constants.py
 Grouping all unused by app
- *** apps/visual/RPiPhotobooth/boothcam.py
+ *** apps/visual/RPiPhotobooth/photobooth_gui.py
 Grouping all unused by app
  *** apps/visual/RPiPhotobooth/config.py
 Grouping all unused by app
- *** apps/visual/RPiPhotobooth/custom.py
-Grouping all unused by app
  *** apps/visual/RPiPhotobooth/tkkb.py
-Grouping all unused by app
- *** apps/visual/RPiPhotobooth/countdown_test.py
-Grouping all unused by app
- *** apps/visual/RPiPhotobooth/constants.py
 Grouping all unused by app
  *** apps/visual/RPiPhotobooth/credentials.py
 Grouping all unused by app
  *** apps/visual/RPiPhotobooth/email_logger.py
 Grouping all unused by app
- *** apps/visual/RPiPhotobooth/mailfile.py
+ *** apps/visual/RPiPhotobooth/listalbums.py
+Grouping all unused by app
+ *** apps/visual/RPiPhotobooth/matchbox_test.py
 Grouping all unused by app
 Replacing the first-party imports for group: unused
 replacing constants.BLACK with []
@@ -138,39 +141,7 @@ replacing constants.WHITE with []
 replacing config with ['getpass', 'os.path']
 Extracting package names for unused
 --- current app: apps/visual/WhoIsAtCoffeeMachine
- *** apps/visual/WhoIsAtCoffeeMachine/lcd/screen.py
-Grouping all raw_imports by app
-Collecting apps that call a native process or are hybrid python-C
-Collecting apps that are hybrid python-C
- *** apps/visual/WhoIsAtCoffeeMachine/sigfox/__init__.py
-Grouping all raw_imports by app
-Collecting apps that call a native process or are hybrid python-C
-Collecting apps that are hybrid python-C
  *** apps/visual/WhoIsAtCoffeeMachine/sigfox/sendreceivesigfox.py
-Grouping all raw_imports by app
-Collecting apps that call a native process or are hybrid python-C
-Collecting apps that are hybrid python-C
- *** apps/visual/WhoIsAtCoffeeMachine/opencv/__init__.py
-Grouping all raw_imports by app
-Collecting apps that call a native process or are hybrid python-C
-Collecting apps that are hybrid python-C
- *** apps/visual/WhoIsAtCoffeeMachine/opencv/face.py
-Grouping all raw_imports by app
-Collecting apps that call a native process or are hybrid python-C
-Collecting apps that are hybrid python-C
- *** apps/visual/WhoIsAtCoffeeMachine/lcd/backlight.py
-Grouping all raw_imports by app
-Collecting apps that call a native process or are hybrid python-C
-Collecting apps that are hybrid python-C
- *** apps/visual/WhoIsAtCoffeeMachine/opencv/train.py
-Grouping all raw_imports by app
-Collecting apps that call a native process or are hybrid python-C
-Collecting apps that are hybrid python-C
- *** apps/visual/WhoIsAtCoffeeMachine/run.py
-Grouping all raw_imports by app
-Collecting apps that call a native process or are hybrid python-C
-Collecting apps that are hybrid python-C
- *** apps/visual/WhoIsAtCoffeeMachine/opencv/config.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
@@ -182,7 +153,39 @@ Collecting apps that are hybrid python-C
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
+ *** apps/visual/WhoIsAtCoffeeMachine/opencv/__init__.py
+Grouping all raw_imports by app
+Collecting apps that call a native process or are hybrid python-C
+Collecting apps that are hybrid python-C
+ *** apps/visual/WhoIsAtCoffeeMachine/sigfox/__init__.py
+Grouping all raw_imports by app
+Collecting apps that call a native process or are hybrid python-C
+Collecting apps that are hybrid python-C
+ *** apps/visual/WhoIsAtCoffeeMachine/opencv/train.py
+Grouping all raw_imports by app
+Collecting apps that call a native process or are hybrid python-C
+Collecting apps that are hybrid python-C
+ *** apps/visual/WhoIsAtCoffeeMachine/run.py
+Grouping all raw_imports by app
+Collecting apps that call a native process or are hybrid python-C
+Collecting apps that are hybrid python-C
  *** apps/visual/WhoIsAtCoffeeMachine/lcd/display.py
+Grouping all raw_imports by app
+Collecting apps that call a native process or are hybrid python-C
+Collecting apps that are hybrid python-C
+ *** apps/visual/WhoIsAtCoffeeMachine/opencv/config.py
+Grouping all raw_imports by app
+Collecting apps that call a native process or are hybrid python-C
+Collecting apps that are hybrid python-C
+ *** apps/visual/WhoIsAtCoffeeMachine/opencv/face.py
+Grouping all raw_imports by app
+Collecting apps that call a native process or are hybrid python-C
+Collecting apps that are hybrid python-C
+ *** apps/visual/WhoIsAtCoffeeMachine/lcd/__init__.py
+Grouping all raw_imports by app
+Collecting apps that call a native process or are hybrid python-C
+Collecting apps that are hybrid python-C
+ *** apps/visual/WhoIsAtCoffeeMachine/lcd/screen.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
@@ -190,7 +193,7 @@ Collecting apps that are hybrid python-C
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
- *** apps/visual/WhoIsAtCoffeeMachine/lcd/__init__.py
+ *** apps/visual/WhoIsAtCoffeeMachine/lcd/backlight.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
@@ -219,27 +222,28 @@ apps/visual/WhoIsAtCoffeeMachine/opencv/config.py is imported recursively, so do
 replacing opencv.face with ['cv2', 'io', 'numpy', 'picamera', 'cv2']
 replacing sigfox.sendsigfox with ['serial', 'sys', 'time.sleep']
 Extracting package names for imports
- *** apps/visual/WhoIsAtCoffeeMachine/lcd/screen.py
-Grouping all unused by app
+Removing all python std lib imports
  *** apps/visual/WhoIsAtCoffeeMachine/sigfox/sendreceivesigfox.py
-Grouping all unused by app
- *** apps/visual/WhoIsAtCoffeeMachine/opencv/face.py
-Grouping all unused by app
- *** apps/visual/WhoIsAtCoffeeMachine/lcd/backlight.py
-Grouping all unused by app
- *** apps/visual/WhoIsAtCoffeeMachine/opencv/train.py
-Grouping all unused by app
- *** apps/visual/WhoIsAtCoffeeMachine/run.py
-Grouping all unused by app
- *** apps/visual/WhoIsAtCoffeeMachine/opencv/config.py
 Grouping all unused by app
  *** apps/visual/WhoIsAtCoffeeMachine/opencv/capture-positives.py
 Grouping all unused by app
  *** apps/visual/WhoIsAtCoffeeMachine/sigfox/sendsigfox.py
 Grouping all unused by app
+ *** apps/visual/WhoIsAtCoffeeMachine/opencv/train.py
+Grouping all unused by app
+ *** apps/visual/WhoIsAtCoffeeMachine/run.py
+Grouping all unused by app
  *** apps/visual/WhoIsAtCoffeeMachine/lcd/display.py
 Grouping all unused by app
+ *** apps/visual/WhoIsAtCoffeeMachine/opencv/config.py
+Grouping all unused by app
+ *** apps/visual/WhoIsAtCoffeeMachine/opencv/face.py
+Grouping all unused by app
+ *** apps/visual/WhoIsAtCoffeeMachine/lcd/screen.py
+Grouping all unused by app
  *** apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py
+Grouping all unused by app
+ *** apps/visual/WhoIsAtCoffeeMachine/lcd/backlight.py
 Grouping all unused by app
 Replacing the first-party imports for group: unused
 replacing lcd.screen with ['smbus.SMBus', 'time']
@@ -250,15 +254,32 @@ Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
 Extracting package names for imports
+Removing all python std lib imports
  *** apps/visual/HomeSecurityEmailAlert.py
 Grouping all unused by app
 Extracting package names for unused
 --- current app: apps/visual/Fishtank
+ *** apps/visual/Fishtank/Camera.py
+Grouping all raw_imports by app
+Collecting apps that call a native process or are hybrid python-C
+Collecting apps that are hybrid python-C
+ *** apps/visual/Fishtank/EventList.py
+Grouping all raw_imports by app
+Collecting apps that call a native process or are hybrid python-C
+Collecting apps that are hybrid python-C
+ *** apps/visual/Fishtank/Container.py
+Grouping all raw_imports by app
+Collecting apps that call a native process or are hybrid python-C
+Collecting apps that are hybrid python-C
+ *** apps/visual/Fishtank/Config.py
+Grouping all raw_imports by app
+Collecting apps that call a native process or are hybrid python-C
+Collecting apps that are hybrid python-C
  *** apps/visual/Fishtank/FoodStore.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
- *** apps/visual/Fishtank/keys.py
+ *** apps/visual/Fishtank/FishTank.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
@@ -266,11 +287,11 @@ Collecting apps that are hybrid python-C
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
- *** apps/visual/Fishtank/Camera.py
+ *** apps/visual/Fishtank/FishFeeder.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
- *** apps/visual/Fishtank/Log.py
+ *** apps/visual/Fishtank/Event.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
@@ -279,27 +300,7 @@ Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Call to native proc
 Collecting apps that are hybrid python-C
- *** apps/visual/Fishtank/Config.py
-Grouping all raw_imports by app
-Collecting apps that call a native process or are hybrid python-C
-Collecting apps that are hybrid python-C
- *** apps/visual/Fishtank/FishTank.py
-Grouping all raw_imports by app
-Collecting apps that call a native process or are hybrid python-C
-Collecting apps that are hybrid python-C
- *** apps/visual/Fishtank/Container.py
-Grouping all raw_imports by app
-Collecting apps that call a native process or are hybrid python-C
-Collecting apps that are hybrid python-C
  *** apps/visual/Fishtank/FlaskServer.py
-Grouping all raw_imports by app
-Collecting apps that call a native process or are hybrid python-C
-Collecting apps that are hybrid python-C
- *** apps/visual/Fishtank/pushbullet.py
-Grouping all raw_imports by app
-Collecting apps that call a native process or are hybrid python-C
-Collecting apps that are hybrid python-C
- *** apps/visual/Fishtank/Event.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
@@ -307,11 +308,15 @@ Collecting apps that are hybrid python-C
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
- *** apps/visual/Fishtank/FishFeeder.py
+ *** apps/visual/Fishtank/keys.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
- *** apps/visual/Fishtank/EventList.py
+ *** apps/visual/Fishtank/Log.py
+Grouping all raw_imports by app
+Collecting apps that call a native process or are hybrid python-C
+Collecting apps that are hybrid python-C
+ *** apps/visual/Fishtank/pushbullet.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
@@ -727,35 +732,36 @@ apps/visual/Fishtank/Lights.py is imported recursively, so don't go deeper
 apps/visual/Fishtank/Log.py is imported recursively, so don't go deeper
 replacing FishTank with ['configparser', 'MySQLdb', 'json', 'magic', 'requests', 'requests.auth', 'websocket.create_connection', 'sys', 'thread', 'time', 'traceback', 'datetime', 'pygame.transform', 'datetime', 'serial', 'thread.start_new_thread', 'time', 'datetime', 'time', 'subprocess.call', 'datetime', 'time', 'datetime', 'configparser', 'datetime', 'time']
 Extracting package names for imports
- *** apps/visual/Fishtank/FoodStore.py
-Grouping all unused by app
- *** apps/visual/Fishtank/keys.py
-Grouping all unused by app
- *** apps/visual/Fishtank/elro.py
-Grouping all unused by app
+Removing all python std lib imports
  *** apps/visual/Fishtank/Camera.py
 Grouping all unused by app
- *** apps/visual/Fishtank/Log.py
-Grouping all unused by app
- *** apps/visual/Fishtank/Lights.py
-Grouping all unused by app
- *** apps/visual/Fishtank/Config.py
-Grouping all unused by app
- *** apps/visual/Fishtank/FishTank.py
+ *** apps/visual/Fishtank/EventList.py
 Grouping all unused by app
  *** apps/visual/Fishtank/Container.py
 Grouping all unused by app
- *** apps/visual/Fishtank/FlaskServer.py
+ *** apps/visual/Fishtank/Config.py
 Grouping all unused by app
- *** apps/visual/Fishtank/pushbullet.py
+ *** apps/visual/Fishtank/FoodStore.py
 Grouping all unused by app
- *** apps/visual/Fishtank/Event.py
+ *** apps/visual/Fishtank/FishTank.py
 Grouping all unused by app
- *** apps/visual/Fishtank/server.py
+ *** apps/visual/Fishtank/elro.py
 Grouping all unused by app
  *** apps/visual/Fishtank/FishFeeder.py
 Grouping all unused by app
- *** apps/visual/Fishtank/EventList.py
+ *** apps/visual/Fishtank/Event.py
+Grouping all unused by app
+ *** apps/visual/Fishtank/Lights.py
+Grouping all unused by app
+ *** apps/visual/Fishtank/FlaskServer.py
+Grouping all unused by app
+ *** apps/visual/Fishtank/server.py
+Grouping all unused by app
+ *** apps/visual/Fishtank/keys.py
+Grouping all unused by app
+ *** apps/visual/Fishtank/Log.py
+Grouping all unused by app
+ *** apps/visual/Fishtank/pushbullet.py
 Grouping all unused by app
 Replacing the first-party imports for group: unused
 apps/visual/Fishtank/Camera.py is imported recursively, so don't go deeper
@@ -809,6 +815,7 @@ Collecting apps that call a native process or are hybrid python-C
 Found call to native proc in code: os.system(command)
 Collecting apps that are hybrid python-C
 Extracting package names for imports
+Removing all python std lib imports
  *** apps/visual/pidoorbell.py
 Grouping all unused by app
 Extracting package names for unused
@@ -819,6 +826,7 @@ Collecting apps that call a native process or are hybrid python-C
 Found call to native proc in code: returncode = subprocess.Popen("/usr/bin/fswebcam -c /opt/develop/deurmonitor.cfg", shell=True)
 Collecting apps that are hybrid python-C
 Extracting package names for imports
+Removing all python std lib imports
  *** apps/visual/monitordoorbell.py
 Grouping all unused by app
 Extracting package names for unused
@@ -828,6 +836,7 @@ Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
 Extracting package names for imports
+Removing all python std lib imports
  *** apps/visual/surocam.py
 Grouping all unused by app
 Extracting package names for unused
@@ -837,6 +846,7 @@ Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
 Extracting package names for imports
+Removing all python std lib imports
  *** apps/visual/robot.py
 Grouping all unused by app
 Extracting package names for unused
@@ -849,6 +859,7 @@ Found call to native proc in code: subprocess.call( ['/home/pi/pb/combine.sh', L
 Collecting apps that are hybrid python-C
 Replacing the first-party imports for group: raw_imports
 Extracting package names for imports
+Removing all python std lib imports
  *** apps/visual/WifiPhotobooth/photobooth_control.py
 Grouping all unused by app
 Replacing the first-party imports for group: unused
@@ -860,6 +871,7 @@ Collecting apps that call a native process or are hybrid python-C
 Found call to native proc in code: subprocess.Popen([call], shell=True)
 Collecting apps that are hybrid python-C
 Extracting package names for imports
+Removing all python std lib imports
  *** apps/visual/CodeYourOwnPhotobooth.py
 Grouping all unused by app
 Extracting package names for unused
@@ -871,6 +883,7 @@ Found call to native proc in code: subprocess.call(cmd.split())
 Found call to native proc in code: subprocess.call(cmd.split())
 Collecting apps that are hybrid python-C
 Extracting package names for imports
+Removing all python std lib imports
  *** apps/visual/GPIO&PiCameraUsingTelegram.py
 Grouping all unused by app
 Extracting package names for unused
@@ -880,6 +893,7 @@ Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
 Extracting package names for imports
+Removing all python std lib imports
  *** apps/visual/smartJpegCamera.py
 Grouping all unused by app
 Extracting package names for unused
@@ -890,11 +904,12 @@ Collecting apps that call a native process or are hybrid python-C
 Call to native proc
 Collecting apps that are hybrid python-C
 Extracting package names for imports
+Removing all python std lib imports
  *** apps/visual/TwitterPhotoLiveFeed.py
 Grouping all unused by app
 Extracting package names for unused
 --- current app: apps/visual/SecurityCam
- *** apps/visual/SecurityCam/Overlay/overlay.py
+ *** apps/visual/SecurityCam/pirCam.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
@@ -902,18 +917,19 @@ Collecting apps that are hybrid python-C
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
- *** apps/visual/SecurityCam/pirCam.py
+ *** apps/visual/SecurityCam/Overlay/overlay.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
 Replacing the first-party imports for group: raw_imports
 replacing detector.Detector with ['cv2', 'random']
 Extracting package names for imports
- *** apps/visual/SecurityCam/Overlay/overlay.py
+Removing all python std lib imports
+ *** apps/visual/SecurityCam/pirCam.py
 Grouping all unused by app
  *** apps/visual/SecurityCam/detector.py
 Grouping all unused by app
- *** apps/visual/SecurityCam/pirCam.py
+ *** apps/visual/SecurityCam/Overlay/overlay.py
 Grouping all unused by app
 Replacing the first-party imports for group: unused
 Extracting package names for unused
@@ -929,6 +945,7 @@ Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
 Replacing the first-party imports for group: raw_imports
 Extracting package names for imports
+Removing all python std lib imports
  *** apps/visual/RPiIoTDoorbell/bell.py
 Grouping all unused by app
  *** apps/visual/RPiIoTDoorbell/IOTNOTIFY2.py
@@ -942,6 +959,7 @@ Collecting apps that call a native process or are hybrid python-C
 Call to native proc
 Collecting apps that are hybrid python-C
 Extracting package names for imports
+Removing all python std lib imports
  *** apps/visual/PiNoculars.py
 Grouping all unused by app
 Extracting package names for unused
@@ -951,6 +969,7 @@ Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
 Extracting package names for imports
+Removing all python std lib imports
  *** apps/visual/SendingReceivingPicsMqtt.py
 Grouping all unused by app
 Extracting package names for unused
@@ -960,6 +979,7 @@ Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
 Extracting package names for imports
+Removing all python std lib imports
  *** apps/visual/camera-vision-logo.py
 Grouping all unused by app
 Extracting package names for unused
@@ -969,6 +989,7 @@ Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
 Extracting package names for imports
+Removing all python std lib imports
  *** apps/visual/EasyRPISecCam.py
 Grouping all unused by app
 Extracting package names for unused
@@ -983,6 +1004,7 @@ Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
 Replacing the first-party imports for group: raw_imports
 Extracting package names for imports
+Removing all python std lib imports
  *** apps/visual/360_pi_cam/streamer.py
 Grouping all unused by app
  *** apps/visual/360_pi_cam/new_dewarp.py
@@ -990,25 +1012,26 @@ Grouping all unused by app
 Replacing the first-party imports for group: unused
 Extracting package names for unused
 --- current app: apps/visual/vintage_raspi_cam
- *** apps/visual/vintage_raspi_cam/python_dropbox.py
+ *** apps/visual/vintage_raspi_cam/python_camera.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
- *** apps/visual/vintage_raspi_cam/python_camera.py
+ *** apps/visual/vintage_raspi_cam/python_dropbox.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
 Replacing the first-party imports for group: raw_imports
 replacing python_dropbox with ['dropbox.client', 'os', 'urllib2']
 Extracting package names for imports
- *** apps/visual/vintage_raspi_cam/python_dropbox.py
-Grouping all unused by app
+Removing all python std lib imports
  *** apps/visual/vintage_raspi_cam/python_camera.py
+Grouping all unused by app
+ *** apps/visual/vintage_raspi_cam/python_dropbox.py
 Grouping all unused by app
 Replacing the first-party imports for group: unused
 Extracting package names for unused
 --- current app: apps/visual/pi-home-surveillance
- *** apps/visual/pi-home-surveillance/pyimagesearch/tempimage.py
+ *** apps/visual/pi-home-surveillance/pi_surveillance.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
@@ -1016,16 +1039,17 @@ Collecting apps that are hybrid python-C
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
- *** apps/visual/pi-home-surveillance/pi_surveillance.py
+ *** apps/visual/pi-home-surveillance/pyimagesearch/tempimage.py
 Grouping all raw_imports by app
 Collecting apps that call a native process or are hybrid python-C
 Collecting apps that are hybrid python-C
 Replacing the first-party imports for group: raw_imports
 replacing pyimagesearch.tempimage with ['os', 'uuid']
 Extracting package names for imports
- *** apps/visual/pi-home-surveillance/pyimagesearch/tempimage.py
-Grouping all unused by app
+Removing all python std lib imports
  *** apps/visual/pi-home-surveillance/pi_surveillance.py
+Grouping all unused by app
+ *** apps/visual/pi-home-surveillance/pyimagesearch/tempimage.py
 Grouping all unused by app
 Replacing the first-party imports for group: unused
 Extracting package names for unused

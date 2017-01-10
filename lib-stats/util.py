@@ -138,8 +138,8 @@ def write_list(l, filename, name=None):
     f.write(json.dumps(l, indent=4)+"\n")
     f.close()
 
-def write_map(m, filename, name=None):
-    f = open(filename, "a+")
+def write_map(m, filename, name=None, perm="a+"):
+    f = open(filename, perm)
     if name != None:
         f.write(str(name)+":\n")
     f.write(json.dumps(m, indent=4)+"\n")
