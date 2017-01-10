@@ -1,0 +1,36 @@
+{
+    "apps/visual/RPiLaserSecurity.py": [
+        "apps/visual/RPiLaserSecurity.py"
+    ],
+    "apps/visual/RPiPhotobooth": [
+        "apps/visual/RPiPhotobooth/boothcam.py",
+        "apps/visual/RPiPhotobooth/matchbox_test.py"
+    ],
+    "apps/visual/Fishtank": [
+        "apps/visual/Fishtank/Lights.py"
+    ],
+    "apps/visual/pidoorbell.py": [
+        "apps/visual/pidoorbell.py"
+    ],
+    "apps/visual/monitordoorbell.py": [
+        "apps/visual/monitordoorbell.py"
+    ],
+    "apps/visual/WifiPhotobooth": [
+        "apps/visual/WifiPhotobooth/photobooth_control.py"
+    ],
+    "apps/visual/CodeYourOwnPhotobooth.py": [
+        "apps/visual/CodeYourOwnPhotobooth.py"
+    ],
+    "apps/visual/GPIO&PiCameraUsingTelegram.py": [
+        "apps/visual/GPIO&PiCameraUsingTelegram.py"
+    ],
+    "apps/visual/TwitterPhotoLiveFeed.py": [
+        "apps/visual/TwitterPhotoLiveFeed.py"
+    ],
+    "apps/visual/RPiIoTDoorbell": [
+        "apps/visual/RPiIoTDoorbell/bell.py"
+    ],
+    "apps/visual/PiNoculars.py": [
+        "apps/visual/PiNoculars.py"
+    ]
+}

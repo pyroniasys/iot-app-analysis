@@ -11,11 +11,12 @@ import copy
 from collections import OrderedDict
 import json
 
-from util import write_map, read_map, remove_dups
+from util import write_map, read_map, remove_dups, write_list
 from pyflakes import reporter as modReporter
 from pyflakes.api import checkRecursive
 
-def group_by_app(a, apps, ungrouped, target, target2=None):
+def group_by_app(a, apps, src, ungrouped, target, target2=None):
+    print("Grouping all "+target+" by app")
     libs = remove_dups(ungrouped)
     if a.endswith(".py"):
         # single-module apps don't have first-party imports
@@ -43,6 +44,7 @@ def get_supermod(name):
 
 # we only want to store the top-level package
 def get_pkg_names(app, target):
+    print("Extracting package names for "+target)
     pkgs = []
     for lib in app[target]:
         tlp = get_supermod(lib)
@@ -73,7 +75,7 @@ def make_mod_name(prefix, name):
 def replace_fp_mod(prefix, mod, d, visited):
     n = make_mod_name(prefix, mod)
     s = make_super_mod_name(prefix, mod)
-    print("Looking at "+n+" and "+s)
+    #print("Looking at "+n+" and "+s)
     if d.get(n) == None and d.get(s) == None:
         return [mod]
     else:
@@ -104,18 +106,37 @@ def replace_fp_mod_app(app, target):
     libs = []
     for src, i in app[target].items():
         pref = get_prefix(src)
-        print(" *** "+src)
         for l in i:
             try:
                 # add entry for each src once we've tried to replace it
                 recurs_limit = []
                 tmp = replace_fp_mod(pref, l, app['raw_imports'], recurs_limit)
-                print("replacing "+l+" with "+str(tmp))
+
+                # this is just to avoid printing redundant messages
+                if not(len(tmp) == 1 and tmp[0] == l):
+                    print("replacing "+l+" with "+str(tmp))
                 libs.extend(tmp)
             except RecursionError:
                 print("died trying to replace "+l+" in "+src)
                 sys.exit(-1)
     return remove_dups(libs)
+
+def call_native_proc(l):
+    if "os.system" in l or "os.spawnlp" in l or "os.popen" in l or "subprocess.call" in l or "subprocess.Popen" in l:
+        return True
+    return False
+
+def scan_source(src):
+    f = open(src, "r")
+    lines = f.readlines()
+    f.close()
+    # these are the calls to native code that we've observed
+    for l in lines:
+        clean = l.strip()
+        if not clean.startswith("#") and call_native_proc(clean):
+            print("Found call to native proc in code: "+clean)
+            return True
+    return False
 
 # pass in the category: visual, audio or env
 cat = sys.argv[1]
@@ -159,14 +180,41 @@ os.remove(cat+"-flakes-unused-py2.txt")
 
 print("Number of "+cat+" apps being scraped: "+str(len(apps)))
 
+call_to_native = OrderedDict()
+hybrid = OrderedDict()
 # iterate through all apps to organize the imports
 for a in apps:
     print("--- current app: "+a)
+    proc_srcs = []
+    hybrid_srcs = []
     for src, i in imports_raw.items():
         if a in src:
+            print(" *** "+src)
             # want raw_imports AND imports since raw_imports is used
             # in the unused parsing as well
-            group_by_app(a, apps, i, 'raw_imports', 'imports')
+            group_by_app(a, apps, src, i, 'raw_imports', 'imports')
+
+            # iterate over the raw_imports to collect the ones that call native code/use ctypes
+            print("Collecting apps that call a native process or are hybrid python-C")
+            for l in i:
+                if l == "subprocess.call" or l == "subprocess.Popen":
+                    print("Call to native proc")
+                    proc_srcs.append(src)
+                elif l == "os" or l == "subprocess":
+                    if scan_source(src):
+                        proc_srcs.append(src)
+                elif l == "ctypes":
+                    print("Use ctypes")
+                    hybrid_srcs.append(src)
+
+            # iterate over the raw_imports to collect the ones that are hybrid
+            print("Collecting apps that are hybrid python-C")
+
+    if len(proc_srcs) > 0:
+        call_to_native[a] = remove_dups(proc_srcs)
+
+    if len(hybrid_srcs) > 0:
+        hybrid[a] = remove_dupes(hybrid_srcs)
 
     # iterate over each source file's imports to find
     # the first-party imports
@@ -182,7 +230,8 @@ for a in apps:
     # remove all __init__.py unused imports since they aren't actually unused
     for src, i in unused_raw.items():
         if a in src and not src.endswith("__init__.py"):
-            group_by_app(a, apps, i, 'unused')
+            print(" *** "+src)
+            group_by_app(a, apps, src, i, 'unused')
 
     # iterate of each source's files imports to remove unused imports that actually appear
     # in the list of imports
@@ -212,4 +261,6 @@ for a in apps:
     if len(apps[a]['unused']) == 0:
         del apps[a]['unused']
 
+write_map(call_to_native, cat+"-call-native.txt")
+write_map(hybrid, cat+"-hybrid-apps.txt")
 write_map(apps, cat+"-app-imports.txt")
