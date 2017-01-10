@@ -1,13 +1,4 @@
-apps/visual/RPiLaserSecurity.py:11: 'subprocess' imported but unused
-apps/visual/HomeSecurityEmailAlert.py:2: 'time' imported but unused
-apps/visual/HomeSecurityEmailAlert.py:3: 'numpy as np' imported but unused
-apps/visual/pidoorbell.py:5: 'subprocess' imported but unused
-apps/visual/pidoorbell.py:9: 'fcntl' imported but unused
-apps/visual/pidoorbell.py:10: 'struct' imported but unused
-apps/visual/monitordoorbell.py:6: 'os' imported but unused
-apps/visual/monitordoorbell.py:12: local variable 'returncode' is assigned to but never used
-apps/visual/robot.py:8: 'sys.exit' imported but unused
-apps/visual/robot.py:115: undefined name 'sys'
+apps/visual/camera-vision-logo.py:11: 'argparse' imported but unused
 apps/visual/CodeYourOwnPhotobooth.py:3: 'from tkinter import *' used; unable to detect undefined names
 apps/visual/CodeYourOwnPhotobooth.py:7: 'os' imported but unused
 apps/visual/CodeYourOwnPhotobooth.py:8: 'tkinter.filedialog' imported but unused
@@ -110,22 +101,75 @@ apps/visual/CodeYourOwnPhotobooth.py:659: 'W' may be undefined, or defined from 
 apps/visual/CodeYourOwnPhotobooth.py:659: 'S' may be undefined, or defined from star imports: tkinter
 apps/visual/CodeYourOwnPhotobooth.py:659: 'E' may be undefined, or defined from star imports: tkinter
 apps/visual/CodeYourOwnPhotobooth.py:664: 'mainloop' may be undefined, or defined from star imports: tkinter
+apps/visual/EasyRPISecCam.py:5: 'time' imported but unused
 apps/visual/GPIO&PiCameraUsingTelegram.py:7: 'shlex' imported but unused
 apps/visual/GPIO&PiCameraUsingTelegram.py:12: 'sys' imported but unused
 apps/visual/GPIO&PiCameraUsingTelegram.py:29: local variable 'binlog_done' is assigned to but never used
+apps/visual/HomeSecurityEmailAlert.py:2: 'time' imported but unused
+apps/visual/HomeSecurityEmailAlert.py:3: 'numpy as np' imported but unused
+apps/visual/monitordoorbell.py:6: 'os' imported but unused
+apps/visual/monitordoorbell.py:12: local variable 'returncode' is assigned to but never used
+apps/visual/pidoorbell.py:5: 'subprocess' imported but unused
+apps/visual/pidoorbell.py:9: 'fcntl' imported but unused
+apps/visual/pidoorbell.py:10: 'struct' imported but unused
 apps/visual/PiNoculars.py:38: 'from pygame.locals import *' used; unable to detect undefined names
 apps/visual/PiNoculars.py:187: local variable 'screenModePrior' is assigned to but never used
 apps/visual/PiNoculars.py:605: 'MOUSEBUTTONDOWN' may be undefined, or defined from star imports: pygame.locals
+apps/visual/robot.py:8: 'sys.exit' imported but unused
+apps/visual/robot.py:115: undefined name 'sys'
+apps/visual/RPiLaserSecurity.py:11: 'subprocess' imported but unused
 apps/visual/SendingReceivingPicsMqtt.py:47: undefined name 'json'
-apps/visual/camera-vision-logo.py:11: 'argparse' imported but unused
-apps/visual/EasyRPISecCam.py:5: 'time' imported but unused
-apps/visual/RPiPhotobooth/matchbox_test.py:2: 'from Tkinter import *' used; unable to detect undefined names
-apps/visual/RPiPhotobooth/matchbox_test.py:22: 'Tk' may be undefined, or defined from star imports: Tkinter
-apps/visual/RPiPhotobooth/matchbox_test.py:23: 'Label' may be undefined, or defined from star imports: Tkinter
-apps/visual/RPiPhotobooth/matchbox_test.py:24: 'Entry' may be undefined, or defined from star imports: Tkinter
-apps/visual/RPiPhotobooth/matchbox_test.py:25: 'Button' may be undefined, or defined from star imports: Tkinter
-apps/visual/RPiPhotobooth/custom.py:9: redefinition of unused 'os' from line 5
-apps/visual/RPiPhotobooth/custom.py:322: redefinition of unused 'Tkinter' from line 2
+apps/visual/360_pi_cam/new_dewarp.py:1: 'SimpleCV.Camera' imported but unused
+apps/visual/360_pi_cam/new_dewarp.py:1: 'SimpleCV.VideoStream' imported but unused
+apps/visual/360_pi_cam/new_dewarp.py:1: 'SimpleCV.Color' imported but unused
+apps/visual/360_pi_cam/new_dewarp.py:4: 'time' imported but unused
+apps/visual/360_pi_cam/streamer.py:1: 'from SimpleCV import *' used; unable to detect undefined names
+apps/visual/360_pi_cam/streamer.py:3: 'Camera' may be undefined, or defined from star imports: SimpleCV
+apps/visual/360_pi_cam/streamer.py:4: 'JpegStreamer' may be undefined, or defined from star imports: SimpleCV
+apps/visual/Fishtank/Event.py:2: 'traceback' imported but unused
+apps/visual/Fishtank/Event.py:2: 'sys' imported but unused
+apps/visual/Fishtank/Event.py:102: local variable 'exception' is assigned to but never used
+apps/visual/Fishtank/Event.py:214: undefined name 'imageId'
+apps/visual/Fishtank/FishFeeder.py:67: local variable 'LOWERCASE' is assigned to but never used
+apps/visual/Fishtank/FishFeeder.py:67: local variable 'UPPERCASE' is assigned to but never used
+apps/visual/Fishtank/FishFeeder.py:249: local variable 'end' is assigned to but never used
+apps/visual/Fishtank/FishTank.py:3: 'sys' imported but unused
+apps/visual/Fishtank/FlaskServer.py:1: 'from thread import *' used; unable to detect undefined names
+apps/visual/Fishtank/FlaskServer.py:2: 'from flask import *' used; unable to detect undefined names
+apps/visual/Fishtank/FlaskServer.py:8: 'from flask_login import *' used; unable to detect undefined names
+apps/visual/Fishtank/FlaskServer.py:11: 'flask.ext.login' imported but unused
+apps/visual/Fishtank/FlaskServer.py:43: 'Flask' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:68: 'Response' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:72: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:72: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:72: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:73: 'Response' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:78: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:78: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:84: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:85: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:86: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:87: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:109: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:110: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:118: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:154: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:171: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:183: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:189: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:194: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:233: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:239: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:243: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:251: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/FlaskServer.py:259: 'redirect' may be undefined, or defined from star imports: flask, flask_login, thread
+apps/visual/Fishtank/Log.py:5: 'from thread import *' used; unable to detect undefined names
+apps/visual/Fishtank/Log.py:55: 'start_new_thread' may be undefined, or defined from star imports: thread
+apps/visual/Fishtank/Log.py:57: 'start_new_thread' may be undefined, or defined from star imports: thread
+apps/visual/Fishtank/server.py:7: 'Log' imported but unused
+apps/visual/Fishtank/server.py:8: 'FlaskServer.app' imported but unused
+apps/visual/RPiIoTDoorbell/bell.py:4: 'glob' imported but unused
+apps/visual/RPiIoTDoorbell/IOTNOTIFY2.py:4: 'smtplib.SMTP' imported but unused
 apps/visual/RPiPhotobooth/boothcam.py:2: 'tkFileDialog' imported but unused
 apps/visual/RPiPhotobooth/boothcam.py:11: 'time.sleep' imported but unused
 apps/visual/RPiPhotobooth/boothcam.py:17: 'gdata.gauth' imported but unused
@@ -139,7 +183,18 @@ apps/visual/RPiPhotobooth/boothcam.py:30: 'constants.WHITE' imported but unused
 apps/visual/RPiPhotobooth/boothcam.py:30: 'constants.BLACK' imported but unused
 apps/visual/RPiPhotobooth/boothcam.py:96: local variable 'rgb_command' is assigned to but never used
 apps/visual/RPiPhotobooth/boothcam.py:191: local variable 'photo' is assigned to but never used
-apps/visual/RPiPhotobooth/screenshot.py:13: 'time' imported but unused
+apps/visual/RPiPhotobooth/credentials.py:1: 'os' imported but unused
+apps/visual/RPiPhotobooth/custom.py:9: redefinition of unused 'os' from line 5
+apps/visual/RPiPhotobooth/custom.py:322: redefinition of unused 'Tkinter' from line 2
+apps/visual/RPiPhotobooth/cv2_camera.py:2: 'numpy as np' imported but unused
+apps/visual/RPiPhotobooth/listalbums.py:54: local variable 'kb' is assigned to but never used
+apps/visual/RPiPhotobooth/mailfile.py:10: 'email.Encoders.encode_base64' imported but unused
+apps/visual/RPiPhotobooth/mailfile.py:43: undefined name 'email'
+apps/visual/RPiPhotobooth/matchbox_test.py:2: 'from Tkinter import *' used; unable to detect undefined names
+apps/visual/RPiPhotobooth/matchbox_test.py:22: 'Tk' may be undefined, or defined from star imports: Tkinter
+apps/visual/RPiPhotobooth/matchbox_test.py:23: 'Label' may be undefined, or defined from star imports: Tkinter
+apps/visual/RPiPhotobooth/matchbox_test.py:24: 'Entry' may be undefined, or defined from star imports: Tkinter
+apps/visual/RPiPhotobooth/matchbox_test.py:25: 'Button' may be undefined, or defined from star imports: Tkinter
 apps/visual/RPiPhotobooth/photobooth_gui.py:11: 'from Tkinter import *' used; unable to detect undefined names
 apps/visual/RPiPhotobooth/photobooth_gui.py:14: 'from mailfile import *' used; unable to detect undefined names
 apps/visual/RPiPhotobooth/photobooth_gui.py:17: 'config' imported but unused
@@ -185,11 +240,7 @@ apps/visual/RPiPhotobooth/photobooth_gui.py:326: 'Canvas' may be undefined, or d
 apps/visual/RPiPhotobooth/photobooth_gui.py:334: 'setup_google' may be undefined, or defined from star imports: Tkinter, boothcam, constants, mailfile
 apps/visual/RPiPhotobooth/photobooth_gui.py:338: 'DISABLED' may be undefined, or defined from star imports: Tkinter, boothcam, constants, mailfile
 apps/visual/RPiPhotobooth/photobooth_gui.py:339: 'DISABLED' may be undefined, or defined from star imports: Tkinter, boothcam, constants, mailfile
-apps/visual/RPiPhotobooth/cv2_camera.py:2: 'numpy as np' imported but unused
-apps/visual/RPiPhotobooth/mailfile.py:10: 'email.Encoders.encode_base64' imported but unused
-apps/visual/RPiPhotobooth/mailfile.py:43: undefined name 'email'
-apps/visual/RPiPhotobooth/credentials.py:1: 'os' imported but unused
-apps/visual/RPiPhotobooth/listalbums.py:54: local variable 'kb' is assigned to but never used
+apps/visual/RPiPhotobooth/screenshot.py:13: 'time' imported but unused
 apps/visual/RPiPhotobooth/tkkb.py:1: 'from Tkinter import *' used; unable to detect undefined names
 apps/visual/RPiPhotobooth/tkkb.py:51: 'INSERT' may be undefined, or defined from star imports: Tkinter
 apps/visual/RPiPhotobooth/tkkb.py:53: 'INSERT' may be undefined, or defined from star imports: Tkinter
@@ -203,76 +254,25 @@ apps/visual/RPiPhotobooth/tkkb.py:94: 'Canvas' may be undefined, or defined from
 apps/visual/RPiPhotobooth/tkkb.py:182: 'HIDDEN' may be undefined, or defined from star imports: Tkinter
 apps/visual/RPiPhotobooth/tkkb.py:213: 'Tk' may be undefined, or defined from star imports: Tkinter
 apps/visual/RPiPhotobooth/tkkb.py:216: 'Entry' may be undefined, or defined from star imports: Tkinter
+apps/visual/SecurityCam/detector.py:2: 'sys' imported but unused
+apps/visual/SecurityCam/pirCam.py:78: local variable 'result' is assigned to but never used
+apps/visual/vintage_raspi_cam/python_dropbox.py:6: 'sys' imported but unused
+apps/visual/vintage_raspi_cam/python_dropbox.py:20: local variable 'e' is assigned to but never used
 apps/visual/WhoIsAtCoffeeMachine/run.py:4: 'datetime' imported but unused
 apps/visual/WhoIsAtCoffeeMachine/run.py:5: 'argparse' imported but unused
 apps/visual/WhoIsAtCoffeeMachine/run.py:12: 'lcd.screen' imported but unused
-apps/visual/WhoIsAtCoffeeMachine/opencv/__init__.py:1: 'config' imported but unused
-apps/visual/WhoIsAtCoffeeMachine/opencv/__init__.py:2: 'face' imported but unused
-apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py:9: 'time' imported but unused
 apps/visual/WhoIsAtCoffeeMachine/lcd/__init__.py:1: 'backlight' imported but unused
 apps/visual/WhoIsAtCoffeeMachine/lcd/__init__.py:2: 'screen' imported but unused
 apps/visual/WhoIsAtCoffeeMachine/lcd/__init__.py:3: 'display' imported but unused
+apps/visual/WhoIsAtCoffeeMachine/opencv/__init__.py:1: 'config' imported but unused
+apps/visual/WhoIsAtCoffeeMachine/opencv/__init__.py:2: 'face' imported but unused
+apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py:9: 'time' imported but unused
 apps/visual/WhoIsAtCoffeeMachine/sigfox/__init__.py:1: 'sendsigfox' imported but unused
 apps/visual/WhoIsAtCoffeeMachine/sigfox/sendreceivesigfox.py:13: 'time' imported but unused
 apps/visual/WhoIsAtCoffeeMachine/sigfox/sendsigfox.py:13: 'time' imported but unused
 apps/visual/WhoIsAtCoffeeMachine/sigfox/sendsigfox.py:41: undefined name 'ser'
 apps/visual/WhoIsAtCoffeeMachine/sigfox/sendsigfox.py:44: undefined name 'ser'
 apps/visual/WhoIsAtCoffeeMachine/sigfox/sendsigfox.py:77: undefined name 'ser'
-apps/visual/Fishtank/server.py:7: 'Log' imported but unused
-apps/visual/Fishtank/server.py:8: 'FlaskServer.app' imported but unused
-apps/visual/Fishtank/Log.py:5: 'from thread import *' used; unable to detect undefined names
-apps/visual/Fishtank/Log.py:55: 'start_new_thread' may be undefined, or defined from star imports: thread
-apps/visual/Fishtank/Log.py:57: 'start_new_thread' may be undefined, or defined from star imports: thread
-apps/visual/Fishtank/FishFeeder.py:67: local variable 'LOWERCASE' is assigned to but never used
-apps/visual/Fishtank/FishFeeder.py:67: local variable 'UPPERCASE' is assigned to but never used
-apps/visual/Fishtank/FishFeeder.py:249: local variable 'end' is assigned to but never used
-apps/visual/Fishtank/Event.py:2: 'traceback' imported but unused
-apps/visual/Fishtank/Event.py:2: 'sys' imported but unused
-apps/visual/Fishtank/Event.py:102: local variable 'exception' is assigned to but never used
-apps/visual/Fishtank/Event.py:214: undefined name 'imageId'
-apps/visual/Fishtank/FishTank.py:3: 'sys' imported but unused
-apps/visual/Fishtank/FlaskServer.py:1: 'from thread import *' used; unable to detect undefined names
-apps/visual/Fishtank/FlaskServer.py:2: 'from flask import *' used; unable to detect undefined names
-apps/visual/Fishtank/FlaskServer.py:8: 'from flask_login import *' used; unable to detect undefined names
-apps/visual/Fishtank/FlaskServer.py:11: 'flask.ext.login' imported but unused
-apps/visual/Fishtank/FlaskServer.py:43: 'Flask' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:68: 'Response' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:72: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:72: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:72: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:73: 'Response' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:78: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:78: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:84: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:85: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:86: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:87: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:109: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:110: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:118: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:154: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:171: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:183: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:189: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:194: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:233: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:239: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:243: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:251: 'request' may be undefined, or defined from star imports: flask, flask_login, thread
-apps/visual/Fishtank/FlaskServer.py:259: 'redirect' may be undefined, or defined from star imports: flask, flask_login, thread
 apps/visual/WifiPhotobooth/photobooth_control.py:11: 'from pygame.locals import *' used; unable to detect undefined names
 apps/visual/WifiPhotobooth/photobooth_control.py:11: 'pygame.locals.*' imported but unused
 apps/visual/WifiPhotobooth/photobooth_control.py:127: local variable 'o' is assigned to but never used
-apps/visual/SecurityCam/detector.py:2: 'sys' imported but unused
-apps/visual/SecurityCam/pirCam.py:78: local variable 'result' is assigned to but never used
-apps/visual/RPiIoTDoorbell/bell.py:4: 'glob' imported but unused
-apps/visual/RPiIoTDoorbell/IOTNOTIFY2.py:4: 'smtplib.SMTP' imported but unused
-apps/visual/360_pi_cam/new_dewarp.py:1: 'SimpleCV.Camera' imported but unused
-apps/visual/360_pi_cam/new_dewarp.py:1: 'SimpleCV.VideoStream' imported but unused
-apps/visual/360_pi_cam/new_dewarp.py:1: 'SimpleCV.Color' imported but unused
-apps/visual/360_pi_cam/new_dewarp.py:4: 'time' imported but unused
-apps/visual/360_pi_cam/streamer.py:1: 'from SimpleCV import *' used; unable to detect undefined names
-apps/visual/360_pi_cam/streamer.py:3: 'Camera' may be undefined, or defined from star imports: SimpleCV
-apps/visual/360_pi_cam/streamer.py:4: 'JpegStreamer' may be undefined, or defined from star imports: SimpleCV
-apps/visual/vintage_raspi_cam/python_dropbox.py:6: 'sys' imported but unused
-apps/visual/vintage_raspi_cam/python_dropbox.py:20: local variable 'e' is assigned to but never used

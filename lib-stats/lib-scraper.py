@@ -35,11 +35,24 @@ def get_prefix(path):
     return prefix
 
 def get_supermod(name):
-     if name.count('.') == 1:
+     if name.count('.') >= 1:
         mod = name.split('.')
         return "/"+mod[0]
      else:
          return ""
+
+# we only want to store the top-level package
+def get_pkg_names(app, target):
+    pkgs = []
+    for lib in app[target]:
+        tlp = get_supermod(lib)
+        if tlp == "" or lib == "RPi.GPIO":
+            # let's make an exception for RPi.GPIO -- that's the pkg name
+            tlp = lib
+        else:
+            tlp = tlp.lstrip("/")
+        pkgs.append(tlp)
+    return remove_dups(pkgs)
 
 def make_super_mod_name(prefix, name):
     supermod =  prefix+get_supermod(name)+".py"
@@ -51,7 +64,7 @@ def make_super_mod_name(prefix, name):
     return supermod
 
 def make_mod_name(prefix, name):
-    if name.count('.') == 1:
+    if name.count('.') >= 1:
         mod = name.split('.')
         return prefix+"/"+mod[0]+"/"+mod[1]+".py"
 
@@ -62,13 +75,7 @@ def replace_fp_mod(prefix, mod, d, visited):
     s = make_super_mod_name(prefix, mod)
     print("Looking at "+n+" and "+s)
     if d.get(n) == None and d.get(s) == None:
-        # we only want to store the top-level package
-        tlp = get_supermod(mod)
-        if tlp == "":
-           tlp = mod
-        else:
-            tlp = tlp.lstrip("/")
-        return [tlp]
+        return [mod]
     else:
         insuper = False
         if d.get(n) != None:
@@ -169,6 +176,9 @@ for a in apps:
 
         apps[a]['imports'] = replace_fp_mod_app(apps[a], 'raw_imports')
 
+    # we only want to store the pkg names
+    apps[a]['imports'] = get_pkg_names(apps[a], 'imports')
+
     # remove all __init__.py unused imports since they aren't actually unused
     for src, i in unused_raw.items():
         if a in src and not src.endswith("__init__.py"):
@@ -184,5 +194,22 @@ for a in apps:
 
         # remove the raw imports once we're done with all the parsing
         del apps[a]['raw_imports']
+
+    # now we only want to store the pkg names
+    apps[a]['unused'] = get_pkg_names(apps[a], 'unused')
+
+    # if a pkg is under unused (possibly bc an app submodule doesn't
+    # use it or some submodule is unused), but it also appears in imports
+    # consider it used by the app, so remove it from unused
+    pruned_unused = []
+    for l in apps[a]['unused']:
+        if not l in apps[a]['imports']:
+            pruned_unused.append(l)
+
+    apps[a]['unused'] = pruned_unused
+
+    # let's get rid of all the empty unused lists
+    if len(apps[a]['unused']) == 0:
+        del apps[a]['unused']
 
 write_map(apps, cat+"-app-imports.txt")
