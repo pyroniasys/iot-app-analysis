@@ -8,3 +8,5 @@ https://www.hackster.io/archieroques/iot-tweeting-plants-w-raspberry-pi-f99da2?r
 https://www.hackster.io/terren/simple-gardening-service-manage-indoor-gardens-using-iot-be95d1?ref=search&ref_id=IoT%20python&offset=8
 https://www.hackster.io/FutureSharks/raspberry-pi-security-system-with-motion-detection-camera-bed172?ref=search&ref_id=home%20security%20python&offset=1
 http://www.instructables.com/id/Mobile-Station-Prototype-for-Environmental-Data-Ca/?ALLSTEPS
+http://www.instructables.com/id/RaspberryPI-HAL9000/?ALLSTEPS
+https://www.artik.io/blog/2016/07/building-photo-booth-samsung-artik-10/
