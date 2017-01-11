@@ -8,6 +8,7 @@ import os
 import sys
 
 from collections import OrderedDict
+import json
 
 from util import write_map, read_map, remove_dups, write_list
 from pyflakes import reporter as modReporter
@@ -15,19 +16,16 @@ from pyflakes.api import checkRecursive
 
 from stdlib_list import stdlib_list
 
-def group_by_app(a, apps, src, ungrouped, target, target2=None):
-    print("Grouping all "+target+" by app")
-    libs = remove_dups(ungrouped)
-    if a.endswith(".py"):
-        # single-module apps don't have first-party imports
-        if target2:
-            apps[a][target2] = libs
-        else:
-            apps[a][target] = libs
-    else:
-        if apps[a].get(target) == None:
-            apps[a][target] = OrderedDict()
-        apps[a][target][src] = libs
+def group_by_app(a, ungrouped):
+    grouped = OrderedDict()
+    for src, i in ungrouped.items():
+        if a in src:
+            print(" *** "+src)
+            # want raw_imports AND imports since raw_imports is used
+            # in the unused parsing as well
+            libs = remove_dups(i)
+            grouped[src] = libs
+    return grouped
 
 def get_prefix(path):
     dirs = path.split('/')
@@ -80,7 +78,7 @@ def make_mod_name(prefix, name):
 def replace_fp_mod(prefix, mod, d, visited):
     n = make_mod_name(prefix, mod)
     s = make_super_mod_name(prefix, mod)
-    #print("Looking at "+n+" and "+s)
+    print("Looking at "+n+" and "+s)
     if d.get(n) == None and d.get(s) == None:
         return [mod]
     else:
@@ -192,25 +190,24 @@ for a in apps:
     print("--- current app: "+a)
     proc_srcs = []
     hybrid_srcs = []
-    for src, i in imports_raw.items():
-        if a in src:
-            print(" *** "+src)
-            # want raw_imports AND imports since raw_imports is used
-            # in the unused parsing as well
-            group_by_app(a, apps, src, i, 'raw_imports', 'imports')
 
-            # iterate over the raw_imports to collect the ones that call native code/use ctypes
-            print("Collecting apps that call a native process or are hybrid python-C")
-            for l in i:
-                if l == "subprocess.call" or l == "subprocess.Popen":
-                    print("Call to native proc")
+    # group the raw imports by app
+    print("Grouping all imports by app")
+    apps[a]['raw_imports'] = group_by_app(a, imports_raw)
+
+    # iterate over the raw_imports to collect the ones that call native code/use ctypes
+    print("Collecting apps that call a native process or are hybrid python-C")
+    for src, i in apps[a]['raw_imports'].items():
+        for l in i:
+            if l == "subprocess.call" or l == "subprocess.Popen":
+                print("Call to native proc in "+src)
+                proc_srcs.append(src)
+            elif l == "os" or l == "subprocess":
+                if scan_source(src):
                     proc_srcs.append(src)
-                elif l == "os" or l == "subprocess":
-                    if scan_source(src):
-                        proc_srcs.append(src)
-                elif l == "ctypes":
-                    print("Use ctypes")
-                    hybrid_srcs.append(src)
+            elif l == "ctypes":
+                print("Use ctypes in "+src)
+                hybrid_srcs.append(src)
 
     if len(proc_srcs) > 0:
         call_to_native[a] = remove_dups(proc_srcs)
@@ -225,6 +222,9 @@ for a in apps:
         apps[a]['raw_imports'] = OrderedDict(sorted(apps[a]['raw_imports'].items(), key=lambda t: t[0]))
 
         apps[a]['imports'] = replace_fp_mod_app(apps[a], 'raw_imports')
+    else:
+        # we can do this since the app name is the only source file in the raw imports
+        apps[a]['imports'] = apps[a]['raw_imports'][a]
 
     # we only want to store the pkg names
     apps[a]['imports'] = get_pkg_names(apps[a], 'imports')
@@ -240,10 +240,14 @@ for a in apps:
     apps[a]['imports'] = libs_3p
 
     # remove all __init__.py unused imports since they aren't actually unused
+    unused_raw_clean = OrderedDict()
     for src, i in unused_raw.items():
-        if a in src and not src.endswith("__init__.py"):
-            print(" *** "+src)
-            group_by_app(a, apps, src, i, 'unused')
+        if not src.endswith("__init__.py"):
+            unused_raw_clean[src] = i
+
+    # group the raw unused by app
+    print("Grouping all unused by app")
+    apps[a]['unused'] = group_by_app(a, unused_raw_clean)
 
     # iterate of each source's files imports to remove unused imports that actually appear
     # in the list of imports
