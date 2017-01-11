@@ -20,7 +20,6 @@ def group_by_app(a, ungrouped):
     grouped = OrderedDict()
     for src, i in ungrouped.items():
         if a in src:
-            print(" *** "+src)
             # want raw_imports AND imports since raw_imports is used
             # in the unused parsing as well
             libs = remove_dups(i)
@@ -60,18 +59,27 @@ def get_pkg_names(app, target):
     return remove_dups(pkgs)
 
 def make_super_mod_name(prefix, name):
-    supermod =  prefix+get_supermod(name)+".py"
+    supermod = get_supermod(name)
 
+    if supermod in prefix:
+        print("super module already in name")
+        return prefix+".py"
     # this case is true if the module doesn't have a supermodule
-    if supermod == prefix+".py":
+    elif prefix+supermod+".py" == prefix+".py":
         return ""
 
-    return supermod
+    return prefix+supermod+".py"
 
 def make_mod_name(prefix, name):
     if name.count('.') >= 1:
         mod = name.split('.')
-        return prefix+"/"+mod[0]+"/"+mod[1]+".py"
+
+        # we need this check to make sure we're not repeating the submodule
+        # this is basically the other side of the `insuper` flag below
+        if "/"+mod[0] in prefix:
+            return prefix+"/"+mod[1]+".py"
+        else:
+            return prefix+"/"+mod[0]+"/"+mod[1]+".py"
 
     return prefix+"/"+name+".py"
 
@@ -86,6 +94,7 @@ def replace_fp_mod(prefix, mod, d, visited):
         if d.get(n) != None:
             mo = n
         elif d.get(s) != None:
+            print("We're in the super module")
             insuper = True
             mo = s
 
@@ -109,6 +118,7 @@ def replace_fp_mod_app(app, target):
     libs = []
     for src, i in app[target].items():
         pref = get_prefix(src)
+        print(" *** "+src)
         for l in i:
             try:
                 # add entry for each src once we've tried to replace it
