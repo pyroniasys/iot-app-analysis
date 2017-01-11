@@ -1,3 +1,0 @@
-pocketsphinx
-webrtcvad
-requests

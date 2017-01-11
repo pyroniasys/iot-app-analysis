@@ -9,7 +9,6 @@ http://makezine.com/projects/use-raspberry-pi-for-voice-control/, https://github
 http://www.cnx-software.com/2016/08/27/getting-started-with-respeaker-wifi-iot-board-audio-capabilities-voice-recognition-and-synthesis/, https://github.com/respeaker/microsoft_cognitive_services
 https://kazuar.github.io/raspberry_pi_voice_recognition/, https://github.com/kazuar/raspberrypi_voice_control
 https://pythonspot.com/en/personal-assistant-jarvis-in-python/
-https://www.hackster.io/parttimehacker/alexa-voice-alarm-clock-42ab05?ref=search&ref_id=voice%20control%20python&offset=1
 https://www.hackster.io/krvarma/respeaker-messenger-27e5ca?ref=search&ref_id=voice control python&offset=6
 https://hackaday.io/project/9413-hey-athena-jarviss-better-half
 https://www.hackster.io/25439/voice-controlled-smart-home-36e37e?ref=search&ref_id=voice%20control&offset=2

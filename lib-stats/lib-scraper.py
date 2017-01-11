@@ -43,7 +43,7 @@ def get_supermod_hierarchy(name):
     if name.count('.') >= 1:
         mod = name.split('.')
         supermod = "/".join(mod[:len(mod)-1])
-        print("super module hierarchy: "+supermod)
+        #print("super module hierarchy: "+supermod)
         return supermod
     else:
         return ""
@@ -74,16 +74,16 @@ def make_super_mod_name(prefix, name):
 
     return prefix+"/"+supermod+".py"
 
-def make_mod_name(prefix, name):
+def make_mod_name(tldir, prefix, name):
     if name.count('.') >= 1:
         mod = name.split('.')
         mod_hierarch = "/".join(mod)
 
-        return prefix+"/"+mod_hierarch+".py"
+        return prefix+"/"+mod_hierarch+".py", tldir+"/"+mod_hierarch+".py"
 
-    return prefix+"/"+name+".py"
+    return prefix+"/"+name+".py", tldir+"/"+name+".py"
 
-def replace_fp_mod(prefix, mod, d, visited):
+def replace_fp_mod(tldir, prefix, mod, d, visited):
     supermod = get_supermod_hierarchy(mod)
     tlp = get_top_pkg_name(mod)
 
@@ -92,49 +92,74 @@ def replace_fp_mod(prefix, mod, d, visited):
         # in super module, but for some reason the import
         # still includes the super module
         # prune the prefix
-        print("Pruning")
+        #print("Pruning")
         prefix = prefix[:prefix.find("/"+tlp)]
 
-    n = make_mod_name(prefix, mod)
+    n, alt = make_mod_name(tldir, prefix, mod)
     s = make_super_mod_name(prefix, mod)
-    print("Looking at "+n+" and "+s)
-    if d.get(n) == None and d.get(s) == None:
+    di = alt[:alt.find(".py")] # this is needed in case an entire subpackage is imported
+    print("Looking at "+n+", "+alt+", "+s+" and "+di)
+    if d.get(n) == None and d.get(alt) == None and d.get(s) == None and not os.path.isdir(di):
         return [mod]
     else:
         insuper = False
+        indir = False
+        altname = False
+        srcs = []
         if d.get(n) != None:
-            mo = n
+            srcs = [n]
+        elif d.get(alt) != None:
+            alname = True
+            srcs = [alt]
         elif d.get(s) != None:
             insuper = True
-            mo = s
+            srcs = [s]
+        elif os.path.isdir(di):
+            # will want to look at the contents of the entire directory
+            #print("In directory")
+            indir = True
+            files = os.listdir(di)
+            for f in files:
+                if not f.startswith("."):
+                    srcs.append(di+"/"+f)
 
-        if mo in visited:
-            print(mo+" is imported recursively, so don't go deeper")
-            return []
-        else:
-            visited.append(mo)
-            l = []
-            for m in d[mo]:
-                if insuper or tlp == "":
-                    next_mod = prefix
-                else:
-                    next_mod = prefix+"/"+tlp
+        l = []
+        for src in srcs:
+            if src in visited:
+                print(src+" is imported recursively, so don't go deeper")
+            else:
+                visited.append(src)
+                for m in d[src]:
+                    if insuper or tlp == "":
+                        next_mod = prefix
+                    elif altname:
+                        next_mod = tldir
+                    elif indir:
+                        next_mod = di
+                    else:
+                        next_mod = prefix+"/"+tlp
 
-                tmp = replace_fp_mod(next_mod, m, d, visited)
-                l.extend(tmp)
-            return l
+                    tmp = replace_fp_mod(tldir, next_mod, m, d, visited)
+                    l.extend(tmp)
+        return l
 
-def replace_fp_mod_app(app, target):
+def replace_fp_mod_app(apps, a, target):
     print("Replacing the first-party imports for group: "+target)
     libs = []
-    for src, i in app[target].items():
+    for src, i in apps[a][target].items():
         pref = get_prefix(src)
         print(" *** "+src)
         for l in i:
             try:
                 # add entry for each src once we've tried to replace it
                 recurs_limit = []
-                tmp = replace_fp_mod(pref, l, app['raw_imports'], recurs_limit)
+                # want this check bc we want to make sure we stay
+                # within the app directory
+                if a.endswith(".py"):
+                    tldir = get_prefix(a)
+                else:
+                    tldir = a
+                tmp = replace_fp_mod(tldir, pref, l, apps[a]['raw_imports'], recurs_limit)
 
                 # this is just to avoid printing redundant messages
                 if not(len(tmp) == 1 and tmp[0] == l):
@@ -242,7 +267,7 @@ for a in apps:
         # make sure to sort the sources to have a deterministic analysis
         apps[a]['raw_imports'] = OrderedDict(sorted(apps[a]['raw_imports'].items(), key=lambda t: t[0]))
 
-        apps[a]['imports'] = replace_fp_mod_app(apps[a], 'raw_imports')
+        apps[a]['imports'] = replace_fp_mod_app(apps, a, 'raw_imports')
     else:
         # we can do this since the app name is the only source file in the raw imports
         apps[a]['imports'] = apps[a]['raw_imports'][a]
@@ -276,7 +301,7 @@ for a in apps:
         # make sure to sort the sources to have a deterministic analysis
         apps[a]['unused'] = OrderedDict(sorted(apps[a]['unused'].items(), key=lambda t: t[0]))
 
-        apps[a]['unused'] = replace_fp_mod_app(apps[a], 'unused')
+        apps[a]['unused'] = replace_fp_mod_app(apps, a, 'unused')
     else:
         # we can do this since the app name is the only source file in the raw imports
         apps[a]['unused'] = apps[a]['unused'][a]
