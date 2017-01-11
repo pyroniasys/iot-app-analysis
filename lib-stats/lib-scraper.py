@@ -61,11 +61,8 @@ def get_pkg_names(app, target):
 def make_super_mod_name(prefix, name):
     supermod = get_supermod(name)
 
-    if supermod in prefix:
-        print("super module already in name")
-        return prefix+".py"
     # this case is true if the module doesn't have a supermodule
-    elif prefix+supermod+".py" == prefix+".py":
+    if prefix+supermod+".py" == prefix+".py":
         return ""
 
     return prefix+supermod+".py"
@@ -74,16 +71,17 @@ def make_mod_name(prefix, name):
     if name.count('.') >= 1:
         mod = name.split('.')
 
-        # we need this check to make sure we're not repeating the submodule
-        # this is basically the other side of the `insuper` flag below
-        if "/"+mod[0] in prefix:
-            return prefix+"/"+mod[1]+".py"
-        else:
-            return prefix+"/"+mod[0]+"/"+mod[1]+".py"
+        return prefix+"/"+mod[0]+"/"+mod[1]+".py"
 
     return prefix+"/"+name+".py"
 
 def replace_fp_mod(prefix, mod, d, visited):
+    supermod = get_supermod(mod)
+
+    if supermod != "" and supermod+"/" in prefix:
+        # prune the prefix
+        prefix = prefix[:prefix.find(supermod)-1]
+
     n = make_mod_name(prefix, mod)
     s = make_super_mod_name(prefix, mod)
     print("Looking at "+n+" and "+s)
@@ -92,6 +90,7 @@ def replace_fp_mod(prefix, mod, d, visited):
     else:
         insuper = False
         if d.get(n) != None:
+            print(n)
             mo = n
         elif d.get(s) != None:
             print("We're in the super module")
@@ -105,7 +104,7 @@ def replace_fp_mod(prefix, mod, d, visited):
             visited.append(mo)
             l = []
             for m in d[mo]:
-                next_mod = prefix+get_supermod(mod)
+                next_mod = prefix+supermod
                 if insuper:
                     next_mod = prefix
 
@@ -266,9 +265,12 @@ for a in apps:
         apps[a]['unused'] = OrderedDict(sorted(apps[a]['unused'].items(), key=lambda t: t[0]))
 
         apps[a]['unused'] = replace_fp_mod_app(apps[a], 'unused')
+    else:
+        # we can do this since the app name is the only source file in the raw imports
+        apps[a]['unused'] = apps[a]['unused'][a]
 
-        # remove the raw imports once we're done with all the parsing
-        del apps[a]['raw_imports']
+    # remove the raw imports once we're done with all the parsing
+    del apps[a]['raw_imports']
 
     # now we only want to store the pkg names
     apps[a]['unused'] = get_pkg_names(apps[a], 'unused')

@@ -1,46 +1,46 @@
 {
-    "apps/audio/BlokBot.py": [
-        "apps/audio/BlokBot.py"
+    "apps/audio/Alexabot": [
+        "apps/audio/Alexabot/AlexaPi/alexapi/device_platforms/rpilike.py"
     ],
-    "apps/audio/PiTranslate": [
-        "apps/audio/PiTranslate/PiTranslate.py"
+    "apps/audio/AlexaPhone": [
+        "apps/audio/AlexaPhone/main.py"
     ],
-    "apps/audio/GettingStartedWithReSpeaker": [
-        "apps/audio/GettingStartedWithReSpeaker/respeaker/player.py"
-    ],
-    "apps/audio/DYIAmazonAlexa": [
-        "apps/audio/DYIAmazonAlexa/alexa_voice_demo.py"
+    "apps/audio/AlexaPiMQTTSmartHub": [
+        "apps/audio/AlexaPiMQTTSmartHub/main.py"
     ],
     "apps/audio/AlexaVoiceAlarm": [
         "apps/audio/AlexaVoiceAlarm/alexa_voice_alarm_clock.py",
         "apps/audio/AlexaVoiceAlarm/alexa_voice_class.py"
     ],
-    "apps/audio/TalkingGanesha": [
-        "apps/audio/TalkingGanesha/F2LE55TIEKJ0T07.py",
-        "apps/audio/TalkingGanesha/FHRILVHIEKJ0SZZ.py"
+    "apps/audio/AlexaWithRaspioProHat": [
+        "apps/audio/AlexaWithRaspioProHat/main.py"
     ],
     "apps/audio/AudioServer&Recorder.py": [
         "apps/audio/AudioServer&Recorder.py"
     ],
-    "apps/audio/Alexabot": [
-        "apps/audio/Alexabot/AlexaPi/alexapi/device_platforms/rpilike.py"
+    "apps/audio/BlokBot.py": [
+        "apps/audio/BlokBot.py"
+    ],
+    "apps/audio/DYIAmazonAlexa": [
+        "apps/audio/DYIAmazonAlexa/alexa_voice_demo.py"
+    ],
+    "apps/audio/GettingStartedWithReSpeaker": [
+        "apps/audio/GettingStartedWithReSpeaker/respeaker/player.py"
     ],
     "apps/audio/JarvisInPython.py": [
         "apps/audio/JarvisInPython.py"
     ],
-    "apps/audio/AlexaPiMQTTSmartHub": [
-        "apps/audio/AlexaPiMQTTSmartHub/main.py"
+    "apps/audio/PiHomeMaster": [
+        "apps/audio/PiHomeMaster/AlexaPi/main.py"
+    ],
+    "apps/audio/PiTranslate": [
+        "apps/audio/PiTranslate/PiTranslate.py"
     ],
     "apps/audio/RPiAlexa": [
         "apps/audio/RPiAlexa/main.py"
     ],
-    "apps/audio/AlexaWithRaspioProHat": [
-        "apps/audio/AlexaWithRaspioProHat/main.py"
-    ],
-    "apps/audio/PiHomeMaster": [
-        "apps/audio/PiHomeMaster/AlexaPi/main.py"
-    ],
-    "apps/audio/AlexaPhone": [
-        "apps/audio/AlexaPhone/main.py"
+    "apps/audio/TalkingGanesha": [
+        "apps/audio/TalkingGanesha/F2LE55TIEKJ0T07.py",
+        "apps/audio/TalkingGanesha/FHRILVHIEKJ0SZZ.py"
     ]
 }
