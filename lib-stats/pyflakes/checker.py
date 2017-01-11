@@ -288,14 +288,10 @@ class ImportationFrom(Importation):
 
         super(ImportationFrom, self).__init__(name, source, full_name)
 
-        # this means we're importing a class or function from a submodule
-        if full_name.count('.') > 1:
-            self.mod = module
-        else:
-            # we're going to get some false positives here
-            # but we need to make sure we include submodule imports
-            # that use the from x import y syntax to find the proper 1p imports
-            self.mod = full_name
+        # we're going to get some classes and functions here
+        # but we need to make sure we get the full module hierarchy
+        # for imports that use from x import y to find the proper 1p imports
+        self.mod = full_name
 
     def __str__(self):
         """Return import full name with alias."""

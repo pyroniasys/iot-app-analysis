@@ -28,8 +28,17 @@ platform
 select
 threading
 time
+__future__
+contextlib
+inspect
+logging
+os
+pkgutil
+re
 sphinxbase
 sys
+tempfile
+traceback
 json
 os
 random

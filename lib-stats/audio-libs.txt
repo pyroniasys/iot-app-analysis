@@ -1,6 +1,5 @@
 CHIP_IO
 RPi.GPIO
-alexapi
 alsaaudio
 cherrypy
 flask
@@ -11,7 +10,6 @@ pyA20
 requests
 vlc
 webrtcvad
-xml.etree
 yaml
 RPi.GPIO
 alsaaudio
@@ -50,7 +48,7 @@ memcache
 requests
 mraa
 nfc
-paho.mqtt
+paho
 tentacle_pi
 wiringpi2
 Adafruit_SSD1306
@@ -74,7 +72,6 @@ usb
 usb_hid
 webrtcvad
 athena
-athena.classes
 gtts
 pocketsphinx
 pyaudio
@@ -92,12 +89,12 @@ alsaaudio
 cherrypy
 creds
 memcache
-paho.mqtt
+paho
 requests
 pycurl
 requests
 monotonic
-paho.mqtt
+paho
 pyaudio
 serial
 telepot

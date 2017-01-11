@@ -32,10 +32,19 @@ def get_prefix(path):
     prefix = "/".join(dirs[0:script_idx-1])
     return prefix
 
-def get_supermod(name):
+def get_top_pkg_name(name):
     if name.count('.') >= 1:
         mod = name.split('.')
-        return "/"+mod[0]
+        return mod[0]
+    else:
+        return ""
+
+def get_supermod_hierarchy(name):
+    if name.count('.') >= 1:
+        mod = name.split('.')
+        supermod = "/".join(mod[:len(mod)-1])
+        print("super module hierarchy: "+supermod)
+        return supermod
     else:
         return ""
 
@@ -45,42 +54,46 @@ def get_pkg_names(app, target):
     pkgs = []
     for lib in app[target]:
         # this is a case where we have a subpackage import
-        if lib.count('.') > 1:
+        if lib.count('.') > 2:
             mod = lib.split(".")
             tlp = mod[0]+"."+mod[1]
         else:
-            tlp = get_supermod(lib)
+            tlp = get_top_pkg_name(lib)
             if tlp == "" or lib == "RPi.GPIO":
                 # let's make an exception for RPi.GPIO -- that's the pkg name
                 tlp = lib
-            else:
-                tlp = tlp.lstrip("/")
         pkgs.append(tlp)
     return remove_dups(pkgs)
 
 def make_super_mod_name(prefix, name):
-    supermod = get_supermod(name)
+    supermod = get_supermod_hierarchy(name)
 
     # this case is true if the module doesn't have a supermodule
     if prefix+supermod+".py" == prefix+".py":
         return ""
 
-    return prefix+supermod+".py"
+    return prefix+"/"+supermod+".py"
 
 def make_mod_name(prefix, name):
     if name.count('.') >= 1:
         mod = name.split('.')
+        mod_hierarch = "/".join(mod)
 
-        return prefix+"/"+mod[0]+"/"+mod[1]+".py"
+        return prefix+"/"+mod_hierarch+".py"
 
     return prefix+"/"+name+".py"
 
 def replace_fp_mod(prefix, mod, d, visited):
-    supermod = get_supermod(mod)
+    supermod = get_supermod_hierarchy(mod)
+    tlp = get_top_pkg_name(mod)
 
-    if supermod != "" and supermod+"/" in prefix:
+    if tlp != "" and "/"+tlp+"/" in prefix+"/":
+        # this means that we're replacing modules for a script
+        # in super module, but for some reason the import
+        # still includes the super module
         # prune the prefix
-        prefix = prefix[:prefix.find(supermod)-1]
+        print("Pruning")
+        prefix = prefix[:prefix.find("/"+tlp)]
 
     n = make_mod_name(prefix, mod)
     s = make_super_mod_name(prefix, mod)
@@ -90,10 +103,8 @@ def replace_fp_mod(prefix, mod, d, visited):
     else:
         insuper = False
         if d.get(n) != None:
-            print(n)
             mo = n
         elif d.get(s) != None:
-            print("We're in the super module")
             insuper = True
             mo = s
 
@@ -104,9 +115,10 @@ def replace_fp_mod(prefix, mod, d, visited):
             visited.append(mo)
             l = []
             for m in d[mo]:
-                next_mod = prefix+supermod
-                if insuper:
+                if insuper or tlp == "":
                     next_mod = prefix
+                else:
+                    next_mod = prefix+"/"+tlp
 
                 tmp = replace_fp_mod(next_mod, m, d, visited)
                 l.extend(tmp)
