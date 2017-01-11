@@ -65,14 +65,14 @@ def get_pkg_names(app, target):
         pkgs.append(tlp)
     return remove_dups(pkgs)
 
-def make_super_mod_name(prefix, name):
+def make_super_mod_name(tldir, prefix, name):
     supermod = get_supermod_hierarchy(name)
 
     # this case is true if the module doesn't have a supermodule
     if prefix+supermod+".py" == prefix+".py":
-        return ""
+        return "", ""
 
-    return prefix+"/"+supermod+".py"
+    return prefix+"/"+supermod+".py", tldir+"/"+supermod+".py"
 
 def make_mod_name(tldir, prefix, name):
     if name.count('.') >= 1:
@@ -95,11 +95,14 @@ def replace_fp_mod(tldir, prefix, mod, d, visited):
         #print("Pruning")
         prefix = prefix[:prefix.find("/"+tlp)]
 
+    print("prefix = "+prefix+", module = "+mod+", super module = "+supermod)
+
     n, alt = make_mod_name(tldir, prefix, mod)
-    s = make_super_mod_name(prefix, mod)
-    di = alt[:alt.find(".py")] # this is needed in case an entire subpackage is imported
-    print("Looking at "+n+", "+alt+", "+s+" and "+di)
-    if d.get(n) == None and d.get(alt) == None and d.get(s) == None and not os.path.isdir(di):
+    s, alts = make_super_mod_name(tldir, prefix, mod)
+    di, altdi = n[:n.find(".py")], alt[:alt.find(".py")] # this is needed in case an entire subpackage is imported
+    print("Looking at "+n+", "+alt+", "+s+", "+alts+" and "+di)
+    if d.get(n) == None and d.get(alt) == None and d.get(s) == None and d.get(alts) == None and not os.path.isdir(di) and not os.path.isdir(altdi):
+        print("0")
         return [mod]
     else:
         insuper = False
@@ -107,14 +110,22 @@ def replace_fp_mod(tldir, prefix, mod, d, visited):
         altname = False
         srcs = []
         if d.get(n) != None:
+            print("1")
             srcs = [n]
         elif d.get(alt) != None:
-            alname = True
+            print("2")
+            altname = True
             srcs = [alt]
         elif d.get(s) != None:
+            print("3")
             insuper = True
             srcs = [s]
+        elif d.get(alts) != None:
+            print("4")
+            altname = True
+            srcs = [alts]
         elif os.path.isdir(di):
+            print("5")
             # will want to look at the contents of the entire directory
             #print("In directory")
             indir = True
@@ -122,6 +133,15 @@ def replace_fp_mod(tldir, prefix, mod, d, visited):
             for f in files:
                 if not f.startswith("."):
                     srcs.append(di+"/"+f)
+        elif os.path.isdir(altdi):
+            print("6")
+            # will want to look at the contents of the entire directory
+            #print("In directory")
+            altname = True
+            files = os.listdir(altdi)
+            for f in files:
+                if not f.startswith("."):
+                    srcs.append(altdi+"/"+f)
 
         l = []
         for src in srcs:
@@ -237,9 +257,45 @@ for a in apps:
     proc_srcs = []
     hybrid_srcs = []
 
+    # group the raw unused by app
+    print("Grouping all unused by app")
+    apps[a]['unused'] = group_by_app(a, unused_raw)
+
     # group the raw imports by app
     print("Grouping all imports by app")
     apps[a]['raw_imports'] = group_by_app(a, imports_raw)
+
+    # iterate over the raw_imports to replace any pkg-level imports in any "unused"
+    # __init__.py files
+    if not a.endswith(".py"):
+        for src, i in apps[a]['raw_imports'].items():
+            new_i = []
+            for l in i:
+                mods = l.split(".")
+                endidx = len(mods)-1
+                # if we have an __init__.py file in the same pkg that has unused imports
+                # we want to replace any of those in the raw_imports entry for this src file
+                init_unused = apps[a]['unused'].get(a+"/"+mods[0]+"/__init__.py")
+                replaced = False
+                if init_unused != None and len(init_unused) > 0:
+                    print("Source file: "+src+", lib: "+l)
+                    print(a+"/"+mods[0]+" "+str(init_unused))
+                    for l_unused in init_unused:
+                        mods_unused = l_unused.split(".")
+                        endidx_unused = len(mods_unused)-1
+                        if mods_unused[endidx_unused] == mods[endidx]:
+                            new_i.append(mods[0]+"."+l_unused)
+                            replaced = True
+                            print("Changing "+l+" to "+mods[0]+"."+l_unused+" for "+src)
+                            break
+
+                    if not replaced:
+                        new_i.append(l)
+                else:
+                    new_i.append(l)
+
+            apps[a]['raw_imports'][src] = new_i
+
 
     # iterate over the raw_imports to collect the ones that call native code/use ctypes
     print("Collecting apps that call a native process or are hybrid python-C")
@@ -285,15 +341,13 @@ for a in apps:
             libs_3p.append(l)
     apps[a]['imports'] = libs_3p
 
+    '''
     # remove all __init__.py unused imports since they aren't actually unused
     unused_raw_clean = OrderedDict()
     for src, i in unused_raw.items():
         if not src.endswith("__init__.py"):
             unused_raw_clean[src] = i
-
-    # group the raw unused by app
-    print("Grouping all unused by app")
-    apps[a]['unused'] = group_by_app(a, unused_raw_clean)
+'''
 
     # iterate of each source's files imports to remove unused imports that actually appear
     # in the list of imports
