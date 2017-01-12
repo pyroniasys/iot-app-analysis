@@ -76,23 +76,14 @@ def get_pkg_names(app, target):
         pkgs.append(tlp)
     return remove_dups(pkgs)
 
-def make_super_mod_name(tldir, prefix, name):
-    supermod = get_supermod_hierarchy(name)
-
-    # this case is true if the module doesn't have a supermodule
-    if prefix+supermod+".py" == prefix+".py":
-        return "", ""
-
-    return prefix+"/"+supermod+".py", tldir+"/"+supermod+".py"
-
-def make_mod_name(tldir, prefix, name):
-    if name.count('.') >= 1:
-        mod = name.split('.')
-        mod_hierarch = "/".join(mod)
-
-        return prefix+"/"+mod_hierarch+".py", tldir+"/"+mod_hierarch+".py"
-
-    return prefix+"/"+name+".py", tldir+"/"+name+".py"
+def get_subdir_srcs(subdir):
+    srcs = []
+    # will want to look at the contents of the entire directory
+    files = os.listdir(subdir)
+    for f in files:
+        if not f.startswith("."):
+            srcs.append(subdir+"/"+f)
+    return srcs
 
 def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
     # let's get all the individual components of the import
@@ -103,6 +94,8 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
     single_imp = False
     src_dir_imp = False
     sibling_dir_imp = False
+    higher_dir_imp = False
+    pref = ""
     if len(mods) == 1:
         # we're importing a single name
         single_imp = True
@@ -119,18 +112,28 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
             # we're importing a submodule from a sibling directory
             mod = "/".join(mods[1:])
             supermod = "/".join(mods[1:len(mods)-1])
+        elif "/"+mods[0]+"/" in super_dir:
+            higher_dir_imp = True
+            # we're importing a submodule from a higher-up directory
+            # this also means that neither src_dir nor super_dir are
+            # the right prefix, so let's prune it
+            mod = "/".join(mods)
+            pref = super_dir[:super_dir.find("/"+mods[0])]
+            supermod = "/".join(mods[:len(mods)-1])
         else:
             # we're probably importing from some other dir in the app dir
             mod = "/".join(mods)
             supermod = "/".join(mods[:len(mods)-1])
 
-    # check if we're importing from the src_dir
     py_file = ""
     subdir = ""
     obj_mod = ""
     sibling_py_file = ""
     sibling_subdir = ""
     sibling_obj_mod = ""
+    higher_py_file = ""
+    higher_subdir = ""
+    higher_obj_mod = ""
     if single_imp:
         # we're importing a single module
         # so we need to check if it's a py file in the src dir or
@@ -155,7 +158,18 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
         sibling_subdir = super_dir+"/"+mod
         if supermod != "":
             sibling_obj_mod = super_dir+"/"+supermod+".py"
+    elif higher_dir_imp:
+        # we're importing a module from a dir that's higher than the sibling
+        # so we need to check if it's a py file in the higher dir,
+        # a subdir, or if the low=level pkg is actually an object
+        # contained in a higher-level module
+        higher_py_file = pref+"/"+mod+".py"
+        higher_subdir = pref+"/"+mod
+        if supermod != "":
+            higher_obj_mod = pref+"/"+supermod+".py"
     else:
+        # we're not sure where we're importing from
+        # let's try all generic possibilities
         py_file = src_dir+"/"+mod+".py"
         subdir = src_dir+"/"+mod
         sibling_py_file = super_dir+"/"+mod+".py"
@@ -164,10 +178,10 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
             obj_mod = src_dir+"/"+supermod+".py"
             sibling_obj_mod = super_dir+"/"+supermod+".py"
 
-    print("Looking at "+py_file+", "+sibling_py_file+", "+obj_mod+", "+sibling_obj_mod+", "+subdir+" and "+sibling_subdir)
+    print("Looking at "+py_file+", "+sibling_py_file+", "+higher_py_file+", "+obj_mod+", "+sibling_obj_mod+", "+higher_obj_mod+", "+subdir+", "+sibling_subdir+" and "+higher_subdir)
 
     # let's check if none of the possible imports exist
-    if srcs_dict.get(py_file) == None and srcs_dict.get(sibling_py_file) == None and srcs_dict.get(obj_mod) == None and srcs_dict.get(sibling_obj_mod) == None and not os.path.isdir(subdir) and not os.path.isdir(sibling_subdir):
+    if srcs_dict.get(py_file) == None and srcs_dict.get(sibling_py_file) == None and srcs_dict.get(higher_py_file) == None and srcs_dict.get(obj_mod) == None and srcs_dict.get(sibling_obj_mod) == None and srcs_dict.get(higher_obj_mod) == None and not os.path.isdir(subdir) and not os.path.isdir(sibling_subdir) and not os.path.isdir(higher_subdir):
         print("0")
         return [imp]
 
@@ -179,28 +193,27 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
         elif srcs_dict.get(sibling_py_file) != None:
             print("2")
             srcs = [sibling_py_file]
-        elif srcs_dict.get(obj_mod) != None:
+        elif srcs_dict.get(higher_py_file) != None:
             print("3")
+            srcs = [sibling_py_file]
+        elif srcs_dict.get(obj_mod) != None:
+            print("4")
             srcs = [obj_mod]
         elif srcs_dict.get(sibling_obj_mod) != None:
-            print("4")
+            print("5")
+            srcs = [sibling_obj_mod]
+        elif srcs_dict.get(higher_obj_mod) != None:
+            print("6")
             srcs = [sibling_obj_mod]
         elif os.path.isdir(subdir):
-            print("5")
-            # will want to look at the contents of the entire directory
-            #print("In directory")
-            files = os.listdir(subdir)
-            for f in files:
-                if not f.startswith("."):
-                    srcs.append(subdir+"/"+f)
+            print("7")
+            srcs = get_subdir_srcs(subdir)
         elif os.path.isdir(sibling_subdir):
-            print("6")
-            # will want to look at the contents of the entire directory
-            #print("In directory")
-            files = os.listdir(sibling_subdir)
-            for f in files:
-                if not f.startswith("."):
-                    srcs.append(sibling_subdir+"/"+f)
+            print("8")
+            srcs = get_subdir_srcs(sibling_subdir)
+        elif os.path.isdir(higher_subdir):
+            print("9")
+            srcs = get_subdir_srcs(higher_subdir)
 
         l = []
         for src in srcs:
