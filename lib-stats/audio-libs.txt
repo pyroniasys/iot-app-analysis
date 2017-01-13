@@ -48,8 +48,6 @@ pywinusb
 requests
 usb
 webrtcvad
-athena
-athena.classes
 gtts
 pocketsphinx
 pyaudio
