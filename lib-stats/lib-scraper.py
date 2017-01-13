@@ -442,12 +442,12 @@ write_map(hybrid, cat+"-hybrid-apps.txt", perm="w+")
 
 f = open(cat+"-libs.txt", "w+")
 for a in apps:
-    for i in apps[a]['imports']:
+    for i in sorted(apps[a]['imports']):
         f.write(str(i)+"\n")
 f.close()
 
 f = open(cat+"-unused-libs.txt", "w+")
 for a in apps:
-    for i in apps[a]['unused']:
+    for i in sorted(apps[a]['unused']):
         f.write(str(i)+"\n")
 f.close()
