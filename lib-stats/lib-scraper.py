@@ -195,7 +195,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
             srcs = [sibling_py_file]
         elif srcs_dict.get(higher_py_file) != None:
             print("3")
-            srcs = [sibling_py_file]
+            srcs = [higher_py_file]
         elif srcs_dict.get(obj_mod) != None:
             print("4")
             srcs = [obj_mod]
@@ -204,7 +204,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
             srcs = [sibling_obj_mod]
         elif srcs_dict.get(higher_obj_mod) != None:
             print("6")
-            srcs = [sibling_obj_mod]
+            srcs = [higher_obj_mod]
         elif os.path.isdir(subdir):
             print("7")
             srcs = get_subdir_srcs(subdir)
