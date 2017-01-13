@@ -9,11 +9,11 @@ https://www.hackster.io/imrehg/device-presence-alert-home-automation-148276?ref=
 https://www.hackster.io/vijayenthiran/intelligent-door-e59113?ref=search&ref_id=home%20security%20python&offset=5
 https://www.hackster.io/engininer14/raspberry-pi-controlled-pir-sensor-with-email-notifications-0a8588?ref=search&ref_id=home%20security%20python&offset=12
 http://www.thingiverse.com/thing:1596821
-http://www.instructables.com/id/SitSat-My-Personal-Office-Chair-Sitting-Pattern-Mo/
-http://www.instructables.com/id/Raspberry-Pi-Beer-Fridge-of-Awesomeness/
-http://www.instructables.com/id/Thermostat-Raspberry-Pi/
-http://www.instructables.com/id/Wireless-Doorbell-Raspberry-PI-Amazon-Dash/
-http://www.instructables.com/id/Raspberry-Pi-IoT-Temperature-and-Humidity-Monitor/
+http://www.instructables.com/id/SitSat-My-Personal-Office-Chair-Sitting-Pattern-Mo/?ALLSTEPS
+http://www.instructables.com/id/Raspberry-Pi-Beer-Fridge-of-Awesomeness/?ALLSTEPS
+http://www.instructables.com/id/Thermostat-Raspberry-Pi/?ALLSTEPS
+http://www.instructables.com/id/Wireless-Doorbell-Raspberry-PI-Amazon-Dash/?ALLSTEPS
+http://www.instructables.com/id/Raspberry-Pi-IoT-Temperature-and-Humidity-Monitor/?ALLSTEPS
 http://www.instructables.com/id/Send-EmailTXT-when-you-return-home-detects-when-iP/?ALLSTEPS
 http://www.instructables.com/id/Raspberry-PI-and-DHT22-temperature-and-humidity-lo/?ALLSTEPS
 http://www.instructables.com/id/Home-Room-Temprature-and-Humidity-Monitor-with-Web/?ALLSTEPS
