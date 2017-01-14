@@ -19,17 +19,10 @@ def is_native(lib):
         return True
     return False
 
-def get_lib_name(l):
-    # need to account for native
-    lib = l.rstrip()
-    if is_native(l):
-        lib = lib[:lib.find("-")-1]
-    return lib
-
 def count_freq(to_count):
     m = dict()
     for i in to_count:
-        lib = get_lib_name(i)
+        lib = i
         if m.get(lib) == None:
             m[lib] = 1
         else:
@@ -42,64 +35,66 @@ def get_distinct(d):
     # iterate over the dict
     for cat in d:
         l = get_distinct_cat(cat, d)
-        dis = list(set(dis + l))
-    return dis
+        dis.extend(l)
+    return remove_dups(dis)
 
 def get_distinct_cat(cat, d):
     dis = []
-    for i in d[cat]:
-        lib = get_lib_name(i)
+    for lib in d[cat]:
         if lib not in dis:
             dis.append(lib)
     return dis
 
-# typ should be either "sens", "proc" or "net"
-def get_common(typ, libs):
+def get_common(libs):
     # need to check all pairs to get the right count
     common_libs = dict()
-    for i in libs['vis-'+typ]:
-        if i in libs['audio-'+typ] or i in libs['env-'+typ]:
-            lib = get_lib_name(i)
+    for lib in libs['visual']:
+        if lib in libs['audio'] or lib in libs['env'] or lib in libs['common']:
             if common_libs.get(lib) == None:
                 common_libs[lib] = 1
             else:
                 common_libs[lib] += 1
 
-    for i in libs['audio-'+typ]:
-        if i in libs['vis-'+typ] or i in libs['env-'+typ]:
-            lib = get_lib_name(i)
+    for lib in libs['audio']:
+        if lib in libs['visual'] or lib in libs['env'] or lib in libs['common']:
             if common_libs.get(lib) == None:
                 common_libs[lib] = 1
             else:
                 common_libs[lib] += 1
 
-    for i in libs['env-'+typ]:
-        if i in libs['vis-'+typ] or i in libs['audio-'+typ]:
-            lib = get_lib_name(i)
+    for lib in libs['env']:
+        if lib in libs['visual'] or lib in libs['audio'] or lib in libs['common']:
+            if common_libs.get(lib) == None:
+                common_libs[lib] = 1
+            else:
+                common_libs[lib] += 1
+
+    for lib in libs['common']:
+        if lib in libs['visual'] or lib in libs['audio'] or lib in libs['env']:
             if common_libs.get(lib) == None:
                 common_libs[lib] = 1
             else:
                 common_libs[lib] += 1
     return common_libs
 
-# typ should be either "sens", "proc" or "net"
-def get_unique(typ, libs):
+# we don't want to include libs['common'] in this count since
+# we'll be counting domain-unique libs that are used in
+# multi-domain apps as non-unique
+def get_unique(libs):
     # need to check all pairs to get the right count
     unique_libs = dict()
     vis = dict()
-    for i in libs['vis-'+typ]:
-        if i not in libs['audio-'+typ] and i not in libs['env-'+typ]:
-            lib = get_lib_name(i)
+    for lib in libs['visual']:
+        if lib not in libs['audio'] and lib not in libs['env']:
             if vis.get(lib) == None:
                 vis[lib] = 1
             else:
                 vis[lib] += 1
-    unique_libs['vis'] = vis
+    unique_libs['visual'] = vis
 
     aud = dict()
-    for i in libs['audio-'+typ]:
-        if i not in libs['vis-'+typ] and i not in libs['env-'+typ]:
-            lib = get_lib_name(i)
+    for lib in libs['audio']:
+        if lib not in libs['visual'] and lib not in libs['env']:
             if aud.get(lib) == None:
                 aud[lib] = 1
             else:
@@ -107,9 +102,8 @@ def get_unique(typ, libs):
     unique_libs['audio'] = aud
 
     env = dict()
-    for i in libs['env-'+typ]:
-        if i not in libs['vis-'+typ] and i not in libs['audio-'+typ]:
-            lib = get_lib_name(i)
+    for lib in libs['env']:
+        if lib not in libs['visual'] and lib not in libs['audio']:
             if env.get(lib) == None:
                 env[lib] = 1
             else:

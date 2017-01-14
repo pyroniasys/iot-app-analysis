@@ -12,28 +12,23 @@ if os.path.isfile("stats.txt"):
 
 # get all the apps
 apps = dict()
-apps['visual'] = read_set("visual-apps.txt")
-apps['audio'] = read_set("audio-apps.txt")
-apps['env'] = read_set("env-apps.txt")
+apps['visual'] = read_set("visual-apps-unique.txt")
+apps['audio'] = read_set("audio-apps-unique.txt")
+apps['env'] = read_set("env-apps-unique.txt")
+apps['common'] = read_set("common-apps.txt")
 
 # get total number of distinct apps
 distinct_apps = get_distinct(apps)
 
 num_apps = len(distinct_apps)
 
-write_val(str(num_apps)+", "+str(len(apps['visual']))+", "+str(len(apps['audio']))+", "+str(len(apps['env'])), "total apps, visual, audio, env")
+write_val(str(num_apps)+", "+str(len(apps['visual']))+", "+str(len(apps['audio']))+", "+str(len(apps['env']))+", "+str(len(apps['common'])), "total apps, visual, audio, env, common")
 
 # get all the libs
 libs = OrderedDict()
-libs['vis-sens'] = read_set("visual-sensor-libs.txt")
-libs['audio-sens'] = read_set("audio-sensor-libs.txt")
-libs['env-sens'] = read_set("env-sensor-libs.txt")
-libs['vis-proc'] = read_set("visual-proc-libs.txt")
-libs['audio-proc'] = read_set("audio-proc-libs.txt")
-libs['env-proc'] = read_set("env-proc-libs.txt")
-libs['vis-net'] = read_set("visual-net-libs.txt")
-libs['audio-net'] = read_set("audio-net-libs.txt")
-libs['env-net'] = read_set("env-net-libs.txt")
+libs['visual'] = read_set("visual-libs.txt")
+libs['audio'] = read_set("audio-libs.txt")
+libs['env'] = read_set("env-libs.txt")
 
 distinct_libs = get_distinct(libs)
 num_libs = len(distinct_libs)
@@ -43,6 +38,7 @@ write_val(num_libs, "libs")
 for cat in libs:
     write_val(len(get_distinct_cat(cat, libs)), cat+" libs")
 
+'''
 # get all common sensor libs
 common_sens_libs = get_common("sens", libs)
 
@@ -103,3 +99,4 @@ for cat, l in libs.items():
 
 write_val(len(ext_calls), "external process calls")
 write_freq_map(ext_calls)
+'''
