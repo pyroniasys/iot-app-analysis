@@ -3,7 +3,7 @@ import mraa
 import sys
 import time
 
-TCP_IP = *RASPBERRY PI IP ADDRESS HERE*
+TCP_IP = ""
 TCP_PORT = 5005
 BUFFER_SIZE = 1024
 MESSAGE = "Edison Here"

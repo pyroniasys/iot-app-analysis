@@ -1,0 +1,5 @@
+{
+    "apps/env/SensorianIoTDashboard.py": [
+        "apps/env/SensorianIoTDashboard.py"
+    ]
+}

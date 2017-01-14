@@ -12,7 +12,7 @@ import json
 
 from util import write_map, read_map, remove_dups, write_list
 from pyflakes import reporter as modReporter
-from pyflakes.api import checkRecursive
+from pyflakes.api import checkRecursive, iterSourceCode
 
 from stdlib_list import stdlib_list
 
@@ -50,14 +50,11 @@ def get_top_pkg_name(name):
     else:
         return ""
 
-def get_supermod_hierarchy(name):
-    if name.count('.') >= 1:
-        mod = name.split('.')
-        supermod = "/".join(mod[:len(mod)-1])
-        #print("super module hierarchy: "+supermod)
-        return supermod
-    else:
-        return ""
+# this assumes path is a subdirectory of app
+def get_top_pkg_from_path(app, path):
+    app_comps = app.split("/")
+    path_comps = path.split("/")
+    return path_comps[len(app_comps)]
 
 # we only want to store the top-level package
 def get_pkg_names(app, target):
@@ -120,6 +117,16 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
             mod = "/".join(mods)
             pref = super_dir[:super_dir.find("/"+mods[0])]
             supermod = "/".join(mods[:len(mods)-1])
+        elif mods[0] == "" and mods[1] == "":
+            sibling_dir_imp = True
+            # we're importing a ..submodule from the sibling_dir
+            mod = "/".join(mods[2:])
+            supermod = "/".join(mods[2:len(mods)-1])
+        elif mods[0] == "":
+            src_dir_imp = True
+            # we're importing a .module from the src_dir
+            mod = "/".join(mods[1:])
+            supermod = "/".join(mods[1:len(mods)-1])
         else:
             # we're probably importing from some other dir in the app dir
             mod = "/".join(mods)
@@ -149,6 +156,10 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
         subdir = src_dir+"/"+mod
         if supermod != "":
             obj_mod = src_dir+"/"+supermod+".py"
+        # we might be importing an attribute defined in __init__.py
+        # so treat the obj_mod as the src_dir
+        else:
+            obj_mod = src_dir+"/__init__.py"
     elif sibling_dir_imp:
         # we're importing a module from a sibling dir
         # so we need to check if it's a py file in the sibling dir,
@@ -158,6 +169,10 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
         sibling_subdir = super_dir+"/"+mod
         if supermod != "":
             sibling_obj_mod = super_dir+"/"+supermod+".py"
+        else:
+            # we might be importing an attribute defined in __init__.py
+            # so treat the obj_mod as the src_dir
+            sibling_obj_mod = super_dir+"/__init__.py"
     elif higher_dir_imp:
         # we're importing a module from a dir that's higher than the sibling
         # so we need to check if it's a py file in the higher dir,
@@ -167,6 +182,10 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
         higher_subdir = pref+"/"+mod
         if supermod != "":
             higher_obj_mod = pref+"/"+supermod+".py"
+        # we might be importing an attribute defined in __init__.py
+        # so treat the obj_mod as the src_dir
+        else:
+            higher_obj_mod = pref+"/__init__.py"
     else:
         # we're not sure where we're importing from
         # let's try all generic possibilities
@@ -177,43 +196,48 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
         if supermod != "":
             obj_mod = src_dir+"/"+supermod+".py"
             sibling_obj_mod = super_dir+"/"+supermod+".py"
+        # we might be importing an attribute defined in __init__.py
+        # so treat the obj_mod as the src_dir
+        else:
+            obj_mod = src_dir+"/__init__.py"
+            sibling_obj_mod = super_dir+"/__init__.py"
 
-    print("Looking at "+py_file+", "+sibling_py_file+", "+higher_py_file+", "+obj_mod+", "+sibling_obj_mod+", "+higher_obj_mod+", "+subdir+", "+sibling_subdir+" and "+higher_subdir)
+    #print("Looking at "+py_file+", "+sibling_py_file+", "+higher_py_file+", "+obj_mod+", "+sibling_obj_mod+", "+higher_obj_mod+", "+subdir+", "+sibling_subdir+" and "+higher_subdir)
 
     # let's check if none of the possible imports exist
     if srcs_dict.get(py_file) == None and srcs_dict.get(sibling_py_file) == None and srcs_dict.get(higher_py_file) == None and srcs_dict.get(obj_mod) == None and srcs_dict.get(sibling_obj_mod) == None and srcs_dict.get(higher_obj_mod) == None and not os.path.isdir(subdir) and not os.path.isdir(sibling_subdir) and not os.path.isdir(higher_subdir):
-        print("0")
+        #print("0")
         return [imp]
 
     else:
         srcs = []
         if srcs_dict.get(py_file) != None:
-            print("1")
+            #print("1")
             srcs = [py_file]
         elif srcs_dict.get(sibling_py_file) != None:
-            print("2")
+            #print("2")
             srcs = [sibling_py_file]
         elif srcs_dict.get(higher_py_file) != None:
-            print("3")
+            #print("3")
             srcs = [higher_py_file]
         elif srcs_dict.get(obj_mod) != None:
-            print("4")
+            #print("4")
             srcs = [obj_mod]
         elif srcs_dict.get(sibling_obj_mod) != None:
-            print("5")
+            #print("5")
             srcs = [sibling_obj_mod]
         elif srcs_dict.get(higher_obj_mod) != None:
-            print("6")
+            #print("6")
             srcs = [higher_obj_mod]
         elif os.path.isdir(subdir):
-            print("7")
-            srcs = get_subdir_srcs(subdir)
+            #print("7")
+            srcs = iterSourceCode([subdir])
         elif os.path.isdir(sibling_subdir):
-            print("8")
-            srcs = get_subdir_srcs(sibling_subdir)
+            #print("8")
+            srcs = iterSourceCode([sibling_subdir])
         elif os.path.isdir(higher_subdir):
-            print("9")
-            srcs = get_subdir_srcs(higher_subdir)
+            #print("9")
+            srcs = iterSourceCode([higher_subdir])
 
         l = []
         for src in srcs:
@@ -280,7 +304,7 @@ f.close()
 
 # the modules in this list are likely written in python2 so run pyflakes
 # on python2
-os.system("python2 -m pyflakes "+app_path+" > pyflakes-out/"+cat+"-py2-report.txt")
+os.system("python2 -m pyflakes "+app_path+" > pyflakes-out/"+cat+"-py2-report.txt 2>&1")
 
 # let's organize our imports by app
 app_list = os.listdir(app_path)
@@ -398,7 +422,7 @@ for a in apps:
     libs3 = stdlib_list("3.4")
     libs_3p = []
     for l in apps[a]['imports']:
-        if not l in libs2 and not l in libs3:
+        if l not in libs2 and l not in libs3:
             libs_3p.append(l)
     apps[a]['imports'] = libs_3p
 
@@ -432,7 +456,7 @@ for a in apps:
     # consider it used by the app, so remove it from unused
     pruned_unused = []
     for l in apps[a]['unused']:
-        if not l in apps[a]['imports']:
+        if l not in apps[a]['imports']:
             pruned_unused.append(l)
 
     apps[a]['unused'] = pruned_unused

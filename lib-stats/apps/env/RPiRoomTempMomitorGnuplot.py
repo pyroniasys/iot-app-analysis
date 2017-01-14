@@ -32,7 +32,8 @@ g('set title " Daily Current Temperature Display"')
 
 g('set key off')
 
-g('set grid') g('set xlabel "Time\\nDate"')
+g('set grid')
+g('set xlabel "Time\\nDate"')
 
 g('set yrange [15.0:35.0]')
 

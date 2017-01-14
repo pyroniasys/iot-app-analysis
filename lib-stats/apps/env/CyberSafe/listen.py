@@ -1,6 +1,6 @@
 import socket
 import MySQLdb
-db = MySQLdb.connect('localhost','root',*MYSQL_PASSWORD_HERE*,*DATABASE_NAME_HERE*)
+db = MySQLdb.connect('localhost','root','', '')
 cursor = db.cursor()
 
 TCP_IP = *RASPBERRY PI IP ADDRESS HERE*
