@@ -47,7 +47,6 @@ sys
 tempfile
 time
 traceback
-urllib
 json
 os
 random
