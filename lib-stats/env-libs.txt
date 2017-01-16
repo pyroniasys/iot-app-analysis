@@ -218,12 +218,12 @@ w1thermsensor
 adxl345
 paho
 Adafruit_DHT
+RPi.GPIO
+serial
+Adafruit_DHT
 ImageDraw
 ImageFont
 ubidots
-Adafruit_DHT
-RPi.GPIO
-serial
 paho
 Adafruit_DHT
 Adafruit_GPIO

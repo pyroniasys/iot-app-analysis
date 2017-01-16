@@ -9,6 +9,10 @@ random
 wave
 signal
 subprocess
+cgi
+random
+re
+wave
 sys
 Adafruit_GPIO
 os

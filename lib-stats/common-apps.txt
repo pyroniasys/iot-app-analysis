@@ -1,6 +1,5 @@
-https://hackaday.io/project/5083-diy-smartphone
+http://www.instructables.com/id/Build-Your-Own-Smartphone/?ALLSTEPS
 https://hackaday.io/project/1205-andy-a-multi-purpose-humanoid-robot
-https://www.hackster.io/awshome/awshome-home-automation-using-rpi-alexa-iot-a3d3dc?ref=search&ref_id=IoT%20python&offset=6
 https://www.hackster.io/fcooper27/beaglealexa-56f174?ref=search&ref_id=IoT%20python&offset=13
 http://www.instructables.com/id/Raspberry-Pi-Smart-Mirror/?ALLSTEPS
 https://hackaday.io/project/11688-iot-twitter-sentry-ward-using-intel-edison

@@ -24,12 +24,12 @@ sys
 time
 time
 json
-Adafruit_GPIO
-Adafruit_SSD1306
-Image
 os
 sys
 time
+Adafruit_GPIO
+Adafruit_SSD1306
+Image
 os
 RPi.GPIO
 array

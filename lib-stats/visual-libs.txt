@@ -24,6 +24,8 @@ tgl
 RPi.GPIO
 cv2
 RPi.GPIO
+pubnub
+RPi.GPIO
 cv2
 dropbox
 imutils
@@ -38,8 +40,7 @@ RPi.GPIO
 picamera
 requests
 RPi.GPIO
-keys
-pubnub
+http
 RPi.GPIO
 RPi.GPIO
 Image
