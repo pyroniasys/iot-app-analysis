@@ -1,3 +1,5 @@
+# msm: source - http://www.instructables.com/id/Raspberri-Personal-Assistant/?ALLSTEPS
+
 #!/usr/bin/python
 
 import wolframalpha

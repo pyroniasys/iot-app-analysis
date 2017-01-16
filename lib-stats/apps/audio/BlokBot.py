@@ -1,3 +1,5 @@
+# msm: source - https://www.thingiverse.com/thing:1706105/#files
+
 import subprocess, os, sys, unirest, time
 from espeak import espeak 
 a1 = "arecord -d 5 -D plughw:1,0 -r 16000 -f S16_LE sample.wav"

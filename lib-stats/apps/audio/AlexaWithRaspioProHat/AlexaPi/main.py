@@ -1,3 +1,5 @@
+# msm: source - http://www.instructables.com/id/Build-an-Alexa-With-Raspio-Pro-Hat-and-Raspberry-P/?ALLSTEPS edits original
+
 #! /usr/bin/env python
 
 import os

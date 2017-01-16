@@ -1,3 +1,5 @@
+# msm: source - http://www.instructables.com/id/Audio-Server-and-Recorder-With-Intel-Edison/?ALLSTEPS
+
 #!/usr/bin/python
 
 import mraa 

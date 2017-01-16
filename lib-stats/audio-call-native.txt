@@ -3,13 +3,13 @@
         "apps/audio/Alexabot/AlexaPi/alexapi/device_platforms/rpilike.py"
     ],
     "apps/audio/AlexaPhone": [
-        "apps/audio/AlexaPhone/main.py"
+        "apps/audio/AlexaPhone/AlexaPi/main.py"
     ],
     "apps/audio/AlexaPiMQTTSmartHub": [
-        "apps/audio/AlexaPiMQTTSmartHub/main.py"
+        "apps/audio/AlexaPiMQTTSmartHub/AlexaPi/main.py"
     ],
     "apps/audio/AlexaWithRaspioProHat": [
-        "apps/audio/AlexaWithRaspioProHat/main.py"
+        "apps/audio/AlexaWithRaspioProHat/AlexaPi/main.py"
     ],
     "apps/audio/AudioServer&Recorder.py": [
         "apps/audio/AudioServer&Recorder.py"
@@ -36,7 +36,7 @@
         "apps/audio/PiTranslate/PiTranslate.py"
     ],
     "apps/audio/RPiAlexa": [
-        "apps/audio/RPiAlexa/main.py"
+        "apps/audio/RPiAlexa/AlexaPi/main.py"
     ],
     "apps/audio/TalkingGanesha": [
         "apps/audio/TalkingGanesha/F2LE55TIEKJ0T07.py",
