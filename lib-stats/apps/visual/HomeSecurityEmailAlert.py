@@ -1,3 +1,5 @@
+# msm: source - http://www.instructables.com/id/Home-Security-Email-Alert-System-using-Raspberry-P/?ALLSTEPS
+
 import RPi.GPIO as GPIO
 import time
 import numpy as np

@@ -1,3 +1,4 @@
+# msm: source - http://www.instructables.com/id/Lininger-Rood-Photo-Booth/?ALLSTEPS
 #!/usr/bin/X11/python3.4
 
 from tkinter import *

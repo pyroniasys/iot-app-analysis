@@ -1,3 +1,5 @@
+# msm: source - http://www.instructables.com/id/Easy-Raspberry-Pi-Security-Cam-With-Automatic-Web-/?ALLSTEPS
+
 import requests
 import picamera
 import os

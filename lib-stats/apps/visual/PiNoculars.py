@@ -1,3 +1,5 @@
+# msm: source - http://www.instructables.com/id/PiNoculars-Raspberry-Pi-Binoculars/?ALLSTEPS
+
 # Point-and-shoot camera for Raspberry Pi w/camera and Adafruit PiTFT.
 # This must run as root (sudo python cam.py) due to framebuffer, etc.
 #

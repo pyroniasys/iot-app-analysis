@@ -1,3 +1,5 @@
+# msm: source - http://www.instructables.com/id/Twitter-Photo-Live-Feed/?ALLSTEPS
+
 #!/usr/bin/env python2.7
 
 import tweepy

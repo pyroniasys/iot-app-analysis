@@ -1,3 +1,5 @@
+# msm: source - https://hackaday.io/project/5721-piscream
+
 ''' Home Automation With Camera '''
 import picamera
 import requests

@@ -1,3 +1,5 @@
+# msm: source - http://www.instructables.com/id/Raspberry-Pi-Laser-Security-System/?ALLSTEPS
+
 #!/usr/bin/python3
 # Author: EliBuilds
 # This script will introduce you to the basics of accessing and reading the pins on the pi

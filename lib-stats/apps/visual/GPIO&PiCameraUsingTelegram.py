@@ -1,3 +1,5 @@
+# msm: source - https://www.hackster.io/idreams/control-gpio-and-pi-camera-using-raspberry-pi-telegram-app-3a776a
+
 # -*- coding: utf-8 -*- 
 #!/usr/bin/python
 import subprocess

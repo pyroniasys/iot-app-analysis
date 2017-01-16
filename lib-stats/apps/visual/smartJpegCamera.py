@@ -1,3 +1,5 @@
+# msm: source - http://www.instructables.com/id/Smart-JPEG-Camera-for-Home-Security/?ALLSTEPS
+
 import RPi.GPIO as GPIO
 import time
 import picamera
