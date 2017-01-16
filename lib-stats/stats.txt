@@ -1,4 +1,26 @@
-Number of total apps, visual, audio, env, common: 82, 24, 21, 25, 12
-Number of libs: 73
-Number of vis-libs libs: 38
-Number of audio-libs libs: 40
+Number of total apps, visual, audio, env, multi: 83, 25, 22, 25, 11
+Number of libs: 296
+Number of visual libs: 37
+Number of audio libs: 45
+Number of env libs: 237
+Number of common libs: 18
+{
+    "RPi.GPIO": 31,
+    "requests": 15,
+    "serial": 8,
+    "paho": 6,
+    "flask": 5,
+    "MySQLdb": 4,
+    "yaml": 3,
+    "httplib2": 3,
+    "smbus": 3,
+    "PIL": 3,
+    "oauth2client": 3,
+    "mraa": 3,
+    "websocket": 2,
+    "boto3": 2,
+    "gevent": 2,
+    "AWSIoTPythonSDK": 2,
+    "googleapiclient": 2,
+    "cec": 2
+}

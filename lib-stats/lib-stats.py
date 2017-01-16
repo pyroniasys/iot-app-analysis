@@ -12,17 +12,17 @@ if os.path.isfile("stats.txt"):
 
 # get all the apps
 apps = dict()
-apps['visual'] = read_set("visual-apps-unique.txt")
-apps['audio'] = read_set("audio-apps-unique.txt")
-apps['env'] = read_set("env-apps-unique.txt")
-apps['common'] = read_set("common-apps.txt")
+apps['visual'] = read_set("visual-apps.txt")
+apps['audio'] = read_set("audio-apps.txt")
+apps['env'] = read_set("env-apps.txt")
+apps['multi'] = read_set("multi-apps.txt")
 
 # get total number of distinct apps
 distinct_apps = get_distinct(apps)
 
 num_apps = len(distinct_apps)
 
-write_val(str(num_apps)+", "+str(len(apps['visual']))+", "+str(len(apps['audio']))+", "+str(len(apps['env']))+", "+str(len(apps['common'])), "total apps, visual, audio, env, common")
+write_val(str(num_apps)+", "+str(len(apps['visual']))+", "+str(len(apps['audio']))+", "+str(len(apps['env']))+", "+str(len(apps['multi'])), "total apps, visual, audio, env, multi")
 
 # get all the libs
 libs = OrderedDict()
@@ -34,28 +34,21 @@ distinct_libs = get_distinct(libs)
 num_libs = len(distinct_libs)
 
 write_val(num_libs, "libs")
+write_list_raw(distinct_libs, "all-libs.txt")
 
 for cat in libs:
-    write_val(len(get_distinct_cat(cat, libs)), cat+" libs")
+    dist = get_distinct_cat(cat, libs)
+    write_val(len(dist), cat+" libs")
+
+# get all common libs
+common_libs = get_common(libs)
+
+write_val(len(common_libs), "common libs")
+write_freq_map(common_libs)
+
+write_list_raw(common_libs.keys(), "common-libs.txt")
 
 '''
-# get all common sensor libs
-common_sens_libs = get_common("sens", libs)
-
-write_val(len(common_sens_libs), "common sensor libs")
-write_freq_map(common_sens_libs)
-
-# get all common processing libs
-common_proc_libs = get_common("proc", libs)
-
-write_val(len(common_proc_libs), "common data processing libs")
-write_freq_map(common_proc_libs)
-
-# get all common networking libs
-common_net_libs = get_common("net", libs)
-
-write_val(len(common_net_libs), "common networking libs")
-write_freq_map(common_net_libs)
 
 # get all unique sensor libs
 only_sens_libs = get_unique("sens", libs)

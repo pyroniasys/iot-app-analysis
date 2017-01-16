@@ -12,7 +12,10 @@ def read_set(name):
     s_f = open(name, "r")
     s = s_f.readlines()
     s_f.close()
-    return s
+    s_clean = []
+    for i in s:
+        s_clean.append(i.rstrip())
+    return s_clean
 
 def is_native(lib):
     if ("- os" in lib) or ("- CLI" in lib) or (" - subprocess" in lib):
@@ -49,32 +52,26 @@ def get_common(libs):
     # need to check all pairs to get the right count
     common_libs = dict()
     for lib in libs['visual']:
-        if lib in libs['audio'] or lib in libs['env'] or lib in libs['common']:
+        if lib in libs['audio'] or lib in libs['env']:
             if common_libs.get(lib) == None:
                 common_libs[lib] = 1
             else:
                 common_libs[lib] += 1
 
     for lib in libs['audio']:
-        if lib in libs['visual'] or lib in libs['env'] or lib in libs['common']:
+        if lib in libs['visual'] or lib in libs['env']:
             if common_libs.get(lib) == None:
                 common_libs[lib] = 1
             else:
                 common_libs[lib] += 1
 
     for lib in libs['env']:
-        if lib in libs['visual'] or lib in libs['audio'] or lib in libs['common']:
+        if lib in libs['visual'] or lib in libs['audio']:
             if common_libs.get(lib) == None:
                 common_libs[lib] = 1
             else:
                 common_libs[lib] += 1
 
-    for lib in libs['common']:
-        if lib in libs['visual'] or lib in libs['audio'] or lib in libs['env']:
-            if common_libs.get(lib) == None:
-                common_libs[lib] = 1
-            else:
-                common_libs[lib] += 1
     return common_libs
 
 # we don't want to include libs['common'] in this count since
@@ -130,6 +127,12 @@ def write_list(l, filename, name=None):
     if name != None:
         f.write(str(name)+":\n")
     f.write(json.dumps(l, indent=4)+"\n")
+    f.close()
+
+def write_list_raw(l, filename):
+    f = open(filename, "w+")
+    for i in l:
+        f.write(str(i)+"\n")
     f.close()
 
 def write_map(m, filename, name=None, perm="a+"):

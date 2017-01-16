@@ -10,7 +10,7 @@ import sys
 from collections import OrderedDict
 import json
 
-from util import write_map, read_map, remove_dups, write_list
+from util import write_map, read_map, remove_dups, write_list_raw
 from pyflakes import reporter as modReporter
 from pyflakes.api import checkRecursive, iterSourceCode
 
@@ -464,14 +464,16 @@ for a in apps:
 write_map(call_to_native, cat+"-call-native.txt", perm="w+")
 write_map(hybrid, cat+"-hybrid-apps.txt", perm="w+")
 
-f = open(cat+"-libs.txt", "w+")
+li = []
 for a in apps:
     for i in sorted(apps[a]['imports']):
-        f.write(str(i)+"\n")
-f.close()
+        li.append(i)
 
-f = open(cat+"-unused-libs.txt", "w+")
+write_list_raw(sorted(li), cat+"-libs.txt")
+
+li = []
 for a in apps:
     for i in sorted(apps[a]['unused']):
-        f.write(str(i)+"\n")
-f.close()
+        li.append(i)
+
+write_list_raw(sorted(li), cat+"-unused-libs.txt")
