@@ -1,3 +1,5 @@
+# msm: source - http://www.instructables.com/id/Home-Room-Temprature-and-Humidity-Monitor-with-Web/?ALLSTEPS
+
 import RPi.GPIO as GPIO
 import time
 import httplib, json
