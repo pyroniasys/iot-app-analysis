@@ -6,9 +6,9 @@ http://www.instructables.com/id/Home-Security-Email-Alert-System-using-Raspberry
 https://hackaday.io/project/5721-piscream
 https://hackaday.io/project/2483-surveillance-robot-camera-a
 https://hackaday.io/project/7173-internet-connected-fishtank
-https://www.hackster.io/pidoorbell-team/pidoorbell-7ef917?ref=search&ref_id=home%20security%20python&offset=6
-https://www.hackster.io/Hoefnix/monitoring-the-doorbell-6a2000?ref=search&ref_id=home%20security%20python&offset=13
-https://www.hackster.io/kevino/raspberry-pi-photo-booth-for-your-next-party-b8e76d?ref=search&ref_id=home%20security%20python&offset=14
+https://www.hackster.io/pidoorbell-team/pidoorbell-7ef917
+https://www.hackster.io/Hoefnix/monitoring-the-doorbell-6a2000
+https://www.hackster.io/kevino/raspberry-pi-photo-booth-for-your-next-party-b8e76d
 http://www.instructables.com/id/Smart-JPEG-Camera-for-Home-Security/?ALLSTEPS
 http://www.instructables.com/id/Raspberry-Pi-Laser-Security-System/?ALLSTEPS
 http://www.instructables.com/id/Lininger-Rood-Photo-Booth/?ALLSTEPS

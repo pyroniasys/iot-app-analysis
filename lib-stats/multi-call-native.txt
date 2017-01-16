@@ -1,0 +1,36 @@
+{
+    "apps/multi/AndyBot": [
+        "apps/multi/AndyBot/src/cmds.py",
+        "apps/multi/AndyBot/src/getcmd.py",
+        "apps/multi/AndyBot/src/main.py",
+        "apps/multi/AndyBot/src/mic.py",
+        "apps/multi/AndyBot/src/server.py",
+        "apps/multi/AndyBot/src/stt.py",
+        "apps/multi/AndyBot/src/sttwin.py",
+        "apps/multi/AndyBot/src/tts.py"
+    ],
+    "apps/multi/BeagleAlexa": [
+        "apps/multi/BeagleAlexa/beagleman.py"
+    ],
+    "apps/multi/DIYSmartphone": [
+        "apps/multi/DIYSmartphone/apps/camera/app.py",
+        "apps/multi/DIYSmartphone/apps/camera/camera.py",
+        "apps/multi/DIYSmartphone/apps/power/power.py",
+        "apps/multi/DIYSmartphone/src/toolbar.py"
+    ],
+    "apps/multi/HAL9000": [
+        "apps/multi/HAL9000/reboot.py",
+        "apps/multi/HAL9000/selfie.py",
+        "apps/multi/HAL9000/shutdown.py",
+        "apps/multi/HAL9000/wavplay.py"
+    ],
+    "apps/multi/SamsungARKTIKPhotobooth.py": [
+        "apps/multi/SamsungARKTIKPhotobooth.py"
+    ],
+    "apps/multi/SmartMirror": [
+        "apps/multi/SmartMirror/py4j_server/__init__.py"
+    ],
+    "apps/multi/tweetingPlants.py": [
+        "apps/multi/tweetingPlants.py"
+    ]
+}

@@ -54,7 +54,3 @@ if txt== your_handle + ' Start!':
 			txt = tweet.text
 			hand = tweet.author.screen_name
 			chk = tweet.id
-if txt=='@satyasiot Stop!':
-	while 1:
-
-
