@@ -16,6 +16,12 @@ from pyflakes.api import checkRecursive, iterSourceCode
 
 from stdlib_list import stdlib_list
 
+DEBUG = False
+
+def debug(msg):
+    if DEBUG:
+        print(str(msg))
+
 def group_by_app(a, ungrouped):
     grouped = OrderedDict()
     for src, i in ungrouped.items():
@@ -151,7 +157,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
         subdir = src_dir+"/"+mod
         subdir_init_file = subdir+"/__init__.py"
     elif src_dir_imp:
-        print("a")
+        debug("scr_dir_imp")
         # we're importing a module from the src dir
         # so we need to check if it's a py file in the src dir,
         # a subdir, or if the low-level pkg is actually an object
@@ -167,7 +173,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
 
         subdir_init_file = subdir+"/__init__.py"
     elif sibling_dir_imp:
-        print("b")
+        debug("sibling_dir_imp")
         # we're importing a module from a sibling dir
         # so we need to check if it's a py file in the sibling dir,
         # a subdir, or if the low=level pkg is actually an object
@@ -183,7 +189,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
 
         subdir_init_file = sibling_subdir+"/__init__.py"
     elif higher_dir_imp:
-        print("c")
+        debug("higher_dir_imp")
         # we're importing a module from a dir that's higher than the sibling
         # so we need to check if it's a py file in the higher dir,
         # a subdir, or if the low=level pkg is actually an object
@@ -199,7 +205,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
 
         subdir_init_file = higher_subdir+"/__init__.py"
     else:
-        print("d")
+        debug("undetermined import")
         # we're not sure where we're importing from
         # let's try all generic possibilities
         py_file = src_dir+"/"+mod+".py"
@@ -219,49 +225,47 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
             sibling_init_file = sibling_subdir+"/__init__.py"
             subdir_init_file = subdir+"/__init__.py"
 
-
-
-    print("Looking at "+py_file+", "+sibling_py_file+", "+higher_py_file+", "+obj_mod+", "+sibling_obj_mod+", "+higher_obj_mod+", "+subdir_init_file+", "+sibling_init_file+", "+subdir+", "+sibling_subdir+" and "+higher_subdir)
+    debug("Looking at "+py_file+", "+sibling_py_file+", "+higher_py_file+", "+obj_mod+", "+sibling_obj_mod+", "+higher_obj_mod+", "+subdir_init_file+", "+sibling_init_file+", "+subdir+", "+sibling_subdir+" and "+higher_subdir)
 
     # let's check if none of the possible imports exist
     if srcs_dict.get(py_file) == None and srcs_dict.get(sibling_py_file) == None and srcs_dict.get(higher_py_file) == None and srcs_dict.get(obj_mod) == None and srcs_dict.get(sibling_obj_mod) == None and srcs_dict.get(higher_obj_mod) == None and srcs_dict.get(subdir_init_file) == None and srcs_dict.get(sibling_init_file) == None and not os.path.isdir(subdir) and not os.path.isdir(sibling_subdir) and not os.path.isdir(higher_subdir):
-        print("0")
+        debug("0")
         return [imp]
 
     else:
         srcs = []
         if srcs_dict.get(py_file) != None:
-            print("1")
+            debug("1")
             srcs = [py_file]
         elif srcs_dict.get(sibling_py_file) != None:
-            print("2")
+            debug("2")
             srcs = [sibling_py_file]
         elif srcs_dict.get(higher_py_file) != None:
-            print("3")
+            debug("3")
             srcs = [higher_py_file]
         elif srcs_dict.get(obj_mod) != None:
-            print("4")
+            debug("4")
             srcs = [obj_mod]
         elif srcs_dict.get(sibling_obj_mod) != None:
-            print("5")
+            debug("5")
             srcs = [sibling_obj_mod]
         elif srcs_dict.get(higher_obj_mod) != None:
-            print("6")
+            debug("6")
             srcs = [higher_obj_mod]
         elif srcs_dict.get(subdir_init_file) != None:
-            print("7")
+            debug("7")
             srcs = [subdir_init_file]
         elif srcs_dict.get(sibling_init_file) != None:
-            print("8")
+            debug("8")
             srcs = [sibling_init_file]
         elif os.path.isdir(subdir):
-            print("9")
+            debug("9")
             srcs = iterSourceCode([subdir])
         elif os.path.isdir(sibling_subdir):
-            print("10")
+            debug("10")
             srcs = iterSourceCode([sibling_subdir])
         elif os.path.isdir(higher_subdir):
-            print("11")
+            debug("11")
             srcs = iterSourceCode([higher_subdir])
 
         l = []
@@ -312,7 +316,7 @@ def scan_source(src):
     for l in lines:
         clean = l.strip()
         if not clean.startswith("#") and call_native_proc(clean):
-            print("Found call to native proc in code: "+clean)
+            debug("Found call to native proc in code: "+clean)
             return True
     return False
 
@@ -388,15 +392,15 @@ for a in apps:
                 init_unused = apps[a]['unused'].get(a+"/"+mods[0]+"/__init__.py")
                 replaced = False
                 if init_unused != None and len(init_unused) > 0:
-                    print("Source file: "+src+", lib: "+l)
-                    print(a+"/"+mods[0]+" "+str(init_unused))
+                    debug("Source file: "+src+", lib: "+l)
+                    debug(a+"/"+mods[0]+" "+str(init_unused))
                     for l_unused in init_unused:
                         mods_unused = l_unused.split(".")
                         endidx_unused = len(mods_unused)-1
                         if mods_unused[endidx_unused] == mods[endidx]:
                             new_i.append(mods[0]+"."+l_unused)
                             replaced = True
-                            print("Changing "+l+" to "+mods[0]+"."+l_unused+" for "+src)
+                            print("Replacing "+l+" with "+mods[0]+"."+l_unused+" in init for "+src)
                             break
 
                     if not replaced:
