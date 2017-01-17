@@ -354,8 +354,8 @@ un_2 = read_map("pyflakes-out/"+cat+"-unused-py2.txt")
 imports_raw = {**imps, **imps_2}
 unused_raw = {**un, **un_2}
 
-write_map(imports_raw, "pyflakes-out/"+cat+"-imports.txt", perm="w+")
-write_map(unused_raw, "pyflakes-out/"+cat+"-unused.txt", perm="w+")
+write_map(imports_raw, "pyflakes-out/"+cat+"-imports.txt", perm="w+", sort=True)
+write_map(unused_raw, "pyflakes-out/"+cat+"-unused.txt", perm="w+", sort=True)
 
 os.remove("pyflakes-out/"+cat+"-imports-py2.txt")
 os.remove("pyflakes-out/"+cat+"-unused-py2.txt")
@@ -482,8 +482,8 @@ for a in apps:
 
     apps[a]['unused'] = pruned_unused
 
-write_map(call_to_native, cat+"-call-native.txt", perm="w+")
-write_map(hybrid, cat+"-hybrid-apps.txt", perm="w+")
+write_map(call_to_native, cat+"-call-native.txt", perm="w+", sort=True)
+write_map(hybrid, cat+"-hybrid-apps.txt", perm="w+", sort=True)
 
 li = []
 for a in apps:

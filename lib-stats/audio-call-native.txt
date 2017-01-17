@@ -1,6 +1,6 @@
 {
-    "apps/audio/Alexabot": [
-        "apps/audio/Alexabot/AlexaPi/alexapi/device_platforms/rpilike.py"
+    "apps/audio/AWShome": [
+        "apps/audio/AWShome/AlexaPi/main.py"
     ],
     "apps/audio/AlexaPhone": [
         "apps/audio/AlexaPhone/AlexaPi/main.py"
@@ -11,11 +11,11 @@
     "apps/audio/AlexaWithRaspioProHat": [
         "apps/audio/AlexaWithRaspioProHat/AlexaPi/main.py"
     ],
+    "apps/audio/Alexabot": [
+        "apps/audio/Alexabot/AlexaPi/alexapi/device_platforms/rpilike.py"
+    ],
     "apps/audio/AudioServer&Recorder.py": [
         "apps/audio/AudioServer&Recorder.py"
-    ],
-    "apps/audio/AWShome": [
-        "apps/audio/AWShome/AlexaPi/main.py"
     ],
     "apps/audio/BlokBot.py": [
         "apps/audio/BlokBot.py"

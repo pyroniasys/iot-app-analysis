@@ -1,0 +1,850 @@
+apps/audio/HeyAthena:
+[
+    "gtts",
+    "pocketsphinx",
+    "pyaudio",
+    "pyglet",
+    "requests",
+    "selenium",
+    "selenium.webdriver",
+    "speech_recognition",
+    "wolframalpha",
+    "yaml"
+]
+apps/audio/ReSpeakerMessenger:
+[
+    "monotonic",
+    "paho",
+    "pyaudio",
+    "serial",
+    "telepot",
+    "webrtcvad"
+]
+apps/audio/STTIntelIoT.py:
+[
+    "speech_recognition"
+]
+apps/audio/BlokBot.py:
+[
+    "Adafruit_SSD1306",
+    "PIL",
+    "espeak",
+    "unirest"
+]
+apps/audio/PiTranslate:
+[
+    "pycurl",
+    "requests"
+]
+apps/audio/GettingStartedWithReSpeaker:
+[
+    "hid",
+    "monotonic",
+    "pocketsphinx",
+    "pyaudio",
+    "pywinusb",
+    "requests",
+    "usb",
+    "webrtcvad"
+]
+apps/audio/DYIAmazonAlexa:
+[
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/ControlTVWithVoice:
+[
+    "cec",
+    "speech_recognition"
+]
+apps/audio/TalkingGanesha:
+[
+    "pycurl",
+    "wolframalpha"
+]
+apps/audio/AudioServer&Recorder.py:
+[
+    "mraa"
+]
+apps/audio/Alexabot:
+[
+    "CHIP_IO",
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "flask",
+    "gopigo",
+    "memcache",
+    "pocketsphinx",
+    "pyA20",
+    "requests",
+    "vlc",
+    "webrtcvad",
+    "yaml"
+]
+apps/audio/babynap.py:
+[
+    "nfc",
+    "paho",
+    "tentacle_pi",
+    "wiringpi2"
+]
+apps/audio/soundSensorPhilippsHue.py:
+[
+    "RPi.GPIO",
+    "qhue"
+]
+apps/audio/VoiceControlRoombaHue:
+[
+    "gevent",
+    "grequests",
+    "pocketsphinx",
+    "pyaudio",
+    "serial"
+]
+apps/audio/AWShome:
+[
+    "AWSIoTPythonSDK",
+    "RPi.GPIO",
+    "alsaaudio",
+    "boto3",
+    "cherrypy",
+    "creds",
+    "memcache",
+    "pi_switch",
+    "pocketsphinx",
+    "requests",
+    "sphinxbase",
+    "vlc"
+]
+apps/audio/JarvisInPython.py:
+[
+    "gtts",
+    "speech_recognition"
+]
+apps/audio/AlexaPiMQTTSmartHub:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/RPiAlexa:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/RPiPersonalAssistant:
+[
+    "wolframalpha"
+]
+apps/audio/AlexaWithRaspioProHat:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/PiHomeMaster:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "paho",
+    "requests"
+]
+apps/audio/AlexaPhone:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/HeyAthena:
+[
+    "gtts",
+    "pocketsphinx",
+    "pyaudio",
+    "pyglet",
+    "requests",
+    "selenium",
+    "selenium.webdriver",
+    "speech_recognition",
+    "wolframalpha",
+    "yaml"
+]
+apps/audio/ReSpeakerMessenger:
+[
+    "monotonic",
+    "paho",
+    "pyaudio",
+    "serial",
+    "telepot",
+    "webrtcvad"
+]
+apps/audio/STTIntelIoT.py:
+[
+    "speech_recognition"
+]
+apps/audio/BlokBot.py:
+[
+    "Adafruit_SSD1306",
+    "PIL",
+    "espeak",
+    "unirest"
+]
+apps/audio/PiTranslate:
+[
+    "pycurl",
+    "requests"
+]
+apps/audio/GettingStartedWithReSpeaker:
+[
+    "hid",
+    "monotonic",
+    "pocketsphinx",
+    "pyaudio",
+    "pywinusb",
+    "requests",
+    "usb",
+    "webrtcvad"
+]
+apps/audio/DYIAmazonAlexa:
+[
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/ControlTVWithVoice:
+[
+    "cec",
+    "speech_recognition"
+]
+apps/audio/TalkingGanesha:
+[
+    "pycurl",
+    "wolframalpha"
+]
+apps/audio/AudioServer&Recorder.py:
+[
+    "mraa"
+]
+apps/audio/Alexabot:
+[
+    "CHIP_IO",
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "flask",
+    "gopigo",
+    "memcache",
+    "pocketsphinx",
+    "pyA20",
+    "requests",
+    "vlc",
+    "webrtcvad",
+    "yaml"
+]
+apps/audio/babynap.py:
+[
+    "nfc",
+    "paho",
+    "tentacle_pi",
+    "wiringpi2"
+]
+apps/audio/soundSensorPhilippsHue.py:
+[
+    "RPi.GPIO",
+    "qhue"
+]
+apps/audio/VoiceControlRoombaHue:
+[
+    "gevent",
+    "grequests",
+    "pocketsphinx",
+    "pyaudio",
+    "serial"
+]
+apps/audio/AWShome:
+[
+    "AWSIoTPythonSDK",
+    "RPi.GPIO",
+    "alsaaudio",
+    "boto3",
+    "cherrypy",
+    "creds",
+    "memcache",
+    "pi_switch",
+    "pocketsphinx",
+    "requests",
+    "sphinxbase",
+    "vlc"
+]
+apps/audio/JarvisInPython.py:
+[
+    "gtts",
+    "speech_recognition"
+]
+apps/audio/AlexaPiMQTTSmartHub:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/RPiAlexa:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/RPiPersonalAssistant:
+[
+    "wolframalpha"
+]
+apps/audio/AlexaWithRaspioProHat:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/PiHomeMaster:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "paho",
+    "requests"
+]
+apps/audio/AlexaPhone:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/HeyAthena:
+[
+    "gtts",
+    "pocketsphinx",
+    "pyaudio",
+    "pyglet",
+    "requests",
+    "selenium",
+    "selenium.webdriver",
+    "speech_recognition",
+    "wolframalpha",
+    "yaml"
+]
+apps/audio/ReSpeakerMessenger:
+[
+    "monotonic",
+    "paho",
+    "pyaudio",
+    "serial",
+    "telepot",
+    "webrtcvad"
+]
+apps/audio/STTIntelIoT.py:
+[
+    "speech_recognition"
+]
+apps/audio/BlokBot.py:
+[
+    "Adafruit_SSD1306",
+    "PIL",
+    "espeak",
+    "unirest"
+]
+apps/audio/PiTranslate:
+[
+    "pycurl",
+    "requests"
+]
+apps/audio/GettingStartedWithReSpeaker:
+[
+    "hid",
+    "monotonic",
+    "pocketsphinx",
+    "pyaudio",
+    "pywinusb",
+    "requests",
+    "usb",
+    "webrtcvad"
+]
+apps/audio/DYIAmazonAlexa:
+[
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/ControlTVWithVoice:
+[
+    "cec",
+    "speech_recognition"
+]
+apps/audio/TalkingGanesha:
+[
+    "pycurl",
+    "wolframalpha"
+]
+apps/audio/AudioServer&Recorder.py:
+[
+    "mraa"
+]
+apps/audio/Alexabot:
+[
+    "CHIP_IO",
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "flask",
+    "gopigo",
+    "memcache",
+    "pocketsphinx",
+    "pyA20",
+    "requests",
+    "vlc",
+    "webrtcvad",
+    "yaml"
+]
+apps/audio/babynap.py:
+[
+    "nfc",
+    "paho",
+    "tentacle_pi",
+    "wiringpi2"
+]
+apps/audio/soundSensorPhilippsHue.py:
+[
+    "RPi.GPIO",
+    "qhue"
+]
+apps/audio/VoiceControlRoombaHue:
+[
+    "gevent",
+    "grequests",
+    "pocketsphinx",
+    "pyaudio",
+    "serial"
+]
+apps/audio/AWShome:
+[
+    "AWSIoTPythonSDK",
+    "RPi.GPIO",
+    "alsaaudio",
+    "boto3",
+    "cherrypy",
+    "creds",
+    "memcache",
+    "pi_switch",
+    "pocketsphinx",
+    "requests",
+    "sphinxbase",
+    "vlc"
+]
+apps/audio/JarvisInPython.py:
+[
+    "gtts",
+    "speech_recognition"
+]
+apps/audio/AlexaPiMQTTSmartHub:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/RPiAlexa:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/RPiPersonalAssistant:
+[
+    "wolframalpha"
+]
+apps/audio/AlexaWithRaspioProHat:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/PiHomeMaster:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "paho",
+    "requests"
+]
+apps/audio/AlexaPhone:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/HeyAthena:
+[
+    "gtts",
+    "pocketsphinx",
+    "pyaudio",
+    "pyglet",
+    "requests",
+    "selenium",
+    "selenium.webdriver",
+    "speech_recognition",
+    "wolframalpha",
+    "yaml"
+]
+apps/audio/ReSpeakerMessenger:
+[
+    "monotonic",
+    "paho",
+    "pyaudio",
+    "serial",
+    "telepot",
+    "webrtcvad"
+]
+apps/audio/STTIntelIoT.py:
+[
+    "speech_recognition"
+]
+apps/audio/BlokBot.py:
+[
+    "Adafruit_SSD1306",
+    "PIL",
+    "espeak",
+    "unirest"
+]
+apps/audio/PiTranslate:
+[
+    "pycurl",
+    "requests"
+]
+apps/audio/GettingStartedWithReSpeaker:
+[
+    "hid",
+    "monotonic",
+    "pocketsphinx",
+    "pyaudio",
+    "pywinusb",
+    "requests",
+    "usb",
+    "webrtcvad"
+]
+apps/audio/DYIAmazonAlexa:
+[
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/ControlTVWithVoice:
+[
+    "cec",
+    "speech_recognition"
+]
+apps/audio/TalkingGanesha:
+[
+    "pycurl",
+    "wolframalpha"
+]
+apps/audio/AudioServer&Recorder.py:
+[
+    "mraa"
+]
+apps/audio/Alexabot:
+[
+    "CHIP_IO",
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "flask",
+    "gopigo",
+    "memcache",
+    "pocketsphinx",
+    "pyA20",
+    "requests",
+    "vlc",
+    "webrtcvad",
+    "yaml"
+]
+apps/audio/babynap.py:
+[
+    "nfc",
+    "paho",
+    "tentacle_pi",
+    "wiringpi2"
+]
+apps/audio/soundSensorPhilippsHue.py:
+[
+    "RPi.GPIO",
+    "qhue"
+]
+apps/audio/VoiceControlRoombaHue:
+[
+    "gevent",
+    "grequests",
+    "pocketsphinx",
+    "pyaudio",
+    "serial"
+]
+apps/audio/AWShome:
+[
+    "AWSIoTPythonSDK",
+    "RPi.GPIO",
+    "alsaaudio",
+    "boto3",
+    "cherrypy",
+    "creds",
+    "memcache",
+    "pi_switch",
+    "pocketsphinx",
+    "requests",
+    "sphinxbase",
+    "vlc"
+]
+apps/audio/JarvisInPython.py:
+[
+    "gtts",
+    "speech_recognition"
+]
+apps/audio/AlexaPiMQTTSmartHub:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/RPiAlexa:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/RPiPersonalAssistant:
+[
+    "wolframalpha"
+]
+apps/audio/AlexaWithRaspioProHat:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/PiHomeMaster:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "paho",
+    "requests"
+]
+apps/audio/AlexaPhone:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/HeyAthena:
+[
+    "gtts",
+    "pocketsphinx",
+    "pyaudio",
+    "pyglet",
+    "requests",
+    "selenium",
+    "selenium.webdriver",
+    "speech_recognition",
+    "wolframalpha",
+    "yaml"
+]
+apps/audio/ReSpeakerMessenger:
+[
+    "monotonic",
+    "paho",
+    "pyaudio",
+    "serial",
+    "telepot",
+    "webrtcvad"
+]
+apps/audio/STTIntelIoT.py:
+[
+    "speech_recognition"
+]
+apps/audio/BlokBot.py:
+[
+    "Adafruit_SSD1306",
+    "PIL",
+    "espeak",
+    "unirest"
+]
+apps/audio/PiTranslate:
+[
+    "pycurl",
+    "requests"
+]
+apps/audio/GettingStartedWithReSpeaker:
+[
+    "hid",
+    "monotonic",
+    "pocketsphinx",
+    "pyaudio",
+    "pywinusb",
+    "requests",
+    "usb",
+    "webrtcvad"
+]
+apps/audio/DYIAmazonAlexa:
+[
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/ControlTVWithVoice:
+[
+    "cec",
+    "speech_recognition"
+]
+apps/audio/TalkingGanesha:
+[
+    "pycurl",
+    "wolframalpha"
+]
+apps/audio/AudioServer&Recorder.py:
+[
+    "mraa"
+]
+apps/audio/Alexabot:
+[
+    "CHIP_IO",
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "flask",
+    "gopigo",
+    "memcache",
+    "pocketsphinx",
+    "pyA20",
+    "requests",
+    "vlc",
+    "webrtcvad",
+    "yaml"
+]
+apps/audio/babynap.py:
+[
+    "nfc",
+    "paho",
+    "tentacle_pi",
+    "wiringpi2"
+]
+apps/audio/soundSensorPhilippsHue.py:
+[
+    "RPi.GPIO",
+    "qhue"
+]
+apps/audio/VoiceControlRoombaHue:
+[
+    "gevent",
+    "grequests",
+    "pocketsphinx",
+    "pyaudio",
+    "serial"
+]
+apps/audio/AWShome:
+[
+    "AWSIoTPythonSDK",
+    "RPi.GPIO",
+    "alsaaudio",
+    "boto3",
+    "cherrypy",
+    "creds",
+    "memcache",
+    "pi_switch",
+    "pocketsphinx",
+    "requests",
+    "sphinxbase",
+    "vlc"
+]
+apps/audio/JarvisInPython.py:
+[
+    "gtts",
+    "speech_recognition"
+]
+apps/audio/AlexaPiMQTTSmartHub:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/RPiAlexa:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/RPiPersonalAssistant:
+[
+    "wolframalpha"
+]
+apps/audio/AlexaWithRaspioProHat:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/PiHomeMaster:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "paho",
+    "requests"
+]
+apps/audio/AlexaPhone:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]

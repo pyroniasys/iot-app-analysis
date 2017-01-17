@@ -8,12 +8,6 @@
     "apps/visual/GPIO&PiCameraUsingTelegram.py": [
         "apps/visual/GPIO&PiCameraUsingTelegram.py"
     ],
-    "apps/visual/monitordoorbell.py": [
-        "apps/visual/monitordoorbell.py"
-    ],
-    "apps/visual/pidoorbell.py": [
-        "apps/visual/pidoorbell.py"
-    ],
     "apps/visual/PiNoculars.py": [
         "apps/visual/PiNoculars.py"
     ],
@@ -32,5 +26,11 @@
     ],
     "apps/visual/WifiPhotobooth": [
         "apps/visual/WifiPhotobooth/photobooth_control.py"
+    ],
+    "apps/visual/monitordoorbell.py": [
+        "apps/visual/monitordoorbell.py"
+    ],
+    "apps/visual/pidoorbell.py": [
+        "apps/visual/pidoorbell.py"
     ]
 }

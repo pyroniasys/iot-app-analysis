@@ -141,11 +141,14 @@ def write_list_raw(l, filename):
         f.write(str(i)+"\n")
     f.close()
 
-def write_map(m, filename, name=None, perm="a+"):
+def write_map(m, filename, name=None, perm="a+", sort=False):
     f = open(filename, perm)
     if name != None:
         f.write(str(name)+":\n")
-    f.write(json.dumps(m, indent=4)+"\n")
+    d = m
+    if sort:
+        d = OrderedDict(sorted(m.items(), key=lambda t: t[0]))
+    f.write(json.dumps(d, indent=4)+"\n")
     f.close()
 
 # sort dict by values in descreasing order, then keys in regular order
