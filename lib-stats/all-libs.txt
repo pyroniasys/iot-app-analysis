@@ -9,7 +9,6 @@ Adafruit_SSD1306
 Beaglebone_Black_Driver
 CHIP_IO
 DirectPy
-FlaskWebProject1
 Gnuplot
 ISStreamer
 Image
@@ -54,6 +53,7 @@ concurrent
 cpuinfo
 creds
 cv2
+dateutil
 devicehive
 devicehive.client
 devicehive.device
@@ -66,6 +66,7 @@ dweepy
 eiscp
 enocean.communicators
 enocean.protocol
+envirophat
 espeak
 evdev
 evohomeclient
@@ -132,9 +133,12 @@ miniupnpc
 mock
 monotonic
 mraa
+mysql
 myusps
 nad_receiver
+netaddr
 netdisco
+netifaces
 neurio
 nfc
 nmap
@@ -163,6 +167,7 @@ psutil
 pubnub
 pubnubsubhandler
 pwaqi
+py4j
 pyA20
 pyHS100
 pyW215
@@ -174,6 +179,7 @@ pychromecast
 pycmus
 pycurl
 pydispatch
+pydub
 pyecobee
 pyedimax
 pyemby
@@ -222,6 +228,7 @@ pywinusb
 pyyeelight
 qhue
 requests
+requests.packages
 russound
 rxv
 samsungctl
@@ -231,7 +238,6 @@ scsgate
 selenium
 selenium.webdriver
 sense_hat
-sensor
 serial
 sharp_aquos_rc
 slacker
@@ -242,10 +248,12 @@ soco
 somecomfort
 speech_recognition
 sphinxbase
+spidev
 sqlalchemy
 sqlalchemy.ext
 sqlalchemy.orm
 steam
+telegram
 telepot
 tellcore
 temperusb
@@ -264,6 +272,8 @@ twisted.python
 twisted.test
 twisted.web
 twitch
+twitter
+twython
 typing
 uber_rides
 ubidots

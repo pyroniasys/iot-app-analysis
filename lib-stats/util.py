@@ -22,8 +22,9 @@ def is_native(lib):
         return True
     return False
 
-def count_freq(to_count):
-    m = dict()
+def count_freq(to_count, m=None):
+    if m == None:
+        m = dict()
     for i in to_count:
         lib = i
         if m.get(lib) == None:
@@ -48,6 +49,9 @@ def get_distinct_cat(cat, d):
             dis.append(lib)
     return dis
 
+# we don't want to include libs['multi'] in this count since
+# we'll be counting domain-unique libs that are used in
+# multi-domain apps as non-unique
 def get_common(libs):
     # need to check all pairs to get the right count
     common_libs = dict()
@@ -74,7 +78,7 @@ def get_common(libs):
 
     return common_libs
 
-# we don't want to include libs['common'] in this count since
+# we don't want to include libs['multi'] in this count since
 # we'll be counting domain-unique libs that are used in
 # multi-domain apps as non-unique
 def get_unique(libs):
