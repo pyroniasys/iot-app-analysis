@@ -4,6 +4,8 @@ import json
 from collections import OrderedDict
 from operator import itemgetter
 
+STATS_FILE = "stats.txt"
+
 def get_name(p):
     name = p[:p.find(".")]
     return name
@@ -135,7 +137,7 @@ def write_list(l, filename, name=None):
 
 def write_list_raw(l, filename):
     f = open(filename, "w+")
-    for i in l:
+    for i in sorted(l):
         f.write(str(i)+"\n")
     f.close()
 
@@ -146,6 +148,8 @@ def write_map(m, filename, name=None, perm="a+"):
     f.write(json.dumps(m, indent=4)+"\n")
     f.close()
 
-def write_freq_map(m):
-    d = OrderedDict(sorted(m.items(), key=itemgetter(1), reverse=True))
-    write_map(d, "stats.txt")
+# sort dict by values in descreasing order, then keys in regular order
+# From http://stackoverflow.com/questions/9919342/sorting-a-dictionary-by-value-then-key
+def write_freq_map(m, filename=STATS_FILE, perm="a+"):
+    d = OrderedDict(sorted(m.items(), key=lambda kv: (-kv[1], kv[0])))
+    write_map(d, filename, perm=perm)

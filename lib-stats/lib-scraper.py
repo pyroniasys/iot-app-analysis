@@ -10,7 +10,7 @@ import sys
 from collections import OrderedDict
 import json
 
-from util import write_map, read_map, remove_dups, write_list_raw
+from util import *
 from pyflakes import reporter as modReporter
 from pyflakes.api import checkRecursive, iterSourceCode
 
@@ -455,14 +455,6 @@ for a in apps:
             libs_3p.append(l)
     apps[a]['imports'] = libs_3p
 
-    '''
-    # remove all __init__.py unused imports since they aren't actually unused
-    unused_raw_clean = OrderedDict()
-    for src, i in unused_raw.items():
-        if not src.endswith("__init__.py"):
-            unused_raw_clean[src] = i
-'''
-
     # iterate of each source's files imports to remove unused imports that actually appear
     # in the list of imports
     if not a.endswith(".py"):
@@ -498,11 +490,19 @@ for a in apps:
     for i in sorted(apps[a]['imports']):
         li.append(i)
 
-write_list_raw(sorted(li), cat+"-libs.txt")
+write_list_raw(li, cat+"-libs.txt")
 
 li = []
 for a in apps:
     for i in sorted(apps[a]['unused']):
         li.append(i)
 
-write_list_raw(sorted(li), cat+"-unused-libs.txt")
+write_list_raw(li, cat+"-unused-libs.txt")
+
+# collect per-app libs and lib counts
+lib_counts = OrderedDict()
+for a in apps:
+    write_list(apps[a]['imports'], cat+"-libs-perapp.txt", name=a)
+    lib_counts[a] = len(apps[a]['imports'])
+
+write_freq_map(lib_counts, filename=cat+"-lib-counts.txt", perm="w+")

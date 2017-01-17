@@ -7,8 +7,8 @@ from collections import OrderedDict
 from util import *
 
 # remove an existing stats file since we'll want to override it
-if os.path.isfile("stats.txt"):
-    os.remove("stats.txt")
+if os.path.isfile(STATS_FILE):
+    os.remove(STATS_FILE)
 
 # get all the apps
 apps = dict()
