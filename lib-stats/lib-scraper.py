@@ -141,13 +141,17 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
     higher_py_file = ""
     higher_subdir = ""
     higher_obj_mod = ""
+    subdir_init_file = ""
+    sibling_init_file = ""
     if single_imp:
         # we're importing a single module
         # so we need to check if it's a py file in the src dir or
         # a subdir
         py_file = src_dir+"/"+mod+".py"
         subdir = src_dir+"/"+mod
+        subdir_init_file = subdir+"/__init__.py"
     elif src_dir_imp:
+        print("a")
         # we're importing a module from the src dir
         # so we need to check if it's a py file in the src dir,
         # a subdir, or if the low-level pkg is actually an object
@@ -160,7 +164,10 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
         # so treat the obj_mod as the src_dir
         else:
             obj_mod = src_dir+"/__init__.py"
+
+        subdir_init_file = subdir+"/__init__.py"
     elif sibling_dir_imp:
+        print("b")
         # we're importing a module from a sibling dir
         # so we need to check if it's a py file in the sibling dir,
         # a subdir, or if the low=level pkg is actually an object
@@ -173,7 +180,10 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
             # we might be importing an attribute defined in __init__.py
             # so treat the obj_mod as the src_dir
             sibling_obj_mod = super_dir+"/__init__.py"
+
+        subdir_init_file = sibling_subdir+"/__init__.py"
     elif higher_dir_imp:
+        print("c")
         # we're importing a module from a dir that's higher than the sibling
         # so we need to check if it's a py file in the higher dir,
         # a subdir, or if the low=level pkg is actually an object
@@ -186,7 +196,10 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
         # so treat the obj_mod as the src_dir
         else:
             higher_obj_mod = pref+"/__init__.py"
+
+        subdir_init_file = higher_subdir+"/__init__.py"
     else:
+        print("d")
         # we're not sure where we're importing from
         # let's try all generic possibilities
         py_file = src_dir+"/"+mod+".py"
@@ -196,47 +209,59 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
         if supermod != "":
             obj_mod = src_dir+"/"+supermod+".py"
             sibling_obj_mod = super_dir+"/"+supermod+".py"
-        # we might be importing an attribute defined in __init__.py
-        # so treat the obj_mod as the src_dir
+            subdir_init_file = src_dir+"/"+supermod+"/__init__.py"
+            sibling_init_file = super_dir+"/"+supermod+"/__init__.py"
         else:
+            # we might be importing an attribute defined in __init__.py
+            # so treat the obj_mod as the src_dir
             obj_mod = src_dir+"/__init__.py"
             sibling_obj_mod = super_dir+"/__init__.py"
+            sibling_init_file = sibling_subdir+"/__init__.py"
+            subdir_init_file = subdir+"/__init__.py"
 
-    #print("Looking at "+py_file+", "+sibling_py_file+", "+higher_py_file+", "+obj_mod+", "+sibling_obj_mod+", "+higher_obj_mod+", "+subdir+", "+sibling_subdir+" and "+higher_subdir)
+
+
+    print("Looking at "+py_file+", "+sibling_py_file+", "+higher_py_file+", "+obj_mod+", "+sibling_obj_mod+", "+higher_obj_mod+", "+subdir_init_file+", "+sibling_init_file+", "+subdir+", "+sibling_subdir+" and "+higher_subdir)
 
     # let's check if none of the possible imports exist
-    if srcs_dict.get(py_file) == None and srcs_dict.get(sibling_py_file) == None and srcs_dict.get(higher_py_file) == None and srcs_dict.get(obj_mod) == None and srcs_dict.get(sibling_obj_mod) == None and srcs_dict.get(higher_obj_mod) == None and not os.path.isdir(subdir) and not os.path.isdir(sibling_subdir) and not os.path.isdir(higher_subdir):
-        #print("0")
+    if srcs_dict.get(py_file) == None and srcs_dict.get(sibling_py_file) == None and srcs_dict.get(higher_py_file) == None and srcs_dict.get(obj_mod) == None and srcs_dict.get(sibling_obj_mod) == None and srcs_dict.get(higher_obj_mod) == None and srcs_dict.get(subdir_init_file) == None and srcs_dict.get(sibling_init_file) == None and not os.path.isdir(subdir) and not os.path.isdir(sibling_subdir) and not os.path.isdir(higher_subdir):
+        print("0")
         return [imp]
 
     else:
         srcs = []
         if srcs_dict.get(py_file) != None:
-            #print("1")
+            print("1")
             srcs = [py_file]
         elif srcs_dict.get(sibling_py_file) != None:
-            #print("2")
+            print("2")
             srcs = [sibling_py_file]
         elif srcs_dict.get(higher_py_file) != None:
-            #print("3")
+            print("3")
             srcs = [higher_py_file]
         elif srcs_dict.get(obj_mod) != None:
-            #print("4")
+            print("4")
             srcs = [obj_mod]
         elif srcs_dict.get(sibling_obj_mod) != None:
-            #print("5")
+            print("5")
             srcs = [sibling_obj_mod]
         elif srcs_dict.get(higher_obj_mod) != None:
-            #print("6")
+            print("6")
             srcs = [higher_obj_mod]
+        elif srcs_dict.get(subdir_init_file) != None:
+            print("7")
+            srcs = [subdir_init_file]
+        elif srcs_dict.get(sibling_init_file) != None:
+            print("8")
+            srcs = [sibling_init_file]
         elif os.path.isdir(subdir):
-            #print("7")
+            print("9")
             srcs = iterSourceCode([subdir])
         elif os.path.isdir(sibling_subdir):
-            #print("8")
+            print("10")
             srcs = iterSourceCode([sibling_subdir])
         elif os.path.isdir(higher_subdir):
-            #print("9")
+            print("11")
             srcs = iterSourceCode([higher_subdir])
 
         l = []
