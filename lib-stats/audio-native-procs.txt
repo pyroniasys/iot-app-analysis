@@ -1,3 +1,20 @@
 mpg123 - os.system
 mpg123 - os.system
 mpg123 - os.system
+arecord - os.system
+play - os.system
+arecord - subprocess.call
+mpg123 - os.system
+micarray_dump - subprocess.Popen
+gpio - subprocess.Popen
+madplay - subprocess.Popen
+aplay
+ffplay
+mpg321 - os.system
+chromium-browser
+mpg123 - os.system
+mplayer - subprocess.call
+mpg123 - os.system
+espeak - subprocess.call
+arecord
+flac
