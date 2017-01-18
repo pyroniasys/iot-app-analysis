@@ -19,4 +19,4 @@ http://www.instructables.com/id/Using-a-sound-sensor-with-a-Raspberry-Pi-to-cont
 http://www.instructables.com/id/Speech-to-Text/?ALLSTEPS
 http://www.instructables.com/id/Audio-Server-and-Recorder-With-Intel-Edison/?ALLSTEPS
 http://www.instructables.com/id/Rasberry-Pi-Alexa/?ALLSTEPS
-https://www.hackster.io/awshome/awshome-home-automation-using-rpi-alexa-iot-a3d3dc?ref=search&ref_id=IoT%20python&offset=6
+https://www.hackster.io/awshome/awshome-home-automation-using-rpi-alexa-iot-a3d3dc

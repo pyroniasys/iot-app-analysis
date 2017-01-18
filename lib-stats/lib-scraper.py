@@ -304,7 +304,7 @@ def replace_fp_mod_app(apps, a, target):
     return remove_dups(libs)
 
 def call_native_proc(l):
-    if "os.system" in l or "os.spawnlp" in l or "os.popen" in l or "subprocess.call" in l or "subprocess.Popen" in l:
+    if "os.system" in l or "os.spawnlp" in l or "os.popen" in l or "subprocess.call" in l or "subprocess.Popen" in l or "subprocess.check_output" in l:
         return True
     return False
 
