@@ -1,4 +1,5 @@
 {
+    "apps/multi/devicePresenseAlert": 189,
     "apps/multi/BeagleAlexa": 8,
     "apps/multi/RPiSecuritySystem": 8,
     "apps/multi/SmartMirror": 8,

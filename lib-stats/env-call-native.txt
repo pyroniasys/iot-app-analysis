@@ -1,6 +1,6 @@
 {
-    "apps/env/DHT22logger.py": [
-        "apps/env/DHT22logger.py"
+    "apps/env/DHT22Logger": [
+        "apps/env/DHT22Logger/DHT22logger.py"
     ],
     "apps/env/EmailiPhoneNetworkPresence.py": [
         "apps/env/EmailiPhoneNetworkPresence.py"
@@ -13,20 +13,12 @@
     ],
     "apps/env/beerfridge": [
         "apps/env/beerfridge/beerfridge.py",
-        "apps/env/beerfridge/temperature_test.py"
+        "apps/env/beerfridge/beerfridge_make.py",
+        "apps/env/beerfridge/temperature_test.py",
+        "apps/env/beerfridge/wiiboard_test.py"
     ],
-    "apps/env/devicePresenseAlert": [
-        "apps/env/devicePresenseAlert/homeassistant/components/camera/rpi_camera.py",
-        "apps/env/devicePresenseAlert/homeassistant/components/cover/command_line.py",
-        "apps/env/devicePresenseAlert/homeassistant/components/device_tracker/nmap_tracker.py",
-        "apps/env/devicePresenseAlert/homeassistant/components/device_tracker/ping.py",
-        "apps/env/devicePresenseAlert/homeassistant/components/media_player/braviatv.py",
-        "apps/env/devicePresenseAlert/homeassistant/components/notify/command_line.py",
-        "apps/env/devicePresenseAlert/homeassistant/components/sensor/sensehat.py",
-        "apps/env/devicePresenseAlert/homeassistant/components/shell_command.py",
-        "apps/env/devicePresenseAlert/homeassistant/components/switch/command_line.py",
-        "apps/env/devicePresenseAlert/homeassistant/components/tts/picotts.py",
-        "apps/env/devicePresenseAlert/homeassistant/scripts/macos/__init__.py",
-        "apps/env/devicePresenseAlert/homeassistant/util/package.py"
+    "apps/env/smartScale": [
+        "apps/env/smartScale/smartscale.py",
+        "apps/env/smartScale/wiiboard_test.py"
     ]
 }

@@ -1,8 +1,8 @@
 {
-    "apps/env/devicePresenseAlert": 189,
     "apps/env/PiIndoorAirQualityMonitor": 27,
     "apps/env/HomeVentilation": 7,
     "apps/env/HomeControlCenterBBGW": 5,
+    "apps/env/DHT22Logger": 4,
     "apps/env/IoTTempHumidityMonitor": 4,
     "apps/env/IoTRPiArduino": 3,
     "apps/env/SensorianIoTDashboard.py": 3,
@@ -15,7 +15,6 @@
     "apps/env/intelligentDoor.py": 2,
     "apps/env/smartScale": 2,
     "apps/env/weatherStation.py": 2,
-    "apps/env/DHT22logger.py": 1,
     "apps/env/HomeTempThingspeak.py": 1,
     "apps/env/NetworkMonitoringWithAWSIoT.py": 1,
     "apps/env/RPiPIRSensor.py": 1,

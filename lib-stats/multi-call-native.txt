@@ -30,6 +30,21 @@
     "apps/multi/SmartMirror": [
         "apps/multi/SmartMirror/py4j_server/__init__.py"
     ],
+    "apps/multi/devicePresenseAlert": [
+        "apps/multi/devicePresenseAlert/homeassistant/components/camera/rpi_camera.py",
+        "apps/multi/devicePresenseAlert/homeassistant/components/cover/command_line.py",
+        "apps/multi/devicePresenseAlert/homeassistant/components/device_tracker/nmap_tracker.py",
+        "apps/multi/devicePresenseAlert/homeassistant/components/device_tracker/ping.py",
+        "apps/multi/devicePresenseAlert/homeassistant/components/media_player/braviatv.py",
+        "apps/multi/devicePresenseAlert/homeassistant/components/notify/command_line.py",
+        "apps/multi/devicePresenseAlert/homeassistant/components/sensor/command_line.py",
+        "apps/multi/devicePresenseAlert/homeassistant/components/sensor/sensehat.py",
+        "apps/multi/devicePresenseAlert/homeassistant/components/shell_command.py",
+        "apps/multi/devicePresenseAlert/homeassistant/components/switch/command_line.py",
+        "apps/multi/devicePresenseAlert/homeassistant/components/tts/picotts.py",
+        "apps/multi/devicePresenseAlert/homeassistant/scripts/macos/__init__.py",
+        "apps/multi/devicePresenseAlert/homeassistant/util/package.py"
+    ],
     "apps/multi/tweetingPlants.py": [
         "apps/multi/tweetingPlants.py"
     ]
