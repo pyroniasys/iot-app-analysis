@@ -112,15 +112,15 @@
     ],
     "apps/audio/TalkingGanesha": [
         {
-            "apps/audio/TalkingGanesha/F2LE55TIEKJ0T07.py": [
-                "p = subprocess.Popen(inputcommand, stdout=subprocess.PIPE, shell=True)"
-            ]
-        },
-        {
             "apps/audio/TalkingGanesha/FHRILVHIEKJ0SZZ.py": [
                 "p = subprocess.Popen(inputcommand, stdout=subprocess.PIPE, shell=True)",
                 "os.system(\"./stt.sh\")",
                 "os.system(\"python queryProcess.py '\" + final_result + \"'\")"
+            ]
+        },
+        {
+            "apps/audio/TalkingGanesha/queryProcess.py": [
+                "p = subprocess.Popen(inputcommand, stdout=subprocess.PIPE, shell=True)"
             ]
         }
     ]
