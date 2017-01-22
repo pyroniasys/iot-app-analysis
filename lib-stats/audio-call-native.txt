@@ -57,15 +57,15 @@
     "apps/audio/DIYAmazonAlexa": [
         {
             "apps/audio/DIYAmazonAlexa/alexa_voice_demo.py": [
-                "os.system(",
-                "process = subprocess.Popen(",
+                "os.system('mpg123 -q {}1sec.mp3 {}response.mp3'.format(path + \"/assets/\", path))",
+                "process = subprocess.Popen(['./micarray/build/micarray_dump'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)",
                 "subprocess.Popen(['sudo', 'rmmod', 'lirc_rpi'])",
-                "os.system('mpg123 -q {}1sec.mp3 {}hello.mp3'.format(path +",
+                "os.system('mpg123 -q {}1sec.mp3 {}hello.mp3'.format(path +\"/assets/\", path + \"/assets/\"))",
                 "subprocess.Popen(['gpio','edge','16','both'])",
-                "os.system(",
-                "process = subprocess.Popen(",
+                "os.system('mpg123 -q {}1sec.mp3 {}response.mp3'.format(path + \"/assets/\", path))",
+                "process = subprocess.Popen(['./micarray/build/micarray_dump'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)",
                 "subprocess.Popen(['sudo', 'rmmod', 'lirc_rpi'])",
-                "os.system('mpg123 -q {}1sec.mp3 {}hello.mp3'.format(path +",
+                "os.system('mpg123 -q {}1sec.mp3 {}hello.mp3'.format(path +\"/assets/\", path + \"/assets/\"))",
                 "subprocess.Popen(['gpio','edge','16','both'])"
             ]
         }
@@ -112,15 +112,15 @@
     ],
     "apps/audio/TalkingGanesha": [
         {
+            "apps/audio/TalkingGanesha/F2LE55TIEKJ0T07.py": [
+                "p = subprocess.Popen(inputcommand, stdout=subprocess.PIPE, shell=True)"
+            ]
+        },
+        {
             "apps/audio/TalkingGanesha/FHRILVHIEKJ0SZZ.py": [
                 "p = subprocess.Popen(inputcommand, stdout=subprocess.PIPE, shell=True)",
                 "os.system(\"./stt.sh\")",
                 "os.system(\"python queryProcess.py '\" + final_result + \"'\")"
-            ]
-        },
-        {
-            "apps/audio/TalkingGanesha/F2LE55TIEKJ0T07.py": [
-                "p = subprocess.Popen(inputcommand, stdout=subprocess.PIPE, shell=True)"
             ]
         }
     ]

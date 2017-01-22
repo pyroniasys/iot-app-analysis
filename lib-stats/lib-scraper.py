@@ -316,11 +316,20 @@ def scan_source_native(src):
     f.close()
     # these are the calls to native code that we've observed
     nats = []
+    nextLn = ""
     for l in lines:
         clean = l.strip()
         if not clean.startswith("#") and call_native_proc(clean):
             debug("Found call to native proc in code: "+clean)
-            nats.append(clean)
+            # let's make sure the actual command isn't actually
+            # on the next line
+            if ")" not in clean:
+                nextLn = clean
+            else:
+                nats.append(clean)
+        elif nextLn != "":
+            nats.append(nextLn+clean)
+            nextLn = ""
     return nats
 
 # collect all the shared lib loads so proc collection is only about

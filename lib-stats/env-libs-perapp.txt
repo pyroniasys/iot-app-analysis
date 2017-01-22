@@ -1131,3 +1131,154 @@ apps/env/WirelessDoorbell.py:
 [
     "scapy"
 ]
+apps/env/beerfridge:
+[
+    "ISStreamer",
+    "RPi.GPIO",
+    "bluetooth"
+]
+apps/env/CyberSafe:
+[
+    "MySQLdb",
+    "mraa"
+]
+apps/env/detect_bluetooth.py:
+[
+    "Adafruit_BBIO",
+    "bluetooth"
+]
+apps/env/DHT22Logger:
+[
+    "Adafruit_DHT",
+    "MySQLdb",
+    "gspread",
+    "oauth2client"
+]
+apps/env/EchoPiWeather:
+[
+    "AWSIoTPythonSDK",
+    "pigpio"
+]
+apps/env/EmailiPhoneNetworkPresence.py:
+[]
+apps/env/grove_IOT.py:
+[
+    "grovepi",
+    "xively"
+]
+apps/env/HomeControlCenterBBGW:
+[
+    "flask",
+    "flask_socketio",
+    "gevent",
+    "mraa",
+    "pyupm_grove"
+]
+apps/env/homeRoomTempHumMonitor.py:
+[
+    "RPi.GPIO"
+]
+apps/env/HomeTempThingspeak.py:
+[
+    "smbus"
+]
+apps/env/HomeVentilation:
+[
+    "Adafruit_DHT",
+    "Adafruit_GPIO",
+    "Adafruit_Nokia_LCD",
+    "PIL",
+    "RPi.GPIO",
+    "ouimeaux",
+    "w1thermsensor"
+]
+apps/env/intelligentDoor.py:
+[
+    "adxl345",
+    "paho"
+]
+apps/env/IoTRPiArduino:
+[
+    "Adafruit_DHT",
+    "RPi.GPIO",
+    "serial"
+]
+apps/env/IoTTempHumidityMonitor:
+[
+    "Adafruit_DHT",
+    "ImageDraw",
+    "ImageFont",
+    "ubidots"
+]
+apps/env/NetworkMonitoringWithAWSIoT.py:
+[
+    "paho"
+]
+apps/env/PiIndoorAirQualityMonitor:
+[
+    "Adafruit_DHT",
+    "Adafruit_GPIO",
+    "Beaglebone_Black_Driver",
+    "OpenSSL",
+    "Raspberry_Pi_2_Driver",
+    "Raspberry_Pi_Driver",
+    "Test_Driver",
+    "devicehive",
+    "devicehive.client",
+    "devicehive.device",
+    "flask",
+    "gspread",
+    "httplib2",
+    "matplotlib",
+    "mock",
+    "pymongo",
+    "serial",
+    "smbus",
+    "twisted",
+    "twisted.internet",
+    "twisted.protocols",
+    "twisted.python",
+    "twisted.test",
+    "twisted.web",
+    "xively",
+    "xmpp",
+    "zope"
+]
+apps/env/RPiPIRSensor.py:
+[
+    "RPi.GPIO"
+]
+apps/env/RPiRoomTempMonitorGnuplot.py:
+[
+    "Gnuplot"
+]
+apps/env/SensorianIoTDashboard.py:
+[
+    "APDS9300",
+    "MPL3115A2",
+    "flask"
+]
+apps/env/SitSat:
+[
+    "RPi.GPIO"
+]
+apps/env/smartScale:
+[
+    "ISStreamer",
+    "bluetooth"
+]
+apps/env/thermostatRaspBerryPi:
+[
+    "Adafruit_CharLCDPlate",
+    "Adafruit_DHT",
+    "RPi.GPIO"
+]
+apps/env/weatherStation.py:
+[
+    "Adafruit_DHT",
+    "RPi.GPIO"
+]
+apps/env/WirelessDoorbell.py:
+[
+    "scapy"
+]
