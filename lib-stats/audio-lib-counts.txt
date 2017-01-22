@@ -12,7 +12,7 @@
     "apps/audio/VoiceControlRoombaHue": 5,
     "apps/audio/BlokBot.py": 4,
     "apps/audio/babynap.py": 4,
-    "apps/audio/DYIAmazonAlexa": 3,
+    "apps/audio/DIYAmazonAlexa": 3,
     "apps/audio/ControlTVWithVoice": 2,
     "apps/audio/JarvisInPython.py": 2,
     "apps/audio/PiTranslate": 2,

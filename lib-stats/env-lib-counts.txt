@@ -18,7 +18,7 @@
     "apps/env/HomeTempThingspeak.py": 1,
     "apps/env/NetworkMonitoringWithAWSIoT.py": 1,
     "apps/env/RPiPIRSensor.py": 1,
-    "apps/env/RPiRoomTempMomitorGnuplot.py": 1,
+    "apps/env/RPiRoomTempMonitorGnuplot.py": 1,
     "apps/env/SitSat": 1,
     "apps/env/WirelessDoorbell.py": 1,
     "apps/env/homeRoomTempHumMonitor.py": 1,

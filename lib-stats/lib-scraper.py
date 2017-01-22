@@ -304,21 +304,39 @@ def replace_fp_mod_app(apps, a, target):
     return remove_dups(libs)
 
 def call_native_proc(l):
-    if "os.system" in l or "os.spawnlp" in l or "os.popen" in l or "subprocess.call" in l or "subprocess.Popen" in l or "subprocess.check_output" in l:
+    if "os.system" in l or "os.spawnlp" in l or "os.popen" in l or "subprocess.call" in l or "subprocess.Popen" in l or "subprocess.check_output" in l or "Popen" in l or "call(" in l:
         return True
     return False
 
-def scan_source(src):
+# collect all the native calls so proc collection is only about
+# parsing those lines
+def scan_source_native(src):
     f = open(src, "r")
     lines = f.readlines()
     f.close()
     # these are the calls to native code that we've observed
+    nats = []
     for l in lines:
         clean = l.strip()
         if not clean.startswith("#") and call_native_proc(clean):
             debug("Found call to native proc in code: "+clean)
-            return True
-    return False
+            nats.append(clean)
+    return nats
+
+# collect all the shared lib loads so proc collection is only about
+# parsing those lines
+def scan_source_ctypes(src):
+    f = open(src, "r")
+    lines = f.readlines()
+    f.close()
+    # these are the calls to native code that we've observed
+    hybs = []
+    for l in lines:
+        clean = l.strip()
+        if not clean.startswith("#") and "CDLL" in clean:
+            debug("Found shared lib load in code: "+clean)
+            hybs.append(clean)
+    return hybs
 
 # pass in the category: visual, audio or env
 cat = sys.argv[1]
@@ -410,26 +428,30 @@ for a in apps:
 
             apps[a]['raw_imports'][src] = new_i
 
-
     # iterate over the raw_imports to collect the ones that call native code/use ctypes
     print("Collecting apps that call a native process or are hybrid python-C")
     for src, i in apps[a]['raw_imports'].items():
+        calls = []
+        loads = []
         for l in i:
-            if l == "subprocess.call" or l == "subprocess.Popen":
-                print("Call to native proc in "+src)
-                proc_srcs.append(src)
-            elif l == "os" or l == "subprocess":
-                if scan_source(src):
-                    proc_srcs.append(src)
+            if l == "os" or l == "subprocess" or l == "subprocess.call" or l == "subprocess.Popen":
+                c = scan_source_native(src)
+                if len(c) > 0:
+                    calls.extend(c)
             elif l == "ctypes":
-                print("Use ctypes in "+src)
-                hybrid_srcs.append(src)
+                lds = scan_source_ctypes(src)
+                if len(lds) > 0:
+                    loads.extend(lds)
+        if len(calls) > 0:
+            proc_srcs.append({src:calls})
+        if len(loads) > 0:
+            hybrid_srcs.append({src:loads})
 
     if len(proc_srcs) > 0:
-        call_to_native[a] = remove_dups(proc_srcs)
+        call_to_native[a] = proc_srcs
 
     if len(hybrid_srcs) > 0:
-        hybrid[a] = remove_dups(hybrid_srcs)
+        hybrid[a] = hybrid_srcs
 
     # iterate over each source file's imports to find
     # the first-party imports
