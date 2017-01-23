@@ -1,8 +1,8 @@
 {
-    "apps/multi/devicePresenseAlert": 189,
-    "apps/multi/BeagleAlexa": 8,
+    "apps/multi/devicePresenseAlert": 181,
     "apps/multi/RPiSecuritySystem": 8,
     "apps/multi/SmartMirror": 8,
+    "apps/multi/BeagleAlexa": 7,
     "apps/multi/GardeningService": 7,
     "apps/multi/AndyBot": 6,
     "apps/multi/MarsRover": 6,

@@ -5,8 +5,8 @@ Adafruit_CharLCDPlate
 Adafruit_DHT
 Adafruit_GPIO
 Adafruit_Nokia_LCD
+Adafruit_Python_BMP
 Adafruit_SSD1306
-Beaglebone_Black_Driver
 CHIP_IO
 DirectPy
 Gnuplot
@@ -24,11 +24,8 @@ PyISY
 PyMata
 RFXtrx
 RPi.GPIO
-Raspberry_Pi_2_Driver
-Raspberry_Pi_Driver
 SimpleCV
 SynologyDSM
-Test_Driver
 TwitterAPI
 adxl345
 aiohttp
@@ -55,8 +52,6 @@ creds
 cv2
 dateutil
 devicehive
-devicehive.client
-devicehive.device
 digitalocean
 distro
 dlipower
@@ -64,8 +59,7 @@ dropbox
 dsmr_parser
 dweepy
 eiscp
-enocean.communicators
-enocean.protocol
+enocean
 envirophat
 espeak
 evdev
@@ -73,7 +67,6 @@ evohomeclient
 feedparser
 fixerio
 flask
-flask.ext
 flask_login
 flask_socketio
 forecastio
@@ -100,8 +93,6 @@ heatmiserV3
 hid
 hikvision
 homeassistant
-homeassistant.components
-homeassistant.helpers
 hpilo
 http
 httplib2
@@ -121,7 +112,6 @@ libsoundtouch
 liffylights
 lightify
 limitlessled
-limitlessled.group
 lnetatmo
 magic
 matplotlib
@@ -145,7 +135,7 @@ nmap
 nuimo
 numpy
 oauth2client
-oauthlib.oauth2
+oauthlib
 openalpr_api
 openzwave
 orvibo
@@ -202,7 +192,7 @@ pylgtv
 pylitejet
 pyloopenergy
 pymochad
-pymodbus.client
+pymodbus
 pymongo
 pymystrom
 pynetgear
@@ -214,7 +204,6 @@ pysabnzbd
 pyscreenshot
 pysma
 pysnmp
-pysnmp.entity
 pythinkingcleaner
 pytrackr
 pytz
@@ -228,7 +217,6 @@ pywinusb
 pyyeelight
 qhue
 requests
-requests.packages
 russound
 rxv
 samsungctl
@@ -236,7 +224,6 @@ scapy
 schiene
 scsgate
 selenium
-selenium.webdriver
 sense_hat
 serial
 sharp_aquos_rc
@@ -250,8 +237,6 @@ speech_recognition
 sphinxbase
 spidev
 sqlalchemy
-sqlalchemy.ext
-sqlalchemy.orm
 steam
 telegram
 telepot
@@ -266,11 +251,6 @@ transmissionrpc
 tweepy
 twilio
 twisted
-twisted.internet
-twisted.protocols
-twisted.python
-twisted.test
-twisted.web
 twitch
 twitter
 twython
@@ -295,7 +275,6 @@ wolframalpha
 xbee_helper
 xboxapi
 xively
-xml.parsers
 xmlrpc
 xmltodict
 xmpp

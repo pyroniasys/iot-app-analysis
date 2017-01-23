@@ -79,7 +79,6 @@ requests
 requests
 requests
 selenium
-selenium.webdriver
 serial
 serial
 speech_recognition

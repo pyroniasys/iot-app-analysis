@@ -29,7 +29,6 @@ cv2
 dropbox
 dropbox
 flask
-flask.ext
 flask_login
 gdata
 googleapiclient

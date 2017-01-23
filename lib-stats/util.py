@@ -4,7 +4,7 @@ import json
 from collections import OrderedDict
 from operator import itemgetter
 
-STATS_FILE = "stats.txt"
+STATS_FILE = "analysis/stats.txt"
 
 def get_name(p):
     name = p[:p.find(".")]
@@ -123,13 +123,13 @@ def read_map(filename):
         m = json.loads(f.read(), object_pairs_hook=OrderedDict)
     return m
 
-def write_val(v, name):
-    f = open("stats.txt", "a+")
+def write_val(v, name, filename=STATS_FILE):
+    f = open(filename, "a+")
     f.write("Number of "+name+": "+str(v)+"\n")
     f.close()
 
-def write_list(l, filename, name=None):
-    f = open(filename, "a+")
+def write_list(l, filename, name=None, perm="a+"):
+    f = open(filename, perm)
     if name != None:
         f.write(str(name)+":\n")
     f.write(json.dumps(l, indent=4)+"\n")

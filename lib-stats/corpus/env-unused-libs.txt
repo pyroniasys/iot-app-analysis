@@ -14,7 +14,6 @@ glob
 json
 json
 json
-logging
 math
 optparse
 os
@@ -25,7 +24,6 @@ os
 os
 os
 os
-platform
 platform
 pylab
 random

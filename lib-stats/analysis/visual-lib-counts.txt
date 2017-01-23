@@ -1,6 +1,6 @@
 {
     "apps/visual/RPiPhotobooth": 14,
-    "apps/visual/Fishtank": 10,
+    "apps/visual/Fishtank": 9,
     "apps/visual/WhoIsAtCoffeeMachine": 6,
     "apps/visual/SecurityCam": 4,
     "apps/visual/WifiPhotobooth": 4,

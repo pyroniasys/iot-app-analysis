@@ -1,7 +1,7 @@
 {
     "apps/audio/Alexabot": 13,
     "apps/audio/AWShome": 12,
-    "apps/audio/HeyAthena": 10,
+    "apps/audio/HeyAthena": 9,
     "apps/audio/GettingStartedWithReSpeaker": 8,
     "apps/audio/PiHomeMaster": 6,
     "apps/audio/ReSpeakerMessenger": 6,

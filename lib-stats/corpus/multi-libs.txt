@@ -46,8 +46,7 @@ dlipower
 dsmr_parser
 dweepy
 eiscp
-enocean.communicators
-enocean.protocol
+enocean
 envirophat
 evdev
 evohomeclient
@@ -72,8 +71,6 @@ hbmqtt
 heatmiserV3
 hikvision
 homeassistant
-homeassistant.components
-homeassistant.helpers
 hpilo
 httplib2
 insteon
@@ -90,7 +87,6 @@ libsoundtouch
 liffylights
 lightify
 limitlessled
-limitlessled.group
 lnetatmo
 matrix_client
 messagebird
@@ -107,7 +103,7 @@ neurio
 nmap
 nuimo
 oauth2client
-oauthlib.oauth2
+oauthlib
 openalpr_api
 openzwave
 orvibo
@@ -164,7 +160,7 @@ pylgtv
 pylitejet
 pyloopenergy
 pymochad
-pymodbus.client
+pymodbus
 pymystrom
 pynetgear
 pynetio
@@ -174,7 +170,6 @@ pyqwikswitch
 pysabnzbd
 pysma
 pysnmp
-pysnmp.entity
 pythinkingcleaner
 pytrackr
 pytz
@@ -188,7 +183,6 @@ requests
 requests
 requests
 requests
-requests.packages
 russound
 rxv
 samsungctl
@@ -211,8 +205,6 @@ speech_recognition
 sphinxbase
 spidev
 sqlalchemy
-sqlalchemy.ext
-sqlalchemy.orm
 steam
 telegram
 tellcore
@@ -235,7 +227,6 @@ websockets
 wiringpi2
 xbee_helper
 xboxapi
-xml.parsers
 xmlrpc
 xmltodict
 yahooweather

@@ -42,6 +42,12 @@
     ],
     "apps/env/beerfridge": [
         {
+            "apps/env/beerfridge/wiiboard_test.py": [
+                "subprocess.check_output([\"bluez-test-input\", \"disconnect\", address], stderr=subprocess.STDOUT)",
+                "subprocess.check_output([\"bluez-test-input\", \"disconnect\", address], stderr=subprocess.STDOUT)"
+            ]
+        },
+        {
             "apps/env/beerfridge/beerfridge_make.py": [
                 "subprocess.check_output([\"bluez-test-input\", \"disconnect\", address], stderr=subprocess.STDOUT)",
                 "subprocess.check_output([\"bluez-test-input\", \"disconnect\", address], stderr=subprocess.STDOUT)"
@@ -51,12 +57,6 @@
             "apps/env/beerfridge/temperature_test.py": [
                 "os.system('modprobe w1-gpio')",
                 "os.system('modprobe w1-therm')"
-            ]
-        },
-        {
-            "apps/env/beerfridge/wiiboard_test.py": [
-                "subprocess.check_output([\"bluez-test-input\", \"disconnect\", address], stderr=subprocess.STDOUT)",
-                "subprocess.check_output([\"bluez-test-input\", \"disconnect\", address], stderr=subprocess.STDOUT)"
             ]
         },
         {
@@ -74,13 +74,13 @@
     ],
     "apps/env/smartScale": [
         {
-            "apps/env/smartScale/wiiboard_test.py": [
+            "apps/env/smartScale/smartscale.py": [
                 "subprocess.check_output([\"bluez-test-input\", \"disconnect\", address], stderr=subprocess.STDOUT)",
                 "subprocess.check_output([\"bluez-test-input\", \"disconnect\", address], stderr=subprocess.STDOUT)"
             ]
         },
         {
-            "apps/env/smartScale/smartscale.py": [
+            "apps/env/smartScale/wiiboard_test.py": [
                 "subprocess.check_output([\"bluez-test-input\", \"disconnect\", address], stderr=subprocess.STDOUT)",
                 "subprocess.check_output([\"bluez-test-input\", \"disconnect\", address], stderr=subprocess.STDOUT)"
             ]

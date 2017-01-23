@@ -67,15 +67,10 @@ def get_pkg_names(app, target):
     print("Extracting package names for "+target)
     pkgs = []
     for lib in app[target]:
-        # this is a case where we have a subpackage import
-        if lib.count('.') > 2:
-            mod = lib.split(".")
-            tlp = mod[0]+"."+mod[1]
-        else:
-            tlp = get_top_pkg_name(lib)
-            if tlp == "" or lib == "RPi.GPIO":
-                # let's make an exception for RPi.GPIO -- that's the pkg name
-                tlp = lib
+        tlp = get_top_pkg_name(lib)
+        if tlp == "" or lib == "RPi.GPIO":
+            # let's make an exception for RPi.GPIO -- that's the pkg name
+            tlp = lib
         pkgs.append(tlp)
     return remove_dups(pkgs)
 
@@ -513,27 +508,31 @@ for a in apps:
 
     apps[a]['unused'] = pruned_unused
 
-write_map(call_to_native, cat+"-call-native.txt", perm="w+", sort=True)
-write_map(hybrid, cat+"-hybrid-apps.txt", perm="w+", sort=True)
+write_map(call_to_native, "corpus/"+cat+"-call-native.txt", perm="w+", sort=True)
+write_map(hybrid, "corpus/"+cat+"-hybrid-apps.txt", perm="w+", sort=True)
 
 li = []
 for a in apps:
     for i in sorted(apps[a]['imports']):
         li.append(i)
 
-write_list_raw(li, cat+"-libs.txt")
+write_list_raw(li, "corpus/"+cat+"-libs.txt")
 
 li = []
 for a in apps:
     for i in sorted(apps[a]['unused']):
         li.append(i)
 
-write_list_raw(li, cat+"-unused-libs.txt")
+write_list_raw(li, "corpus/"+cat+"-unused-libs.txt")
 
 # collect per-app libs and lib counts
 lib_counts = OrderedDict()
+p="w+"
 for a in apps:
-    write_list(apps[a]['imports'], cat+"-libs-perapp.txt", name=a)
+    write_list(apps[a]['imports'], "corpus/"+cat+"-libs-perapp.txt", name=a, perm=p)
     lib_counts[a] = len(apps[a]['imports'])
+    if p == "w+":
+        # want to set the perm to append after the first app
+        p = "a+"
 
-write_freq_map(lib_counts, filename=cat+"-lib-counts.txt", perm="w+")
+write_freq_map(lib_counts, filename="analysis/"+cat+"-lib-counts.txt", perm="w+")

@@ -1,201 +1,3 @@
-apps/multi/SmartMirror:
-[
-    "cv2",
-    "dateutil",
-    "feedparser",
-    "gtts",
-    "py4j",
-    "pydub",
-    "requests",
-    "speech_recognition"
-]
-apps/multi/HAL9000:
-[
-    "paho"
-]
-apps/multi/RPiSecuritySystem:
-[
-    "PIL",
-    "RPi.GPIO",
-    "netaddr",
-    "netifaces",
-    "picamera",
-    "scapy",
-    "telegram",
-    "yaml"
-]
-apps/multi/tweetingPlants.py:
-[
-    "envirophat",
-    "tweepy"
-]
-apps/multi/tweetPic.py:
-[
-    "cv2",
-    "mraa",
-    "tweepy"
-]
-apps/multi/GardeningService:
-[
-    "Adafruit_DHT",
-    "RPi.GPIO",
-    "boto3",
-    "picamera",
-    "requests",
-    "spidev",
-    "twitter"
-]
-apps/multi/BeagleAlexa:
-[
-    "alsaaudio",
-    "cherrypy",
-    "pocketsphinx",
-    "pycurl",
-    "requests",
-    "requests.packages",
-    "smbus",
-    "sphinxbase"
-]
-apps/multi/MarsRover:
-[
-    "Adafruit_DHT",
-    "RPi.GPIO",
-    "flask",
-    "picamera",
-    "serial",
-    "twython"
-]
-apps/multi/SamsungARKTIKPhotobooth.py:
-[
-    "cv2",
-    "speech_recognition"
-]
-apps/multi/AndyBot:
-[
-    "RPi.GPIO",
-    "mysql",
-    "picamera",
-    "pocketsphinx",
-    "pyaudio",
-    "wiringpi2"
-]
-apps/multi/DIYSmartphone:
-[
-    "RPi.GPIO",
-    "picamera",
-    "pygame",
-    "serial",
-    "yuv2rgb"
-]
-apps/multi/SmartMirror:
-[
-    "cv2",
-    "dateutil",
-    "feedparser",
-    "gtts",
-    "py4j",
-    "pydub",
-    "requests",
-    "speech_recognition"
-]
-apps/multi/HAL9000:
-[
-    "paho"
-]
-apps/multi/RPiSecuritySystem:
-[
-    "PIL",
-    "RPi.GPIO",
-    "netaddr",
-    "netifaces",
-    "picamera",
-    "scapy",
-    "telegram",
-    "yaml"
-]
-apps/multi/tweetingPlants.py:
-[
-    "envirophat",
-    "tweepy"
-]
-apps/multi/tweetPic.py:
-[
-    "cv2",
-    "mraa",
-    "tweepy"
-]
-apps/multi/GardeningService:
-[
-    "Adafruit_DHT",
-    "RPi.GPIO",
-    "boto3",
-    "picamera",
-    "requests",
-    "spidev",
-    "twitter"
-]
-apps/multi/BeagleAlexa:
-[
-    "alsaaudio",
-    "cherrypy",
-    "pocketsphinx",
-    "pycurl",
-    "requests",
-    "requests.packages",
-    "smbus",
-    "sphinxbase"
-]
-apps/multi/MarsRover:
-[
-    "Adafruit_DHT",
-    "RPi.GPIO",
-    "flask",
-    "picamera",
-    "serial",
-    "twython"
-]
-apps/multi/SamsungARKTIKPhotobooth.py:
-[
-    "cv2",
-    "speech_recognition"
-]
-apps/multi/AndyBot:
-[
-    "RPi.GPIO",
-    "mysql",
-    "picamera",
-    "pocketsphinx",
-    "pyaudio",
-    "wiringpi2"
-]
-apps/multi/DIYSmartphone:
-[
-    "RPi.GPIO",
-    "picamera",
-    "pygame",
-    "serial",
-    "yuv2rgb"
-]
-apps/multi/AndyBot:
-[
-    "RPi.GPIO",
-    "mysql",
-    "picamera",
-    "pocketsphinx",
-    "pyaudio",
-    "wiringpi2"
-]
-apps/multi/BeagleAlexa:
-[
-    "alsaaudio",
-    "cherrypy",
-    "pocketsphinx",
-    "pycurl",
-    "requests",
-    "requests.packages",
-    "smbus",
-    "sphinxbase"
-]
 apps/multi/devicePresenseAlert:
 [
     "Adafruit_BBIO",
@@ -231,8 +33,7 @@ apps/multi/devicePresenseAlert:
     "dsmr_parser",
     "dweepy",
     "eiscp",
-    "enocean.communicators",
-    "enocean.protocol",
+    "enocean",
     "evdev",
     "evohomeclient",
     "feedparser",
@@ -253,8 +54,6 @@ apps/multi/devicePresenseAlert:
     "heatmiserV3",
     "hikvision",
     "homeassistant",
-    "homeassistant.components",
-    "homeassistant.helpers",
     "hpilo",
     "httplib2",
     "insteon",
@@ -271,7 +70,6 @@ apps/multi/devicePresenseAlert:
     "liffylights",
     "lightify",
     "limitlessled",
-    "limitlessled.group",
     "lnetatmo",
     "matrix_client",
     "messagebird",
@@ -284,7 +82,7 @@ apps/multi/devicePresenseAlert:
     "nmap",
     "nuimo",
     "oauth2client",
-    "oauthlib.oauth2",
+    "oauthlib",
     "openalpr_api",
     "openzwave",
     "orvibo",
@@ -328,7 +126,7 @@ apps/multi/devicePresenseAlert:
     "pylitejet",
     "pyloopenergy",
     "pymochad",
-    "pymodbus.client",
+    "pymodbus",
     "pymystrom",
     "pynetgear",
     "pynetio",
@@ -338,7 +136,6 @@ apps/multi/devicePresenseAlert:
     "pysabnzbd",
     "pysma",
     "pysnmp",
-    "pysnmp.entity",
     "pythinkingcleaner",
     "pytrackr",
     "pytz",
@@ -363,8 +160,6 @@ apps/multi/devicePresenseAlert:
     "soco",
     "somecomfort",
     "sqlalchemy",
-    "sqlalchemy.ext",
-    "sqlalchemy.orm",
     "steam",
     "tellcore",
     "temperusb",
@@ -381,59 +176,11 @@ apps/multi/devicePresenseAlert:
     "websockets",
     "xbee_helper",
     "xboxapi",
-    "xml.parsers",
     "xmlrpc",
     "xmltodict",
     "yahooweather",
     "yaml",
     "yarl"
-]
-apps/multi/DIYSmartphone:
-[
-    "RPi.GPIO",
-    "picamera",
-    "pygame",
-    "serial",
-    "yuv2rgb"
-]
-apps/multi/GardeningService:
-[
-    "Adafruit_DHT",
-    "RPi.GPIO",
-    "boto3",
-    "picamera",
-    "requests",
-    "spidev",
-    "twitter"
-]
-apps/multi/HAL9000:
-[
-    "paho"
-]
-apps/multi/MarsRover:
-[
-    "Adafruit_DHT",
-    "RPi.GPIO",
-    "flask",
-    "picamera",
-    "serial",
-    "twython"
-]
-apps/multi/RPiSecuritySystem:
-[
-    "PIL",
-    "RPi.GPIO",
-    "netaddr",
-    "netifaces",
-    "picamera",
-    "scapy",
-    "telegram",
-    "yaml"
-]
-apps/multi/SamsungARKTIKPhotobooth.py:
-[
-    "cv2",
-    "speech_recognition"
 ]
 apps/multi/SmartMirror:
 [
@@ -446,6 +193,21 @@ apps/multi/SmartMirror:
     "requests",
     "speech_recognition"
 ]
+apps/multi/HAL9000:
+[
+    "paho"
+]
+apps/multi/RPiSecuritySystem:
+[
+    "PIL",
+    "RPi.GPIO",
+    "netaddr",
+    "netifaces",
+    "picamera",
+    "scapy",
+    "telegram",
+    "yaml"
+]
 apps/multi/tweetingPlants.py:
 [
     "envirophat",
@@ -456,6 +218,40 @@ apps/multi/tweetPic.py:
     "cv2",
     "mraa",
     "tweepy"
+]
+apps/multi/GardeningService:
+[
+    "Adafruit_DHT",
+    "RPi.GPIO",
+    "boto3",
+    "picamera",
+    "requests",
+    "spidev",
+    "twitter"
+]
+apps/multi/BeagleAlexa:
+[
+    "alsaaudio",
+    "cherrypy",
+    "pocketsphinx",
+    "pycurl",
+    "requests",
+    "smbus",
+    "sphinxbase"
+]
+apps/multi/MarsRover:
+[
+    "Adafruit_DHT",
+    "RPi.GPIO",
+    "flask",
+    "picamera",
+    "serial",
+    "twython"
+]
+apps/multi/SamsungARKTIKPhotobooth.py:
+[
+    "cv2",
+    "speech_recognition"
 ]
 apps/multi/AndyBot:
 [
@@ -466,209 +262,6 @@ apps/multi/AndyBot:
     "pyaudio",
     "wiringpi2"
 ]
-apps/multi/BeagleAlexa:
-[
-    "alsaaudio",
-    "cherrypy",
-    "pocketsphinx",
-    "pycurl",
-    "requests",
-    "requests.packages",
-    "smbus",
-    "sphinxbase"
-]
-apps/multi/devicePresenseAlert:
-[
-    "Adafruit_BBIO",
-    "Adafruit_DHT",
-    "DirectPy",
-    "PyISY",
-    "PyMata",
-    "RFXtrx",
-    "RPi.GPIO",
-    "SynologyDSM",
-    "TwitterAPI",
-    "aiohttp",
-    "aiohttp_cors",
-    "apcaccess",
-    "apns2",
-    "astral",
-    "async_timeout",
-    "batinfo",
-    "blinkstick",
-    "blockchain",
-    "bluepy_devices",
-    "bluetooth",
-    "boto3",
-    "braviarc",
-    "bs4",
-    "cec",
-    "colorlog",
-    "concurrent",
-    "cpuinfo",
-    "digitalocean",
-    "distro",
-    "dlipower",
-    "dsmr_parser",
-    "dweepy",
-    "eiscp",
-    "enocean.communicators",
-    "enocean.protocol",
-    "evdev",
-    "evohomeclient",
-    "feedparser",
-    "fixerio",
-    "forecastio",
-    "freesms",
-    "fritzconnection",
-    "fuzzywuzzy",
-    "gattlib",
-    "googleapiclient",
-    "googlemaps",
-    "gps3",
-    "gtts_token",
-    "haalpr",
-    "haffmpeg",
-    "haphilipsjs",
-    "hbmqtt",
-    "heatmiserV3",
-    "hikvision",
-    "homeassistant",
-    "homeassistant.components",
-    "homeassistant.helpers",
-    "hpilo",
-    "httplib2",
-    "insteon",
-    "insteonlocal",
-    "jinja2",
-    "jsonrpc_async",
-    "jsonrpc_requests",
-    "jwt",
-    "keyring",
-    "knxip",
-    "libnacl",
-    "libopenzwave",
-    "libsoundtouch",
-    "liffylights",
-    "lightify",
-    "limitlessled",
-    "limitlessled.group",
-    "lnetatmo",
-    "matrix_client",
-    "messagebird",
-    "mficlient",
-    "miniupnpc",
-    "myusps",
-    "nad_receiver",
-    "netdisco",
-    "neurio",
-    "nmap",
-    "nuimo",
-    "oauth2client",
-    "oauthlib.oauth2",
-    "openalpr_api",
-    "openzwave",
-    "orvibo",
-    "paho",
-    "passlib",
-    "pdunehd",
-    "pexpect",
-    "phue",
-    "pkg_resources",
-    "plexapi",
-    "pmsensor",
-    "powerview_api",
-    "psutil",
-    "pubnubsubhandler",
-    "pwaqi",
-    "pyHS100",
-    "pyW215",
-    "pyalarmdotcom",
-    "pybbox",
-    "pybotvac",
-    "pychromecast",
-    "pycmus",
-    "pydispatch",
-    "pyecobee",
-    "pyedimax",
-    "pyemby",
-    "pyenvisalink",
-    "pyflic",
-    "pyfttt",
-    "pygtfs",
-    "pyharmony",
-    "pyhik",
-    "pyhomematic",
-    "pyicloud",
-    "pyiss",
-    "pyjoin",
-    "pykeyboard",
-    "pylast",
-    "pylgnetcast",
-    "pylgtv",
-    "pylitejet",
-    "pyloopenergy",
-    "pymochad",
-    "pymodbus.client",
-    "pymystrom",
-    "pynetgear",
-    "pynetio",
-    "pynut2",
-    "pyowm",
-    "pyqwikswitch",
-    "pysabnzbd",
-    "pysma",
-    "pysnmp",
-    "pysnmp.entity",
-    "pythinkingcleaner",
-    "pytrackr",
-    "pytz",
-    "pyunifi",
-    "pyvera",
-    "pywebpush",
-    "pywemo",
-    "pywink",
-    "pyyeelight",
-    "requests",
-    "russound",
-    "rxv",
-    "samsungctl",
-    "schiene",
-    "scsgate",
-    "sense_hat",
-    "serial",
-    "sharp_aquos_rc",
-    "slacker",
-    "sleekxmpp",
-    "sleepyq",
-    "soco",
-    "somecomfort",
-    "sqlalchemy",
-    "sqlalchemy.ext",
-    "sqlalchemy.orm",
-    "steam",
-    "tellcore",
-    "temperusb",
-    "transmissionrpc",
-    "twilio",
-    "twitch",
-    "typing",
-    "uber_rides",
-    "uvcclient",
-    "uvloop",
-    "voluptuous",
-    "wakeonlan",
-    "websocket",
-    "websockets",
-    "xbee_helper",
-    "xboxapi",
-    "xml.parsers",
-    "xmlrpc",
-    "xmltodict",
-    "yahooweather",
-    "yaml",
-    "yarl"
-]
 apps/multi/DIYSmartphone:
 [
     "RPi.GPIO",
@@ -676,346 +269,4 @@ apps/multi/DIYSmartphone:
     "pygame",
     "serial",
     "yuv2rgb"
-]
-apps/multi/GardeningService:
-[
-    "Adafruit_DHT",
-    "RPi.GPIO",
-    "boto3",
-    "picamera",
-    "requests",
-    "spidev",
-    "twitter"
-]
-apps/multi/HAL9000:
-[
-    "paho"
-]
-apps/multi/MarsRover:
-[
-    "Adafruit_DHT",
-    "RPi.GPIO",
-    "flask",
-    "picamera",
-    "serial",
-    "twython"
-]
-apps/multi/RPiSecuritySystem:
-[
-    "PIL",
-    "RPi.GPIO",
-    "netaddr",
-    "netifaces",
-    "picamera",
-    "scapy",
-    "telegram",
-    "yaml"
-]
-apps/multi/SamsungARKTIKPhotobooth.py:
-[
-    "cv2",
-    "speech_recognition"
-]
-apps/multi/SmartMirror:
-[
-    "cv2",
-    "dateutil",
-    "feedparser",
-    "gtts",
-    "py4j",
-    "pydub",
-    "requests",
-    "speech_recognition"
-]
-apps/multi/tweetingPlants.py:
-[
-    "envirophat",
-    "tweepy"
-]
-apps/multi/tweetPic.py:
-[
-    "cv2",
-    "mraa",
-    "tweepy"
-]
-apps/multi/AndyBot:
-[
-    "RPi.GPIO",
-    "mysql",
-    "picamera",
-    "pocketsphinx",
-    "pyaudio",
-    "wiringpi2"
-]
-apps/multi/BeagleAlexa:
-[
-    "alsaaudio",
-    "cherrypy",
-    "pocketsphinx",
-    "pycurl",
-    "requests",
-    "requests.packages",
-    "smbus",
-    "sphinxbase"
-]
-apps/multi/devicePresenseAlert:
-[
-    "Adafruit_BBIO",
-    "Adafruit_DHT",
-    "DirectPy",
-    "PyISY",
-    "PyMata",
-    "RFXtrx",
-    "RPi.GPIO",
-    "SynologyDSM",
-    "TwitterAPI",
-    "aiohttp",
-    "aiohttp_cors",
-    "apcaccess",
-    "apns2",
-    "astral",
-    "async_timeout",
-    "batinfo",
-    "blinkstick",
-    "blockchain",
-    "bluepy_devices",
-    "bluetooth",
-    "boto3",
-    "braviarc",
-    "bs4",
-    "cec",
-    "colorlog",
-    "concurrent",
-    "cpuinfo",
-    "digitalocean",
-    "distro",
-    "dlipower",
-    "dsmr_parser",
-    "dweepy",
-    "eiscp",
-    "enocean.communicators",
-    "enocean.protocol",
-    "evdev",
-    "evohomeclient",
-    "feedparser",
-    "fixerio",
-    "forecastio",
-    "freesms",
-    "fritzconnection",
-    "fuzzywuzzy",
-    "gattlib",
-    "googleapiclient",
-    "googlemaps",
-    "gps3",
-    "gtts_token",
-    "haalpr",
-    "haffmpeg",
-    "haphilipsjs",
-    "hbmqtt",
-    "heatmiserV3",
-    "hikvision",
-    "homeassistant",
-    "homeassistant.components",
-    "homeassistant.helpers",
-    "hpilo",
-    "httplib2",
-    "insteon",
-    "insteonlocal",
-    "jinja2",
-    "jsonrpc_async",
-    "jsonrpc_requests",
-    "jwt",
-    "keyring",
-    "knxip",
-    "libnacl",
-    "libopenzwave",
-    "libsoundtouch",
-    "liffylights",
-    "lightify",
-    "limitlessled",
-    "limitlessled.group",
-    "lnetatmo",
-    "matrix_client",
-    "messagebird",
-    "mficlient",
-    "miniupnpc",
-    "myusps",
-    "nad_receiver",
-    "netdisco",
-    "neurio",
-    "nmap",
-    "nuimo",
-    "oauth2client",
-    "oauthlib.oauth2",
-    "openalpr_api",
-    "openzwave",
-    "orvibo",
-    "paho",
-    "passlib",
-    "pdunehd",
-    "pexpect",
-    "phue",
-    "pkg_resources",
-    "plexapi",
-    "pmsensor",
-    "powerview_api",
-    "psutil",
-    "pubnubsubhandler",
-    "pwaqi",
-    "pyHS100",
-    "pyW215",
-    "pyalarmdotcom",
-    "pybbox",
-    "pybotvac",
-    "pychromecast",
-    "pycmus",
-    "pydispatch",
-    "pyecobee",
-    "pyedimax",
-    "pyemby",
-    "pyenvisalink",
-    "pyflic",
-    "pyfttt",
-    "pygtfs",
-    "pyharmony",
-    "pyhik",
-    "pyhomematic",
-    "pyicloud",
-    "pyiss",
-    "pyjoin",
-    "pykeyboard",
-    "pylast",
-    "pylgnetcast",
-    "pylgtv",
-    "pylitejet",
-    "pyloopenergy",
-    "pymochad",
-    "pymodbus.client",
-    "pymystrom",
-    "pynetgear",
-    "pynetio",
-    "pynut2",
-    "pyowm",
-    "pyqwikswitch",
-    "pysabnzbd",
-    "pysma",
-    "pysnmp",
-    "pysnmp.entity",
-    "pythinkingcleaner",
-    "pytrackr",
-    "pytz",
-    "pyunifi",
-    "pyvera",
-    "pywebpush",
-    "pywemo",
-    "pywink",
-    "pyyeelight",
-    "requests",
-    "russound",
-    "rxv",
-    "samsungctl",
-    "schiene",
-    "scsgate",
-    "sense_hat",
-    "serial",
-    "sharp_aquos_rc",
-    "slacker",
-    "sleekxmpp",
-    "sleepyq",
-    "soco",
-    "somecomfort",
-    "sqlalchemy",
-    "sqlalchemy.ext",
-    "sqlalchemy.orm",
-    "steam",
-    "tellcore",
-    "temperusb",
-    "transmissionrpc",
-    "twilio",
-    "twitch",
-    "typing",
-    "uber_rides",
-    "uvcclient",
-    "uvloop",
-    "voluptuous",
-    "wakeonlan",
-    "websocket",
-    "websockets",
-    "xbee_helper",
-    "xboxapi",
-    "xml.parsers",
-    "xmlrpc",
-    "xmltodict",
-    "yahooweather",
-    "yaml",
-    "yarl"
-]
-apps/multi/DIYSmartphone:
-[
-    "RPi.GPIO",
-    "picamera",
-    "pygame",
-    "serial",
-    "yuv2rgb"
-]
-apps/multi/GardeningService:
-[
-    "Adafruit_DHT",
-    "RPi.GPIO",
-    "boto3",
-    "picamera",
-    "requests",
-    "spidev",
-    "twitter"
-]
-apps/multi/HAL9000:
-[
-    "paho"
-]
-apps/multi/MarsRover:
-[
-    "Adafruit_DHT",
-    "RPi.GPIO",
-    "flask",
-    "picamera",
-    "serial",
-    "twython"
-]
-apps/multi/RPiSecuritySystem:
-[
-    "PIL",
-    "RPi.GPIO",
-    "netaddr",
-    "netifaces",
-    "picamera",
-    "scapy",
-    "telegram",
-    "yaml"
-]
-apps/multi/SamsungARKTIKPhotobooth.py:
-[
-    "cv2",
-    "speech_recognition"
-]
-apps/multi/SmartMirror:
-[
-    "cv2",
-    "dateutil",
-    "feedparser",
-    "gtts",
-    "py4j",
-    "pydub",
-    "requests",
-    "speech_recognition"
-]
-apps/multi/tweetingPlants.py:
-[
-    "envirophat",
-    "tweepy"
-]
-apps/multi/tweetPic.py:
-[
-    "cv2",
-    "mraa",
-    "tweepy"
 ]
