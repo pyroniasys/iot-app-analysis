@@ -1,0 +1,5 @@
+boto3, https://github.com/boto/boto3
+wolframalpha, https://github.com/jaraco/wolframalpha
+selenium, https://github.com/SeleniumHQ/selenium/tree/master/py
+selenium.webdriver, https://github.com/SeleniumHQ/selenium/tree/master/py/selenium/webdriver
+telepot, https://github.com/nickoala/telepot

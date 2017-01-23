@@ -1,0 +1,2 @@
+memcache, https://github.com/linsomniac/python-memcached
+yaml, http://pyyaml.org/browser/pyyaml

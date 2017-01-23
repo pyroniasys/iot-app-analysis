@@ -1,0 +1,3 @@
+cec, https://github.com/jaraco/wolframalpha
+vlc, https://git.videolan.org/?p=vlc.git;a=summary
+Adafruit_SSD1306, https://github.com/adafruit/Adafruit_Python_SSD1306

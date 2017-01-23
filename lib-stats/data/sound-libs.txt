@@ -1,0 +1,2 @@
+alsaaudio, https://github.com/larsimmisch/pyalsaaudio
+pyaudio, https://people.csail.mit.edu/hubert/git/pyaudio.git

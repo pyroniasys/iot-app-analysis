@@ -1,0 +1,5 @@
+cherrypy, https://github.com/cherrypy/cherrypy
+pycurl, https://github.com/pycurl/pycurl
+grequests, https://github.com/kennethreitz/grequests
+nfc, https://github.com/nfcpy/nfcpy
+unirest, https://github.com/Mashape/unirest-python

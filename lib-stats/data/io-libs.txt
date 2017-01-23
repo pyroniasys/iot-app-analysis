@@ -1,0 +1,7 @@
+wiringpi2, https://github.com/WiringPi/WiringPi-Python
+CHIP_IO, https://github.com/xtacocorex/CHIP_IO
+hid, https://github.com/apmorton/pyhidapi
+pyA20, https://github.com/OLIMEX/OLINUXINO/tree/master/SOFTWARE/Python/pyA20
+pywinusb, https://github.com/rene-aguirre/pywinusb
+tentacle_pi, https://github.com/lexruee/tentacle_pi
+usb, https://github.com/walac/pyusb
