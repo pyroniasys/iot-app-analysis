@@ -3,3 +3,8 @@ pycurl, https://github.com/pycurl/pycurl
 grequests, https://github.com/kennethreitz/grequests
 nfc, https://github.com/nfcpy/nfcpy
 unirest, https://github.com/Mashape/unirest-python
+bluetooth, https://github.com/karulis/pybluez
+scapy, https://github.com/secdev/scapy
+flask_socketio, https://github.com/miguelgrinberg/Flask-SocketIO
+twisted, https://github.com/twisted/twisted
+xmpp, https://sourceforge.net/p/xmpppy/xmpppy/ci/master/tree

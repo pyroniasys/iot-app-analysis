@@ -5,3 +5,7 @@ pyA20, https://github.com/OLIMEX/OLINUXINO/tree/master/SOFTWARE/Python/pyA20
 pywinusb, https://github.com/rene-aguirre/pywinusb
 tentacle_pi, https://github.com/lexruee/tentacle_pi
 usb, https://github.com/walac/pyusb
+Adafruit_BBIO, https://github.com/adafruit/adafruit-beaglebone-io-python
+Adafruit_GPIO, https://github.com/adafruit/Adafruit_Python_GPIO
+grovepi, https://github.com/DexterInd/GrovePi/tree/master/Software/Python
+pigpio, https://github.com/joan2937/pigpio

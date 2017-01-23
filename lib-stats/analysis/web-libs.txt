@@ -3,3 +3,8 @@ wolframalpha, https://github.com/jaraco/wolframalpha
 selenium, https://github.com/SeleniumHQ/selenium/tree/master/py
 selenium.webdriver, https://github.com/SeleniumHQ/selenium/tree/master/py/selenium/webdriver
 telepot, https://github.com/nickoala/telepot
+ISStreamer, https://github.com/InitialState/python_appender
+gspread, https://github.com/burnash/gspread
+xively, https://github.com/xively/xively-python
+devicehive, https://github.com/devicehive/devicehive-python
+ubidots, https://github.com/ubidots/ubidots-python

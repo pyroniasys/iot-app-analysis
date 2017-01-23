@@ -1,1 +1,3 @@
 pyglet, https://bitbucket.org/pyglet/pyglet/wiki/Home
+Gnupot, https://sourceforge.net/p/gnuplot-py/code/HEAD/tree/trunk/
+matplotlib, https://github.com/matplotlib/matplotlib

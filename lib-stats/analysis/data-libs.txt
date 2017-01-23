@@ -1,2 +1,3 @@
 memcache, https://github.com/linsomniac/python-memcached
 yaml, http://pyyaml.org/browser/pyyaml
+pymongo, https://github.com/mongodb/mongo-python-driver
