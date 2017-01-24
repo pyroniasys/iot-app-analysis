@@ -4,3 +4,5 @@ gopigo, https://github.com/DexterInd/GoPiGo
 OpenSSL, https://github.com/pyca/pyopenssl
 mock, https://github.com/testing-cabal/mock
 zope, https://github.com/zopefoundation/zope.interface
+numpy, https://github.com/numpy/numpy
+magic, https://github.com/ahupp/python-magic

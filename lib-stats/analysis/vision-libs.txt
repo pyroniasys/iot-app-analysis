@@ -1,0 +1,2 @@
+cv2, https://github.com/skvark/opencv-python
+SimpleCV, https://github.com/sightmachine/SimpleCV

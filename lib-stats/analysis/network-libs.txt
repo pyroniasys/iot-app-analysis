@@ -8,3 +8,6 @@ scapy, https://github.com/secdev/scapy
 flask_socketio, https://github.com/miguelgrinberg/Flask-SocketIO
 twisted, https://github.com/twisted/twisted
 xmpp, https://sourceforge.net/p/xmpppy/xmpppy/ci/master/tree
+websocket, https://github.com/websocket-client/websocket-client
+flask_login, https://github.com/maxcountryman/flask-login
+

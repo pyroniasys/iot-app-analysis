@@ -8,3 +8,11 @@ gspread, https://github.com/burnash/gspread
 xively, https://github.com/xively/xively-python
 devicehive, https://github.com/devicehive/devicehive-python
 ubidots, https://github.com/ubidots/ubidots-python
+tweepy, https://github.com/tweepy/tweepy
+dropbox, https://github.com/dropbox/dropbox-sdk-python
+googleapiclient, https://github.com/google/google-api-python-client
+pubnub, https://github.com/pubnub/python
+gdata, https://github.com/google/gdata-python-client
+ibmiotf, https://github.com/ibm-watson-iot/iot-python
+tgl, https://github.com/vysheng/tgl
+
