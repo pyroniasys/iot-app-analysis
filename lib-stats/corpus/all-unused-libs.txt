@@ -2,10 +2,10 @@ Adafruit_GPIO
 Adafruit_I2C
 Adafruit_MCP230xx
 Adafruit_SSD1306
-Image
 PIL
 Queue
 RPi.GPIO
+Tkinter
 __future__
 argparse
 array
@@ -24,6 +24,7 @@ fcntl
 getpass
 glob
 hashlib
+http
 importlib
 inspect
 io
@@ -56,9 +57,9 @@ tempfile
 thread
 threading
 time
-tkinter
 traceback
 types
+typing
 urllib
 urlparse
 uuid

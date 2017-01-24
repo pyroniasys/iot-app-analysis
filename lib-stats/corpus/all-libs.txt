@@ -11,10 +11,6 @@ CHIP_IO
 DirectPy
 Gnuplot
 ISStreamer
-Image
-ImageDraw
-ImageFont
-ImageTk
 MPL3115A2
 MySQLdb
 OpenSSL
@@ -92,7 +88,6 @@ hid
 hikvision
 homeassistant
 hpilo
-http
 httplib2
 ibmiotf
 imutils
@@ -242,9 +237,6 @@ tellcore
 temperusb
 tentacle_pi
 tgl
-tkFileDialog
-tkMessageBox
-tkSimpleDialog
 transmissionrpc
 tweepy
 twilio
@@ -252,7 +244,6 @@ twisted
 twitch
 twitter
 twython
-typing
 uber_rides
 ubidots
 unirest

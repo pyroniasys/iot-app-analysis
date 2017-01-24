@@ -34,8 +34,7 @@ apps/env/homeRoomTempHumMonitor.py:
 apps/env/IoTTempHumidityMonitor:
 [
     "Adafruit_DHT",
-    "ImageDraw",
-    "ImageFont",
+    "PIL",
     "ubidots"
 ]
 apps/env/smartScale:

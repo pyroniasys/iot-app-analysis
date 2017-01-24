@@ -166,7 +166,6 @@ apps/multi/devicePresenseAlert:
     "transmissionrpc",
     "twilio",
     "twitch",
-    "typing",
     "uber_rides",
     "uvcclient",
     "uvloop",

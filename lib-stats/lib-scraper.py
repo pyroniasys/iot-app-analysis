@@ -68,8 +68,17 @@ def get_pkg_names(app, target):
     pkgs = []
     for lib in app[target]:
         tlp = get_top_pkg_name(lib)
-        if tlp == "" or lib == "RPi.GPIO":
+        if lib == "RPi.GPIO":
             # let's make an exception for RPi.GPIO -- that's the pkg name
+            tlp = lib
+        elif lib.startswith("Image"):
+            # apparently, you can import all of PIL or just subpkgs directly
+            # so just rename any PIL subpkg to PIL
+            tlp = "PIL"
+        elif lib.startswith("tk"):
+            # same with Tkinter
+            tlp = "Tkinter"
+        elif tlp == "":
             tlp = lib
         pkgs.append(tlp)
     return remove_dups(pkgs)
@@ -475,9 +484,10 @@ for a in apps:
     print("Removing all python std lib imports")
     libs2 = stdlib_list("2.7")
     libs3 = stdlib_list("3.4")
+    libs35 = stdlib_list("3.5")
     libs_3p = []
     for l in apps[a]['imports']:
-        if l not in libs2 and l not in libs3:
+        if l not in libs2 and l not in libs3 and l not in libs35:
             libs_3p.append(l)
     apps[a]['imports'] = libs_3p
 

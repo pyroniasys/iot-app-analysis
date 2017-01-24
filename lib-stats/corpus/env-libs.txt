@@ -14,12 +14,11 @@ Adafruit_Python_BMP
 Gnuplot
 ISStreamer
 ISStreamer
-ImageDraw
-ImageFont
 MPL3115A2
 MySQLdb
 MySQLdb
 OpenSSL
+PIL
 PIL
 RPi.GPIO
 RPi.GPIO

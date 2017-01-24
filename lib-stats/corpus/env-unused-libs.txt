@@ -2,7 +2,6 @@ Adafruit_GPIO
 Adafruit_I2C
 Adafruit_MCP230xx
 Adafruit_SSD1306
-Image
 RPi.GPIO
 RPi.GPIO
 array

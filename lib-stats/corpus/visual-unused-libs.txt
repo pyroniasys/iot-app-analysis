@@ -1,4 +1,6 @@
 PIL
+Tkinter
+Tkinter
 argparse
 argparse
 base64
@@ -11,6 +13,7 @@ fcntl
 getpass
 glob
 hashlib
+http
 io
 json
 json
@@ -41,7 +44,6 @@ time
 time
 time
 time
-tkinter
 traceback
 urllib
 webbrowser

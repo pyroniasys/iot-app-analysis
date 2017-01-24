@@ -216,7 +216,6 @@ twilio
 twitch
 twitter
 twython
-typing
 uber_rides
 uvcclient
 uvloop

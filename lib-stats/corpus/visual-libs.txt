@@ -1,8 +1,6 @@
-Image
-Image
-ImageTk
 MySQLdb
 MySQLdb
+PIL
 PIL
 RPi.GPIO
 RPi.GPIO
@@ -31,8 +29,6 @@ flask
 flask_login
 gdata
 googleapiclient
-http
-http
 httplib2
 ibmiotf
 imutils
@@ -71,9 +67,6 @@ serial
 serial
 smbus
 tgl
-tkFileDialog
-tkMessageBox
-tkSimpleDialog
 tweepy
 webiopi
 websocket

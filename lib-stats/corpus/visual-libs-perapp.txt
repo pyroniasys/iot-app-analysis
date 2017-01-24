@@ -10,8 +10,6 @@ apps/visual/PiScream.py:
 ]
 apps/visual/RPiPhotobooth:
 [
-    "Image",
-    "ImageTk",
     "PIL",
     "cv2",
     "gdata",
@@ -20,10 +18,7 @@ apps/visual/RPiPhotobooth:
     "picamera",
     "pygame",
     "pyscreenshot",
-    "serial",
-    "tkFileDialog",
-    "tkMessageBox",
-    "tkSimpleDialog"
+    "serial"
 ]
 apps/visual/WhoIsAtCoffeeMachine:
 [
@@ -54,8 +49,7 @@ apps/visual/Fishtank:
 apps/visual/pidoorbell.py:
 [
     "MySQLdb",
-    "RPi.GPIO",
-    "http"
+    "RPi.GPIO"
 ]
 apps/visual/monitordoorbell.py:
 [
@@ -67,7 +61,7 @@ apps/visual/surocam.py:
 ]
 apps/visual/WifiPhotobooth:
 [
-    "Image",
+    "PIL",
     "RPi.GPIO",
     "picamera",
     "pygame"
@@ -99,8 +93,7 @@ apps/visual/TwitterPhotoLiveFeed.py:
 ]
 apps/visual/RefrigeratorSecurity:
 [
-    "RPi.GPIO",
-    "http"
+    "RPi.GPIO"
 ]
 apps/visual/SecurityCam:
 [

@@ -11,8 +11,6 @@
     "Adafruit_Nokia_LCD": 1,
     "Adafruit_Python_BMP": 1,
     "Gnuplot": 1,
-    "ImageDraw": 1,
-    "ImageFont": 1,
     "MPL3115A2": 1,
     "OpenSSL": 1,
     "adxl345": 1,
