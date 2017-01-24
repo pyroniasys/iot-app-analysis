@@ -1,11 +1,11 @@
 Number of total apps, visual, audio, env, multi: 85, 25, 24, 24, 12
-Number of libs: 284
+Number of libs: 283
 Number of audio libs: 43
 Number of env libs: 44
 Number of multi libs: 211
-Number of visual libs: 36
+Number of visual libs: 35
 Number of common libs: 191
 Number of audio-only libs: 34
 Number of env-only libs: 32
-Number of visual-only libs: 27
+Number of visual-only libs: 26
 Number of unused libs: 66

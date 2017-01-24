@@ -19,7 +19,6 @@ MPL3115A2
 MySQLdb
 OpenSSL
 PIL
-Pubnub
 PyISY
 PyMata
 RFXtrx

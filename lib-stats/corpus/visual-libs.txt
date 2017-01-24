@@ -4,7 +4,6 @@ ImageTk
 MySQLdb
 MySQLdb
 PIL
-Pubnub
 RPi.GPIO
 RPi.GPIO
 RPi.GPIO
@@ -56,6 +55,7 @@ picamera
 picamera
 picamera
 picamera
+pubnub
 pubnub
 pygame
 pygame

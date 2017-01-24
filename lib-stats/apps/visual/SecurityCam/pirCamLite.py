@@ -1,4 +1,4 @@
-from Pubnub import Pubnub
+from pubnub import Pubnub
 from detector import Detector
 import RPi.GPIO as GPIO
 import time

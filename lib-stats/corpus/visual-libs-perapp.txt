@@ -104,10 +104,10 @@ apps/visual/RefrigeratorSecurity:
 ]
 apps/visual/SecurityCam:
 [
-    "Pubnub",
     "RPi.GPIO",
     "cv2",
-    "picamera"
+    "picamera",
+    "pubnub"
 ]
 apps/visual/RPiIoTDoorbell:
 [
