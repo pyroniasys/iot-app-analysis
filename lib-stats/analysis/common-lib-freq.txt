@@ -1,6 +1,6 @@
 {
-    "RPi.GPIO": 36,
-    "requests": 18,
+    "RPi.GPIO": 38,
+    "requests": 20,
     "serial": 10,
     "paho": 7,
     "flask": 6,
@@ -9,8 +9,8 @@
     "mraa": 4,
     "oauth2client": 4,
     "smbus": 4,
+    "AWSIoTPythonSDK": 3,
     "httplib2": 3,
-    "AWSIoTPythonSDK": 2,
     "feedparser": 2,
     "gevent": 2,
     "DirectPy": 1,

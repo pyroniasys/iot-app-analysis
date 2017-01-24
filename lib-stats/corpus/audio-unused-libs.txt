@@ -7,6 +7,7 @@ cgi
 collections
 contextlib
 ctypes
+datetime
 inspect
 json
 logging
@@ -21,8 +22,12 @@ os
 os
 os
 os
+os
+os
+os
 pkgutil
 platform
+random
 random
 random
 random
@@ -44,6 +49,7 @@ sys
 sys
 sys
 sys
+sys
 tempfile
 tempfile
 threading
@@ -54,6 +60,7 @@ time
 traceback
 types
 urllib
+wave
 wave
 wave
 wave

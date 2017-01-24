@@ -6,6 +6,13 @@
             ]
         }
     ],
+    "apps/audio/AlexaCoffeeMachine": [
+        {
+            "apps/audio/AlexaCoffeeMachine/AlexaPi.py": [
+                "if debug == False: os.system(\"rm \"+path+\"tmpcontent/*\")"
+            ]
+        }
+    ],
     "apps/audio/AlexaPhone": [
         {
             "apps/audio/AlexaPhone/AlexaPi/main.py": [
@@ -112,15 +119,23 @@
     ],
     "apps/audio/TalkingGanesha": [
         {
+            "apps/audio/TalkingGanesha/queryProcess.py": [
+                "p = subprocess.Popen(inputcommand, stdout=subprocess.PIPE, shell=True)"
+            ]
+        },
+        {
             "apps/audio/TalkingGanesha/FHRILVHIEKJ0SZZ.py": [
                 "p = subprocess.Popen(inputcommand, stdout=subprocess.PIPE, shell=True)",
                 "os.system(\"./stt.sh\")",
                 "os.system(\"python queryProcess.py '\" + final_result + \"'\")"
             ]
-        },
+        }
+    ],
+    "apps/audio/VintageIntercom": [
         {
-            "apps/audio/TalkingGanesha/queryProcess.py": [
-                "p = subprocess.Popen(inputcommand, stdout=subprocess.PIPE, shell=True)"
+            "apps/audio/VintageIntercom/main.py": [
+                "os.system('mpg123 -q {}1sec.mp3 {}response.mp3'.format(path, path))",
+                "os.system('mpg123 -q {}1sec.mp3 {}hello.mp3'.format(path, path))"
             ]
         }
     ]

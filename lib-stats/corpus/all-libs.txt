@@ -48,7 +48,6 @@ cherrypy
 colorlog
 concurrent
 cpuinfo
-creds
 cv2
 dateutil
 devicehive

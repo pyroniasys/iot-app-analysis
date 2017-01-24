@@ -1,5 +1,5 @@
+yaml, http://pyyaml.org/browser/pyyaml
 monotonic, https://github.com/atdt/monotonic
-creds, https://github.com/jonhadfield/creds
 gopigo, https://github.com/DexterInd/GoPiGo
 OpenSSL, https://github.com/pyca/pyopenssl
 mock, https://github.com/testing-cabal/mock

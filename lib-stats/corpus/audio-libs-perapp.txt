@@ -51,6 +51,16 @@ apps/audio/ControlTVWithVoice:
     "cec",
     "speech_recognition"
 ]
+apps/audio/AlexaCoffeeMachine:
+[
+    "AWSIoTPythonSDK",
+    "RPi.GPIO",
+    "alsaaudio",
+    "memcache",
+    "requests",
+    "vlc",
+    "webrtcvad"
+]
 apps/audio/TalkingGanesha:
 [
     "pycurl",
@@ -103,7 +113,6 @@ apps/audio/AWShome:
     "alsaaudio",
     "boto3",
     "cherrypy",
-    "creds",
     "memcache",
     "pi_switch",
     "pocketsphinx",
@@ -143,6 +152,14 @@ apps/audio/RPiPersonalAssistant:
     "wolframalpha"
 ]
 apps/audio/AlexaWithRaspioProHat:
+[
+    "RPi.GPIO",
+    "alsaaudio",
+    "cherrypy",
+    "memcache",
+    "requests"
+]
+apps/audio/VintageIntercom:
 [
     "RPi.GPIO",
     "alsaaudio",
