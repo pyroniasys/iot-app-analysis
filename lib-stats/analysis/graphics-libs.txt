@@ -3,5 +3,5 @@ Gnupot, https://sourceforge.net/p/gnuplot-py/code/HEAD/tree/trunk/
 matplotlib, https://github.com/matplotlib/matplotlib
 pygame, https://bitbucket.org/pygame/pygame
 imutils, https://github.com/jrosebr1/imutils
-yuv2rgb, 
+yuv2rgb, https://github.com/adafruit/adafruit-pi-cam
 pyscreenshot, https://github.com/ponty/pyscreenshot

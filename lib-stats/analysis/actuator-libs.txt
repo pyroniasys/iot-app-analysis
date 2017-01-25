@@ -1,2 +1,3 @@
+gopigo, https://github.com/DexterInd/GoPiGo
 pi_switch, https://github.com/lexruee/pi-switch-python
 qhue, https://github.com/quentinsf/qhue

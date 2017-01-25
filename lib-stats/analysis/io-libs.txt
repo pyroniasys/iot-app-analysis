@@ -9,3 +9,6 @@ Adafruit_BBIO, https://github.com/adafruit/adafruit-beaglebone-io-python
 Adafruit_GPIO, https://github.com/adafruit/Adafruit_Python_GPIO
 grovepi, https://github.com/DexterInd/GrovePi/tree/master/Software/Python
 pigpio, https://github.com/joan2937/pigpio
+webiopi, https://sourceforge.net/projects/webiopi/files/WebIOPi-0.7.1.tar.gz
+wiringpi, https://github.com/WiringPi/WiringPi-Python
+RPi.GPIO, 
