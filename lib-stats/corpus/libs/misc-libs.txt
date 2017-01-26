@@ -1,9 +1,4 @@
-yaml, http://pyyaml.org/browser/pyyaml
-monotonic, https://github.com/atdt/monotonic
 mock, https://github.com/testing-cabal/mock
 zope, https://github.com/zopefoundation/zope.interface
-numpy, https://github.com/numpy/numpy
-magic, https://github.com/ahupp/python-magic
-feedparser, https://github.com/kurtmckee/feedparser/archive/develop.zip
 astral, https://github.com/sffjunkie/astral/archive/master.zip
-async_timeout, https://github.com/aio-libs/async-timeout/archive/master.zip
+blockchain, https://github.com/blockchain/api-v1-client-python/archive/master.zip

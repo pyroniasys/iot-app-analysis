@@ -19,3 +19,4 @@ aiohttp, https://github.com/KeepSafe/aiohttp/archive/master.zip
 aiohttp_cors, https://github.com/aio-libs/aiohttp-cors/archive/master.zip
 apcaccess, https://github.com/flyte/apcaccess/archive/develop.zip
 apns2, https://github.com/oeegor/apns2-client/archive/master.zip
+bluepy_devices, https://github.com/bimbar/bluepy_devices/archive/master.zip

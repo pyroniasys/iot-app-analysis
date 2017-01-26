@@ -94,6 +94,9 @@ def get_pkg_names(app, target):
         if lib == "RPi.GPIO":
             # let's make an exception for RPi.GPIO -- that's the pkg name
             tlp = lib
+        elif "concurrent.futures" in lib:
+            # need to make an exception for stdlib concurrent.futures
+            tlp = "concurrent.futures"
         elif lib.startswith("Image"):
             # apparently, you can import all of PIL or just subpkgs directly
             # so just rename any PIL subpkg to PIL

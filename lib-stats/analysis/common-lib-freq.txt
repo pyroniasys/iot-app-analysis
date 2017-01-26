@@ -32,7 +32,6 @@
     "braviarc": 1,
     "bs4": 1,
     "colorlog": 1,
-    "concurrent": 1,
     "cpuinfo": 1,
     "dateutil": 1,
     "digitalocean": 1,

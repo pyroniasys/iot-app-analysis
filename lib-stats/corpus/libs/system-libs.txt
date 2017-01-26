@@ -1,0 +1,5 @@
+monotonic, https://github.com/atdt/monotonic
+magic, https://github.com/ahupp/python-magic/archive/master.zip
+async_timeout, https://github.com/aio-libs/async-timeout/archive/master.zip
+batinfo, https://github.com/nicolargo/batinfo/archive/master.zip
+colorlog, https://github.com/borntyping/python-colorlog/archive/master.zip

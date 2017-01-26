@@ -34,7 +34,6 @@ bs4
 cec
 cherrypy
 colorlog
-concurrent
 cpuinfo
 cv2
 cv2

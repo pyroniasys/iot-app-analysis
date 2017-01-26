@@ -21,7 +21,6 @@ bluepy_devices
 braviarc
 bs4
 colorlog
-concurrent
 cpuinfo
 dateutil
 digitalocean
