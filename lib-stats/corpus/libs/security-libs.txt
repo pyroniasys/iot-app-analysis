@@ -1,2 +1,5 @@
 OpenSSL, https://github.com/pyca/pyopenssl
 oauth2client, https://github.com/google/oauth2client/archive/master.zip
+jwt, https://github.com/davedoesdev/python-jwt/archive/master.zip
+keyring, https://github.com/jaraco/keyring/archive/master.zip
+libnacl, https://github.com/saltstack/libnacl/archive/master.zip

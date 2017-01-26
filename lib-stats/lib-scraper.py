@@ -25,134 +25,140 @@ def check_for_c_source(path, lib):
             break
     return is_c
 
-
-cat = sys.argv[1]
-
 # expect libs and their URLs to be located at
-lib_urls_path = "analysis/"+cat+"-libs.txt"
+lib_urls_path = "corpus/libs/"
+# let's get all the categories
+lib_lists = os.listdir(lib_urls_path)
 
-# cleanup before we start
-imps_f = "pyflakes-out/"+cat+"-imports.txt"
-unused_f = "pyflakes-out/"+cat+"-imports.txt"
-py3_report_f = "pyflakes-out/"+cat+"-py3-report.txt"
-py2_report_f = "pyflakes-out/"+cat+"-py2-report.txt"
-if os.path.isfile(imps_f):
-    os.remove(imps_f)
-if os.path.isfile(unused_f):
-    os.remove(unused_f)
-if os.path.isfile(py3_report_f):
-    os.remove(py3_report_f)
-if os.path.isfile(py2_report_f):
-    os.remove(py2_report_f)
+cats = OrderedDict()
+for c_f in lib_lists:
+    if not c_f.startswith('.'):
+        cat = c_f.split("-").strip()
+        cats[cat] = OrderedDict()
 
-# get the lib sources
-lib_urls_f = open(lib_urls_path, "r")
-lib_urls = lib_urls_f.readlines()
-lib_urls_f.close()
+for cat in cats:
+    # cleanup before we start
+    imps_f = "pyflakes-out/"+cat+"-imports.txt"
+    unused_f = "pyflakes-out/"+cat+"-unused.txt"
+    py3_report_f = "pyflakes-out/"+cat+"-py3-report.txt"
+    py2_report_f = "pyflakes-out/"+cat+"-py2-report.txt"
+    if os.path.isfile(imps_f):
+        os.remove(imps_f)
+    if os.path.isfile(unused_f):
+        os.remove(unused_f)
+    if os.path.isfile(py3_report_f):
+        os.remove(py3_report_f)
+    if os.path.isfile(py2_report_f):
+        os.remove(py2_report_f)
 
-print("Number of libs in "+cat+": "+str(len(lib_urls)))
+    # get the lib sources
+    lib_urls_f = open(lib_urls_path+cat+"-libs.txt", "r")
+    lib_urls = lib_urls_f.readlines()
+    lib_urls_f.close()
 
-c_libs = []
-py_libs = []
-libs_3p = OrderedDict()
-for l in lib_urls:
-    pair = l.split(",")
-    lib = pair[0].strip()
-    url = pair[1].strip()
+    print("Number of libs in "+cat+": "+str(len(lib_urls)))
 
-    print("--- "+lib)
+    c_libs = []
+    py_libs = []
+    libs_3p = OrderedDict()
+    for l in lib_urls:
+        pair = l.split(",")
+        lib = pair[0].strip()
+        url = pair[1].strip()
 
-    path_pref = "/tmp/"+lib
+        print("--- "+lib)
 
-    if not url.endswith(".zip") and not url.endswith(".gz"):
-        libs_3p[lib] = []
-        print("Need to investigate further")
-        continue
+        path_pref = "/tmp/"+lib
 
-    # download the lib source
-    if url.endswith(".zip"):
-        os.system("wget -O "+path_pref+".zip "+url+"; rm -rf "+path_pref)
-        os.system("unzip "+path_pref+".zip -d "+path_pref)
-    else:
-        # assume we have a .tar.gz
-        os.system("wget -O "+path_pref+".tar.gz "+url+"; rm -rf "+path_pref)
-        os.system("mkdir -p "+path_pref+" && tar -xzf "+path_pref+".tar.gz -C "+path_pref+" --strip-components 1")
+        if not url.endswith(".zip") and not url.endswith(".gz"):
+            libs_3p[lib] = []
+            print("Need to investigate further")
+            continue
 
-    # get the dir we need to check
-    repo_name = os.listdir(path_pref)[0]
-    lib_path = path_pref+"/"+repo_name
-    if os.path.isdir(lib_path+"/"+lib):
-        lib_path = lib_path+"/"+lib
+        # download the lib source
+        if url.endswith(".zip"):
+            os.system("wget -q -O "+path_pref+".zip "+url+"; rm -rf "+path_pref)
+            os.system("unzip -q "+path_pref+".zip -d "+path_pref)
+        else:
+            # assume we have a .tar.gz
+            os.system("wget -q -O "+path_pref+".tar.gz "+url+"; rm -rf "+path_pref)
+            os.system("mkdir -p "+path_pref+" && tar -xzf "+path_pref+".tar.gz -C "+path_pref+" --strip-components 1")
 
-    if check_for_c_source(lib_path, lib):
-        print("Found a C-implementation")
-        c_libs.append(lib)
-    else:
-        imports_raw, unused_raw = extract_imports(cat, lib_path)
+        # get the dir we need to check
+        repo_name = os.listdir(path_pref)[0]
+        lib_path = path_pref+"/"+repo_name
+        if os.path.isdir(lib_path+"/"+lib):
+            lib_path = lib_path+"/"+lib
 
-        imps = OrderedDict()
-
-        # this means pyflakes didn't find any .py files in the source
-        if len(imports_raw) == 0 and len(unused_raw) == 0:
-            print("No python sources found")
-            c_libs.append(lib)
-        elif len(imports_raw) == 1 and imports_raw.get(lib_path+"/__init__.py") != None and len(imports_raw.get(lib_path+"/__init__.py")) == 0:
-            print("C implementation likely elsewhere "+str(len(unused_raw)))
+        if check_for_c_source(lib_path, lib):
+            print("Found a C-implementation")
             c_libs.append(lib)
         else:
-            # no need to group like for apps since we're only
-            # looking at a single lib at a time
-            imps['unused'] = unused_raw
-            imps['raw_imports'] = imports_raw
+            imports_raw, unused_raw = extract_imports(cat, lib_path)
 
-            # iterate over the raw_imports to replace any pkg-level
-            # imports in any "unused" __init__.py files
-            imps['raw_imports'] = replace_unused_init_imports(imps['raw_imports'], imps['unused'], lib_path)
+            imps = OrderedDict()
 
-            # iterate over the raw_imports to collect the ones that use ctypes
-            # for libs, this means, if we find a ctypes.CDLL, we are calling
-            # into third-party C code
-            for src, i in imps['raw_imports'].items():
-                for l in i:
-                    if l == "ctypes":
-                        lds = scan_source_ctypes(src)
-                        if len(lds) > 0:
-                            c_libs.append(lib)
-                            print("Found ctypes wrapper")
-                            break
+            # this means pyflakes didn't find any .py files in the source
+            if len(imports_raw) == 0 and len(unused_raw) == 0:
+                print("No python sources found")
+                c_libs.append(lib)
+            # this means pyflakes found a single empty __init__.py file
+            elif len(imports_raw) == 1 and len(unused_raw) == 1 and imports_raw.get(lib_path+"/__init__.py") != None and len(imports_raw.get(lib_path+"/__init__.py")) == 0 and unused_raw.get(lib_path+"/__init__.py") != None and len(unused_raw.get(lib_path+"/__init__.py")) == 0:
+                print("C implementation likely elsewhere ")
+                c_libs.append(lib)
+            else:
+                imps['unused'] = unused_raw
+                imps['raw_imports'] = imports_raw
 
-                    elif l == "os" or l == "subprocess" or l == "subprocess.call" or l == "subprocess.Popen":
-                        c = scan_source_native(src)
-                        if len(c) > 0:
-                            c_libs.append(lib)
-                            print("Found call to native proc")
-                            break
+                # iterate over the raw_imports to replace any pkg-level
+                # imports in any "unused" __init__.py files
+                imps['raw_imports'] = replace_unused_init_imports(imps['raw_imports'], imps['unused'], lib_path)
 
-            c_libs = remove_dups(c_libs)
+                # iterate over the raw_imports to collect the ones that use ctypes
+                # for libs, this means, if we find a ctypes.CDLL, we are calling
+                # into third-party C code
+                for src, i in imps['raw_imports'].items():
+                    for l in i:
+                        if l == "ctypes":
+                            lds = scan_source_ctypes(src)
+                            if len(lds) > 0:
+                                c_libs.append(lib)
+                                print("Found ctypes wrapper")
+                                break
 
-            if lib not in c_libs:
-                # this is the main case where we need to replace libs etc
-                # make sure to sort the sources to have a deterministic analysis
-                imps['raw_imports'] = OrderedDict(sorted(imps['raw_imports'].items(), key=lambda t: t[0]))
+                        elif l == "os" or l == "subprocess" or l == "subprocess.call" or l == "subprocess.Popen":
+                            c = scan_source_native(src)
+                            if len(c) > 0:
+                                c_libs.append(lib)
+                                print("Found call to native proc")
+                                break
 
-                imps['imports'] = replace_fp_mod_group(imps, lib_path, 'raw_imports')
+                    c_libs = remove_dups(c_libs)
 
-                # we only want to store the pkg names
-                imps['imports'] = get_pkg_names(imps, 'imports')
+                    if lib not in c_libs:
+                        # this is the main case where we need to replace libs etc
+                        # make sure to sort the sources to have a deterministic analysis
+                        imps['raw_imports'] = OrderedDict(sorted(imps['raw_imports'].items(), key=lambda t: t[0]))
 
-                # iterate over all imports and prune away all std lib imports
-                print("Removing all python std lib imports")
-                imps['imports'] = remove_stdlib_imports(imps)
+                        imps['imports'] = replace_fp_mod_group(imps, lib_path, 'raw_imports')
 
-                if len(imps['imports']) == 0:
-                    print("No 3-p imports: pure python lib")
-                    py_libs.append(lib)
-                else:
-                    print("Found 3-p imports, so need further investigation")
-                    libs_3p[lib] = imps['imports']
+                        # we only want to store the pkg names
+                        imps['imports'] = get_pkg_names(imps, 'imports')
 
-            # we don't care about unused imports at this point
+                        # iterate over all imports and prune away all std lib imports
+                        print("Removing all python std lib imports")
+                        imps['imports'] = remove_stdlib_imports(imps)
 
-write_list_raw(c_libs, "corpus/c-libs.txt", perm="a+")
-write_list_raw(py_libs, "corpus/py-libs.txt", perm="a+")
-write_map(libs_3p, "corpus/3p-libs.txt")
+                        if len(imps['imports']) == 0:
+                            print("No 3-p imports: pure python lib")
+                            py_libs.append(lib)
+                        else:
+                            print("Found 3-p imports, so need further investigation")
+                            libs_3p[lib] = imps['imports']
+
+                # we don't care about unused imports at this point
+    cats[cat]['c-libs'] = c_libs
+    cats[cat]['py-libs'] = py_libs
+    cats[cat]['3p-libs'] = libs_3p
+
+write_map(cats, "corpus/lib-categories-by-lang.txt", perm="w+", sort=True)

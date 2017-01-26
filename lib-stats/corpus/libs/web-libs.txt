@@ -17,3 +17,14 @@ ibmiotf, https://github.com/ibm-watson-iot/iot-python
 tgl, https://github.com/vysheng/tgl
 AWSIoTPythonSDK, https://github.com/aws/aws-iot-device-sdk-python/archive/master.zip
 TwitterAPI, https://github.com/geduldig/TwitterAPI/archive/master.zip
+astral, https://github.com/sffjunkie/astral/archive/master.zip
+digitalocean, https://github.com/koalalorenzo/python-digitalocean/archive/master.zip
+dweepy, https://github.com/paddycarey/dweepy/archive/master.zip
+evohomeclient, https://github.com/watchforstock/evohome-client/archive/master.zip
+forecastio, https://github.com/amatellanes/fixerio/archive/master.zip
+freesms, https://github.com/bfontaine/freesms/archive/master.zip
+googlemaps, https://github.com/googlemaps/google-maps-services-python/archive/master.zip
+gtts_token, https://github.com/Boudewijn26/gTTS-token/archive/master.zip
+hpilo, https://github.com/seveas/python-hpilo/archive/master.zip
+insteon, https://github.com/FreekingDean/insteon-hub/archive/master.zip
+messagebird, https://github.com/messagebird/python-rest-api/archive/master.zip

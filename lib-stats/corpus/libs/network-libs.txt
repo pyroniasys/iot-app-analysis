@@ -20,3 +20,10 @@ aiohttp_cors, https://github.com/aio-libs/aiohttp-cors/archive/master.zip
 apcaccess, https://github.com/flyte/apcaccess/archive/develop.zip
 apns2, https://github.com/oeegor/apns2-client/archive/master.zip
 bluepy_devices, https://github.com/bimbar/bluepy_devices/archive/master.zip
+gattlib, https://bitbucket.org/OscarAcena/pygattlib/get/a858e8626a93.zip
+hbmqtt, https://github.com/beerfactory/hbmqtt/archive/master.zip
+jsonrpc_async, https://github.com/armills/jsonrpc-async/archive/master.zip
+jsonrpc_requests, https://github.com/gciotta/jsonrpc-requests/archive/master.zip
+libopenzwave, https://github.com/Julian/libopenzwave-cffi/archive/master.zip
+matrix_client, https://github.com/matrix-org/matrix-python-sdk/archive/master.zip
+miniupnpc, https://github.com/miniupnp/miniupnp/archive/master.zip

@@ -4,3 +4,5 @@ Adafruit_SSD1306, https://github.com/adafruit/Adafruit_Python_SSD1306
 Adafruit_CharLCDPlate, https://github.com/adafruit/Adafruit_Python_CharLCD
 Adafruit_Nokia_LCD, https://github.com/adafruit/Adafruit_Nokia_LCD
 picamera, https://github.com/waveform80/picamera
+haffmpeg, https://github.com/pvizeli/ha-ffmpeg/archive/master.zip
+hikvision, https://github.com/fbradyirl/hikvision/archive/master.zip

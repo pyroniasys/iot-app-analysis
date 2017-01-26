@@ -2,3 +2,5 @@ yaml, http://pyyaml.org/browser/pyyaml
 numpy, https://github.com/numpy/numpy
 feedparser, https://github.com/kurtmckee/feedparser/archive/develop.zip
 bs4, https://www.crummy.com/software/BeautifulSoup/bs4/download/4.5/beautifulsoup4-4.5.3.tar.gz
+fuzzywuzzy, https://github.com/seatgeek/fuzzywuzzy/archive/master.zip
+jinja2, https://github.com/pallets/jinja/archive/master.zip
