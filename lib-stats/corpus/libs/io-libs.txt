@@ -11,3 +11,8 @@ grovepi, https://github.com/DexterInd/GrovePi/tree/master/Software/Python
 pigpio, https://github.com/joan2937/pigpio/archive/master.zip
 webiopi, https://sourceforge.net/projects/webiopi/files/WebIOPi-0.7.1.tar.gz
 wiringpi, https://github.com/WiringPi/WiringPi/archive/9a8f8bee5df60061645918231110a7c2e4d3fa6b.zip
+RPi.GPIO, https://sourceforge.net/projects/raspberry-gpio-python/files/RPi.GPIO-0.6.3.tar.gz
+serial, https://github.com/pyserial/pyserial/archive/master.zip
+mraa, https://github.com/intel-iot-devkit/mraa/archive/master.zip
+smbus, https://github.com/bivab/smbus-cffi/archive/master.zip
+PyMata, https://github.com/MrYsLab/PyMata/archive/master.zip

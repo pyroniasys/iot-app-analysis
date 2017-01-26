@@ -5,3 +5,4 @@ pygame, https://bitbucket.org/pygame/pygame
 imutils, https://github.com/jrosebr1/imutils
 yuv2rgb, https://github.com/adafruit/adafruit-pi-cam
 pyscreenshot, https://github.com/ponty/pyscreenshot
+PIL, http://effbot.org/downloads/Imaging-1.1.7.tar.gz

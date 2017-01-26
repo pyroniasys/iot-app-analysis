@@ -1,2 +1,0 @@
-memcache, https://github.com/linsomniac/python-memcached
-pymongo, https://github.com/mongodb/mongo-python-driver

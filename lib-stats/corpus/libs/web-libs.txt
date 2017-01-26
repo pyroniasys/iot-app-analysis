@@ -15,4 +15,5 @@ pubnub, https://github.com/pubnub/python
 gdata, https://github.com/google/gdata-python-client
 ibmiotf, https://github.com/ibm-watson-iot/iot-python
 tgl, https://github.com/vysheng/tgl
-
+AWSIoTPythonSDK, https://github.com/aws/aws-iot-device-sdk-python/archive/master.zip
+TwitterAPI, https://github.com/geduldig/TwitterAPI/archive/master.zip

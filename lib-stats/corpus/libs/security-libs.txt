@@ -1,0 +1,2 @@
+OpenSSL, https://github.com/pyca/pyopenssl
+oauth2client, https://github.com/google/oauth2client/archive/master.zip

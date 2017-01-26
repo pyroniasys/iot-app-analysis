@@ -10,4 +10,12 @@ twisted, https://github.com/twisted/twisted
 xmpp, https://sourceforge.net/p/xmpppy/xmpppy/ci/master/tree
 websocket, https://github.com/websocket-client/websocket-client
 flask_login, https://github.com/maxcountryman/flask-login
-
+requests, https://github.com/kennethreitz/requests/archive/master.zip
+paho, https://github.com/eclipse/paho.mqtt.python/archive/master.zip
+flask, https://github.com/pallets/flask/archive/master.zip
+httplib2, https://github.com/jcgregorio/httplib2/archive/master.zip
+gevent, https://github.com/gevent/gevent/archive/master.zip
+aiohttp, https://github.com/KeepSafe/aiohttp/archive/master.zip
+aiohttp_cors, https://github.com/aio-libs/aiohttp-cors/archive/master.zip
+apcaccess, https://github.com/flyte/apcaccess/archive/develop.zip
+apns2, https://github.com/oeegor/apns2-client/archive/master.zip

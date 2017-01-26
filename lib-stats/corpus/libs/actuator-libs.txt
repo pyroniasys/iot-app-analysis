@@ -1,0 +1,6 @@
+gopigo, https://github.com/DexterInd/GoPiGo
+pi_switch, https://github.com/lexruee/pi-switch-python
+qhue, https://github.com/quentinsf/qhue
+DirectPy, https://github.com/sentry07/DirectPy/archive/master.zip
+PyISY, https://github.com/automicus/PyISY/archive/master.zip
+RFXtrx, https://github.com/Danielhiversen/pyRFXtrx/archive/master.zip
