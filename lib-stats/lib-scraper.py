@@ -120,31 +120,30 @@ for l in lib_urls:
                             c_libs.append(lib)
                             print("Found ctypes wrapper")
                             break
-                    '''
-                    if l == "os" or l == "subprocess" or l == "subprocess.call" or l == "subprocess.Popen":
+
+                    elif l == "os" or l == "subprocess" or l == "subprocess.call" or l == "subprocess.Popen":
                         c = scan_source_native(src)
                         if len(c) > 0:
                             c_libs.append(lib)
                             print("Found call to native proc")
                             break
-                    '''
 
             c_libs = remove_dups(c_libs)
 
-            # this is the main case where we need to replace libs etc
-            # make sure to sort the sources to have a deterministic analysis
-            imps['raw_imports'] = OrderedDict(sorted(imps['raw_imports'].items(), key=lambda t: t[0]))
-
-            imps['imports'] = replace_fp_mod_group(imps, lib_path, 'raw_imports')
-
-            # we only want to store the pkg names
-            imps['imports'] = get_pkg_names(imps, 'imports')
-
-            # iterate over all imports and prune away all std lib imports
-            print("Removing all python std lib imports")
-            imps['imports'] = remove_stdlib_imports(imps)
-
             if lib not in c_libs:
+                # this is the main case where we need to replace libs etc
+                # make sure to sort the sources to have a deterministic analysis
+                imps['raw_imports'] = OrderedDict(sorted(imps['raw_imports'].items(), key=lambda t: t[0]))
+
+                imps['imports'] = replace_fp_mod_group(imps, lib_path, 'raw_imports')
+
+                # we only want to store the pkg names
+                imps['imports'] = get_pkg_names(imps, 'imports')
+
+                # iterate over all imports and prune away all std lib imports
+                print("Removing all python std lib imports")
+                imps['imports'] = remove_stdlib_imports(imps)
+
                 if len(imps['imports']) == 0:
                     print("No 3-p imports: pure python lib")
                     py_libs.append(lib)

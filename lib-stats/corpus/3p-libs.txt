@@ -1,45 +1,9 @@
 {
     "pyA20": [],
-    "grovepi": []
-}
-{
-    "pyA20": [],
-    "grovepi": []
-}
-{
-    "pyA20": [],
-    "grovepi": []
-}
-{
-    "pyA20": [],
-    "grovepi": []
-}
-{
-    "pyA20": [],
-    "grovepi": []
-}
-{
-    "pyA20": [],
-    "grovepi": []
-}
-{
-    "pyA20": [],
-    "grovepi": []
-}
-{
-    "pyA20": [],
     "pywinusb": [
         "pkg_resources",
         "wx"
     ],
-    "Adafruit_GPIO": [
-        "Adafruit_BBIO",
-        "Adafruit_GPIO",
-        "Adafruit_PureIO",
-        "RPi.GPIO",
-        "ftdi1",
-        "mraa",
-        "spidev"
-    ],
     "grovepi": []
 }
+{}
