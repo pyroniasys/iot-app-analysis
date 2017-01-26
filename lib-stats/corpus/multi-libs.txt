@@ -69,7 +69,6 @@ haphilipsjs
 hbmqtt
 heatmiserV3
 hikvision
-homeassistant
 hpilo
 httplib2
 insteon

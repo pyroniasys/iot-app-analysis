@@ -85,7 +85,6 @@ hbmqtt
 heatmiserV3
 hid
 hikvision
-homeassistant
 hpilo
 httplib2
 ibmiotf

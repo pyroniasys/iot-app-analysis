@@ -22,6 +22,8 @@ datetime
 email
 enum
 fcntl
+fnmatch
+functools
 getpass
 glob
 hashlib
@@ -29,6 +31,7 @@ http
 importlib
 inspect
 io
+itertools
 json
 logging
 math
@@ -39,12 +42,14 @@ os
 pkgutil
 platform
 pylab
+queue
 random
 re
 select
 serial
 sha
 shlex
+shutil
 signal
 smbus
 smtplib
@@ -58,9 +63,11 @@ tempfile
 thread
 threading
 time
+timeit
 traceback
 types
 typing
+unicodedata
 urllib
 urlparse
 uuid

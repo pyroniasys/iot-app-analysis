@@ -52,7 +52,6 @@ apps/multi/devicePresenseAlert:
     "hbmqtt",
     "heatmiserV3",
     "hikvision",
-    "homeassistant",
     "hpilo",
     "httplib2",
     "insteon",

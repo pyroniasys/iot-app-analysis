@@ -59,7 +59,6 @@
     "hbmqtt": 1,
     "heatmiserV3": 1,
     "hikvision": 1,
-    "homeassistant": 1,
     "hpilo": 1,
     "insteon": 1,
     "insteonlocal": 1,

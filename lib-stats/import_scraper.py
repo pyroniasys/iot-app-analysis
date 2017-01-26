@@ -177,6 +177,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
     higher_py_file = ""
     higher_subdir = ""
     higher_obj_mod = ""
+    init_file = ""
     subdir_init_file = ""
     sibling_init_file = ""
     if single_imp:
@@ -196,6 +197,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
         subdir = src_dir+"/"+mod
         if supermod != "":
             obj_mod = src_dir+"/"+supermod+".py"
+            init_file = src_dir+"/"+supermod+"/__init__.py"
         # we might be importing an attribute defined in __init__.py
         # so treat the obj_mod as the src_dir
         else:
@@ -212,6 +214,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
         sibling_subdir = super_dir+"/"+mod
         if supermod != "":
             sibling_obj_mod = super_dir+"/"+supermod+".py"
+            init_file = super_dir+"/"+supermod+"/__init__.py"
         else:
             # we might be importing an attribute defined in __init__.py
             # so treat the obj_mod as the src_dir
@@ -228,6 +231,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
         higher_subdir = pref+"/"+mod
         if supermod != "":
             higher_obj_mod = pref+"/"+supermod+".py"
+            init_file = pref+"/"+supermod+"/__init__.py"
         # we might be importing an attribute defined in __init__.py
         # so treat the obj_mod as the src_dir
         else:
@@ -242,9 +246,13 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
         subdir = src_dir+"/"+mod
         sibling_py_file = super_dir+"/"+mod+".py"
         sibling_subdir = super_dir+"/"+mod
+        higher_py_file = app+"/"+mod+".py"
+        higher_subdir = app+"/"+mod
         if supermod != "":
             obj_mod = src_dir+"/"+supermod+".py"
             sibling_obj_mod = super_dir+"/"+supermod+".py"
+            higher_obj_mod = app+"/"+supermod+".py"
+            init_file = app+"/"+supermod+"/__init__.py"
             subdir_init_file = src_dir+"/"+supermod+"/__init__.py"
             sibling_init_file = super_dir+"/"+supermod+"/__init__.py"
         else:
@@ -252,13 +260,16 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
             # so treat the obj_mod as the src_dir
             obj_mod = src_dir+"/__init__.py"
             sibling_obj_mod = super_dir+"/__init__.py"
+            higher_obj_mod = app+"/__init__.py"
             sibling_init_file = sibling_subdir+"/__init__.py"
             subdir_init_file = subdir+"/__init__.py"
 
-    debug("Looking at "+py_file+", "+sibling_py_file+", "+higher_py_file+", "+obj_mod+", "+sibling_obj_mod+", "+higher_obj_mod+", "+subdir_init_file+", "+sibling_init_file+", "+subdir+", "+sibling_subdir+" and "+higher_subdir)
+    debug("Looking at "+py_file+", "+sibling_py_file+", "+higher_py_file+", "+obj_mod+", "+init_file+", "+sibling_obj_mod+", "+higher_obj_mod+", "+subdir_init_file+", "+sibling_init_file+", "+subdir+", "+sibling_subdir+" and "+higher_subdir)
 
     # let's check if none of the possible imports exist
-    if srcs_dict.get(py_file) == None and srcs_dict.get(sibling_py_file) == None and srcs_dict.get(higher_py_file) == None and srcs_dict.get(obj_mod) == None and srcs_dict.get(sibling_obj_mod) == None and srcs_dict.get(higher_obj_mod) == None and srcs_dict.get(subdir_init_file) == None and srcs_dict.get(sibling_init_file) == None and not os.path.isdir(subdir) and not os.path.isdir(sibling_subdir) and not os.path.isdir(higher_subdir):
+    if srcs_dict.get(py_file) == None and srcs_dict.get(sibling_py_file) == None and srcs_dict.get(higher_py_file) == None and srcs_dict.get(init_file) == None and srcs_dict.get(obj_mod) == None and srcs_dict.get(sibling_obj_mod) == None and srcs_dict.get(higher_obj_mod) == None and srcs_dict.get(subdir_init_file) == None and srcs_dict.get(sibling_init_file) == None and not os.path.isdir(subdir) and not os.path.isdir(sibling_subdir) and not os.path.isdir(higher_subdir):
+        if "homeassistant" in imp:
+            print("WTF")
         debug("0")
         return [imp]
 
@@ -273,29 +284,32 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
         elif srcs_dict.get(higher_py_file) != None:
             debug("3")
             srcs = [higher_py_file]
-        elif srcs_dict.get(obj_mod) != None:
+        elif srcs_dict.get(init_file) != None:
             debug("4")
+            srcs = [init_file]
+        elif srcs_dict.get(obj_mod) != None:
+            debug("5")
             srcs = [obj_mod]
         elif srcs_dict.get(sibling_obj_mod) != None:
-            debug("5")
+            debug("6")
             srcs = [sibling_obj_mod]
         elif srcs_dict.get(higher_obj_mod) != None:
-            debug("6")
+            debug("7")
             srcs = [higher_obj_mod]
         elif srcs_dict.get(subdir_init_file) != None:
-            debug("7")
+            debug("8")
             srcs = [subdir_init_file]
         elif srcs_dict.get(sibling_init_file) != None:
-            debug("8")
+            debug("9")
             srcs = [sibling_init_file]
         elif os.path.isdir(subdir):
-            debug("9")
+            debug("10")
             srcs = iterSourceCode([subdir])
         elif os.path.isdir(sibling_subdir):
-            debug("10")
+            debug("11")
             srcs = iterSourceCode([sibling_subdir])
         elif os.path.isdir(higher_subdir):
-            debug("11")
+            debug("12")
             srcs = iterSourceCode([higher_subdir])
 
         l = []
