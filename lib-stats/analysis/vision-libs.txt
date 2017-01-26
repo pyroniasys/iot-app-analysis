@@ -1,2 +1,2 @@
-cv2, https://github.com/skvark/opencv-python
-SimpleCV, https://github.com/sightmachine/SimpleCV
+cv2, https://github.com/opencv/opencv/archive/70bbf17b133496bd7d54d034b0f94bd869e0e810.zip
+SimpleCV, https://github.com/sightmachine/SimpleCV/archive/master.zip

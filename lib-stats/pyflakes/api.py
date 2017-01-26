@@ -136,7 +136,7 @@ def write_map(m, filename, name=None, perm="a+"):
     f.write(json.dumps(m, indent=4)+"\n")
     f.close()
 
-def checkRecursive(paths, reporter, cat=None):
+def checkRecursive(paths, reporter):
     """
     Recursively check all source files in C{paths}.
 
@@ -150,9 +150,6 @@ def checkRecursive(paths, reporter, cat=None):
     d_imp = OrderedDict()
     d_unused = OrderedDict()
     for sourcePath in iterSourceCode(paths):
-        if cat == None:
-            # from the path name, the category should be in "apps/cat/srcs"
-            cat = sourcePath.split("/")[1]
         (num, imps, unused) = checkPath(sourcePath, reporter)
         warnings += num
 
@@ -166,8 +163,8 @@ def checkRecursive(paths, reporter, cat=None):
 
     # save the imports and unused to the file if we're running in python2.x
     if sys.version_info < (3, ):
-        write_map(d_imp, "pyflakes-out/"+cat+"-imports-py2.txt", perm="w+")
-        write_map(d_unused, "pyflakes-out/"+cat+"-unused-py2.txt", perm="w+")
+        write_map(d_imp, "pyflakes-out/imports-py2.txt", perm="w+")
+        write_map(d_unused, "pyflakes-out/unused-py2.txt", perm="w+")
 
     return warnings, d_imp, d_unused
 

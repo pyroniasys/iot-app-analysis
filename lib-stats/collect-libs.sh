@@ -2,4 +2,4 @@
 
 CAT=$1
 
-python3 lib-scraper.py $CAT > $CAT-collect.out
+python3 lib-scraper.py $CAT > $CAT-lib-collect.out 2>&1

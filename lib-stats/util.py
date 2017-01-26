@@ -5,6 +5,11 @@ from collections import OrderedDict
 from operator import itemgetter
 
 STATS_FILE = "analysis/stats.txt"
+DEBUG = False
+
+def debug(msg):
+    if DEBUG:
+        print(str(msg))
 
 def get_name(p):
     name = p[:p.find(".")]
@@ -135,8 +140,9 @@ def write_list(l, filename, name=None, perm="a+"):
     f.write(json.dumps(l, indent=4)+"\n")
     f.close()
 
-def write_list_raw(l, filename):
-    f = open(filename, "w+")
+# TODO: merp, switch the default permission to "a+"
+def write_list_raw(l, filename, perm="w+"):
+    f = open(filename, perm)
     for i in sorted(l):
         f.write(str(i)+"\n")
     f.close()
