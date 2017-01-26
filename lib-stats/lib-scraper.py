@@ -97,7 +97,7 @@ for l in lib_urls:
             print("No python sources found")
             c_libs.append(lib)
         elif len(imports_raw) == 1 and imports_raw.get(lib_path+"/__init__.py") != None and len(imports_raw.get(lib_path+"/__init__.py")) == 0:
-            print("C implementation likely elsewhere")
+            print("C implementation likely elsewhere "+str(len(unused_raw)))
             c_libs.append(lib)
         else:
             # no need to group like for apps since we're only
@@ -105,19 +105,15 @@ for l in lib_urls:
             imps['unused'] = unused_raw
             imps['raw_imports'] = imports_raw
 
-            print(str(imps['unused']))
-
-            # iterate over the raw_imports to replace any pkg-level imports in
-            # any "unused" __init__.py files
+            # iterate over the raw_imports to replace any pkg-level
+            # imports in any "unused" __init__.py files
             imps['raw_imports'] = replace_unused_init_imports(imps['raw_imports'], imps['unused'], lib_path)
 
             # iterate over the raw_imports to collect the ones that use ctypes
             # for libs, this means, if we find a ctypes.CDLL, we are calling
             # into third-party C code
-            print(str(imps['raw_imports']))
             for src, i in imps['raw_imports'].items():
                 for l in i:
-                    print("cur lib: "+l)
                     if l == "ctypes":
                         lds = scan_source_ctypes(src)
                         if len(lds) > 0:
@@ -159,5 +155,5 @@ for l in lib_urls:
             # we don't care about unused imports at this point
 
 write_list_raw(c_libs, "corpus/c-libs.txt", perm="a+")
-write_list_raw(py_libs, "corpus/py-libs.txt")
+write_list_raw(py_libs, "corpus/py-libs.txt", perm="a+")
 write_map(libs_3p, "corpus/3p-libs.txt")

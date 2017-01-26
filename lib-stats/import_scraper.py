@@ -47,7 +47,7 @@ def extract_imports(cat, path):
 
 def group_by(g, ungrouped):
     grouped = OrderedDict()
-    for src, i in ungrouped_items():
+    for src, i in ungrouped.items():
         if g in src:
             # want raw_imports AND imports since raw_imports is used
             # in the unused parsing as well

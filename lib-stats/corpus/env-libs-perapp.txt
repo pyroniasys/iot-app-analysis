@@ -1,79 +1,18 @@
-apps/env/intelligentDoor.py:
-[
-    "adxl345",
-    "paho"
-]
-apps/env/EmailiPhoneNetworkPresence.py:
-[]
-apps/env/HomeControlCenterBBGW:
-[
-    "flask",
-    "flask_socketio",
-    "gevent",
-    "mraa",
-    "pyupm_grove"
-]
-apps/env/RPiPIRSensor.py:
-[
-    "RPi.GPIO"
-]
-apps/env/IoTRPiArduino:
-[
-    "Adafruit_DHT",
-    "RPi.GPIO",
-    "serial"
-]
-apps/env/NetworkMonitoringWithAWSIoT.py:
-[
-    "paho"
-]
-apps/env/homeRoomTempHumMonitor.py:
-[
-    "RPi.GPIO"
-]
-apps/env/IoTTempHumidityMonitor:
-[
-    "Adafruit_DHT",
-    "PIL",
-    "ubidots"
-]
-apps/env/smartScale:
+apps/env/beerfridge:
 [
     "ISStreamer",
+    "RPi.GPIO",
     "bluetooth"
-]
-apps/env/RPiRoomTempMonitorGnuplot.py:
-[
-    "Gnuplot"
-]
-apps/env/EchoPiWeather:
-[
-    "AWSIoTPythonSDK",
-    "pigpio"
-]
-apps/env/WirelessDoorbell.py:
-[
-    "scapy"
-]
-apps/env/weatherStation.py:
-[
-    "Adafruit_DHT",
-    "RPi.GPIO"
 ]
 apps/env/CyberSafe:
 [
     "MySQLdb",
     "mraa"
 ]
-apps/env/HomeTempThingspeak.py:
+apps/env/detect_bluetooth.py:
 [
-    "smbus"
-]
-apps/env/thermostatRaspBerryPi:
-[
-    "Adafruit_CharLCDPlate",
-    "Adafruit_DHT",
-    "RPi.GPIO"
+    "Adafruit_BBIO",
+    "bluetooth"
 ]
 apps/env/DHT22Logger:
 [
@@ -82,21 +21,33 @@ apps/env/DHT22Logger:
     "gspread",
     "oauth2client"
 ]
-apps/env/beerfridge:
+apps/env/EchoPiWeather:
 [
-    "ISStreamer",
-    "RPi.GPIO",
-    "bluetooth"
+    "AWSIoTPythonSDK",
+    "pigpio"
 ]
-apps/env/SitSat:
+apps/env/EmailiPhoneNetworkPresence.py:
+[]
+apps/env/grove_IOT.py:
+[
+    "grovepi",
+    "xively"
+]
+apps/env/HomeControlCenterBBGW:
+[
+    "flask",
+    "flask_socketio",
+    "gevent",
+    "mraa",
+    "pyupm_grove"
+]
+apps/env/homeRoomTempHumMonitor.py:
 [
     "RPi.GPIO"
 ]
-apps/env/SensorianIoTDashboard.py:
+apps/env/HomeTempThingspeak.py:
 [
-    "APDS9300",
-    "MPL3115A2",
-    "flask"
+    "smbus"
 ]
 apps/env/HomeVentilation:
 [
@@ -108,15 +59,26 @@ apps/env/HomeVentilation:
     "ouimeaux",
     "w1thermsensor"
 ]
-apps/env/detect_bluetooth.py:
+apps/env/intelligentDoor.py:
 [
-    "Adafruit_BBIO",
-    "bluetooth"
+    "adxl345",
+    "paho"
 ]
-apps/env/grove_IOT.py:
+apps/env/IoTRPiArduino:
 [
-    "grovepi",
-    "xively"
+    "Adafruit_DHT",
+    "RPi.GPIO",
+    "serial"
+]
+apps/env/IoTTempHumidityMonitor:
+[
+    "Adafruit_DHT",
+    "PIL",
+    "ubidots"
+]
+apps/env/NetworkMonitoringWithAWSIoT.py:
+[
+    "paho"
 ]
 apps/env/PiIndoorAirQualityMonitor:
 [
@@ -134,4 +96,42 @@ apps/env/PiIndoorAirQualityMonitor:
     "xively",
     "xmpp",
     "zope"
+]
+apps/env/RPiPIRSensor.py:
+[
+    "RPi.GPIO"
+]
+apps/env/RPiRoomTempMonitorGnuplot.py:
+[
+    "Gnuplot"
+]
+apps/env/SensorianIoTDashboard.py:
+[
+    "APDS9300",
+    "MPL3115A2",
+    "flask"
+]
+apps/env/SitSat:
+[
+    "RPi.GPIO"
+]
+apps/env/smartScale:
+[
+    "ISStreamer",
+    "bluetooth"
+]
+apps/env/thermostatRaspBerryPi:
+[
+    "Adafruit_CharLCDPlate",
+    "Adafruit_DHT",
+    "RPi.GPIO"
+]
+apps/env/weatherStation.py:
+[
+    "Adafruit_DHT",
+    "RPi.GPIO"
+]
+apps/env/WirelessDoorbell.py:
+[
+    "scapy"
 ]
