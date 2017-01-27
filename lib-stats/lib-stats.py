@@ -22,7 +22,9 @@ distinct_apps = get_distinct(apps)
 
 num_apps = len(distinct_apps)
 
-write_val(str(num_apps)+", "+str(len(apps['visual']))+", "+str(len(apps['audio']))+", "+str(len(apps['env']))+", "+str(len(apps['multi'])), "total apps, visual, audio, env, multi")
+#write_val(str(num_apps)+", "+str(len(apps['visual']))+", "+str(len(apps['audio']))+", "+str(len(apps['env']))+", "+str(len(apps['multi'])), "total apps, visual, audio, env, multi")
+
+write_val(num_apps, "analyzed IoT apps")
 
 # get all the libs
 libs = OrderedDict()
@@ -41,13 +43,6 @@ write_list_raw(distinct_libs, "corpus/all-libs.txt")
 
 avg_lib_per_app = "%.1f" % (num_imports/num_apps)
 write_str(avg_lib_per_app, "Avg number of 3p imports per app")
-
-'''
-# also want to know how many distinct libs were found in each category
-for cat in libs:
-    dist = get_distinct_cat(cat, libs)
-    write_val(len(dist), cat+" libs")
-'''
 
 # get all common libs
 common_libs = get_common(libs)
@@ -98,6 +93,54 @@ write_freq_map(all_freq, filename="analysis/all-lib-freq.txt", perm="w+")
 write_str("", "Top 5 libs by frequency (in % of apps)")
 write_list_raw(get_top_5_freq(all_freq, num_apps), STATS_FILE, perm="a+", sort=False)
 
+# get the number of apps that call an external proc
+call_native = OrderedDict()
+call_native['audio'] = read_map("corpus/audio-call-native.txt")
+call_native['env'] = read_map("corpus/env-call-native.txt")
+call_native['multi'] = read_map("corpus/multi-call-native.txt")
+call_native['visual'] = read_map("corpus/visual-call-native.txt")
+
+num_ext_proc = 0
+for cat in call_native:
+    num_ext_proc += len(call_native[cat])
+
+pct_ext_proc = "%.1f" % ((num_ext_proc/num_apps)*100)
+write_str(pct_ext_proc, "% of apps that exec an external proc")
+
+# get the number of apps that are hybrid
+hybrid = OrderedDict()
+hybrid['audio'] = read_map("corpus/audio-hybrid-apps.txt")
+hybrid['env'] = read_map("corpus/env-hybrid-apps.txt")
+hybrid['multi'] = read_map("corpus/multi-hybrid-apps.txt")
+hybrid['visual'] = read_map("corpus/visual-hybrid-apps.txt")
+
+num_hybrid = 0
+for cat in hybrid:
+    num_hybrid += len(hybrid[cat])
+
+pct_hybrid = "%.1f" % ((num_hybrid/num_apps)*100)
+write_str(pct_hybrid, "% of apps that load shared libs")
+
+'''
+# get % of python libs
+py_libs = read_set("corpus/all-py-libs.txt")
+
+pct_py_libs = "%.1f" % ((len(py_libs)/num_libs)*100)
+write_str(pct_py_libs, "% of pure python libs")
+
+# get % of C libs
+c_libs = read_set("corpus/all-c-libs.txt")
+
+pct_c_libs = "%.1f" % ((len(c_libs)/num_libs)*100)
+write_str(pct_c_libs, "% of libs with native code")
+
+# get % of libs that call an ext proc
+ext_proc = read_set("corpus/all-ext-proc.txt")
+
+pct_ext_proc_libs = "%.1f" % ((len(ext_proc)/num_libs)*100)
+write_str(pct_c_libs, "% of libs that exec an external proc")
+'''
+
 # get all the unused libs
 unused = OrderedDict()
 unused['audio'] = read_set("corpus/audio-unused-libs.txt")
@@ -111,8 +154,15 @@ for cat in unused:
     distinct_unused = count_freq(unused[cat], distinct_unused)
 
 write_list_raw(distinct_unused.keys(), "corpus/all-unused-libs.txt")
-write_val(len(distinct_unused), "unused libs")
+
+# get the number of 3p libs in the unused
+unused_3p = OrderedDict()
+for l in distinct_unused:
+    if is_3p_lib(l):
+        unused_3p[l] = distinct_unused[l]
+
+write_val(str(len(distinct_unused))+" ("+str(len(unused_3p))+")", "unused libs (3p)")
 write_freq_map(distinct_unused, filename="analysis/unused-freq.txt", perm="w+")
 
-write_str("", "Top 5 unused libs by frequency (in % of apps)")
-write_list_raw(get_top_5_freq(distinct_unused, num_apps), STATS_FILE, perm="a+", sort=False)
+write_str("", "Top 5 unused 3p libs by frequency (in % of apps)")
+write_list_raw(get_top_5_freq(unused_3p, num_apps), STATS_FILE, perm="a+", sort=False)

@@ -1,22 +1,3 @@
-apps/multi/AndyBot:
-[
-    "RPi.GPIO",
-    "mysql",
-    "picamera",
-    "pocketsphinx",
-    "pyaudio",
-    "wiringpi2"
-]
-apps/multi/BeagleAlexa:
-[
-    "alsaaudio",
-    "cherrypy",
-    "pocketsphinx",
-    "pycurl",
-    "requests",
-    "smbus",
-    "sphinxbase"
-]
 apps/multi/devicePresenseAlert:
 [
     "Adafruit_BBIO",
@@ -198,36 +179,20 @@ apps/multi/devicePresenseAlert:
     "yaml",
     "yarl"
 ]
-apps/multi/DIYSmartphone:
+apps/multi/SmartMirror:
 [
-    "RPi.GPIO",
-    "picamera",
-    "pygame",
-    "serial",
-    "yuv2rgb"
-]
-apps/multi/GardeningService:
-[
-    "Adafruit_DHT",
-    "RPi.GPIO",
-    "boto3",
-    "picamera",
+    "cv2",
+    "dateutil",
+    "feedparser",
+    "gtts",
+    "py4j",
+    "pydub",
     "requests",
-    "spidev",
-    "twitter"
+    "speech_recognition"
 ]
 apps/multi/HAL9000:
 [
     "paho"
-]
-apps/multi/MarsRover:
-[
-    "Adafruit_DHT",
-    "RPi.GPIO",
-    "flask",
-    "picamera",
-    "serial",
-    "twython"
 ]
 apps/multi/RPiSecuritySystem:
 [
@@ -240,22 +205,6 @@ apps/multi/RPiSecuritySystem:
     "telegram",
     "yaml"
 ]
-apps/multi/SamsungARKTIKPhotobooth.py:
-[
-    "cv2",
-    "speech_recognition"
-]
-apps/multi/SmartMirror:
-[
-    "cv2",
-    "dateutil",
-    "feedparser",
-    "gtts",
-    "py4j",
-    "pydub",
-    "requests",
-    "speech_recognition"
-]
 apps/multi/tweetingPlants.py:
 [
     "envirophat",
@@ -266,4 +215,55 @@ apps/multi/tweetPic.py:
     "cv2",
     "mraa",
     "tweepy"
+]
+apps/multi/GardeningService:
+[
+    "Adafruit_DHT",
+    "RPi.GPIO",
+    "boto3",
+    "picamera",
+    "requests",
+    "spidev",
+    "twitter"
+]
+apps/multi/BeagleAlexa:
+[
+    "alsaaudio",
+    "cherrypy",
+    "pocketsphinx",
+    "pycurl",
+    "requests",
+    "smbus",
+    "sphinxbase"
+]
+apps/multi/MarsRover:
+[
+    "Adafruit_DHT",
+    "RPi.GPIO",
+    "flask",
+    "picamera",
+    "serial",
+    "twython"
+]
+apps/multi/SamsungARKTIKPhotobooth.py:
+[
+    "cv2",
+    "speech_recognition"
+]
+apps/multi/AndyBot:
+[
+    "RPi.GPIO",
+    "mysql",
+    "picamera",
+    "pocketsphinx",
+    "pyaudio",
+    "wiringpi2"
+]
+apps/multi/DIYSmartphone:
+[
+    "RPi.GPIO",
+    "picamera",
+    "pygame",
+    "serial",
+    "yuv2rgb"
 ]

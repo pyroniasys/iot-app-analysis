@@ -5,7 +5,6 @@ from collections import OrderedDict
 
 from pyflakes import reporter as modReporter
 from pyflakes.api import checkRecursive, iterSourceCode
-from stdlib_list import stdlib_list
 
 from util import *
 
@@ -121,7 +120,7 @@ def get_subdir_srcs(subdir):
             srcs.append(subdir+"/"+f)
     return srcs
 
-def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
+def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=False):
     # let's get all the individual components of the import
     mods = imp.split(".")
 
@@ -190,6 +189,8 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
         py_file = src_dir+"/"+mod+".py"
         subdir = src_dir+"/"+mod
         subdir_init_file = subdir+"/__init__.py"
+        if is_libs:
+            init_file = src_dir+"/__init__.py"
     elif src_dir_imp:
         debug("scr_dir_imp")
         # we're importing a module from the src dir
@@ -271,8 +272,6 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
 
     # let's check if none of the possible imports exist
     if srcs_dict.get(py_file) == None and srcs_dict.get(sibling_py_file) == None and srcs_dict.get(higher_py_file) == None and srcs_dict.get(init_file) == None and srcs_dict.get(obj_mod) == None and srcs_dict.get(sibling_obj_mod) == None and srcs_dict.get(higher_obj_mod) == None and srcs_dict.get(subdir_init_file) == None and srcs_dict.get(sibling_init_file) == None and not os.path.isdir(subdir) and not os.path.isdir(sibling_subdir) and not os.path.isdir(higher_subdir):
-        if "homeassistant" in imp:
-            print("WTF")
         debug("0")
         return [imp]
 
@@ -318,7 +317,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
         l = []
         for src in srcs:
             if src in visited:
-                print(src+" is imported recursively, so don't go deeper")
+                debug(src+" is imported recursively, so don't go deeper")
             else:
                 visited.append(src)
                 for m in srcs_dict[src]:
@@ -326,24 +325,24 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited):
                     l.extend(replacements)
         return l
 
-def replace_fp_mod_group(grp_dict, g, target):
+def replace_fp_mod_group(grp_dict, g, target, is_libs=False):
     print("Replacing the first-party imports for group: "+target)
     libs = []
     for src, i in grp_dict[target].items():
         src_dir = get_src_dir(src)
         super_dir = get_super_dir(g, src)
-        print(" *** "+src)
+        debug(" *** "+src)
         for l in i:
             try:
                 # add entry for each src once we've tried to replace it
                 recurs_limit = []
                 # want this check bc we want to make sure we stay
                 # within the app directory
-                tmp = replace_fp_mod(g, super_dir, src_dir, l, grp_dict['raw_imports'], recurs_limit)
+                tmp = replace_fp_mod(g, super_dir, src_dir, l, grp_dict['raw_imports'], recurs_limit, is_libs)
 
                 # this is just to avoid printing redundant messages
                 if not(len(tmp) == 1 and tmp[0] == l):
-                    print("replacing "+l+" with "+str(tmp))
+                    debug("replacing "+l+" with "+str(tmp))
                 libs.extend(tmp)
             except RecursionError:
                 print("died trying to replace "+l+" in "+src)
@@ -395,12 +394,9 @@ def scan_source_ctypes(src):
     return hybs
 
 def remove_stdlib_imports(grp):
-    libs2 = stdlib_list("2.7")
-    libs3 = stdlib_list("3.4")
-    libs35 = stdlib_list("3.5")
     libs_3p = []
     for l in grp['imports']:
-        if l not in libs2 and l not in libs3 and l not in libs35:
+        if is_3p_lib(l):
             libs_3p.append(l)
     return libs_3p
 
@@ -425,7 +421,7 @@ def replace_unused_init_imports(raw_imports, unused, path):
                     if mods_unused[endidx_unused] == mods[endidx]:
                         new_i.append(mods[0]+"."+l_unused)
                         replaced = True
-                        print("Replacing "+l+" with "+mods[0]+"."+l_unused+" in init for "+src)
+                        debug("Replacing "+l+" with "+mods[0]+"."+l_unused+" in init for "+src)
                         break
 
                 if not replaced:

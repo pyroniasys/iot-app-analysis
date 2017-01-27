@@ -41,6 +41,7 @@ for c_f in lib_lists:
 
 def get_c_libs(libs_path, cat):
     no_pip = []
+    call_native = []
 
     # cleanup before we start
     imps_f = "pyflakes-out/"+cat+"-imports.txt"
@@ -73,6 +74,9 @@ def get_c_libs(libs_path, cat):
             print("--- "+lib)
 
             lib_path = "/tmp/"+lib
+            if os.path.isdir(lib_path+"/"+lib):
+                # this means that the lib has its own dir
+                lib_path = lib_path+"/"+lib
 
             if check_for_c_source(lib_path, lib):
                 print("Found a C-implementation")
@@ -113,40 +117,42 @@ def get_c_libs(libs_path, cat):
                             elif l == "os" or l == "subprocess" or l == "subprocess.call" or l == "subprocess.Popen":
                                 c = scan_source_native(src)
                                 if len(c) > 0:
-                                    c_libs.append(lib)
+                                    call_native.append(lib)
                                     print("Found call to native proc")
                                     break
 
-                        c_libs = remove_dups(c_libs)
+                    if lib not in c_libs:
+                        # this is the main case where we need to replace libs etc
+                        # make sure to sort the sources to have a deterministic analysis
+                        imps['raw_imports'] = OrderedDict(sorted(imps['raw_imports'].items(), key=lambda t: t[0]))
 
-                        if lib not in c_libs:
-                            # this is the main case where we need to replace libs etc
-                            # make sure to sort the sources to have a deterministic analysis
-                            imps['raw_imports'] = OrderedDict(sorted(imps['raw_imports'].items(), key=lambda t: t[0]))
+                        imps['imports'] = replace_fp_mod_group(imps, lib_path, 'raw_imports', is_libs=True)
 
-                            imps['imports'] = replace_fp_mod_group(imps, lib_path, 'raw_imports')
+                        # we only want to store the pkg names
+                        imps['imports'] = get_pkg_names(imps, 'imports')
 
-                            # we only want to store the pkg names
-                            imps['imports'] = get_pkg_names(imps, 'imports')
+                        # iterate over all imports and prune away all std lib imports
+                        print("Removing all python std lib imports")
+                        imps['imports'] = remove_stdlib_imports(imps)
 
-                            # iterate over all imports and prune away all std lib imports
-                            print("Removing all python std lib imports")
-                            imps['imports'] = remove_stdlib_imports(imps)
-
-                            if len(imps['imports']) == 0:
-                                print("No 3-p imports: pure python lib")
-                                py_libs.append(lib)
-                            else:
-                                print("Found 3-p imports, so need further investigation")
-                                libs_3p[lib] = imps['imports']
+                        if len(imps['imports']) == 0:
+                            print("No 3-p imports: pure python lib")
+                            py_libs.append(lib)
+                        else:
+                            print("Found 3-p imports, so need further investigation")
+                            libs_3p[lib] = imps['imports']
 
             # we don't care about unused imports at this point
         except subprocess.CalledProcessError:
             no_pip.append(lib)
 
+    c_libs = remove_dups(c_libs)
+    call_native = remove_dups(call_native)
+
     write_list_raw(no_pip, "corpus/"+cat+"-no-pip.txt")
+    write_list_raw(call_native, "corpus/"+cat+"-ext-proc.txt")
     write_list_raw(c_libs, "corpus/"+cat+"-c-libs.txt")
-    write_list_raw(p_libs, "corpus/"+cat+"-py-libs.txt")
-    write_list_raw(libs_3p, "corpus/"+cat+"-3p-libs.txt")
+    write_list_raw(py_libs, "corpus/"+cat+"-py-libs.txt")
+    write_map(libs_3p, "corpus/"+cat+"-3p-libs.txt", perm="w+")
 
 get_c_libs("corpus/", "all")

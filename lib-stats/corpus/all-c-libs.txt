@@ -1,0 +1,13 @@
+Adafruit_BBIO
+bs4
+hid
+keyring
+libnacl
+miniupnpc
+mysql
+netifaces
+picamera
+pigpio
+pyglet
+spidev
+telegram

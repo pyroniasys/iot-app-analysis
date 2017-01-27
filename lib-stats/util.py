@@ -2,10 +2,10 @@
 
 import json
 from collections import OrderedDict
-from operator import itemgetter
+from stdlib_list import stdlib_list
 
 STATS_FILE = "analysis/stats.txt"
-DEBUG = False
+DEBUG = True
 
 def debug(msg):
     if DEBUG:
@@ -26,6 +26,14 @@ def read_set(name):
 
 def is_native(lib):
     if ("- os" in lib) or ("- CLI" in lib) or (" - subprocess" in lib):
+        return True
+    return False
+
+def is_3p_lib(l):
+    libs2 = stdlib_list("2.7")
+    libs3 = stdlib_list("3.4")
+    libs35 = stdlib_list("3.5")
+    if l not in libs2 and l not in libs3 and l not in libs35:
         return True
     return False
 
