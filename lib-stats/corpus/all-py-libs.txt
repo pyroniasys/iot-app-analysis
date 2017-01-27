@@ -1,6 +1,5 @@
 CHIP_IO
 ISStreamer
-RPi.GPIO
 apcaccess
 async_timeout
 batinfo

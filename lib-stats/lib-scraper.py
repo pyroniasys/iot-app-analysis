@@ -74,7 +74,12 @@ def get_c_libs(libs_path, cat):
             print("--- "+lib)
 
             lib_path = "/tmp/"+lib
-            if os.path.isdir(lib_path+"/"+lib):
+
+            if lib == "RPi.GPIO":
+                # make an exception for RPi.GPIO since it's the
+                # only lib that only has a subpackage
+                lib_path = lib_path+"/RPi/GPIO"
+            elif os.path.isdir(lib_path+"/"+lib):
                 # this means that the lib has its own dir
                 lib_path = lib_path+"/"+lib
 
@@ -92,7 +97,7 @@ def get_c_libs(libs_path, cat):
                     c_libs.append(lib)
                 # this means pyflakes found a single empty __init__.py file
                 elif len(imports_raw) == 1 and len(unused_raw) == 1 and imports_raw.get(lib_path+"/__init__.py") != None and len(imports_raw.get(lib_path+"/__init__.py")) == 0 and unused_raw.get(lib_path+"/__init__.py") != None and len(unused_raw.get(lib_path+"/__init__.py")) == 0:
-                    print("C implementation likely elsewhere ")
+                    print("C implementation likely elsewhere (no imports)")
                     c_libs.append(lib)
                 else:
                     imps['unused'] = unused_raw
@@ -101,6 +106,13 @@ def get_c_libs(libs_path, cat):
                     # iterate over the raw_imports to replace any pkg-level
                     # imports in any "unused" __init__.py files
                     imps['raw_imports'] = replace_unused_init_imports(imps['raw_imports'], imps['unused'], lib_path)
+
+                    # at this point, if we've replaced the init imports
+                    # and the imports are still empty, we can be pretty
+                    # sure that we have a c implementation elsewhere
+                    if len(imps['raw_imports']) == 1 and imps['raw_imports'].get(lib_path+"/__init__.py") != None and len(imps['raw_imports'].get(lib_path+"/__init__.py")) == 0:
+                        print("C implementation likely elsewhere (with imports)")
+                        c_libs.append(lib)
 
                     # iterate over the raw_imports to collect the ones that use ctypes
                     # for libs, this means, if we find a ctypes.CDLL, we are calling
@@ -155,4 +167,5 @@ def get_c_libs(libs_path, cat):
     write_list_raw(py_libs, "corpus/"+cat+"-py-libs.txt")
     write_map(libs_3p, "corpus/"+cat+"-3p-libs.txt", perm="w+")
 
-get_c_libs("corpus/", "all")
+lib_list = sys.argv[1]
+get_c_libs("corpus/", lib_list)
