@@ -1,11 +1,16 @@
 Number of total apps, visual, audio, env, multi: 85, 25, 24, 24, 12
-Number of libs: 272
-Number of audio libs: 43
-Number of env libs: 42
-Number of multi libs: 208
-Number of visual libs: 29
-Number of common libs: 188
-Number of audio-only libs: 34
-Number of env-only libs: 30
-Number of visual-only libs: 20
+Number of distinct 3p libs: 272
+Avg number of 3p imports per app: 5.7
+Top 5 libs by frequency (in % of apps): 
+RPi.GPIO: 44.7
+requests: 23.5
+picamera: 21.2
+alsaaudio: 11.8
+cherrypy: 11.8
 Number of unused libs: 75
+Top 5 unused libs by frequency (in % of apps): 
+os: 32.9
+sys: 25.9
+time: 25.9
+random: 15.3
+subprocess: 11.8

@@ -34,14 +34,20 @@ libs['visual'] = read_set("corpus/visual-libs.txt")
 # count the number of distinct libs among all lib sets
 distinct_libs = get_distinct(libs)
 num_libs = len(distinct_libs)
+num_imports = len(libs['audio'])+len(libs['env'])+len(libs['multi'])+len(libs['visual'])
 
-write_val(num_libs, "libs")
+write_val(num_libs, "distinct 3p libs")
 write_list_raw(distinct_libs, "corpus/all-libs.txt")
 
+avg_lib_per_app = "%.1f" % (num_imports/num_apps)
+write_str(avg_lib_per_app, "Avg number of 3p imports per app")
+
+'''
 # also want to know how many distinct libs were found in each category
 for cat in libs:
     dist = get_distinct_cat(cat, libs)
     write_val(len(dist), cat+" libs")
+'''
 
 # get all common libs
 common_libs = get_common(libs)
@@ -66,17 +72,31 @@ for l in libs['multi']:
         common_libs[l] = 1
 
 # now print the aggregate common and unique libs
-write_val(len(common_libs), "common libs")
+#write_val(len(common_libs), "common libs")
 write_freq_map(common_libs, filename="analysis/common-lib-freq.txt", perm="w+")
 
 write_list_raw(common_libs.keys(), "corpus/common-libs.txt")
 
-write_val(len(only_libs['audio']), "audio-only libs")
+#write_val(len(only_libs['audio']), "audio-only libs")
 write_freq_map(only_libs['audio'], filename="analysis/audio-lib-freq.txt", perm="w+")
-write_val(len(only_libs['env']), "env-only libs")
+#write_val(len(only_libs['env']), "env-only libs")
 write_freq_map(only_libs['env'], filename="analysis/env-lib-freq.txt", perm="w+")
-write_val(len(only_libs['visual']), "visual-only libs")
+#write_val(len(only_libs['visual']), "visual-only libs")
 write_freq_map(only_libs['visual'], filename="analysis/visual-lib-freq.txt", perm="w+")
+
+# get overall top 5
+all_freq = OrderedDict()
+for typ in only_libs:
+    for l, ct in only_libs[typ].items():
+        all_freq[l] = ct
+
+for l, ct in common_libs.items():
+    all_freq[l] = ct
+
+write_freq_map(all_freq, filename="analysis/all-lib-freq.txt", perm="w+")
+
+write_str("", "Top 5 libs by frequency (in % of apps)")
+write_list_raw(get_top_5_freq(all_freq, num_apps), STATS_FILE, perm="a+", sort=False)
 
 # get all the unused libs
 unused = OrderedDict()
@@ -93,3 +113,6 @@ for cat in unused:
 write_list_raw(distinct_unused.keys(), "corpus/all-unused-libs.txt")
 write_val(len(distinct_unused), "unused libs")
 write_freq_map(distinct_unused, filename="analysis/unused-freq.txt", perm="w+")
+
+write_str("", "Top 5 unused libs by frequency (in % of apps)")
+write_list_raw(get_top_5_freq(distinct_unused, num_apps), STATS_FILE, perm="a+", sort=False)

@@ -133,6 +133,11 @@ def write_val(v, name, filename=STATS_FILE):
     f.write("Number of "+name+": "+str(v)+"\n")
     f.close()
 
+def write_str(v, s, filename=STATS_FILE):
+    f = open(filename, "a+")
+    f.write(s+": "+str(v)+"\n")
+    f.close()
+
 def write_list(l, filename, name=None, perm="a+"):
     f = open(filename, perm)
     if name != None:
@@ -141,9 +146,12 @@ def write_list(l, filename, name=None, perm="a+"):
     f.close()
 
 # TODO: merp, switch the default permission to "a+"
-def write_list_raw(l, filename, perm="w+"):
+def write_list_raw(l, filename, perm="w+", sort=True):
     f = open(filename, perm)
-    for i in sorted(l):
+    li = l
+    if sort:
+        li = sorted(l)
+    for i in li:
         f.write(str(i)+"\n")
     f.close()
 
@@ -157,8 +165,30 @@ def write_map(m, filename, name=None, perm="a+", sort=False):
     f.write(json.dumps(d, indent=4)+"\n")
     f.close()
 
+def sort_freq_map(m):
+    d = OrderedDict(sorted(m.items(), key=lambda kv: (-kv[1], kv[0])))
+    return d
+
+def map2list(m):
+    l = []
+    for k, v in m.items():
+        l.append(k+": %.1f" % v)
+    return l
+
+def get_top_5_freq(m, total):
+    d = sort_freq_map(m)
+    count = 0
+    top5 = OrderedDict()
+    for l, ct in d.items():
+        if count == 5:
+            break
+        freq = (ct/total)*100
+        top5[l] = freq
+        count += 1
+    return map2list(top5)
+
 # sort dict by values in descreasing order, then keys in regular order
 # From http://stackoverflow.com/questions/9919342/sorting-a-dictionary-by-value-then-key
 def write_freq_map(m, filename=STATS_FILE, perm="a+"):
-    d = OrderedDict(sorted(m.items(), key=lambda kv: (-kv[1], kv[0])))
+    d = sort_freq_map(m)
     write_map(d, filename, perm=perm)
