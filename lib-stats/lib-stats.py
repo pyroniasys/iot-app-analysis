@@ -91,7 +91,15 @@ for l, ct in common_libs.items():
 write_freq_map(all_freq, filename="analysis/all-lib-freq.txt", perm="w+")
 
 write_str("", "Top 5 libs by frequency (in % of apps)")
-write_list_raw(get_top_5_freq(all_freq, num_apps), STATS_FILE, perm="a+", sort=False)
+write_list_raw(map2list(get_top_n_freq(5, all_freq, num_apps)), STATS_FILE, perm="a+", sort=False)
+
+# collect the top 50 libs
+top50 = get_top_n_freq(50, all_freq, num_apps)
+write_freq_map(top50, filename="corpus/top50-lib-freq.txt", perm="w+")
+top50_list = []
+for l in top50:
+    top50_list.append(l)
+write_list_raw(top50_list, "corpus/top50-libs.txt", sort=False)
 
 # get the number of apps that call an external proc
 call_native = OrderedDict()
@@ -165,4 +173,4 @@ write_val(str(len(distinct_unused))+" ("+str(len(unused_3p))+")", "unused libs (
 write_freq_map(distinct_unused, filename="analysis/unused-freq.txt", perm="w+")
 
 write_str("", "Top 5 unused 3p libs by frequency (in % of apps)")
-write_list_raw(get_top_5_freq(unused_3p, num_apps), STATS_FILE, perm="a+", sort=False)
+write_list_raw(map2list(get_top_n_freq(5, unused_3p, num_apps)), STATS_FILE, perm="a+", sort=False)

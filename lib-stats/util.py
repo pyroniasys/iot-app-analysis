@@ -183,17 +183,17 @@ def map2list(m):
         l.append(k+": %.1f" % v)
     return l
 
-def get_top_5_freq(m, total):
+def get_top_n_freq(n, m, total):
     d = sort_freq_map(m)
     count = 0
-    top5 = OrderedDict()
+    top = OrderedDict()
     for l, ct in d.items():
-        if count == 5:
+        if count == n:
             break
         freq = (ct/total)*100
-        top5[l] = freq
+        top[l] = freq
         count += 1
-    return map2list(top5)
+    return top
 
 # sort dict by values in descreasing order, then keys in regular order
 # From http://stackoverflow.com/questions/9919342/sorting-a-dictionary-by-value-then-key

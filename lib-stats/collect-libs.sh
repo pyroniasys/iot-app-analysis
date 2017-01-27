@@ -1,3 +1,5 @@
 #!/bin/bash
 
-python3 lib-scraper.py > lib-collect.out 2>&1
+LIST=$1
+
+python3 lib-scraper.py $LIST > $LIST-lib-collect.out 2>&1
