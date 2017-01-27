@@ -97,6 +97,9 @@ def get_pkg_names(app, target):
         elif "concurrent.futures" in lib:
             # need to make an exception for stdlib concurrent.futures
             tlp = "concurrent.futures"
+        elif "pkg_resources" in lib:
+            # pkg_resources is a subpackage of setuptools
+            tlp = "setuptools"
         elif lib.startswith("Image"):
             # apparently, you can import all of PIL or just subpkgs directly
             # so just rename any PIL subpkg to PIL

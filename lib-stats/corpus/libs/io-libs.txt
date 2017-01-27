@@ -1,18 +1,18 @@
-wiringpi2, https://github.com/WiringPi/WiringPi/archive/9a8f8bee5df60061645918231110a7c2e4d3fa6b.zip
-CHIP_IO, https://github.com/xtacocorex/CHIP_IO/archive/master.zip
-hid, https://github.com/apmorton/pyhidapi/archive/master.zip
-pyA20, https://github.com/OLIMEX/OLINUXINO/tree/master/SOFTWARE/Python/pyA20
-pywinusb, https://github.com/rene-aguirre/pywinusb/archive/master.zip
-tentacle_pi, https://github.com/lexruee/tentacle_pi/archive/master.zip
-usb, https://github.com/walac/pyusb/archive/master.zip
-Adafruit_BBIO, https://github.com/adafruit/adafruit-beaglebone-io-python/archive/master.zip
-Adafruit_GPIO, https://github.com/adafruit/Adafruit_Python_GPIO/archive/master.zip
-grovepi, https://github.com/DexterInd/GrovePi/tree/master/Software/Python
-pigpio, https://github.com/joan2937/pigpio/archive/master.zip
-webiopi, https://sourceforge.net/projects/webiopi/files/WebIOPi-0.7.1.tar.gz
-wiringpi, https://github.com/WiringPi/WiringPi/archive/9a8f8bee5df60061645918231110a7c2e4d3fa6b.zip
-RPi.GPIO, https://sourceforge.net/projects/raspberry-gpio-python/files/RPi.GPIO-0.6.3.tar.gz
-serial, https://github.com/pyserial/pyserial/archive/master.zip
-mraa, https://github.com/intel-iot-devkit/mraa/archive/master.zip
-smbus, https://github.com/bivab/smbus-cffi/archive/master.zip
-PyMata, https://github.com/MrYsLab/PyMata/archive/master.zip
+wiringpi2
+CHIP_IO
+hid
+pyA20
+pywinusb
+tentacle_pi
+usb
+Adafruit_BBIO
+Adafruit_GPIO
+grovepi
+pigpio
+webiopi
+wiringpi
+RPi.GPIO
+serial
+mraa
+smbus
+PyMata

@@ -1,10 +1,13 @@
-monotonic, https://github.com/atdt/monotonic
-magic, https://github.com/ahupp/python-magic/archive/master.zip
-async_timeout, https://github.com/aio-libs/async-timeout/archive/master.zip
-batinfo, https://github.com/nicolargo/batinfo/archive/master.zip
-colorlog, https://github.com/borntyping/python-colorlog/archive/master.zip
-cpuinfo, https://github.com/workhorsy/py-cpuinfo/archive/master.zip
-dateutil, https://github.com/dateutil/dateutil/archive/master.zip
-distro, https://github.com/nir0s/distro/archive/master.zip
-evdev, https://github.com/gvalkov/python-evdev/archive/master.zip
-gps3, https://github.com/wadda/gps3/archive/master.zip
+monotonic
+magic
+async_timeout
+batinfo
+colorlog
+cpuinfo
+dateutil
+distro
+evdev
+gps3
+pexpect
+psutil
+py4j

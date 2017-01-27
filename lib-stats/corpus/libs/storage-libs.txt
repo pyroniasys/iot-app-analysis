@@ -1,4 +1,5 @@
-memcache, https://github.com/linsomniac/python-memcached
-pymongo, https://github.com/mongodb/mongo-python-driver
-MySQLdb, https://github.com/farcepest/MySQLdb1/archive/master.zip
-SynologyDSM, https://github.com/StaticCube/python-synology/archive/master.zip
+memcache
+pymongo
+MySQLdb
+SynologyDSM
+mysql

@@ -92,7 +92,6 @@ passlib
 pdunehd
 pexpect
 phue
-pkg_resources
 plexapi
 pmsensor
 powerview_api
@@ -156,6 +155,7 @@ schiene
 scsgate
 sense_hat
 serial
+setuptools
 sharp_aquos_rc
 slacker
 sleekxmpp

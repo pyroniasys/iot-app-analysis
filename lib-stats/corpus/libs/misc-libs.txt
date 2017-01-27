@@ -1,5 +1,4 @@
-mock, https://github.com/testing-cabal/mock
-zope, https://github.com/zopefoundation/zope.interface
-blockchain, https://github.com/blockchain/api-v1-client-python/archive/master.zip
-fixerio, https://github.com/amatellanes/fixerio/archive/master.zip
-haalpr, https://github.com/pvizeli/ha-alpr/archive/master.zip
+mock
+zope
+blockchain
+fixerio

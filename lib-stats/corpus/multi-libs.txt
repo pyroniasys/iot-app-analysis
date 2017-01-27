@@ -116,7 +116,6 @@ picamera
 picamera
 picamera
 picamera
-pkg_resources
 plexapi
 pmsensor
 pocketsphinx
@@ -191,6 +190,7 @@ sense_hat
 serial
 serial
 serial
+setuptools
 sharp_aquos_rc
 slacker
 sleekxmpp

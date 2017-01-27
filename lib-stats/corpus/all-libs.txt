@@ -139,7 +139,6 @@ phue
 pi_switch
 picamera
 pigpio
-pkg_resources
 plexapi
 pmsensor
 pocketsphinx
@@ -217,6 +216,7 @@ scsgate
 selenium
 sense_hat
 serial
+setuptools
 sharp_aquos_rc
 slacker
 sleekxmpp

@@ -1,8 +1,10 @@
-Adafruit_DHT, https://github.com/adafruit/Adafruit_Python_DHT
-APDS9300, https://github.com/sensorian/SensorianHubClient
-MPL3115A2, https://github.com/sensorian/SensorianHubClient
-adxl345, https://github.com/pimoroni/adxl345-python
-ouimeaux, https://github.com/iancmcc/ouimeaux
-pyupm_grove, https://github.com/intel-iot-devkit/upm/tree/master/src/grove
-w1thermsensor, https://github.com/timofurrer/w1thermsensor
-envirophat, https://github.com/pimoroni/enviro-phat/archive/master.zip
+Adafruit_DHT
+APDS9300
+MPL3115A2
+adxl345
+ouimeaux
+pyupm_grove
+w1thermsensor
+envirophat
+neurio
+pmsensor

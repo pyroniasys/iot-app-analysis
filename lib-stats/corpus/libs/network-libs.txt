@@ -1,29 +1,34 @@
-cherrypy, https://github.com/cherrypy/cherrypy
-pycurl, https://github.com/pycurl/pycurl
-grequests, https://github.com/kennethreitz/grequests
-nfc, https://github.com/nfcpy/nfcpy
-unirest, https://github.com/Mashape/unirest-python
-bluetooth, https://github.com/karulis/pybluez
-scapy, https://github.com/secdev/scapy
-flask_socketio, https://github.com/miguelgrinberg/Flask-SocketIO
-twisted, https://github.com/twisted/twisted
-xmpp, https://sourceforge.net/p/xmpppy/xmpppy/ci/master/tree
-websocket, https://github.com/websocket-client/websocket-client
-flask_login, https://github.com/maxcountryman/flask-login
-requests, https://github.com/kennethreitz/requests/archive/master.zip
-paho, https://github.com/eclipse/paho.mqtt.python/archive/master.zip
-flask, https://github.com/pallets/flask/archive/master.zip
-httplib2, https://github.com/jcgregorio/httplib2/archive/master.zip
-gevent, https://github.com/gevent/gevent/archive/master.zip
-aiohttp, https://github.com/KeepSafe/aiohttp/archive/master.zip
-aiohttp_cors, https://github.com/aio-libs/aiohttp-cors/archive/master.zip
-apcaccess, https://github.com/flyte/apcaccess/archive/develop.zip
-apns2, https://github.com/oeegor/apns2-client/archive/master.zip
-bluepy_devices, https://github.com/bimbar/bluepy_devices/archive/master.zip
-gattlib, https://bitbucket.org/OscarAcena/pygattlib/get/a858e8626a93.zip
-hbmqtt, https://github.com/beerfactory/hbmqtt/archive/master.zip
-jsonrpc_async, https://github.com/armills/jsonrpc-async/archive/master.zip
-jsonrpc_requests, https://github.com/gciotta/jsonrpc-requests/archive/master.zip
-libopenzwave, https://github.com/Julian/libopenzwave-cffi/archive/master.zip
-matrix_client, https://github.com/matrix-org/matrix-python-sdk/archive/master.zip
-miniupnpc, https://github.com/miniupnp/miniupnp/archive/master.zip
+cherrypy
+pycurl
+grequests
+nfc
+unirest
+bluetooth
+scapy
+flask_socketio
+twisted
+xmpp
+websocket
+flask_login
+requests
+paho
+flask
+httplib2
+gevent
+aiohttp
+aiohttp_cors
+apcaccess
+apns2
+bluepy_devices
+gattlib
+hbmqtt
+jsonrpc_async
+jsonrpc_requests
+libopenzwave
+matrix_client
+miniupnpc
+netaddr
+netdisco
+netifaces
+nmap
+openzwave

@@ -1,5 +1,5 @@
-pocketsphinx, https://github.com/bambocher/pocketsphinx-python
-speech_recognition, https://github.com/Uberi/speech_recognition
-gtts, https://github.com/pndurette/gTTS
-webrtcvad, https://github.com/wiseman/py-webrtcvad
-espeak, https://github.com/relsi/python-espeak
+pocketsphinx
+speech_recognition
+gtts
+webrtcvad
+espeak
