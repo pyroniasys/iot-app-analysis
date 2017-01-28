@@ -44,12 +44,17 @@ def get_libs_with_deps(top_lib, c_libs, py_libs, no_pip, call_native):
     queue = Queue()
     queue.put(top_lib)
 
+    downloaded = []
     while not queue.empty():
         try:
             lib = queue.get()
-            subprocess.check_output(["pip", "install", "--no-compile", "-t", "/tmp/"+lib, lib])
+            downloaded.append(lib)
+            subprocess.check_output(["pip", "install", "--no-deps", "--no-compile", "-t", "/tmp/"+lib, lib])
 
-            print("--- "+lib)
+            if lib == top_lib:
+                print("--- "+lib)
+            else:
+                print("------ "+lib)
 
             lib_path = "/tmp/"+lib
 
@@ -136,7 +141,9 @@ def get_libs_with_deps(top_lib, c_libs, py_libs, no_pip, call_native):
                                 # remove any 3p imports that are in c_libs, py_libs
                                 # remove any 3p imports of setuptools
                                 if l != lib and l not in c_libs and l not in py_libs and l != "setuptools":
-                                    queue.put(l)
+                                    if l not in downloaded:
+                                        queue.put(l)
+                                        downloaded.append(l)
 
 
             # we don't care about unused imports at this point
@@ -183,4 +190,3 @@ write_list_raw(no_pip, "corpus/"+cat+"-no-pip.txt")
 write_list_raw(call_native, "corpus/"+cat+"-ext-proc.txt")
 write_list_raw(c_libs, "corpus/"+cat+"-c-libs.txt")
 write_list_raw(py_libs, "corpus/"+cat+"-py-libs.txt")
-write_map(scraped_3p, "corpus/"+cat+"-3p-libs.txt", perm="w+")
