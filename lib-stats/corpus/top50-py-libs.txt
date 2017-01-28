@@ -2,4 +2,3 @@ ISStreamer
 feedparser
 httplib2
 monotonic
-wiringpi2

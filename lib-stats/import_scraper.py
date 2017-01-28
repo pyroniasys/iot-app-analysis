@@ -273,6 +273,18 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
     # let's check if none of the possible imports exist
     if srcs_dict.get(py_file) == None and srcs_dict.get(sibling_py_file) == None and srcs_dict.get(higher_py_file) == None and srcs_dict.get(init_file) == None and srcs_dict.get(obj_mod) == None and srcs_dict.get(sibling_obj_mod) == None and srcs_dict.get(higher_obj_mod) == None and srcs_dict.get(subdir_init_file) == None and srcs_dict.get(sibling_init_file) == None and not os.path.isdir(subdir) and not os.path.isdir(sibling_subdir) and not os.path.isdir(higher_subdir):
         debug("0")
+        if is_libs and "/packages/" in src_dir:
+            # it's likely that this import is actually in the lib's dependency
+            p = src_dir.split("/")
+            dep_idx = 0
+            for d in p:
+                # traverse the source path until we find the dependency
+                if d == "packages":
+                    break
+                dep_idx += 1
+            dep = p[dep_idx+1]
+            return [dep]
+
         return [imp]
 
     else:
@@ -321,7 +333,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
             else:
                 visited.append(src)
                 for m in srcs_dict[src]:
-                    replacements = replace_fp_mod(app, get_super_dir(app, src), get_src_dir(src), m, srcs_dict, visited)
+                    replacements = replace_fp_mod(app, get_super_dir(app, src), get_src_dir(src), m, srcs_dict, visited, is_libs)
                     l.extend(replacements)
         return l
 

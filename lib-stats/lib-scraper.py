@@ -7,6 +7,7 @@
 import os
 import sys
 import subprocess
+from queue import Queue
 
 from collections import OrderedDict
 
@@ -39,37 +40,14 @@ for c_f in lib_lists:
         cats[cat] = OrderedDict()
 '''
 
-def get_c_libs(libs_path, cat):
-    no_pip = []
-    call_native = []
+def get_libs_with_deps(top_lib, c_libs, py_libs, no_pip, call_native):
+    queue = Queue()
+    queue.put(top_lib)
 
-    # cleanup before we start
-    imps_f = "pyflakes-out/"+cat+"-imports.txt"
-    unused_f = "pyflakes-out/"+cat+"-unused.txt"
-    py3_report_f = "pyflakes-out/"+cat+"-py3-report.txt"
-    py2_report_f = "pyflakes-out/"+cat+"-py2-report.txt"
-    if os.path.isfile(imps_f):
-        os.remove(imps_f)
-    if os.path.isfile(unused_f):
-        os.remove(unused_f)
-    if os.path.isfile(py3_report_f):
-        os.remove(py3_report_f)
-    if os.path.isfile(py2_report_f):
-        os.remove(py2_report_f)
-
-    f = open(libs_path+cat+"-libs.txt", "r")
-    libs = f.readlines()
-    f.close()
-
-    print("Number of libs in "+cat+": "+str(len(libs)))
-
-    c_libs = []
-    py_libs = []
-    libs_3p = OrderedDict()
-    for l in libs:
-        lib = l.strip()
+    while not queue.empty():
         try:
-            subprocess.check_output(["pip", "install", "--no-deps", "--no-compile", "-t", "/tmp/"+lib, lib])
+            lib = queue.get()
+            subprocess.check_output(["pip", "install", "--no-compile", "-t", "/tmp/"+lib, lib])
 
             print("--- "+lib)
 
@@ -85,7 +63,7 @@ def get_c_libs(libs_path, cat):
 
             if check_for_c_source(lib_path, lib):
                 print("Found a C-implementation")
-                c_libs.append(lib)
+                c_libs.append(top_lib)
             else:
                 imports_raw, unused_raw = extract_imports(cat, lib_path)
 
@@ -94,11 +72,11 @@ def get_c_libs(libs_path, cat):
                 # this means pyflakes didn't find any .py files in the source
                 if len(imports_raw) == 0 and len(unused_raw) == 0:
                     print("No python sources found")
-                    c_libs.append(lib)
+                    c_libs.append(top_lib)
                 # this means pyflakes found a single empty __init__.py file
                 elif len(imports_raw) == 1 and len(unused_raw) == 1 and imports_raw.get(lib_path+"/__init__.py") != None and len(imports_raw.get(lib_path+"/__init__.py")) == 0 and unused_raw.get(lib_path+"/__init__.py") != None and len(unused_raw.get(lib_path+"/__init__.py")) == 0:
                     print("C implementation likely elsewhere (no imports)")
-                    c_libs.append(lib)
+                    c_libs.append(top_lib)
                 else:
                     imps['unused'] = unused_raw
                     imps['raw_imports'] = imports_raw
@@ -112,7 +90,7 @@ def get_c_libs(libs_path, cat):
                     # sure that we have a c implementation elsewhere
                     if len(imps['raw_imports']) == 1 and imps['raw_imports'].get(lib_path+"/__init__.py") != None and len(imps['raw_imports'].get(lib_path+"/__init__.py")) == 0:
                         print("C implementation likely elsewhere (with imports)")
-                        c_libs.append(lib)
+                        c_libs.append(top_lib)
 
                     # iterate over the raw_imports to collect the ones that use ctypes
                     # for libs, this means, if we find a ctypes.CDLL, we are calling
@@ -122,14 +100,14 @@ def get_c_libs(libs_path, cat):
                             if l == "ctypes":
                                 lds = scan_source_ctypes(src)
                                 if len(lds) > 0:
-                                    c_libs.append(lib)
+                                    c_libs.append(top_lib)
                                     print("Found ctypes wrapper")
                                     break
 
                             elif l == "os" or l == "subprocess" or l == "subprocess.call" or l == "subprocess.Popen":
                                 c = scan_source_native(src)
                                 if len(c) > 0:
-                                    call_native.append(lib)
+                                    call_native.append(top_lib)
                                     print("Found call to native proc")
                                     break
 
@@ -149,10 +127,17 @@ def get_c_libs(libs_path, cat):
 
                         if len(imps['imports']) == 0:
                             print("No 3-p imports: pure python lib")
-                            py_libs.append(lib)
+                            py_libs.append(top_lib)
                         else:
-                            print("Found 3-p imports, so need further investigation")
-                            libs_3p[lib] = imps['imports']
+                            print("Found 3-p imports, so we're going to add those to the queue")
+                            clean = []
+                            for l in imps['imports']:
+                                # remove any 3p imports that are the lib itself
+                                # remove any 3p imports that are in c_libs, py_libs
+                                # remove any 3p imports of setuptools
+                                if l != lib and l not in c_libs and l not in py_libs and l != "setuptools":
+                                    queue.put(l)
+
 
             # we don't care about unused imports at this point
         except subprocess.CalledProcessError:
@@ -161,11 +146,41 @@ def get_c_libs(libs_path, cat):
     c_libs = remove_dups(c_libs)
     call_native = remove_dups(call_native)
 
-    write_list_raw(no_pip, "corpus/"+cat+"-no-pip.txt")
-    write_list_raw(call_native, "corpus/"+cat+"-ext-proc.txt")
-    write_list_raw(c_libs, "corpus/"+cat+"-c-libs.txt")
-    write_list_raw(py_libs, "corpus/"+cat+"-py-libs.txt")
-    write_map(libs_3p, "corpus/"+cat+"-3p-libs.txt", perm="w+")
+#### MAIN ###
 
-lib_list = sys.argv[1]
-get_c_libs("corpus/", lib_list)
+cat = sys.argv[1]
+
+# cleanup before we start
+imps_f = "pyflakes-out/"+cat+"-imports.txt"
+unused_f = "pyflakes-out/"+cat+"-unused.txt"
+py3_report_f = "pyflakes-out/"+cat+"-py3-report.txt"
+py2_report_f = "pyflakes-out/"+cat+"-py2-report.txt"
+if os.path.isfile(imps_f):
+    os.remove(imps_f)
+if os.path.isfile(unused_f):
+    os.remove(unused_f)
+if os.path.isfile(py3_report_f):
+    os.remove(py3_report_f)
+if os.path.isfile(py2_report_f):
+    os.remove(py2_report_f)
+
+f = open("corpus/"+cat+"-libs.txt", "r")
+libs = f.readlines()
+f.close()
+
+print("Number of libs in "+cat+": "+str(len(libs)))
+
+c_libs = []
+py_libs = []
+no_pip = []
+call_native = []
+
+for l in libs:
+    lib = l.strip()
+    get_libs_with_deps(lib, c_libs, py_libs, no_pip, call_native)
+
+write_list_raw(no_pip, "corpus/"+cat+"-no-pip.txt")
+write_list_raw(call_native, "corpus/"+cat+"-ext-proc.txt")
+write_list_raw(c_libs, "corpus/"+cat+"-c-libs.txt")
+write_list_raw(py_libs, "corpus/"+cat+"-py-libs.txt")
+write_map(scraped_3p, "corpus/"+cat+"-3p-libs.txt", perm="w+")

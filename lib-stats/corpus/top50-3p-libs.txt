@@ -1,42 +1,20 @@
 {
     "requests": [
-        "..packages.six.moves.http_client",
-        "..packages.six.moves.http_client.HTTPSConnection",
-        "..packages.six.moves.urllib.parse.urljoin",
-        ".packages.six.moves.http_client",
-        ".packages.six.moves.http_client.HTTPConnection",
-        ".packages.six.moves.http_client.IncompleteRead",
-        ".packages.six.moves.queue",
-        ".packages.six.moves.urllib.parse.urlencode",
-        ".packages.six.moves.urllib.parse.urljoin",
-        "OpenSSL",
-        "_abcoll",
-        "cryptography",
-        "idna",
-        "ntlm",
-        "six"
+        "chardet",
+        "urllib3"
     ],
     "cherrypy": [
         "_systemrestart",
         "cheroot",
-        "cherrypy",
         "coverage",
         "flup",
-        "memcache",
         "mod_python",
-        "nose",
-        "portend",
-        "setuptools",
         "six",
-        "testconfig",
         "xmlrpc"
     ],
     "flask": [
-        "click",
         "itsdangerous",
         "jinja2",
-        "posixpath",
-        "setuptools",
         "werkzeug"
     ],
     "pygame": [
@@ -47,7 +25,6 @@
         "VideoCapture",
         "numpy",
         "opencv",
-        "pygame",
         "win32api",
         "win32file",
         "win32pipe"
@@ -58,26 +35,18 @@
         "django",
         "flask",
         "google",
-        "httplib2",
-        "oauth2client",
         "pyasn1",
         "pyasn1_modules",
-        "rsa",
-        "six",
-        "webapp2"
+        "six"
     ],
     "webrtcvad": [
-        "_webrtcvad",
-        "setuptools"
+        "_webrtcvad"
     ],
     "AWSIoTPythonSDK": [
-        "AWSIoTPythonSDK",
         "dns"
     ],
     "boto3": [
-        "boto3",
         "botocore",
-        "jmespath",
         "s3transfer"
     ],
     "gtts": [
@@ -93,28 +62,16 @@
     "wolframalpha": [
         "jaraco",
         "pmxbot",
-        "six",
-        "wolframalpha",
-        "xmltodict"
+        "six"
     ],
     "dropbox": [
-        "msgpack",
-        "requests",
-        "setuptools",
-        "simplejson",
-        "six",
-        "urllib3"
+        "requests"
     ],
     "gevent": [
-        "_continuation",
         "_socket",
-        "cffi",
-        "gevent"
+        "cffi"
     ],
     "imutils": [
-        "cv2",
-        "numpy",
-        "picamera",
         "scipy"
     ],
     "numpy": [
@@ -184,17 +141,12 @@
         "code_generators",
         "genapi",
         "nose",
-        "numpy",
         "numpy_distutils",
-        "pytz",
-        "scipy",
-        "setuptools",
-        "win32pdh"
+        "pytz"
     ],
     "pubnub": [
         "Crypto",
         "Cryptodome",
-        "pubnub",
         "requests",
         "six",
         "tornado",
@@ -202,5 +154,8 @@
     ],
     "websocket": [
         "gevent"
+    ],
+    "wiringpi2": [
+        "_wiringpi"
     ]
 }

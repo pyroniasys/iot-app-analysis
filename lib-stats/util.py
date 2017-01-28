@@ -5,7 +5,7 @@ from collections import OrderedDict
 from stdlib_list import stdlib_list
 
 STATS_FILE = "analysis/stats.txt"
-DEBUG = True
+DEBUG = False
 
 def debug(msg):
     if DEBUG:
