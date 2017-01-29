@@ -1,33 +1,33 @@
 RPi.GPIO
 requests
 picamera
-alsaaudio
+alsaaudio, pyalsaaudio
 cherrypy
-memcache
-serial
-Adafruit_DHT
-cv2
-paho
+memcache, python-memcached
+serial, pyserial
+Adafruit_DHT, adafruit_python_dht
+cv2, opencv
+paho, paho-mqtt
 pocketsphinx
-PIL
+PIL, http://effbot.org/downloads/Imaging-1.1.7.tar.gz
 flask
 pygame
-speech_recognition
+speech_recognition, SpeechRecognition
 pyaudio
-MySQLdb
-bluetooth
-mraa
+MySQLdb, MySQL-python
+bluetooth, pybluez
+mraa, python-mraa
 oauth2client
-smbus
+smbus, smbus-cffi
 webrtcvad
-yaml
+yaml, pyyaml
 AWSIoTPythonSDK
 boto3
 gtts
 httplib2
 pycurl
 tweepy
-vlc
+vlc, python vlc
 wolframalpha
 Adafruit_BBIO
 ISStreamer
@@ -35,16 +35,16 @@ cec
 dropbox
 feedparser
 gevent
-googleapiclient
+googleapiclient, google-api-python-client
 imutils
 monotonic
 numpy
 pubnub
 scapy
-sphinxbase
+sphinxbase, pocketsphinx
 websocket
 wiringpi2
-xively
-yuv2rgb
-APDS9300
-Adafruit_CharLCDPlate
+xively, xively-python
+yuv2rgb, https://github.com/adafruit/adafruit-pi-cam/blob/master/yuv2rgb.c
+APDS9300, https://github.com/sensorian/SensorianHubClient/blob/master/APDS9300.py
+Adafruit_CharLCDPlate, Adafruit-CharLCD

@@ -8,6 +8,7 @@ import os
 import sys
 import subprocess
 from queue import Queue
+import time
 
 from collections import OrderedDict
 
@@ -40,16 +41,31 @@ for c_f in lib_lists:
         cats[cat] = OrderedDict()
 '''
 
-def get_libs_with_deps(top_lib, c_libs, py_libs, no_pip, call_native):
+def get_libs_with_deps(names, top_lib, c_libs):
+    is_c = False
+    call_native = False
+    no_pip = []
     queue = Queue()
-    queue.put(top_lib)
+
+    if names[top_lib] == "":
+        queue.put(top_lib)
+    else:
+        queue.put(names[top_lib])
 
     downloaded = []
     while not queue.empty():
         try:
             lib = queue.get()
             downloaded.append(lib)
-            subprocess.check_output(["pip", "install", "--no-deps", "--no-compile", "-t", "/tmp/"+lib, lib])
+
+            if lib.startswith("http"):
+                if lib.endswith(".gz"):
+                    os.system("wget -q -O /tmp/"+name+".tar.gz --no-directories "+lib)
+                    os.system("tar -xzfq /tmp/"+name+" /tmp/"+name+".tar.gz")
+                else:
+                    os.system("wget -q -P /tmp/"+name+" --no-directories "+lib)
+            else:
+                subprocess.check_output(["pip", "install", "--no-deps", "--no-compile", "-t", "/tmp/"+lib, lib])
 
             if lib == top_lib:
                 print("--- "+lib)
@@ -68,7 +84,7 @@ def get_libs_with_deps(top_lib, c_libs, py_libs, no_pip, call_native):
 
             if check_for_c_source(lib_path, lib):
                 print("Found a C-implementation")
-                c_libs.append(top_lib)
+                is_c = True
             else:
                 imports_raw, unused_raw = extract_imports(cat, lib_path)
 
@@ -77,11 +93,11 @@ def get_libs_with_deps(top_lib, c_libs, py_libs, no_pip, call_native):
                 # this means pyflakes didn't find any .py files in the source
                 if len(imports_raw) == 0 and len(unused_raw) == 0:
                     print("No python sources found")
-                    c_libs.append(top_lib)
+                    is_c = True
                 # this means pyflakes found a single empty __init__.py file
                 elif len(imports_raw) == 1 and len(unused_raw) == 1 and imports_raw.get(lib_path+"/__init__.py") != None and len(imports_raw.get(lib_path+"/__init__.py")) == 0 and unused_raw.get(lib_path+"/__init__.py") != None and len(unused_raw.get(lib_path+"/__init__.py")) == 0:
                     print("C implementation likely elsewhere (no imports)")
-                    c_libs.append(top_lib)
+                    is_c = True
                 else:
                     imps['unused'] = unused_raw
                     imps['raw_imports'] = imports_raw
@@ -95,7 +111,7 @@ def get_libs_with_deps(top_lib, c_libs, py_libs, no_pip, call_native):
                     # sure that we have a c implementation elsewhere
                     if len(imps['raw_imports']) == 1 and imps['raw_imports'].get(lib_path+"/__init__.py") != None and len(imps['raw_imports'].get(lib_path+"/__init__.py")) == 0:
                         print("C implementation likely elsewhere (with imports)")
-                        c_libs.append(top_lib)
+                        is_c = True
 
                     # iterate over the raw_imports to collect the ones that use ctypes
                     # for libs, this means, if we find a ctypes.CDLL, we are calling
@@ -105,16 +121,21 @@ def get_libs_with_deps(top_lib, c_libs, py_libs, no_pip, call_native):
                             if l == "ctypes":
                                 lds = scan_source_ctypes(src)
                                 if len(lds) > 0:
-                                    c_libs.append(top_lib)
+                                    is_c = True
                                     print("Found ctypes wrapper")
                                     break
 
                             elif l == "os" or l == "subprocess" or l == "subprocess.call" or l == "subprocess.Popen":
                                 c = scan_source_native(src)
                                 if len(c) > 0:
-                                    call_native.append(top_lib)
+                                    call_native = True
                                     print("Found call to native proc")
                                     break
+
+                    # at this point, if is_c is True, we can just return
+                    # because we know the lib is C
+                    if is_c:
+                        return is_c, call_native, []
 
                     if lib not in c_libs:
                         # this is the main case where we need to replace libs etc
@@ -130,9 +151,11 @@ def get_libs_with_deps(top_lib, c_libs, py_libs, no_pip, call_native):
                         print("Removing all python std lib imports")
                         imps['imports'] = remove_stdlib_imports(imps)
 
-                        if len(imps['imports']) == 0:
+                        if len(imps['imports']) == 0 and lib == top_lib:
                             print("No 3-p imports: pure python lib")
-                            py_libs.append(top_lib)
+                            is_c = False
+
+                            return is_c, call_native, []
                         else:
                             print("Found 3-p imports, so we're going to add those to the queue")
                             clean = []
@@ -141,17 +164,21 @@ def get_libs_with_deps(top_lib, c_libs, py_libs, no_pip, call_native):
                                 # remove any 3p imports that are in c_libs, py_libs
                                 # remove any 3p imports of setuptools
                                 if l != lib and l not in c_libs and l not in py_libs and l != "setuptools":
-                                    if l not in downloaded:
-                                        queue.put(l)
-                                        downloaded.append(l)
+                                    to_add = l
+                                    if names.get(l) != None and names[l] != "":
+                                            to_add = names[l]
 
+                                    if to_add not in downloaded:
+                                        queue.put(to_add)
+                                        downloaded.append(to_add)
 
             # we don't care about unused imports at this point
         except subprocess.CalledProcessError:
             no_pip.append(lib)
 
-    c_libs = remove_dups(c_libs)
-    call_native = remove_dups(call_native)
+        time.sleep(5) # sleep 5s to make sure we're not clobbering pip
+
+    return is_c, call_native, no_pip
 
 #### MAIN ###
 
@@ -181,10 +208,24 @@ c_libs = []
 py_libs = []
 no_pip = []
 call_native = []
-
+lib_names = OrderedDict()
 for l in libs:
-    lib = l.strip()
-    get_libs_with_deps(lib, c_libs, py_libs, no_pip, call_native)
+    pair = l.split(",")
+    lib = pair[0].strip()
+    lib_names[lib] = ""
+    if len(pair) == 2:
+         lib_names[lib] = pair[1].strip()
+    is_c, native, nopip = get_libs_with_deps(lib_names, lib, c_libs)
+
+    if len(nopip) == 0:
+        if is_c:
+            c_libs.append(lib)
+        else:
+            py_libs.append(lib)
+        if native:
+            call_native.append(lib)
+    else:
+        no_pip.extend(nopip)
 
 write_list_raw(no_pip, "corpus/"+cat+"-no-pip.txt")
 write_list_raw(call_native, "corpus/"+cat+"-ext-proc.txt")
