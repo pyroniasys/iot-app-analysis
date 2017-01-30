@@ -8,8 +8,8 @@ from pyflakes.api import checkRecursive, iterSourceCode
 
 from util import *
 
-def extract_imports(cat, path):
-    f = open("pyflakes-out/"+cat+"-py3-report.txt", "a+")
+def extract_imports(cat, path, perm="w+"):
+    f = open("pyflakes-out/"+cat+"-py3-report.txt", perm)
     reporter = modReporter.Reporter(f, f)
     # num = number of warnings, imps = used imports, un = unused imports
     num, imps, un = checkRecursive([path], reporter)
@@ -17,19 +17,14 @@ def extract_imports(cat, path):
 
     # the modules in this list are likely written in python2 so run pyflakes
     # on python2
-    os.system("python2 -m pyflakes "+path+" >> pyflakes-out/"+cat+"-py2-report.txt 2>&1")
+    redir = ">"
+    if perm == "a+":
+        redir = ">>"
+    os.system("python2 -m pyflakes "+path+" "+redir+" pyflakes-out/"+cat+"-py2-report.txt 2>&1")
 
     # now, let's parse the imports and unused
-    py2_imps_f = "pyflakes-out/imports-py2.txt"
-    py2_unused_f = "pyflakes-out/unused-py2.txt"
-    if os.path.isfile(py2_imps_f) and os.path.isfile(py2_unused_f):
-        imps_2 = read_map(py2_imps_f)
-        un_2 = read_map(py2_unused_f)
-        os.remove(py2_imps_f)
-        os.remove(py2_unused_f)
-    else:
-        imps_2 = {}
-        un_2 = {}
+    imps_2 = read_map("pyflakes-out/imports-py2.txt")
+    un_2 = read_map("pyflakes-out/unused-py2.txt")
 
     # the py2 run of flakes probably finds imports found by the py3 run
     # let's merge the two dicts
@@ -37,10 +32,11 @@ def extract_imports(cat, path):
     imports_raw = {**imps, **imps_2}
     unused_raw = {**un, **un_2}
 
-    if len(imports_raw) > 0:
-        write_map(imports_raw, "pyflakes-out/"+cat+"-imports.txt", sort=True)
-    if len(unused_raw) > 0:
-        write_map(unused_raw, "pyflakes-out/"+cat+"-unused.txt", sort=True)
+    write_map(imports_raw, "pyflakes-out/"+cat+"-imports.txt", perm=perm, sort=True)
+    write_map(unused_raw, "pyflakes-out/"+cat+"-unused.txt", perm=perm, sort=True)
+
+    os.remove("pyflakes-out/imports-py2.txt")
+    os.remove("pyflakes-out/unused-py2.txt")
 
     return imports_raw, unused_raw
 
@@ -74,6 +70,14 @@ def get_super_dir(app, path):
 def get_top_pkg_name(name):
     if name.count('.') >= 1:
         mod = name.split('.')
+
+        # this covers the ..module and .module cases
+        # we might see in the lib scraper
+        if mod[0] == "" and mod[1] == "":
+            return mod[2]
+        elif mod[0] == "":
+            return mod[1]
+
         return mod[0]
     else:
         return ""
@@ -126,10 +130,12 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
 
     mod = ""
     supermod = ""
+    incl_dep = ""
     single_imp = False
     src_dir_imp = False
     sibling_dir_imp = False
     higher_dir_imp = False
+    incl_dep_imp = False
     pref = ""
     if len(mods) == 1:
         # we're importing a single name
@@ -160,11 +166,17 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
             # we're importing a ..submodule from the sibling_dir
             mod = "/".join(mods[2:])
             supermod = "/".join(mods[2:len(mods)-1])
+            if mods[2] == "packages":
+                incl_dep_imp = True
+                incl_dep = mods[3]
         elif mods[0] == "":
             src_dir_imp = True
             # we're importing a .module from the src_dir
             mod = "/".join(mods[1:])
             supermod = "/".join(mods[1:len(mods)-1])
+            if mods[1] == "packages":
+                incl_dep_imp = True
+                incl_dep = mods[2]
         else:
             # we're probably importing from some other dir in the app dir
             mod = "/".join(mods)
@@ -208,6 +220,8 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
             obj_mod = src_dir+"/__init__.py"
 
         subdir_init_file = subdir+"/__init__.py"
+        if incl_dep_imp:
+            sibling_py_file = src_dir+"/"+incl_dep+".py"
     elif sibling_dir_imp:
         debug("sibling_dir_imp")
         # we're importing a module from a sibling dir
@@ -225,6 +239,8 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
             sibling_obj_mod = super_dir+"/__init__.py"
 
         subdir_init_file = sibling_subdir+"/__init__.py"
+        if incl_dep_imp:
+            py_file = super_dir+"/"+incl_dep+".py"
     elif higher_dir_imp:
         debug("higher_dir_imp")
         # we're importing a module from a dir that's higher than the sibling
@@ -273,16 +289,17 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
     # let's check if none of the possible imports exist
     if srcs_dict.get(py_file) == None and srcs_dict.get(sibling_py_file) == None and srcs_dict.get(higher_py_file) == None and srcs_dict.get(init_file) == None and srcs_dict.get(obj_mod) == None and srcs_dict.get(sibling_obj_mod) == None and srcs_dict.get(higher_obj_mod) == None and srcs_dict.get(subdir_init_file) == None and srcs_dict.get(sibling_init_file) == None and not os.path.isdir(subdir) and not os.path.isdir(sibling_subdir) and not os.path.isdir(higher_subdir):
         debug("0")
-        if is_libs and "/packages/" in src_dir:
+        if is_libs and "packages/" in mod:
             # it's likely that this import is actually in the lib's dependency
-            p = src_dir.split("/")
+            p = mod.split("/")
             dep_idx = 0
             for d in p:
                 # traverse the source path until we find the dependency
                 if d == "packages":
                     break
                 dep_idx += 1
-            dep = p[dep_idx+1]
+            # the actual lib being imported is under the dependency
+            dep = ".".join(p[dep_idx+1:])
             return [dep]
 
         return [imp]
@@ -362,7 +379,7 @@ def replace_fp_mod_group(grp_dict, g, target, is_libs=False):
     return remove_dups(libs)
 
 def call_native_proc(l):
-    if "os.system" in l or "os.spawnlp" in l or "os.popen" in l or "subprocess.call" in l or "subprocess.Popen" in l or "subprocess.check_output" in l or "Popen" in l or "call(" in l:
+    if "os.system" in l or "os.spawnlp" in l or "os.popen" in l or "subprocess.call" in l or "subprocess.Popen" in l or "subprocess.check_output" in l or "Popen(" in l or "call([" in l:
         return True
     return False
 
@@ -405,11 +422,36 @@ def scan_source_ctypes(src):
             hybs.append(clean)
     return hybs
 
+def search_shared_libs(path, lib):
+    shlibs = []
+    for dirpath, dirnames, filenames in os.walk(path):
+        for f in filenames:
+            f_hierarch = f.split("/")
+            filename = f_hierarch[len(f_hierarch)-1] # the actual filename is the last element
+            if filename.startswith(lib+".") and filename.endswith(".so"):
+                debug("Found shared lib: "+filename)
+                shlibs.append(filename)
+    return shlibs
+
+# this iterates through the python libs on disk
+# in case stdlib_list doesn't find a lib
+def check_stdlib_source(lib):
+    for dirpath, dirnames, filenames in os.walk("/usr/lib/python2.7"):
+        for filename in filenames:
+            if filename.endswith(lib+".py"):
+                return True
+    for dirpath, dirnames, filenames in os.walk("/usr/lib/python3.5"):
+        for filename in filenames:
+            if filename.endswith(lib+".py"):
+                return True
+    return False
+
 def remove_stdlib_imports(grp):
     libs_3p = []
     for l in grp['imports']:
-        if is_3p_lib(l):
+        if is_3p_lib(l) and not check_stdlib_source(l) and l != "__builtin__":
             libs_3p.append(l)
+
     return libs_3p
 
 def replace_unused_init_imports(raw_imports, unused, path):

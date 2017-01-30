@@ -35,7 +35,6 @@ apps/multi/devicePresenseAlert:
     "enocean",
     "evdev",
     "evohomeclient",
-    "feedparser",
     "fixerio",
     "forecastio",
     "freesms",
@@ -182,8 +181,6 @@ apps/multi/devicePresenseAlert:
 apps/multi/SmartMirror:
 [
     "cv2",
-    "dateutil",
-    "feedparser",
     "gtts",
     "py4j",
     "pydub",

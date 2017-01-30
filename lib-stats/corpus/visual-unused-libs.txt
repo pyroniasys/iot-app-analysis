@@ -10,6 +10,7 @@ datetime
 datetime
 email
 fcntl
+gdata
 getpass
 glob
 hashlib
@@ -18,6 +19,7 @@ io
 json
 json
 math
+numpy
 numpy
 numpy
 os

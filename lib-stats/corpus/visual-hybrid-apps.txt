@@ -1,1 +1,9 @@
-{}
+{
+    "apps/visual/PiNoculars": [
+        {
+            "apps/visual/PiNoculars/cam.py": [
+                "yuv2rgb.so"
+            ]
+        }
+    ]
+}

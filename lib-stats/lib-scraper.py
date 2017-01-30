@@ -18,167 +18,185 @@ from import_scraper import *
 # this goes through the entire lib hierarchy and looks for
 # a C-implementation of the lib
 def check_for_c_source(path, lib):
-    is_c = False
     for dirpath, dirnames, filenames in os.walk(path):
         for filename in filenames:
-            if filename == lib+".c" or filename == lib+".cpp":
-                is_c = True
-                break
-        if is_c:
-            break
-    return is_c
+            if filename == lib+".c" or filename == lib+".cpp" or filename == lib+"module.c" or filename == lib+"module.cpp" or (filename.startswith(lib+".") and filename.endswith(".so")):
+                debug("Found C source: "+filename)
+                return True
+    return False
 
-'''
-# expect libs and their URLs to be located at
-libs_path = "corpus/libs/"
-# let's get all the categories
-lib_lists = os.listdir(libs_path)
+def check_ctypes_wrapper(imps):
+    for src, i in imps['raw_imports'].items():
+        for l in i:
+            if l == "ctypes":
+                lds = scan_source_ctypes(src)
+                if len(lds) > 0:
+                    print("Found ctypes wrapper")
+                    return True
+    return False
 
-cats = OrderedDict()
-for c_f in lib_lists:
-    if not c_f.startswith('.'):
-        cat = c_f.split("-")[0].strip()
-        cats[cat] = OrderedDict()
-'''
+def check_shared_libs(path, lib):
+    shlibs = search_shared_libs(path, lib)
+    if len(shlibs) > 0:
+        return True
+    return False
 
-def get_libs_with_deps(names, top_lib, c_libs):
-    is_c = False
-    call_native = False
+def check_ext_proc_calls(imps):
+    for src, i in imps['raw_imports'].items():
+        for l in i:
+            if l == "os" or l == "subprocess" or l == "subprocess.call" or l == "subprocess.Popen" or "os." in l:
+                c = scan_source_native(src)
+                if len(c) > 0:
+                    print("Found call to native proc")
+                    return True
+    return False
+
+def get_libs_with_deps(names, lib, visited, clibs, shlibs, extproc):
     no_pip = []
-    queue = Queue()
 
-    if names[top_lib] == "":
-        queue.put(top_lib)
+    print("---- "+lib)
+
+    # this covers the case in which we download a lib we've seen in
+    # a previous call of get_libs_with_deps
+    if lib in clibs or lib in shlibs or lib in extproc:
+        print("Found "+lib+" in c libs, shared libs, or ext proc calls")
+        c = []
+        s = []
+        n = []
+        if lib in clibs:
+            c = [lib]
+        if lib in shlibs:
+            s = [lib]
+        if lib in extproc:
+            n = [lib]
+        return c, s, n, no_pip
+
+    # the alternative name
+    if names.get(lib) != None and names[lib] != "":
+        downl = names[lib]
     else:
-        queue.put(names[top_lib])
+        downl = lib
 
-    downloaded = []
-    while not queue.empty():
-        try:
-            lib = queue.get()
-            downloaded.append(lib)
+    lib_path = "/tmp/"+lib
 
-            if lib.startswith("http"):
-                if lib.endswith(".gz"):
-                    os.system("wget -q -O /tmp/"+name+".tar.gz --no-directories "+lib)
-                    os.system("tar -xzfq /tmp/"+name+" /tmp/"+name+".tar.gz")
-                else:
-                    os.system("wget -q -P /tmp/"+name+" --no-directories "+lib)
-            else:
-                subprocess.check_output(["pip", "install", "--no-deps", "--no-compile", "-t", "/tmp/"+lib, lib])
-
-            if lib == top_lib:
-                print("--- "+lib)
-            else:
-                print("------ "+lib)
-
-            lib_path = "/tmp/"+lib
-
-            if lib == "RPi.GPIO":
-                # make an exception for RPi.GPIO since it's the
-                # only lib that only has a subpackage
-                lib_path = lib_path+"/RPi/GPIO"
-            elif os.path.isdir(lib_path+"/"+lib):
-                # this means that the lib has its own dir
-                lib_path = lib_path+"/"+lib
-
-            if check_for_c_source(lib_path, lib):
-                print("Found a C-implementation")
-                is_c = True
-            else:
-                imports_raw, unused_raw = extract_imports(cat, lib_path)
-
-                imps = OrderedDict()
-
-                # this means pyflakes didn't find any .py files in the source
-                if len(imports_raw) == 0 and len(unused_raw) == 0:
-                    print("No python sources found")
-                    is_c = True
-                # this means pyflakes found a single empty __init__.py file
-                elif len(imports_raw) == 1 and len(unused_raw) == 1 and imports_raw.get(lib_path+"/__init__.py") != None and len(imports_raw.get(lib_path+"/__init__.py")) == 0 and unused_raw.get(lib_path+"/__init__.py") != None and len(unused_raw.get(lib_path+"/__init__.py")) == 0:
-                    print("C implementation likely elsewhere (no imports)")
-                    is_c = True
-                else:
-                    imps['unused'] = unused_raw
-                    imps['raw_imports'] = imports_raw
-
-                    # iterate over the raw_imports to replace any pkg-level
-                    # imports in any "unused" __init__.py files
-                    imps['raw_imports'] = replace_unused_init_imports(imps['raw_imports'], imps['unused'], lib_path)
-
-                    # at this point, if we've replaced the init imports
-                    # and the imports are still empty, we can be pretty
-                    # sure that we have a c implementation elsewhere
-                    if len(imps['raw_imports']) == 1 and imps['raw_imports'].get(lib_path+"/__init__.py") != None and len(imps['raw_imports'].get(lib_path+"/__init__.py")) == 0:
-                        print("C implementation likely elsewhere (with imports)")
-                        is_c = True
-
-                    # iterate over the raw_imports to collect the ones that use ctypes
-                    # for libs, this means, if we find a ctypes.CDLL, we are calling
-                    # into third-party C code
-                    for src, i in imps['raw_imports'].items():
-                        for l in i:
-                            if l == "ctypes":
-                                lds = scan_source_ctypes(src)
-                                if len(lds) > 0:
-                                    is_c = True
-                                    print("Found ctypes wrapper")
-                                    break
-
-                            elif l == "os" or l == "subprocess" or l == "subprocess.call" or l == "subprocess.Popen":
-                                c = scan_source_native(src)
-                                if len(c) > 0:
-                                    call_native = True
-                                    print("Found call to native proc")
-                                    break
-
-                    # at this point, if is_c is True, we can just return
-                    # because we know the lib is C
-                    if is_c:
-                        return is_c, call_native, []
-
-                    if lib not in c_libs:
-                        # this is the main case where we need to replace libs etc
-                        # make sure to sort the sources to have a deterministic analysis
-                        imps['raw_imports'] = OrderedDict(sorted(imps['raw_imports'].items(), key=lambda t: t[0]))
-
-                        imps['imports'] = replace_fp_mod_group(imps, lib_path, 'raw_imports', is_libs=True)
-
-                        # we only want to store the pkg names
-                        imps['imports'] = get_pkg_names(imps, 'imports')
-
-                        # iterate over all imports and prune away all std lib imports
-                        print("Removing all python std lib imports")
-                        imps['imports'] = remove_stdlib_imports(imps)
-
-                        if len(imps['imports']) == 0 and lib == top_lib:
-                            print("No 3-p imports: pure python lib")
-                            is_c = False
-
-                            return is_c, call_native, []
-                        else:
-                            print("Found 3-p imports, so we're going to add those to the queue")
-                            clean = []
-                            for l in imps['imports']:
-                                # remove any 3p imports that are the lib itself
-                                # remove any 3p imports that are in c_libs, py_libs
-                                # remove any 3p imports of setuptools
-                                if l != lib and l not in c_libs and l not in py_libs and l != "setuptools":
-                                    to_add = l
-                                    if names.get(l) != None and names[l] != "":
-                                            to_add = names[l]
-
-                                    if to_add not in downloaded:
-                                        queue.put(to_add)
-                                        downloaded.append(to_add)
-
-            # we don't care about unused imports at this point
-        except subprocess.CalledProcessError:
-            no_pip.append(lib)
-
+    try:
         time.sleep(5) # sleep 5s to make sure we're not clobbering pip
+        if not os.path.isdir(lib_path):
+            if downl.startswith("http"):
+                if downl.endswith(".gz"):
+                    os.system("wget -q -O /tmp/"+lib+".tar.gz --no-directories "+downl)
+                    subprocess.check_output(["pip", "install", "--no-compile", "-t", "/tmp/"+lib, "/tmp/"+lib+".tar.gz"])
+                else:
+                    os.system("wget -q -P /tmp/"+lib+" --no-directories "+downl)
+            else:
+                subprocess.check_output(["pip", "install", "--no-compile", "-t", "/tmp/"+lib, downl])
+    except subprocess.CalledProcessError:
+        no_pip.append(lib)
+        print("Could not install through pip: "+lib)
+        return [], [], [], no_pip
 
-    return is_c, call_native, no_pip
+    if lib == "RPi.GPIO":
+        # make an exception for RPi.GPIO since it's the
+        # only lib that only has a subpackage
+        lib_path = lib_path+"/RPi/GPIO"
+    elif os.path.isdir(lib_path+"/"+lib):
+        # this means that the lib has its own dir
+        lib_path = lib_path+"/"+lib
+
+    if check_for_c_source(lib_path, lib):
+        print("Found a C-implementation")
+        return [lib], [], [], []
+    else:
+        imports_raw, unused_raw = extract_imports(cat, lib_path, perm="a+")
+
+        imps = OrderedDict()
+
+        # this means pyflakes didn't find any .py files in the source
+        if len(imports_raw) == 0 and len(unused_raw) == 0:
+            print("No python sources found")
+            return [lib], [], [], []
+        # this means pyflakes found a single empty __init__.py file
+        elif len(imports_raw) == 1 and len(unused_raw) == 1 and imports_raw.get(lib_path+"/__init__.py") != None and len(imports_raw.get(lib_path+"/__init__.py")) == 0 and unused_raw.get(lib_path+"/__init__.py") != None and len(unused_raw.get(lib_path+"/__init__.py")) == 0:
+            print("C implementation likely elsewhere (no imports)")
+            return [lib], [], [], []
+        else:
+            imps['unused'] = unused_raw
+            imps['raw_imports'] = imports_raw
+
+            # iterate over the raw_imports to replace any pkg-level
+            # imports in any "unused" __init__.py files
+            imps['raw_imports'] = replace_unused_init_imports(imps['raw_imports'], imps['unused'], lib_path)
+
+            # at this point, if we've replaced the init imports
+            # and the imports are still empty, we can be pretty
+            # sure that we have a c implementation elsewhere
+            if len(imps['raw_imports']) == 1 and imps['raw_imports'].get(lib_path+"/__init__.py") != None and len(imps['raw_imports'].get(lib_path+"/__init__.py")) == 0:
+                print("C implementation likely elsewhere (with imports)")
+                return [lib], [], [], []
+            else:
+                c_libs = []
+                hybrid_libs = []
+                call_native = []
+
+                # check to see if this lib is a ctypes wrapper
+                if check_ctypes_wrapper(imps):
+                    hybrid_libs.append(lib)
+
+                if check_ext_proc_calls(imps):
+                    call_native.append(lib)
+
+                # this is the main case where we need to replace libs etc
+                # make sure to sort the sources to have a deterministic analysis
+                imps['raw_imports'] = OrderedDict(sorted(imps['raw_imports'].items(), key=lambda t: t[0]))
+
+                imps['imports'] = replace_fp_mod_group(imps, lib_path, 'raw_imports', is_libs=True)
+
+                # we only want to store the pkg names
+                imps['imports'] = get_pkg_names(imps, 'imports')
+
+                # let's do one more check for c sources at this point
+                # in case we missed anything within the current lib pkg
+                # remove any such libs from the imports
+                clean = []
+                for l in imps['imports']:
+                    if check_for_c_source(lib_path, l):
+                        c_libs.append(l)
+                    elif check_shared_libs(lib_path, l):
+                        hybrid_libs.append(l)
+                    else:
+                        clean.append(l)
+
+                imps['imports'] = clean
+
+                # iterate over all imports and prune away all std lib imports
+                print("Removing all python std lib imports")
+                imps['imports'] = remove_stdlib_imports(imps)
+
+                if len(imps['imports']) == 0 and lib not in c_libs:
+                    print("No 3-p imports")
+                    return c_libs, hybrid_libs, call_native, []
+                else:
+                    print("Found 3-p imports -- more analysis")
+
+                    for l in imps['imports']:
+                        # remove any 3p imports that are the lib itself
+                        # remove any 3p imports of setuptools
+                        if l != lib and l != "setuptools":
+                            if l in visited:
+                                print(l+" has already been analyzed")
+                            else:
+                                visited.append(l)
+                                # let's start adding package exceptions
+                                if l == "ntlm":
+                                    names[l] = "python-ntlm"
+                                c, hyb, n, np = get_libs_with_deps(names, l, visited, clibs, shlibs, extproc)
+                                c_libs.extend(c)
+                                hybrid_libs.extend(hyb)
+                                call_native.append(n)
+                                no_pip.extend(np)
+
+                return c_libs, hybrid_libs, call_native, no_pip
+
 
 #### MAIN ###
 
@@ -205,9 +223,9 @@ f.close()
 print("Number of libs in "+cat+": "+str(len(libs)))
 
 c_libs = []
-py_libs = []
-no_pip = []
 call_native = []
+hybrid_libs = []
+no_pip = []
 lib_names = OrderedDict()
 for l in libs:
     pair = l.split(",")
@@ -215,19 +233,19 @@ for l in libs:
     lib_names[lib] = ""
     if len(pair) == 2:
          lib_names[lib] = pair[1].strip()
-    is_c, native, nopip = get_libs_with_deps(lib_names, lib, c_libs)
+    recurs_limit = []
+    c, hyb, native, np = get_libs_with_deps(lib_names, lib, recurs_limit, c_libs, hybrid_libs, call_native)
 
-    if len(nopip) == 0:
-        if is_c:
-            c_libs.append(lib)
-        else:
-            py_libs.append(lib)
-        if native:
-            call_native.append(lib)
-    else:
-        no_pip.extend(nopip)
+    if len(c) > 0:
+        c_libs.append(lib)
+    if len(hyb) > 0:
+        hybrid_libs.append(lib)
+    if len(native) > 0:
+        call_native.append(lib)
+    if len(np) > 0:
+        no_pip.extend(np)
 
 write_list_raw(no_pip, "corpus/"+cat+"-no-pip.txt")
 write_list_raw(call_native, "corpus/"+cat+"-ext-proc.txt")
 write_list_raw(c_libs, "corpus/"+cat+"-c-libs.txt")
-write_list_raw(py_libs, "corpus/"+cat+"-py-libs.txt")
+write_list_raw(hybrid_libs, "corpus/"+cat+"-shared-libs.txt")

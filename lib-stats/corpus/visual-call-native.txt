@@ -69,11 +69,6 @@
             "apps/visual/RPiPhotobooth/matchbox_test.py": [
                 "matchbox = subprocess.Popen([\"matchbox-keyboard\"])"
             ]
-        },
-        {
-            "apps/visual/RPiPhotobooth/boothcam.py": [
-                "call(command)"
-            ]
         }
     ],
     "apps/visual/WifiPhotobooth": [

@@ -1,3 +1,2 @@
-Adafruit_BBIO
-RPi.GPIO
-picamera
+numpy
+

@@ -27,15 +27,12 @@ dropbox
 dropbox
 flask
 flask_login
-gdata
 googleapiclient
 httplib2
 ibmiotf
 imutils
 imutils
 magic
-numpy
-numpy
 oauth2client
 oauth2client
 picamera
@@ -71,4 +68,3 @@ tweepy
 webiopi
 websocket
 wiringpi
-yuv2rgb

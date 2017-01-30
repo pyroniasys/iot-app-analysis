@@ -22,7 +22,6 @@ braviarc
 bs4
 colorlog
 cpuinfo
-dateutil
 digitalocean
 distro
 dlipower
@@ -33,7 +32,6 @@ enocean
 envirophat
 evdev
 evohomeclient
-feedparser
 fixerio
 flask
 forecastio

@@ -53,10 +53,12 @@ for a in apps:
         apps[a]['raw_imports'] = replace_unused_init_imports(apps[a]['raw_imports'], apps[a]['unused'], a)
 
     # iterate over the raw_imports to collect the ones that call native code/use ctypes
-    print("Collecting apps that call a native process or are hybrid python-C")
+    print("Checking if app calls a native process is hybrid python-C")
+    shlibs = {}
     for src, i in apps[a]['raw_imports'].items():
         calls = []
         loads = []
+        shlibs[src] = []
         for l in i:
             if l == "os" or l == "subprocess" or l == "subprocess.call" or l == "subprocess.Popen":
                 c = scan_source_native(src)
@@ -66,10 +68,20 @@ for a in apps:
                 lds = scan_source_ctypes(src)
                 if len(lds) > 0:
                     loads.extend(lds)
+            elif not a.endswith(".py"):
+                lds = search_shared_libs(a, l)
+                if len(lds) > 0:
+                    loads.extend(lds)
+                    shlibs[src].append(l)
         if len(calls) > 0:
             proc_srcs.append({src:calls})
         if len(loads) > 0:
             hybrid_srcs.append({src:loads})
+
+    # let's remove any raw imports that actually are shared libs
+    for src, sh in shlibs.items():
+        for s in sh:
+            apps[a]['raw_imports'][src].remove(s)
 
     if len(proc_srcs) > 0:
         call_to_native[a] = proc_srcs

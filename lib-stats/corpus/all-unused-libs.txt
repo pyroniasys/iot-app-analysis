@@ -24,6 +24,7 @@ enum
 fcntl
 fnmatch
 functools
+gdata
 getpass
 glob
 hashlib
