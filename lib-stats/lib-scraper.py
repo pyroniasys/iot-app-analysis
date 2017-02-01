@@ -51,7 +51,7 @@ def check_ext_proc_calls(imps):
                     return True
     return False
 
-def get_libs_with_deps(names, lib, visited, clibs, shlibs, extproc):
+def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
     no_pip = []
 
     print("---- "+lib)
@@ -79,9 +79,15 @@ def get_libs_with_deps(names, lib, visited, clibs, shlibs, extproc):
 
     lib_path = "/tmp/"+lib
 
+    # these two next cases cover downloaded dependencies
+    if os.path.isdir("/tmp/"+top_lib+"/"+lib):
+        lib_path = "/tmp/"+top_lib+"/"+lib
+    elif os.path.isfile("/tmp/"+top_lib+"/"+lib+".py"):
+        lib_path = "/tmp/"+top_lib+"/"+lib+".py"
+
     try:
-        time.sleep(5) # sleep 5s to make sure we're not clobbering pip
-        if not os.path.isdir(lib_path):
+        if not os.path.isdir(lib_path) and not os.path.isfile(lib_path):
+            time.sleep(5) # sleep 5s to make sure we're not clobbering pip
             if downl.startswith("http"):
                 if downl.endswith(".gz"):
                     os.system("wget -q -O /tmp/"+lib+".tar.gz --no-directories "+downl)
@@ -89,19 +95,20 @@ def get_libs_with_deps(names, lib, visited, clibs, shlibs, extproc):
                 else:
                     os.system("wget -q -P /tmp/"+lib+" --no-directories "+downl)
             else:
-                subprocess.check_output(["pip", "install", "--no-compile", "-t", "/tmp/"+lib, downl])
+                subprocess.check_output(["pip", "download", "-b", "/tmp/"+lib, downl])
+
+            if lib == "RPi.GPIO":
+                # make an exception for RPi.GPIO since it's the
+                # only lib that only has a subpackage
+                lib_path = lib_path+"/RPi/GPIO"
+            elif os.path.isdir(lib_path+"/"+lib):
+                # this means that the lib has its own dir
+                lib_path = lib_path+"/"+lib
+            os.system("python3 "+lib_path+"/setup.py install")
     except subprocess.CalledProcessError:
         no_pip.append(lib)
         print("Could not install through pip: "+lib)
         return [], [], [], no_pip
-
-    if lib == "RPi.GPIO":
-        # make an exception for RPi.GPIO since it's the
-        # only lib that only has a subpackage
-        lib_path = lib_path+"/RPi/GPIO"
-    elif os.path.isdir(lib_path+"/"+lib):
-        # this means that the lib has its own dir
-        lib_path = lib_path+"/"+lib
 
     if check_for_c_source(lib_path, lib):
         print("Found a C-implementation")
@@ -189,7 +196,7 @@ def get_libs_with_deps(names, lib, visited, clibs, shlibs, extproc):
                                 # let's start adding package exceptions
                                 if l == "ntlm":
                                     names[l] = "python-ntlm"
-                                c, hyb, n, np = get_libs_with_deps(names, l, visited, clibs, shlibs, extproc)
+                                c, hyb, n, np = get_libs_with_deps(names, top_lib, l, visited, clibs, shlibs, extproc)
                                 c_libs.extend(c)
                                 hybrid_libs.extend(hyb)
                                 call_native.append(n)
@@ -234,7 +241,7 @@ for l in libs:
     if len(pair) == 2:
          lib_names[lib] = pair[1].strip()
     recurs_limit = []
-    c, hyb, native, np = get_libs_with_deps(lib_names, lib, recurs_limit, c_libs, hybrid_libs, call_native)
+    c, hyb, native, np = get_libs_with_deps(lib_names, lib, lib, recurs_limit, c_libs, hybrid_libs, call_native)
 
     if len(c) > 0:
         c_libs.append(lib)
