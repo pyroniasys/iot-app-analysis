@@ -15,6 +15,9 @@ def extract_imports(cat, path, perm="w+"):
     num, imps, un = checkRecursive([path], reporter)
     f.close()
 
+    write_map(imps, "pyflakes-out/"+cat+"-imports-py3.txt", perm=perm, sort=True)
+    write_map(un, "pyflakes-out/"+cat+"-unused-py3.txt", perm=perm, sort=True)
+
     # the modules in this list are likely written in python2 so run pyflakes
     # on python2
     redir = ">"
@@ -29,14 +32,16 @@ def extract_imports(cat, path, perm="w+"):
     # the py2 run of flakes probably finds imports found by the py3 run
     # let's merge the two dicts
     # see: https://stackoverflow.com/questions/38987/how-to-merge-two-python-dictionaries-in-a-single-expression#26853961
-    imports_raw = {**imps, **imps_2}
-    unused_raw = {**un, **un_2}
+    imports_raw = imps.copy()
+    imports_raw.update(imps_2)
+    unused_raw = un.copy()
+    unused_raw.update(un_2)
 
     write_map(imports_raw, "pyflakes-out/"+cat+"-imports.txt", perm=perm, sort=True)
     write_map(unused_raw, "pyflakes-out/"+cat+"-unused.txt", perm=perm, sort=True)
 
-    os.remove("pyflakes-out/imports-py2.txt")
-    os.remove("pyflakes-out/unused-py2.txt")
+    #os.remove("pyflakes-out/imports-py2.txt")
+    #os.remove("pyflakes-out/unused-py2.txt")
 
     return imports_raw, unused_raw
 

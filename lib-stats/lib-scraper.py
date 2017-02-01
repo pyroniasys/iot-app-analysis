@@ -172,8 +172,8 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
                 print("Removing all python std lib imports")
                 imps['imports'] = remove_stdlib_imports(imps)
 
-                if len(imps['imports']) == 0 and lib not in c_libs:
-                    print("No 3-p imports")
+                if len(imps['imports']) == 0 or lib in c_libs:
+                    print("No 3-p imports, or lib is C after all")
                     return c_libs, hybrid_libs, call_native, []
                 else:
                     print("Found 3-p imports -- more analysis")
@@ -182,14 +182,18 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
                         # remove any 3p imports that are the lib itself
                         # remove any 3p imports of setuptools
                         if l != lib and l != "setuptools":
-                            if l in visited:
-                                print(l+" has already been analyzed")
+                            l1 = l
+                            # get rid of the annoying pip parse errors
+                            if l.startswith("_"):
+                                l1 = l[1:]
+                            if l1 in visited:
+                                print(l1+" has already been analyzed")
                             else:
-                                visited.append(l)
+                                visited.append(l1)
                                 # let's start adding package exceptions
-                                if l == "ntlm":
+                                if l1 == "ntlm":
                                     names[l] = "python-ntlm"
-                                c, hyb, n, np = get_libs_with_deps(names, top_lib, l, visited, clibs, shlibs, extproc)
+                                c, hyb, n, np = get_libs_with_deps(names, top_lib, l1, visited, clibs, shlibs, extproc)
                                 c_libs.extend(c)
                                 hybrid_libs.extend(hyb)
                                 call_native.append(n)

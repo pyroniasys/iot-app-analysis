@@ -29,10 +29,11 @@ flask
 flask_login
 googleapiclient
 httplib2
-ibmiotf
 imutils
 imutils
 magic
+numpy
+numpy
 oauth2client
 oauth2client
 picamera
@@ -50,7 +51,6 @@ picamera
 picamera
 pubnub
 pubnub
-pygame
 pygame
 pygame
 pygame

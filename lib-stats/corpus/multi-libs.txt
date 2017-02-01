@@ -38,6 +38,7 @@ cpuinfo
 cv2
 cv2
 cv2
+dateutil
 digitalocean
 distro
 dlipower
@@ -221,10 +222,8 @@ websockets
 wiringpi2
 xbee_helper
 xboxapi
-xmlrpc
 xmltodict
 yahooweather
 yaml
 yaml
 yarl
-yuv2rgb

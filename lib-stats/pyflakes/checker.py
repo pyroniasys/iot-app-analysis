@@ -257,8 +257,7 @@ class SubmoduleImportation(Importation):
     def __init__(self, name, source):
         # A dot should only appear in the name when it is a submodule import
         assert '.' in name and (not source or isinstance(source, ast.Import))
-        package_name = name.split('.')[0]
-        super(SubmoduleImportation, self).__init__(package_name, source)
+        super(SubmoduleImportation, self).__init__(name, source)
         self.fullName = name
         self.mod = name
 
@@ -603,11 +602,11 @@ class Checker(object):
             # Look for imported names that aren't used.
             for value in scope.values():
                 if isinstance(value, Importation):
-                    used = value.used or value.name in all_names
+                    used = value.used or (value.name in all_names)
                     if not used:
                         messg = messages.UnusedImport
                         self.unused_imports.append(str(value.mod))
-                        self.report(messg, value.source, str(value))
+                        self.report(messg, value.source, str(value.mod))
                     else:
                         self.imports.append(str(value.mod))
                     for node in value.redefined:
@@ -673,10 +672,13 @@ class Checker(object):
         for scope in self.scopeStack[::-1]:
             if value.name in scope:
                 break
+
+        if "httplib2" in value.name:
+            self.report(messages.UnusedImport, node, "$$$"+str(scope.__class__))
+
         existing = scope.get(value.name)
 
         if existing and not self.differentForks(node, existing.source):
-
             parent_stmt = self.getParent(value.source)
             if isinstance(existing, Importation) and isinstance(parent_stmt, ast.For):
                 self.report(messages.ImportShadowedByLoopVar,
@@ -767,6 +769,7 @@ class Checker(object):
         name = getNodeName(node)
         if not name:
             return
+
         # if the name hasn't already been defined in the current scope
         if isinstance(self.scope, FunctionScope) and name not in self.scope:
             # for each function or module scope above us
@@ -1255,9 +1258,11 @@ class Checker(object):
     def IMPORT(self, node):
         for alias in node.names:
             if '.' in alias.name and not alias.asname:
+                #self.report(messages.UnusedImport, node, "submodule IMPORT: "+str(alias.name))
                 importation = SubmoduleImportation(alias.name, node)
             else:
                 name = alias.asname or alias.name
+                #self.report(messages.UnusedImport, node, "module IMPORT: "+str(name))
                 importation = Importation(name, node, alias.name)
             self.addBinding(node, importation)
 
@@ -1274,6 +1279,7 @@ class Checker(object):
         for alias in node.names:
             name = alias.asname or alias.name
             if node.module == '__future__':
+                #self.report(messages.UnusedImport, node, "future IMPORTFROM: "+str(name))
                 importation = FutureImportation(name, node, self.scope)
                 if alias.name not in __future__.all_feature_names:
                     self.report(messages.FutureFeatureNotDefined,
@@ -1287,8 +1293,10 @@ class Checker(object):
 
                 self.scope.importStarred = True
                 self.report(messages.ImportStarUsed, node, module)
+                #self.report(messages.UnusedImport, node, "star IMPORTFROM: "+str(name))
                 importation = StarImportation(module, node)
             else:
+                #self.report(messages.UnusedImport, node, "module IMPORTFROM: "+str(alias.name))
                 importation = ImportationFrom(name, node,
                                               module, alias.name)
             self.addBinding(node, importation)
