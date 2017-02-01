@@ -18,15 +18,13 @@ from import_scraper import *
 # this goes through the entire lib hierarchy and looks for
 # a C-implementation of the lib
 def check_for_c_source(path, lib):
-    for dirpath, dirnames, filenames in os.walk(path):
-        for filename in filenames:
-            if filename == lib+".c" or filename == lib+".cpp" or filename == lib+"module.c" or filename == lib+"module.cpp" or (filename.startswith(lib+".") and filename.endswith(".so")):
-                debug("Found C source: "+filename)
-                return True
+    c = search_c_source(path, lib)
+    if len(c) > 0:
+        return True
     return False
 
 def check_ctypes_wrapper(imps):
-    for src, i in imps['raw_imports'].items():
+    for src, i in imps.items():
         for l in i:
             if l == "ctypes":
                 lds = scan_source_ctypes(src)
@@ -88,14 +86,10 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
     try:
         if not os.path.isdir(lib_path) and not os.path.isfile(lib_path):
             time.sleep(5) # sleep 5s to make sure we're not clobbering pip
-            if downl.startswith("http"):
-                if downl.endswith(".gz"):
-                    os.system("wget -q -O /tmp/"+lib+".tar.gz --no-directories "+downl)
-                    subprocess.check_output(["pip", "install", "--no-compile", "-t", "/tmp/"+lib, "/tmp/"+lib+".tar.gz"])
-                else:
-                    os.system("wget -q -P /tmp/"+lib+" --no-directories "+downl)
+            if downl.startswith("http") and not downl.endswith(".gz"):
+                os.system("wget -q -P /tmp/"+lib+" --no-directories "+downl)
             else:
-                subprocess.check_output(["pip", "download", "-b", "/tmp/"+lib, downl])
+                subprocess.check_output(["pip", "install", "--no-compile", "-t", "/tmp/"+lib, downl])
 
             if lib == "RPi.GPIO":
                 # make an exception for RPi.GPIO since it's the
@@ -104,10 +98,9 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
             elif os.path.isdir(lib_path+"/"+lib):
                 # this means that the lib has its own dir
                 lib_path = lib_path+"/"+lib
-            os.system("python3 "+lib_path+"/setup.py install")
     except subprocess.CalledProcessError:
         no_pip.append(lib)
-        print("Could not install through pip: "+lib)
+        print("Did not install through pip: "+lib)
         return [], [], [], no_pip
 
     if check_for_c_source(lib_path, lib):
@@ -146,7 +139,7 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
                 call_native = []
 
                 # check to see if this lib is a ctypes wrapper
-                if check_ctypes_wrapper(imps):
+                if check_ctypes_wrapper(imps['raw_imports']):
                     hybrid_libs.append(lib)
 
                 if check_ext_proc_calls(imps):
