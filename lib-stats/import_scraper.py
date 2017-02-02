@@ -15,8 +15,8 @@ def extract_imports(cat, path, perm="w+"):
     num, imps, un = checkRecursive([path], reporter)
     f.close()
 
-    write_map(imps, "pyflakes-out/"+cat+"-imports-py3.txt", perm=perm, sort=True)
-    write_map(un, "pyflakes-out/"+cat+"-unused-py3.txt", perm=perm, sort=True)
+    #write_map(imps, "pyflakes-out/"+cat+"-imports-py3.txt", perm=perm, sort=True)
+    #write_map(un, "pyflakes-out/"+cat+"-unused-py3.txt", perm=perm, sort=True)
 
     # the modules in this list are likely written in python2 so run pyflakes
     # on python2
@@ -40,8 +40,8 @@ def extract_imports(cat, path, perm="w+"):
     write_map(imports_raw, "pyflakes-out/"+cat+"-imports.txt", perm=perm, sort=True)
     write_map(unused_raw, "pyflakes-out/"+cat+"-unused.txt", perm=perm, sort=True)
 
-    #os.remove("pyflakes-out/imports-py2.txt")
-    #os.remove("pyflakes-out/unused-py2.txt")
+    os.remove("pyflakes-out/imports-py2.txt")
+    os.remove("pyflakes-out/unused-py2.txt")
 
     return imports_raw, unused_raw
 
@@ -171,7 +171,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
             # we're importing a ..submodule from the sibling_dir
             mod = "/".join(mods[2:])
             supermod = "/".join(mods[2:len(mods)-1])
-            if mods[2] == "packages":
+            if is_libs and mods[2] == "packages":
                 incl_dep_imp = True
                 incl_dep = mods[3]
         elif mods[0] == "":
@@ -179,7 +179,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
             # we're importing a .module from the src_dir
             mod = "/".join(mods[1:])
             supermod = "/".join(mods[1:len(mods)-1])
-            if mods[1] == "packages":
+            if is_libs and mods[1] == "packages":
                 incl_dep_imp = True
                 incl_dep = mods[2]
         else:
@@ -449,23 +449,10 @@ def search_shared_libs(path, lib):
                 shlibs.append(filename)
     return shlibs
 
-# this iterates through the python libs on disk
-# in case stdlib_list doesn't find a lib
-def check_stdlib_source(lib):
-    for dirpath, dirnames, filenames in os.walk("/usr/lib/python2.7"):
-        for filename in filenames:
-            if filename.endswith(lib+".py"):
-                return True
-    for dirpath, dirnames, filenames in os.walk("/usr/lib/python3.5"):
-        for filename in filenames:
-            if filename.endswith(lib+".py"):
-                return True
-    return False
-
 def remove_stdlib_imports(grp):
     libs_3p = []
     for l in grp['imports']:
-        if is_3p_lib(l) and not check_stdlib_source(l) and l != "__builtin__":
+        if is_3p_lib(l) and l != "__builtin__":
             libs_3p.append(l)
 
     return libs_3p

@@ -27,8 +27,10 @@ dropbox
 dropbox
 flask
 flask_login
+gdata
 googleapiclient
 httplib2
+ibmiotf
 imutils
 imutils
 magic
@@ -51,6 +53,7 @@ picamera
 picamera
 pubnub
 pubnub
+pygame
 pygame
 pygame
 pygame

@@ -257,7 +257,9 @@ class SubmoduleImportation(Importation):
     def __init__(self, name, source):
         # A dot should only appear in the name when it is a submodule import
         assert '.' in name and (not source or isinstance(source, ast.Import))
-        super(SubmoduleImportation, self).__init__(name, source)
+        pkgs = name.split(".")
+        pkg_name = pkgs[0]
+        super(SubmoduleImportation, self).__init__(pkg_name, source)
         self.fullName = name
         self.mod = name
 
@@ -673,9 +675,6 @@ class Checker(object):
             if value.name in scope:
                 break
 
-        if "httplib2" in value.name:
-            self.report(messages.UnusedImport, node, "$$$"+str(scope.__class__))
-
         existing = scope.get(value.name)
 
         if existing and not self.differentForks(node, existing.source):
@@ -688,7 +687,7 @@ class Checker(object):
                 if (isinstance(parent_stmt, ast.comprehension) and
                         not isinstance(self.getParent(existing.source),
                                        (ast.For, ast.comprehension))):
-                    self.report(messages.RedefinedInListComp,
+                   self.report(messages.RedefinedInListComp,
                                 node, value.name, existing.source)
                 elif not existing.used and value.redefines(existing):
                     self.report(messages.RedefinedWhileUnused,
@@ -701,7 +700,10 @@ class Checker(object):
             # then assume the rebound name is used as a global or within a loop
             value.used = self.scope[value.name].used
 
-        self.scope[value.name] = value
+        if isinstance(existing, Importation) and isinstance(value, Importation) and value.name == existing.name:
+            self.scope[value.name] = existing
+        else:
+            self.scope[value.name] = value
 
     def getNodeHandler(self, node_class):
         try:
@@ -1258,11 +1260,9 @@ class Checker(object):
     def IMPORT(self, node):
         for alias in node.names:
             if '.' in alias.name and not alias.asname:
-                #self.report(messages.UnusedImport, node, "submodule IMPORT: "+str(alias.name))
                 importation = SubmoduleImportation(alias.name, node)
             else:
                 name = alias.asname or alias.name
-                #self.report(messages.UnusedImport, node, "module IMPORT: "+str(name))
                 importation = Importation(name, node, alias.name)
             self.addBinding(node, importation)
 
@@ -1279,7 +1279,6 @@ class Checker(object):
         for alias in node.names:
             name = alias.asname or alias.name
             if node.module == '__future__':
-                #self.report(messages.UnusedImport, node, "future IMPORTFROM: "+str(name))
                 importation = FutureImportation(name, node, self.scope)
                 if alias.name not in __future__.all_feature_names:
                     self.report(messages.FutureFeatureNotDefined,
@@ -1293,10 +1292,8 @@ class Checker(object):
 
                 self.scope.importStarred = True
                 self.report(messages.ImportStarUsed, node, module)
-                #self.report(messages.UnusedImport, node, "star IMPORTFROM: "+str(name))
                 importation = StarImportation(module, node)
             else:
-                #self.report(messages.UnusedImport, node, "module IMPORTFROM: "+str(alias.name))
                 importation = ImportationFrom(name, node,
                                               module, alias.name)
             self.addBinding(node, importation)

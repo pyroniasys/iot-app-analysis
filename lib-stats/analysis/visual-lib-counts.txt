@@ -1,6 +1,6 @@
 {
-    "apps/visual/Fishtank": 8,
-    "apps/visual/RPiPhotobooth": 8,
+    "apps/visual/Fishtank": 9,
+    "apps/visual/RPiPhotobooth": 9,
     "apps/visual/WhoIsAtCoffeeMachine": 6,
     "apps/visual/SecurityCam": 4,
     "apps/visual/WifiPhotobooth": 4,
@@ -15,12 +15,12 @@
     "apps/visual/HomeSecurityEmailAlert.py": 2,
     "apps/visual/LegoRobot": 2,
     "apps/visual/PiNoculars": 2,
+    "apps/visual/SendingReceivingPicsMqtt.py": 2,
     "apps/visual/pidoorbell.py": 2,
     "apps/visual/smartJpegCamera.py": 2,
     "apps/visual/RPiIoTDoorbell": 1,
     "apps/visual/RPiLaserSecurity.py": 1,
     "apps/visual/RefrigeratorSecurity": 1,
-    "apps/visual/SendingReceivingPicsMqtt.py": 1,
     "apps/visual/TwitterPhotoLiveFeed.py": 1,
     "apps/visual/monitordoorbell.py": 1,
     "apps/visual/surocam.py": 1

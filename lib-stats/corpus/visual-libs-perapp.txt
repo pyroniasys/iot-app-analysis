@@ -1,72 +1,6 @@
-apps/visual/360_pi_cam:
-[
-    "SimpleCV",
-    "cv2",
-    "numpy"
-]
-apps/visual/camera-vision-logo.py:
-[
-    "googleapiclient",
-    "oauth2client",
-    "picamera"
-]
-apps/visual/CodeYourOwnPhotobooth.py:
-[
-    "RPi.GPIO",
-    "picamera"
-]
-apps/visual/EasyRPISecCam.py:
-[
-    "picamera",
-    "requests"
-]
-apps/visual/Fishtank:
-[
-    "MySQLdb",
-    "flask",
-    "flask_login",
-    "magic",
-    "requests",
-    "serial",
-    "websocket",
-    "wiringpi"
-]
-apps/visual/GPIO&PiCameraUsingTelegram.py:
-[
-    "RPi.GPIO",
-    "picamera",
-    "tgl"
-]
-apps/visual/HomeSecurityEmailAlert.py:
-[
-    "RPi.GPIO",
-    "cv2"
-]
-apps/visual/LegoRobot:
-[
-    "RPi.GPIO",
-    "pubnub"
-]
-apps/visual/monitordoorbell.py:
+apps/visual/RPiLaserSecurity.py:
 [
     "RPi.GPIO"
-]
-apps/visual/pi-home-surveillance:
-[
-    "cv2",
-    "dropbox",
-    "imutils",
-    "picamera"
-]
-apps/visual/pidoorbell.py:
-[
-    "MySQLdb",
-    "RPi.GPIO"
-]
-apps/visual/PiNoculars:
-[
-    "picamera",
-    "pygame"
 ]
 apps/visual/PiScream.py:
 [
@@ -74,58 +8,17 @@ apps/visual/PiScream.py:
     "picamera",
     "requests"
 ]
-apps/visual/RefrigeratorSecurity:
-[
-    "RPi.GPIO"
-]
-apps/visual/RPiIoTDoorbell:
-[
-    "RPi.GPIO"
-]
-apps/visual/RPiLaserSecurity.py:
-[
-    "RPi.GPIO"
-]
 apps/visual/RPiPhotobooth:
 [
     "PIL",
     "cv2",
+    "gdata",
     "httplib2",
     "oauth2client",
     "picamera",
     "pygame",
     "pyscreenshot",
     "serial"
-]
-apps/visual/SecurityCam:
-[
-    "RPi.GPIO",
-    "cv2",
-    "picamera",
-    "pubnub"
-]
-apps/visual/SendingReceivingPicsMqtt.py:
-[
-    "picamera"
-]
-apps/visual/smartJpegCamera.py:
-[
-    "RPi.GPIO",
-    "picamera"
-]
-apps/visual/surocam.py:
-[
-    "webiopi"
-]
-apps/visual/TwitterPhotoLiveFeed.py:
-[
-    "tweepy"
-]
-apps/visual/vintage_raspi_cam:
-[
-    "RPi.GPIO",
-    "dropbox",
-    "pygame"
 ]
 apps/visual/WhoIsAtCoffeeMachine:
 [
@@ -136,10 +29,120 @@ apps/visual/WhoIsAtCoffeeMachine:
     "serial",
     "smbus"
 ]
+apps/visual/HomeSecurityEmailAlert.py:
+[
+    "RPi.GPIO",
+    "cv2"
+]
+apps/visual/Fishtank:
+[
+    "MySQLdb",
+    "flask",
+    "flask_login",
+    "magic",
+    "pygame",
+    "requests",
+    "serial",
+    "websocket",
+    "wiringpi"
+]
+apps/visual/pidoorbell.py:
+[
+    "MySQLdb",
+    "RPi.GPIO"
+]
+apps/visual/monitordoorbell.py:
+[
+    "RPi.GPIO"
+]
+apps/visual/surocam.py:
+[
+    "webiopi"
+]
 apps/visual/WifiPhotobooth:
 [
     "PIL",
     "RPi.GPIO",
     "picamera",
     "pygame"
+]
+apps/visual/CodeYourOwnPhotobooth.py:
+[
+    "RPi.GPIO",
+    "picamera"
+]
+apps/visual/GPIO&PiCameraUsingTelegram.py:
+[
+    "RPi.GPIO",
+    "picamera",
+    "tgl"
+]
+apps/visual/LegoRobot:
+[
+    "RPi.GPIO",
+    "pubnub"
+]
+apps/visual/PiNoculars:
+[
+    "picamera",
+    "pygame"
+]
+apps/visual/smartJpegCamera.py:
+[
+    "RPi.GPIO",
+    "picamera"
+]
+apps/visual/TwitterPhotoLiveFeed.py:
+[
+    "tweepy"
+]
+apps/visual/RefrigeratorSecurity:
+[
+    "RPi.GPIO"
+]
+apps/visual/SecurityCam:
+[
+    "RPi.GPIO",
+    "cv2",
+    "picamera",
+    "pubnub"
+]
+apps/visual/RPiIoTDoorbell:
+[
+    "RPi.GPIO"
+]
+apps/visual/SendingReceivingPicsMqtt.py:
+[
+    "ibmiotf",
+    "picamera"
+]
+apps/visual/camera-vision-logo.py:
+[
+    "googleapiclient",
+    "oauth2client",
+    "picamera"
+]
+apps/visual/EasyRPISecCam.py:
+[
+    "picamera",
+    "requests"
+]
+apps/visual/360_pi_cam:
+[
+    "SimpleCV",
+    "cv2",
+    "numpy"
+]
+apps/visual/vintage_raspi_cam:
+[
+    "RPi.GPIO",
+    "dropbox",
+    "pygame"
+]
+apps/visual/pi-home-surveillance:
+[
+    "cv2",
+    "dropbox",
+    "imutils",
+    "picamera"
 ]

@@ -10,13 +10,10 @@ datetime
 datetime
 email
 fcntl
-gdata
 getpass
 glob
 hashlib
 http
-http
-ibmiotf
 io
 json
 json
@@ -26,9 +23,6 @@ numpy
 os
 os
 os
-os
-os
-pygame
 random
 shlex
 smtplib

@@ -45,6 +45,5 @@ sphinxbase, pocketsphinx
 websocket
 wiringpi2
 xively, xively-python
-yuv2rgb, https://github.com/adafruit/adafruit-pi-cam/blob/master/yuv2rgb.c
 APDS9300, https://github.com/sensorian/SensorianHubClient/blob/master/APDS9300.py
 Adafruit_CharLCDPlate, Adafruit-CharLCD

@@ -1,3 +1,14 @@
 OpenSSL
-code_generators
-numpy_distutils
+chroot
+com
+encodings
+flup
+mod_python
+psycopg2
+stackless
+systemrestart
+testing
+win32api
+win32com
+xmlrpc
+yaml
