@@ -2,6 +2,7 @@ import os
 import sys
 
 from collections import OrderedDict
+import xmlrpc.client as xmlrpclib
 
 from pyflakes import reporter as modReporter
 from pyflakes.api import checkRecursive, iterSourceCode
@@ -105,6 +106,9 @@ def get_pkg_names(app, target):
         elif "concurrent.futures" in lib:
             # need to make an exception for stdlib concurrent.futures
             tlp = "concurrent.futures"
+        elif "xmlrpc.client" == lib:
+            # need to make an exception for stdlib xmlrpc.client
+            tlp = lib
         elif "pkg_resources" in lib:
             # pkg_resources is a subpackage of setuptools
             tlp = "setuptools"
@@ -166,6 +170,13 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
             mod = "/".join(mods)
             pref = super_dir[:super_dir.find("/"+mods[0])]
             supermod = "/".join(mods[:len(mods)-1])
+        elif mods[0] == "" and mods[1] == "" and mods[2] == "":
+            higher_dir_imp = True
+            # we're importing a ...submodule from a higher sibling_dir
+            mod = "/".join(mods[3:])
+            supermod = "/".join(mods[3:len(mods)-1])
+            hierarch = super_dir.split("/")
+            pref = "/".join(hierarch[:len(hierarch)-1])
         elif mods[0] == "" and mods[1] == "":
             sibling_dir_imp = True
             # we're importing a ..submodule from the sibling_dir
@@ -488,3 +499,16 @@ def replace_unused_init_imports(raw_imports, unused, path):
 
         replaced_imps[src] = new_i
     return replaced_imps
+
+def find_pip_name(lib):
+    client = xmlrpclib.ServerProxy('https://pypi.python.org/pypi')
+    search = client.search({'name': lib})
+    found = False
+    for l in search:
+        pipname = l['name']
+        if pipname == lib:
+            print(pipname)
+            found = True
+
+    if not found:
+        print(lib+": "+str(search))

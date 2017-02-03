@@ -43,6 +43,7 @@ cherrypy
 colorlog
 cpuinfo
 cv2
+dateutil
 devicehive
 digitalocean
 distro
@@ -56,6 +57,7 @@ envirophat
 espeak
 evdev
 evohomeclient
+feedparser
 fixerio
 flask
 flask_login
@@ -65,6 +67,7 @@ freesms
 fritzconnection
 fuzzywuzzy
 gattlib
+gdata
 gevent
 googleapiclient
 googlemaps
@@ -121,6 +124,7 @@ neurio
 nfc
 nmap
 nuimo
+numpy
 oauth2client
 oauthlib
 openalpr_api
@@ -258,11 +262,9 @@ wolframalpha
 xbee_helper
 xboxapi
 xively
-xmlrpc
 xmltodict
 xmpp
 yahooweather
 yaml
 yarl
-yuv2rgb
 zope

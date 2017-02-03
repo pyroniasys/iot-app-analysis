@@ -9,7 +9,7 @@ Adafruit_DHT, adafruit_python_dht
 cv2, opencv
 paho, paho-mqtt
 pocketsphinx
-PIL, http://effbot.org/downloads/Imaging-1.1.7.tar.gz
+PIL, Pillow
 flask
 pygame
 speech_recognition, SpeechRecognition
@@ -27,7 +27,7 @@ gtts
 httplib2
 pycurl
 tweepy
-vlc, python vlc
+vlc, python-vlc
 wolframalpha
 Adafruit_BBIO
 ISStreamer
@@ -47,3 +47,4 @@ wiringpi2
 xively, xively-python
 APDS9300, https://github.com/sensorian/SensorianHubClient/blob/master/APDS9300.py
 Adafruit_CharLCDPlate, Adafruit-CharLCD
+Adafruit_GPIO

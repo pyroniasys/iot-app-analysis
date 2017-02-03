@@ -1,8 +1,9 @@
 {
     "apps/multi/AndyBot": [
         {
-            "apps/multi/AndyBot/src/server.py": [
-                "os.system('sudo chmod 777 /home/pi/ANDY/src/temp/cmd.txt')"
+            "apps/multi/AndyBot/src/tts.py": [
+                "os.system(\"espeak \" + json.dumps(message) + OPTIONS)",
+                "os.system(\"aplay -D hw:1 say.wav\")"
             ]
         },
         {
@@ -13,15 +14,26 @@
             ]
         },
         {
+            "apps/multi/AndyBot/src/server.py": [
+                "os.system('sudo chmod 777 /home/pi/ANDY/src/temp/cmd.txt')"
+            ]
+        },
+        {
+            "apps/multi/AndyBot/src/getcmd.py": [
+                "os.system('sudo rm /home/pi/ANDY/src/temp/cmd.txt')"
+            ]
+        },
+        {
             "apps/multi/AndyBot/src/main.py": [
                 "subprocess.Popen(['python', 'LED.py'])",
                 "subprocess.Popen(['python', 'server.py'])"
             ]
         },
         {
-            "apps/multi/AndyBot/src/tts.py": [
-                "os.system(\"espeak \" + json.dumps(message) + OPTIONS)",
-                "os.system(\"aplay -D hw:1 say.wav\")"
+            "apps/multi/AndyBot/src/cmds.py": [
+                "os.system('/home/pi/Dropbox-Uploader/./dropbox_uploader.sh upload ' +'/home/pi/ANDY/pictures/' + str(self.num) + '.jpg ' + str(self.num) + '.jpg')",
+                "os.system('/home/pi/Dropbox-Uploader/./dropbox_uploader.sh upload ' +'/home/pi/ANDY/pictures/' + str(self.num) + '.jpg ' + str(self.num) + '.jpg')",
+                "os.system(\"sudo halt\")"
             ]
         },
         {
@@ -33,30 +45,14 @@
             "apps/multi/AndyBot/src/sttwin.py": [
                 "os.system(FLAC_CONV + ' ' + filename)"
             ]
-        },
-        {
-            "apps/multi/AndyBot/src/getcmd.py": [
-                "os.system('sudo rm /home/pi/ANDY/src/temp/cmd.txt')"
-            ]
-        },
-        {
-            "apps/multi/AndyBot/src/cmds.py": [
-                "os.system('/home/pi/Dropbox-Uploader/./dropbox_uploader.sh upload ' +'/home/pi/ANDY/pictures/' + str(self.num) + '.jpg ' + str(self.num) + '.jpg')",
-                "os.system('/home/pi/Dropbox-Uploader/./dropbox_uploader.sh upload ' +'/home/pi/ANDY/pictures/' + str(self.num) + '.jpg ' + str(self.num) + '.jpg')",
-                "os.system(\"sudo halt\")"
-            ]
-        }
-    ],
-    "apps/multi/BeagleAlexa": [
-        {
-            "apps/multi/BeagleAlexa/beagleman.py": [
-                "os.system('espeak -ven-uk -p50 -s140 \"'+string+'\" > /dev/null 2>&1')",
-                "os.system('play  -c 1 -r 24000 -q {}response.mp3  > /dev/null 2>&1'.format(path))",
-                "os.system(\"sox -t raw -r 16000 -e signed -b 16 -c 1 \"+filename_raw+\" \"+filename+\" && sync\");"
-            ]
         }
     ],
     "apps/multi/DIYSmartphone": [
+        {
+            "apps/multi/DIYSmartphone/apps/camera/camera.py": [
+                "cam = Popen(['sudo', 'python', '/home/pi/tyos/apps/camera/app.py'])"
+            ]
+        },
         {
             "apps/multi/DIYSmartphone/src/toolbar.py": [
                 "os.system('sudo date +%T -s \"' + self.rtc_time + '\"')"
@@ -68,11 +64,6 @@
                 "a = Popen(['sudo', 'halt']) #Power down Raspberry Pi",
                 "os.system('sudo python /home/pi/tyos/src/power.py') #Power off fona",
                 "a = Popen(['sudo', 'halt']) #Power down Raspberry Pi"
-            ]
-        },
-        {
-            "apps/multi/DIYSmartphone/apps/camera/camera.py": [
-                "cam = Popen(['sudo', 'python', '/home/pi/tyos/apps/camera/app.py'])"
             ]
         },
         {
@@ -97,14 +88,14 @@
             ]
         },
         {
-            "apps/multi/HAL9000/reboot.py": [
-                "process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)"
-            ]
-        },
-        {
             "apps/multi/HAL9000/wavplay.py": [
                 "subprocess.Popen(['aplay', wav])",
                 "subprocess.Popen(['aplay', wav])"
+            ]
+        },
+        {
+            "apps/multi/HAL9000/reboot.py": [
+                "process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)"
             ]
         }
     ],
@@ -125,22 +116,11 @@
     ],
     "apps/multi/devicePresenseAlert": [
         {
-            "apps/multi/devicePresenseAlert/homeassistant/components/shell_command.py": [
-                "subprocess.call(cmd, shell=shell,stdout=subprocess.DEVNULL,"
-            ]
-        },
-        {
             "apps/multi/devicePresenseAlert/homeassistant/scripts/macos/__init__.py": [
                 "with os.popen('which hass') as inp:",
                 "with os.popen('whoami') as inp:",
                 "os.popen('launchctl load -w -F ' + path)",
                 "os.popen('launchctl unload ' + path)"
-            ]
-        },
-        {
-            "apps/multi/devicePresenseAlert/homeassistant/components/tts/picotts.py": [
-                "subprocess.call(cmd)",
-                "subprocess.call(cmd)"
             ]
         },
         {
@@ -150,14 +130,29 @@
             ]
         },
         {
-            "apps/multi/devicePresenseAlert/homeassistant/components/media_player/braviatv.py": [
-                "pid = Popen([\"arp\", \"-n\", ip_address], stdout=PIPE)",
-                "pid = Popen([\"arp\", \"-n\", ip_address], stdout=PIPE)"
+            "apps/multi/devicePresenseAlert/homeassistant/components/shell_command.py": [
+                "subprocess.call(cmd, shell=shell,stdout=subprocess.DEVNULL,"
             ]
         },
         {
             "apps/multi/devicePresenseAlert/homeassistant/components/device_tracker/nmap_tracker.py": [
                 "arp = subprocess.Popen(cmd, stdout=subprocess.PIPE)"
+            ]
+        },
+        {
+            "apps/multi/devicePresenseAlert/homeassistant/components/device_tracker/ping.py": [
+                "pinger = subprocess.Popen(self._ping_cmd, stdout=subprocess.PIPE)"
+            ]
+        },
+        {
+            "apps/multi/devicePresenseAlert/homeassistant/components/notify/command_line.py": [
+                "proc = subprocess.Popen(self.command, universal_newlines=True,stdin=subprocess.PIPE, shell=True)"
+            ]
+        },
+        {
+            "apps/multi/devicePresenseAlert/homeassistant/components/media_player/braviatv.py": [
+                "pid = Popen([\"arp\", \"-n\", ip_address], stdout=PIPE)",
+                "pid = Popen([\"arp\", \"-n\", ip_address], stdout=PIPE)"
             ]
         },
         {
@@ -168,14 +163,15 @@
             ]
         },
         {
-            "apps/multi/devicePresenseAlert/homeassistant/components/cover/command_line.py": [
-                "success = (subprocess.call(command, shell=True) == 0)",
-                "return_value = subprocess.check_output(command, shell=True)"
+            "apps/multi/devicePresenseAlert/homeassistant/components/tts/picotts.py": [
+                "subprocess.call(cmd)",
+                "subprocess.call(cmd)"
             ]
         },
         {
-            "apps/multi/devicePresenseAlert/homeassistant/components/device_tracker/ping.py": [
-                "pinger = subprocess.Popen(self._ping_cmd, stdout=subprocess.PIPE)"
+            "apps/multi/devicePresenseAlert/homeassistant/components/cover/command_line.py": [
+                "success = (subprocess.call(command, shell=True) == 0)",
+                "return_value = subprocess.check_output(command, shell=True)"
             ]
         },
         {
@@ -187,18 +183,13 @@
             ]
         },
         {
-            "apps/multi/devicePresenseAlert/homeassistant/components/notify/command_line.py": [
-                "proc = subprocess.Popen(self.command, universal_newlines=True,stdin=subprocess.PIPE, shell=True)"
+            "apps/multi/devicePresenseAlert/homeassistant/components/sensor/sensehat.py": [
+                "res = os.popen(\"vcgencmd measure_temp\").readline()"
             ]
         },
         {
             "apps/multi/devicePresenseAlert/homeassistant/components/sensor/command_line.py": [
                 "return_value = subprocess.check_output(self.command, shell=True,timeout=15)"
-            ]
-        },
-        {
-            "apps/multi/devicePresenseAlert/homeassistant/components/sensor/sensehat.py": [
-                "res = os.popen(\"vcgencmd measure_temp\").readline()"
             ]
         }
     ],

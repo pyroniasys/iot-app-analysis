@@ -49,6 +49,8 @@ enocean
 envirophat
 evdev
 evohomeclient
+feedparser
+feedparser
 fixerio
 flask
 forecastio

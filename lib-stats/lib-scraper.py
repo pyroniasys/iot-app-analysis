@@ -86,10 +86,11 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
     try:
         if not os.path.isdir(lib_path) and not os.path.isfile(lib_path):
             time.sleep(5) # sleep 5s to make sure we're not clobbering pip
-            if downl.startswith("http") and not downl.endswith(".gz"):
+            print("Downloading "+downl)
+            if downl.startswith("https"):
                 os.system("wget -q -P /tmp/"+lib+" --no-directories "+downl)
             else:
-                subprocess.check_output(["pip", "install", "--no-compile", "-t", "/tmp/"+lib, downl])
+                subprocess.check_output(["pip", "install", "-qq", "--no-compile", "-t", "/tmp/"+lib, downl])
 
             if lib == "RPi.GPIO":
                 # make an exception for RPi.GPIO since it's the
@@ -107,6 +108,8 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
         print("Found a C-implementation")
         return [lib], [], [], []
     else:
+        print("Searching for imports in path: "+lib_path)
+
         imports_raw, unused_raw = extract_imports(cat, lib_path, perm="a+")
 
         imps = OrderedDict()
@@ -193,6 +196,8 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
                                 # let's start adding package exceptions
                                 if l1 == "ntlm":
                                     names[l] = "python-ntlm"
+                                elif l1 == "OpenSSL":
+                                    names[l] = "pyOpenSSL"
                                 c, hyb, n, np = get_libs_with_deps(names, top_lib, l1, visited, clibs, shlibs, extproc)
                                 c_libs.extend(c)
                                 hybrid_libs.extend(hyb)
@@ -238,6 +243,7 @@ for l in libs:
     if len(pair) == 2:
          lib_names[lib] = pair[1].strip()
     recurs_limit = []
+    find_pip_name(lib)
     c, hyb, native, np = get_libs_with_deps(lib_names, lib, lib, recurs_limit, c_libs, hybrid_libs, call_native)
 
     if len(c) > 0:

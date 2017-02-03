@@ -11,6 +11,7 @@
     "smbus": 4,
     "AWSIoTPythonSDK": 3,
     "httplib2": 3,
+    "feedparser": 2,
     "gevent": 2,
     "DirectPy": 1,
     "PyISY": 1,
@@ -32,6 +33,7 @@
     "bs4": 1,
     "colorlog": 1,
     "cpuinfo": 1,
+    "dateutil": 1,
     "digitalocean": 1,
     "distro": 1,
     "dlipower": 1,
@@ -181,7 +183,6 @@
     "websockets": 1,
     "xbee_helper": 1,
     "xboxapi": 1,
-    "xmlrpc": 1,
     "xmltodict": 1,
     "yahooweather": 1,
     "yarl": 1

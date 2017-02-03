@@ -99,7 +99,7 @@ write_freq_map(top50, filename="corpus/top50-lib-freq.txt", perm="w+")
 top50_list = []
 for l in top50:
     top50_list.append(l)
-write_list_raw(top50_list, "corpus/top50-libs1.txt", sort=False)
+write_list_raw(top50_list, "corpus/top50-libs.txt", sort=False)
 
 # get the number of apps that call an external proc
 call_native = OrderedDict()
