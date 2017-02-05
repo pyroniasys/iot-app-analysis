@@ -177,6 +177,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
             supermod = "/".join(mods[3:len(mods)-1])
             hierarch = super_dir.split("/")
             pref = "/".join(hierarch[:len(hierarch)-1])
+            print(imp+" "+super_dir)
         elif mods[0] == "" and mods[1] == "":
             sibling_dir_imp = True
             # we're importing a ..submodule from the sibling_dir
@@ -265,6 +266,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
         # contained in a higher-level module
         higher_py_file = pref+"/"+mod+".py"
         higher_subdir = pref+"/"+mod
+        print(pref+" ** "+mod)
         if supermod != "":
             higher_obj_mod = pref+"/"+supermod+".py"
             init_file = pref+"/"+supermod+"/__init__.py"
@@ -284,6 +286,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
         sibling_subdir = super_dir+"/"+mod
         higher_py_file = app+"/"+mod+".py"
         higher_subdir = app+"/"+mod
+        print(app+" $$ "+mod)
         if supermod != "":
             obj_mod = src_dir+"/"+supermod+".py"
             sibling_obj_mod = super_dir+"/"+supermod+".py"
@@ -323,37 +326,37 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
     else:
         srcs = []
         if srcs_dict.get(py_file) != None:
-            print("1")
+            debug("1")
             srcs = [py_file]
         elif srcs_dict.get(sibling_py_file) != None:
-            print("2")
+            debug("2")
             srcs = [sibling_py_file]
         elif srcs_dict.get(higher_py_file) != None:
-            print("3")
+            debug("3")
             srcs = [higher_py_file]
         elif srcs_dict.get(init_file) != None:
-            print("4")
+            debug("4")
             srcs = [init_file]
         elif srcs_dict.get(obj_mod) != None:
-            print("5")
+            debug("5")
             srcs = [obj_mod]
         elif srcs_dict.get(sibling_obj_mod) != None:
-            print("6")
+            debug("6")
             srcs = [sibling_obj_mod]
         elif srcs_dict.get(higher_obj_mod) != None:
-            print("7")
+            debug("7")
             srcs = [higher_obj_mod]
         elif srcs_dict.get(subdir_init_file) != None:
-            print("8")
+            debug("8")
             srcs = [subdir_init_file]
         elif srcs_dict.get(sibling_init_file) != None:
-            print("9")
+            debug("9")
             srcs = [sibling_init_file]
         elif os.path.isdir(subdir):
-            print("10")
+            debug("10")
             srcs = iterSourceCode([subdir])
         elif os.path.isdir(sibling_subdir):
-            print("11")
+            debug("11")
             srcs = iterSourceCode([sibling_subdir])
         elif os.path.isdir(higher_subdir):
             print("12")

@@ -90,7 +90,7 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
             if downl.startswith("https"):
                 os.system("wget -q -P /tmp/"+lib+" --no-directories "+downl)
             else:
-                subprocess.check_output(["pip", "install", "-qq", "--no-compile", "-t", "/tmp/"+lib, downl])
+                subprocess.check_output(["pip3", "install", "-qq", "--no-compile", "-t", "/tmp/"+lib, downl])
 
             if lib == "RPi.GPIO":
                 # make an exception for RPi.GPIO since it's the
