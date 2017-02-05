@@ -323,40 +323,40 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
     else:
         srcs = []
         if srcs_dict.get(py_file) != None:
-            debug("1")
+            print("1")
             srcs = [py_file]
         elif srcs_dict.get(sibling_py_file) != None:
-            debug("2")
+            print("2")
             srcs = [sibling_py_file]
         elif srcs_dict.get(higher_py_file) != None:
-            debug("3")
+            print("3")
             srcs = [higher_py_file]
         elif srcs_dict.get(init_file) != None:
-            debug("4")
+            print("4")
             srcs = [init_file]
         elif srcs_dict.get(obj_mod) != None:
-            debug("5")
+            print("5")
             srcs = [obj_mod]
         elif srcs_dict.get(sibling_obj_mod) != None:
-            debug("6")
+            print("6")
             srcs = [sibling_obj_mod]
         elif srcs_dict.get(higher_obj_mod) != None:
-            debug("7")
+            print("7")
             srcs = [higher_obj_mod]
         elif srcs_dict.get(subdir_init_file) != None:
-            debug("8")
+            print("8")
             srcs = [subdir_init_file]
         elif srcs_dict.get(sibling_init_file) != None:
-            debug("9")
+            print("9")
             srcs = [sibling_init_file]
         elif os.path.isdir(subdir):
-            debug("10")
+            print("10")
             srcs = iterSourceCode([subdir])
         elif os.path.isdir(sibling_subdir):
-            debug("11")
+            print("11")
             srcs = iterSourceCode([sibling_subdir])
         elif os.path.isdir(higher_subdir):
-            debug("12")
+            print("12")
             srcs = iterSourceCode([higher_subdir])
 
         l = []
