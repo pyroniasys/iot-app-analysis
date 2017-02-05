@@ -187,7 +187,9 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
                         if l != lib and l != "setuptools":
                             l1 = l
                             # get rid of the annoying pip parse errors
-                            if l.startswith("_"):
+                            if l.startswith("__") and l.endswith("__"):
+                                pass
+                            elif l.startswith("_"):
                                 l1 = l[1:]
                             if l1 in visited:
                                 print(l1+" has already been analyzed")
