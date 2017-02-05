@@ -266,7 +266,6 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
         # contained in a higher-level module
         higher_py_file = pref+"/"+mod+".py"
         higher_subdir = pref+"/"+mod
-        print(pref+" ** "+mod)
         if supermod != "":
             higher_obj_mod = pref+"/"+supermod+".py"
             init_file = pref+"/"+supermod+"/__init__.py"
@@ -286,7 +285,6 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
         sibling_subdir = super_dir+"/"+mod
         higher_py_file = app+"/"+mod+".py"
         higher_subdir = app+"/"+mod
-        print(app+" $$ "+mod)
         if supermod != "":
             obj_mod = src_dir+"/"+supermod+".py"
             sibling_obj_mod = super_dir+"/"+supermod+".py"
@@ -359,7 +357,8 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
             debug("11")
             srcs = iterSourceCode([sibling_subdir])
         elif os.path.isdir(higher_subdir):
-            print("12")
+            debug("12")
+            print(app+" $ "+pref+" $ "+imp)
             srcs = iterSourceCode([higher_subdir])
 
         l = []
