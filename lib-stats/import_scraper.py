@@ -322,6 +322,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
         return [imp]
 
     else:
+        print(app+" $ "+pref+" $ "+imp)
         srcs = []
         if srcs_dict.get(py_file) != None:
             debug("1")
@@ -358,7 +359,6 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
             srcs = iterSourceCode([sibling_subdir])
         elif os.path.isdir(higher_subdir):
             debug("12")
-            print(app+" $ "+pref+" $ "+imp)
             srcs = iterSourceCode([higher_subdir])
 
         l = []
