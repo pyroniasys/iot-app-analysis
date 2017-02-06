@@ -134,6 +134,11 @@ def get_subdir_srcs(subdir):
     return srcs
 
 def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=False):
+    # apprently, we can have ".." in the middle of a module
+    # so just ignore it and treat like single "."
+    if ".." in imp and not (imp.startswith("..") or imp.startswith("...")):
+        imp = imp.replace("..", ".")
+
     # let's get all the individual components of the import
     mods = imp.split(".")
 
