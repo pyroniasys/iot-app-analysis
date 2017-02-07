@@ -260,9 +260,9 @@ for l in libs:
         if len(native) > 0:
             call_native.append(lib)
         if len(np) > 0:
-            if lib in no_pip:
+            if lib in np:
                 top_no_pip.append(lib)
-            np.remove(lib)
+                np.remove(lib)
             no_pip.extend(np)
 
 
