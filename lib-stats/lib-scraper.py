@@ -95,7 +95,7 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
             if lib == "RPi.GPIO":
                 # make an exception for RPi.GPIO since it's the
                 # only lib that only has a subpackage
-                lib_path = lib_path+"/RPi/GPIO"
+                lib_path = lib_path+"/RPi"
             elif os.path.isdir(lib_path+"/"+lib):
                 # this means that the lib has its own dir
                 lib_path = lib_path+"/"+lib
@@ -237,6 +237,7 @@ c_libs = []
 call_native = []
 hybrid_libs = []
 no_pip = []
+top_no_pip = []
 lib_names = OrderedDict()
 py_libs = []
 for l in libs:
@@ -259,10 +260,15 @@ for l in libs:
         if len(native) > 0:
             call_native.append(lib)
         if len(np) > 0:
+            if lib in no_pip:
+                top_no_pip.append(lib)
+            np.remove(lib)
             no_pip.extend(np)
+
 
 no_pip = remove_dups(no_pip)
 write_list_raw(no_pip, "corpus/"+cat+"-no-pip.txt")
+write_list_raw(top_no_pip, "corpus/"+Cat+"-failed.txt")
 write_list_raw(call_native, "corpus/"+cat+"-ext-proc.txt")
 write_list_raw(c_libs, "corpus/"+cat+"-c-libs.txt")
 write_list_raw(hybrid_libs, "corpus/"+cat+"-shared-libs.txt")

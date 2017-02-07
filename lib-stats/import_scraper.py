@@ -451,7 +451,7 @@ def search_c_source(path, lib):
         for f in filenames:
             f_hierarch = f.split("/")
             filename = f_hierarch[len(f_hierarch)-1] # the actual filename is the last element
-            if filename.startswith(lib+".") and (filename.endswith(".c") or filename.endswith(".h") or filename.endswith(".cpp") or filename.endswith(".hpp") or filename.endswith(".so")):
+            if (filename.startswith(lib+".") or filename.startswith("_"+lib+".")) and (filename.endswith(".c") or filename.endswith(".h") or filename.endswith(".cpp") or filename.endswith(".hpp") or filename.endswith(".so")):
                 debug("Found C cource: "+filename)
                 c.append(filename)
     return c
