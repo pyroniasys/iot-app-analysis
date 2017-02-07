@@ -247,7 +247,7 @@ for l in libs:
     if len(pair) == 2:
          lib_names[lib] = pair[1].strip()
     recurs_limit = []
-    find_pip_name(lib)
+    #find_pip_name(lib)
     c, hyb, native, np = get_libs_with_deps(lib_names, lib, lib, recurs_limit, c_libs, hybrid_libs, call_native)
 
     if len(c) == 0 and len(hyb) == 0 and len(native) == 0 and len(np) == 0:
