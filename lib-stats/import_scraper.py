@@ -327,7 +327,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
         return [imp]
 
     else:
-        print(app+" $ "+pref+" $ "+imp)
+        #print(app+" $ "+pref+" $ "+imp)
         srcs = []
         if srcs_dict.get(py_file) != None:
             debug("1")

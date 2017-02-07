@@ -1,0 +1,5 @@
+ISStreamer
+RPi.GPIO
+feedparser
+httplib2
+wiringpi2

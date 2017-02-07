@@ -238,6 +238,7 @@ call_native = []
 hybrid_libs = []
 no_pip = []
 lib_names = OrderedDict()
+py_libs = []
 for l in libs:
     pair = l.split(",")
     lib = pair[0].strip()
@@ -248,16 +249,21 @@ for l in libs:
     find_pip_name(lib)
     c, hyb, native, np = get_libs_with_deps(lib_names, lib, lib, recurs_limit, c_libs, hybrid_libs, call_native)
 
-    if len(c) > 0:
-        c_libs.append(lib)
-    if len(hyb) > 0:
-        hybrid_libs.append(lib)
-    if len(native) > 0:
-        call_native.append(lib)
-    if len(np) > 0:
-        no_pip.extend(np)
+    if len(c) == 0 and len(hyb) == 0 and len(native) == 0 and len(np) == 0:
+        py_libs.append(lib)
+    else:
+        if len(c) > 0:
+            c_libs.append(lib)
+        if len(hyb) > 0:
+            hybrid_libs.append(lib)
+        if len(native) > 0:
+            call_native.append(lib)
+        if len(np) > 0:
+            no_pip.extend(np)
 
+no_pip = remove_dups(no_pip)
 write_list_raw(no_pip, "corpus/"+cat+"-no-pip.txt")
 write_list_raw(call_native, "corpus/"+cat+"-ext-proc.txt")
 write_list_raw(c_libs, "corpus/"+cat+"-c-libs.txt")
 write_list_raw(hybrid_libs, "corpus/"+cat+"-shared-libs.txt")
+write_list_raw(py_libs, "corpus/"+cat+"-py-libs.txt")
