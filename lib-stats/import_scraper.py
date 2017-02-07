@@ -487,6 +487,8 @@ def replace_unused_init_imports(raw_imports, unused, path):
             # raw_imports entry for this src file
             init_unused = unused.get(path+"/"+mods[0]+"/__init__.py")
             replaced = False
+            debug("Source file: "+src+", lib: "+l)
+            debug(path+"/"+mods[0]+" "+str(init_unused))
             if init_unused != None and len(init_unused) > 0:
                 debug("Source file: "+src+", lib: "+l)
                 debug(path+"/"+mods[0]+" "+str(init_unused))
