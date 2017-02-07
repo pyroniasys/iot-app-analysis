@@ -92,13 +92,13 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
             else:
                 subprocess.check_output(["pip3", "install", "-qq", "--no-compile", "-t", "/tmp/"+lib, downl])
 
-            if lib == "RPi.GPIO":
-                # make an exception for RPi.GPIO since it's the
-                # only lib that only has a subpackage
-                lib_path = lib_path+"/RPi"
-            elif os.path.isdir(lib_path+"/"+lib):
-                # this means that the lib has its own dir
-                lib_path = lib_path+"/"+lib
+        if lib == "RPi.GPIO":
+            # make an exception for RPi.GPIO since it's the
+            # only lib that only has a subpackage
+            lib_path = lib_path+"/RPi"
+        elif os.path.isdir(lib_path+"/"+lib):
+            # this means that the lib has its own dir
+            lib_path = lib_path+"/"+lib
     except subprocess.CalledProcessError:
         no_pip.append(lib)
         print("Did not install through pip: "+lib)
