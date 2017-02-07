@@ -269,7 +269,7 @@ for l in libs:
 
 no_pip = remove_dups(no_pip)
 write_list_raw(no_pip, "corpus/"+cat+"-no-pip.txt")
-write_list_raw(top_no_pip, "corpus/"+Cat+"-failed.txt")
+write_list_raw(top_no_pip, "corpus/"+cat+"-failed.txt")
 write_list_raw(call_native, "corpus/"+cat+"-ext-proc.txt")
 write_list_raw(c_libs, "corpus/"+cat+"-c-libs.txt")
 write_list_raw(hybrid_libs, "corpus/"+cat+"-shared-libs.txt")
