@@ -475,20 +475,37 @@ def remove_stdlib_imports(grp):
 
     return libs_3p
 
+def add_mod_init_imports(l, raw_imports, unused):
+    mods = l.split(".")
+    replaced_imps = OrderedDict()
+    for src, i in raw_imports.items():
+        new_i = []
+        if len(i) == 0 and src.endswith("__init__.py"):
+            init_unused = unused.get(src)
+            if init_unused != None:
+                for l_unused in init_unused:
+                    if l_unused.startswith(mods[0]+"."):
+                        new_i.append(l_unused)
+        else:
+            new_i = i
+        replaced_imps[src] = new_i
+    return replaced_imps
+
+
 def replace_unused_init_imports(raw_imports, unused, path):
     replaced_imps = OrderedDict()
+
     for src, i in raw_imports.items():
         new_i = []
         for l in i:
             mods = l.split(".")
+            init_file = path+"/"+mods[0]+"/__init__.py"
             endidx = len(mods)-1
             # if we have an __init__.py file in the same pkg that has
             # unused imports we want to replace any of those in the
             # raw_imports entry for this src file
-            init_unused = unused.get(path+"/"+mods[0]+"/__init__.py")
+            init_unused = unused.get(init_file)
             replaced = False
-            debug("Source file: "+src+", lib: "+l)
-            debug(path+"/"+mods[0]+" "+str(init_unused))
             if init_unused != None and len(init_unused) > 0:
                 debug("Source file: "+src+", lib: "+l)
                 debug(path+"/"+mods[0]+" "+str(init_unused))
@@ -500,7 +517,6 @@ def replace_unused_init_imports(raw_imports, unused, path):
                         replaced = True
                         debug("Replacing "+l+" with "+mods[0]+"."+l_unused+" in init for "+src)
                         break
-
                 if not replaced:
                     new_i.append(l)
             else:

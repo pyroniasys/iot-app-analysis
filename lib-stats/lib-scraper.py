@@ -130,6 +130,11 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
             # imports in any "unused" __init__.py files
             imps['raw_imports'] = replace_unused_init_imports(imps['raw_imports'], imps['unused'], lib_path)
 
+            # iterate over the raw_imports to add any pkg-level
+            # imports in any "unused" __init__.py files
+            # this is only done if the __init__.py file has no used imports
+            imps['raw_imports'] = add_mod_init_imports(lib, imps['raw_imports'], imps['unused'])
+
             # at this point, if we've replaced the init imports
             # and the imports are still empty, we can be pretty
             # sure that we have a c implementation elsewhere
