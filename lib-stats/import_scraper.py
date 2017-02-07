@@ -371,9 +371,13 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
                 debug(src+" is imported recursively, so don't go deeper")
             else:
                 visited.append(src)
-                for m in srcs_dict[src]:
-                    replacements = replace_fp_mod(app, get_super_dir(app, src), get_src_dir(src), m, srcs_dict, visited, is_libs)
-                    l.extend(replacements)
+                imps = srcs_dict[src]
+                if src.endswith("__init__.py") and len(imps) == 0:
+                    l.append(imp)
+                else:
+                    for m in imps:
+                        replacements = replace_fp_mod(app, get_super_dir(app, src), get_src_dir(src), m, srcs_dict, visited, is_libs)
+                        l.extend(replacements)
         return l
 
 def replace_fp_mod_group(grp_dict, g, target, is_libs=False):
@@ -383,7 +387,6 @@ def replace_fp_mod_group(grp_dict, g, target, is_libs=False):
         src_dir = get_src_dir(src)
         super_dir = get_super_dir(g, src)
         debug(" *** "+src)
-        print(str(i))
         for l in i:
             try:
                 # add entry for each src once we've tried to replace it

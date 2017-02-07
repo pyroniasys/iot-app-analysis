@@ -18,9 +18,11 @@ from import_scraper import *
 # this goes through the entire lib hierarchy and looks for
 # a C-implementation of the lib
 def check_for_c_source(path, lib):
-    c = search_c_source(path, lib)
-    if len(c) > 0:
-        return True
+    mods = lib.split(".")
+    for m in mods:
+        c = search_c_source(path, m)
+        if len(c) > 0:
+            return True
     return False
 
 def check_ctypes_wrapper(imps):
@@ -104,114 +106,109 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
         print("Did not install through pip: "+lib)
         return [], [], [], no_pip
 
-    if check_for_c_source(lib_path, lib):
-        print("Found a C-implementation")
-        return [lib], [], [], []
-    else:
         print("Searching for imports in path: "+lib_path)
 
-        imports_raw, unused_raw = extract_imports(cat, lib_path, perm="a+")
+    imports_raw, unused_raw = extract_imports(cat, lib_path, perm="a+")
 
-        imps = OrderedDict()
+    imps = OrderedDict()
 
-        # this means pyflakes didn't find any .py files in the source
-        if len(imports_raw) == 0 and len(unused_raw) == 0:
-            print("No python sources found")
-            return [lib], [], [], []
-        # this means pyflakes found a single empty __init__.py file
-        elif len(imports_raw) == 1 and len(unused_raw) == 1 and imports_raw.get(lib_path+"/__init__.py") != None and len(imports_raw.get(lib_path+"/__init__.py")) == 0 and unused_raw.get(lib_path+"/__init__.py") != None and len(unused_raw.get(lib_path+"/__init__.py")) == 0:
-            print("C implementation likely elsewhere (no imports)")
+    # this means pyflakes didn't find any .py files in the source
+    if len(imports_raw) == 0 and len(unused_raw) == 0:
+        print("No python sources found")
+        return [lib], [], [], []
+    # this means pyflakes found a single empty __init__.py file
+    elif len(imports_raw) == 1 and len(unused_raw) == 1 and imports_raw.get(lib_path+"/__init__.py") != None and len(imports_raw.get(lib_path+"/__init__.py")) == 0 and unused_raw.get(lib_path+"/__init__.py") != None and len(unused_raw.get(lib_path+"/__init__.py")) == 0:
+        print("C implementation likely elsewhere (no imports)")
+        return [lib], [], [], []
+    else:
+        imps['unused'] = unused_raw
+        imps['raw_imports'] = imports_raw
+
+        # iterate over the raw_imports to replace any pkg-level
+        # imports in any "unused" __init__.py files
+        imps['raw_imports'] = replace_unused_init_imports(imps['raw_imports'], imps['unused'], lib_path)
+
+        # iterate over the raw_imports to add any pkg-level
+        # imports in any "unused" __init__.py files
+        # this is only done if the __init__.py file has no used imports
+        imps['raw_imports'] = add_mod_init_imports(lib, imps['raw_imports'], imps['unused'])
+
+        # at this point, if we've replaced the init imports
+        # and the imports are still empty, we can be pretty
+        # sure that we have a c implementation elsewhere
+        if len(imps['raw_imports']) == 1 and imps['raw_imports'].get(lib_path+"/__init__.py") != None and len(imps['raw_imports'].get(lib_path+"/__init__.py")) == 0:
+            print("C implementation likely elsewhere (with imports)")
             return [lib], [], [], []
         else:
-            imps['unused'] = unused_raw
-            imps['raw_imports'] = imports_raw
+            c_libs = []
+            hybrid_libs = []
+            call_native = []
 
-            # iterate over the raw_imports to replace any pkg-level
-            # imports in any "unused" __init__.py files
-            imps['raw_imports'] = replace_unused_init_imports(imps['raw_imports'], imps['unused'], lib_path)
+            # check to see if this lib is a ctypes wrapper
+            if check_ctypes_wrapper(imps['raw_imports']):
+                hybrid_libs.append(lib)
 
-            # iterate over the raw_imports to add any pkg-level
-            # imports in any "unused" __init__.py files
-            # this is only done if the __init__.py file has no used imports
-            imps['raw_imports'] = add_mod_init_imports(lib, imps['raw_imports'], imps['unused'])
+            if check_ext_proc_calls(imps):
+                call_native.append(lib)
 
-            # at this point, if we've replaced the init imports
-            # and the imports are still empty, we can be pretty
-            # sure that we have a c implementation elsewhere
-            if len(imps['raw_imports']) == 1 and imps['raw_imports'].get(lib_path+"/__init__.py") != None and len(imps['raw_imports'].get(lib_path+"/__init__.py")) == 0:
-                print("C implementation likely elsewhere (with imports)")
-                return [lib], [], [], []
-            else:
-                c_libs = []
-                hybrid_libs = []
-                call_native = []
+            # this is the main case where we need to replace libs etc
+            # make sure to sort the sources to have a deterministic analysis
+            imps['raw_imports'] = OrderedDict(sorted(imps['raw_imports'].items(), key=lambda t: t[0]))
 
-                # check to see if this lib is a ctypes wrapper
-                if check_ctypes_wrapper(imps['raw_imports']):
-                    hybrid_libs.append(lib)
+            imps['imports'] = replace_fp_mod_group(imps, lib_path, 'raw_imports', is_libs=True)
 
-                if check_ext_proc_calls(imps):
-                    call_native.append(lib)
-
-                # this is the main case where we need to replace libs etc
-                # make sure to sort the sources to have a deterministic analysis
-                imps['raw_imports'] = OrderedDict(sorted(imps['raw_imports'].items(), key=lambda t: t[0]))
-
-                imps['imports'] = replace_fp_mod_group(imps, lib_path, 'raw_imports', is_libs=True)
-
-                # we only want to store the pkg names
-                imps['imports'] = get_pkg_names(imps, 'imports')
-
-                # let's do one more check for c sources at this point
-                # in case we missed anything within the current lib pkg
-                # remove any such libs from the imports
-                clean = []
-                for l in imps['imports']:
-                    if check_for_c_source(lib_path, l):
-                        c_libs.append(l)
-                    elif check_shared_libs(lib_path, l):
-                        hybrid_libs.append(l)
-                    else:
-                        clean.append(l)
-
-                imps['imports'] = clean
-
-                # iterate over all imports and prune away all std lib imports
-                print("Removing all python std lib imports")
-                imps['imports'] = remove_stdlib_imports(imps)
-
-                if len(imps['imports']) == 0 or lib in c_libs:
-                    print("No 3-p imports, or lib is C after all")
-                    return c_libs, hybrid_libs, call_native, []
+            # let's do one more check for c sources at this point
+            # in case we missed anything within the current lib pkg
+            # remove any such libs from the imports
+            clean = []
+            for l in imps['imports']:
+                if check_for_c_source(lib_path, l) and lib not in hybrid_libs:
+                    print("Found a C-implementation")
+                    c_libs.append(l)
                 else:
-                    print("Found 3-p imports -- more analysis")
+                    clean.append(l)
 
-                    for l in imps['imports']:
-                        # remove any 3p imports that are the lib itself
-                        # remove any 3p imports of setuptools
-                        if l != lib and l != "setuptools":
-                            l1 = l
-                            # get rid of the annoying pip parse errors
-                            if l.startswith("__") and l.endswith("__"):
-                                pass
-                            elif l.startswith("_"):
-                                l1 = l[1:]
-                            if l1 in visited:
-                                print(l1+" has already been analyzed")
-                            else:
-                                visited.append(l1)
-                                # let's start adding package exceptions
-                                if l1 == "ntlm":
-                                    names[l] = "python-ntlm"
-                                elif l1 == "OpenSSL":
-                                    names[l] = "pyOpenSSL"
-                                c, hyb, n, np = get_libs_with_deps(names, top_lib, l1, visited, clibs, shlibs, extproc)
-                                c_libs.extend(c)
-                                hybrid_libs.extend(hyb)
-                                call_native.append(n)
-                                no_pip.extend(np)
+            imps['imports'] = clean
 
-                return c_libs, hybrid_libs, call_native, no_pip
+            # we only want to store the pkg names
+            imps['imports'] = get_pkg_names(imps, 'imports')
+
+            # iterate over all imports and prune away all std lib imports
+            print("Removing all python std lib imports")
+            imps['imports'] = remove_stdlib_imports(imps)
+
+            if len(imps['imports']) == 0:
+                print("No 3p imports")
+                return c_libs, hybrid_libs, call_native, []
+            else:
+                print("Found 3-p imports -- more analysis")
+
+                for l in imps['imports']:
+                    # remove any 3p imports that are the lib itself
+                    # remove any 3p imports of setuptools
+                    if l != lib and l != "setuptools":
+                        l1 = l
+                        # get rid of the annoying pip parse errors
+                        if l.startswith("__") and l.endswith("__"):
+                            pass
+                        elif l.startswith("_"):
+                            l1 = l[1:]
+                        if l1 in visited:
+                            print(l1+" has already been analyzed")
+                        else:
+                            visited.append(l1)
+                            # let's start adding package exceptions
+                            if l1 == "ntlm":
+                                names[l] = "python-ntlm"
+                            elif l1 == "OpenSSL":
+                                names[l] = "pyOpenSSL"
+                            c, hyb, n, np = get_libs_with_deps(names, top_lib, l1, visited, clibs, shlibs, extproc)
+                            c_libs.extend(c)
+                            hybrid_libs.extend(hyb)
+                            call_native.append(n)
+                            no_pip.extend(np)
+
+            return c_libs, hybrid_libs, call_native, no_pip
 
 
 #### MAIN ###
