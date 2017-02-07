@@ -262,7 +262,8 @@ for l in libs:
         if len(np) > 0:
             if lib in np:
                 top_no_pip.append(lib)
-                np.remove(lib)
+                # remove all occurrences of lib from np
+                np = [y for y in np if y != lib]
             no_pip.extend(np)
 
 
