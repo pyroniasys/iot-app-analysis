@@ -182,7 +182,6 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
             supermod = "/".join(mods[3:len(mods)-1])
             hierarch = super_dir.split("/")
             pref = "/".join(hierarch[:len(hierarch)-1])
-            print(imp+" "+super_dir)
         elif mods[0] == "" and mods[1] == "":
             sibling_dir_imp = True
             # we're importing a ..submodule from the sibling_dir
@@ -384,6 +383,7 @@ def replace_fp_mod_group(grp_dict, g, target, is_libs=False):
         src_dir = get_src_dir(src)
         super_dir = get_super_dir(g, src)
         debug(" *** "+src)
+        print(str(i))
         for l in i:
             try:
                 # add entry for each src once we've tried to replace it
