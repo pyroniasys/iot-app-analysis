@@ -3,12 +3,14 @@ Adafruit_BBIO
 Adafruit_CharLCDPlate
 Adafruit_GPIO
 PIL
+RPi.GPIO
 boto3
 cherrypy
 dropbox
 flask
 gevent
 googleapiclient
+gtts
 imutils
 numpy
 oauth2client

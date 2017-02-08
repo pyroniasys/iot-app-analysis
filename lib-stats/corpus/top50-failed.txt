@@ -1,0 +1,12 @@
+Adafruit_DHT
+MySQLdb
+alsaaudio
+bluetooth
+cec
+cv2
+mraa
+pocketsphinx
+pyaudio
+pycurl
+scapy
+sphinxbase

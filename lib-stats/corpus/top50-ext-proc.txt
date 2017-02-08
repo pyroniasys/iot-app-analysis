@@ -6,6 +6,7 @@ boto3
 cherrypy
 dropbox
 flask
+gevent
 googleapiclient
 gtts
 imutils

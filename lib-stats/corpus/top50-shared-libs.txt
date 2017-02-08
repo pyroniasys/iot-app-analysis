@@ -2,8 +2,8 @@ Adafruit_CharLCDPlate
 PIL
 boto3
 cherrypy
-dropbox
 flask
+gevent
 googleapiclient
 imutils
 monotonic
@@ -12,10 +12,8 @@ oauth2client
 picamera
 pubnub
 pygame
-requests
 serial
 speech_recognition
-tweepy
 vlc
+websocket
 wolframalpha
-xively
