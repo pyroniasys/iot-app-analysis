@@ -184,6 +184,12 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
                 print("Found 3-p imports -- more analysis")
 
                 for l in imps['imports']:
+                    # by the second iteration, we may already
+                    # have all the info we need about the characteristics
+                    # of the lib
+                    if len(c_libs) > 0 and len(call_native) > 0:
+                        break
+
                     # remove any 3p imports that are the lib itself
                     # remove any 3p imports of setuptools
                     if l != lib and l != "setuptools":
