@@ -6,7 +6,7 @@ cherrypy
 memcache, python-memcached
 serial, pyserial
 Adafruit_DHT, adafruit_python_dht
-cv2, opencv
+cv2, opencv-python
 paho, paho-mqtt
 pocketsphinx
 PIL, Pillow
@@ -40,7 +40,7 @@ imutils
 monotonic
 numpy
 pubnub
-scapy
+scapy, scapy-python3
 sphinxbase, pocketsphinx
 websocket
 wiringpi2
