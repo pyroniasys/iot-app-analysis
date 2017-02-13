@@ -4,6 +4,7 @@ Adafruit_CharLCDPlate
 Adafruit_GPIO
 PIL
 RPi.GPIO
+alsaaudio
 boto3
 cherrypy
 dropbox
@@ -18,8 +19,10 @@ picamera
 pubnub
 pygame
 requests
+scapy
 smbus
 speech_recognition
+sphinxbase
 tweepy
 websocket
 wolframalpha

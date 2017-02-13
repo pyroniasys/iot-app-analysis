@@ -18,6 +18,7 @@ picamera
 pubnub
 pygame
 requests
+scapy
 speech_recognition
 tweepy
 webrtcvad

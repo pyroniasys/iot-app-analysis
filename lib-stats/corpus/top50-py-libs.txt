@@ -1,4 +1,8 @@
 ISStreamer
+bluetooth
+cv2
 feedparser
 httplib2
+pocketsphinx
+pycurl
 wiringpi2
