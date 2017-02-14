@@ -84,8 +84,8 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
     if os.path.isdir(top_lib_path+"/"+lib):
         lib_path = top_lib_path+"/"+lib
     elif os.path.isdir(top_lib_path+"/"+top_lib+"/"+lib):
-            # this means that the lib has its own dir
-            lib_path = top_lib_path+"/"+top_lib+"/"+lib
+        # this means that the lib has its own dir
+        lib_path = top_lib_path+"/"+top_lib+"/"+lib
     elif os.path.isfile(top_lib_path+"/"+lib+".py"):
         lib_path = top_lib+"/"+lib+".py"
 
@@ -217,7 +217,7 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
                                 names[l] = "pyOpenSSL"
                             elif l1 == "OpenGL":
                                 names[l] = "PyOpenGL"
-                            c, hyb, n, np = get_libs_with_deps(names, top_lib, l1, visited, clibs, shlibs, extproc)
+                            c, hyb, n, np = get_libs_with_deps(names, lib, l1, visited, clibs, shlibs, extproc)
                             c_libs.extend(c)
                             hybrid_libs.extend(hyb)
                             call_native.append(n)
