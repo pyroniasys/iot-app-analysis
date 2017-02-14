@@ -473,8 +473,11 @@ def search_shared_libs(path, lib):
 def remove_stdlib_imports(grp):
     libs_3p = []
     for l in grp['imports']:
-        if is_3p_lib(l) and l != "__builtin__":
-            libs_3p.append(l)
+        l1 = l
+        if l.startswith("_"):
+            l1 = l[1:]
+        if is_3p_lib(l1) and l1 != "__builtin__" and l1 != "abcoll":
+            libs_3p.append(l1)
 
     return libs_3p
 

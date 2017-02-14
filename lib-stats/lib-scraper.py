@@ -78,12 +78,16 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
         downl = lib
 
     lib_path = "/tmp/"+lib
+    top_lib_path = "/tmp/"+top_lib
 
     # these two next cases cover downloaded dependencies
-    if os.path.isdir("/tmp/"+top_lib+"/"+lib):
-        lib_path = "/tmp/"+top_lib+"/"+lib
-    elif os.path.isfile("/tmp/"+top_lib+"/"+lib+".py"):
-        lib_path = "/tmp/"+top_lib+"/"+lib+".py"
+    if os.path.isdir(top_lib_path+"/"+lib):
+        lib_path = top_lib_path+"/"+lib
+    elif os.path.isdir(top_lib_path+"/"+top_lib+"/"+lib):
+            # this means that the lib has its own dir
+            lib_path = top_lib_path+"/"+top_lib+"/"+lib
+    elif os.path.isfile(top_lib_path+"/"+lib+".py"):
+        lib_path = top_lib+"/"+lib+".py"
 
     try:
         if not os.path.isdir(lib_path) and not os.path.isfile(lib_path):
@@ -102,6 +106,11 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
             # this means that the lib has its own dir
             lib_path = lib_path+"/"+lib
     except subprocess.CalledProcessError:
+        # let's see if we can find any sources in the lib path
+        if check_for_c_source(top_lib_path, lib):
+            print("Found dependency C-lib")
+            return [lib], [], [], []
+
         no_pip.append(lib)
         print("Did not install through pip: "+lib)
         return [], [], [], no_pip
@@ -197,8 +206,6 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
                         # get rid of the annoying pip parse errors
                         if l.startswith("__") and l.endswith("__"):
                             pass
-                        elif l.startswith("_"):
-                            l1 = l[1:]
                         if l1 in visited:
                             print(l1+" has already been analyzed")
                         else:
@@ -208,6 +215,8 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
                                 names[l] = "python-ntlm"
                             elif l1 == "OpenSSL":
                                 names[l] = "pyOpenSSL"
+                            elif l1 == "OpenGL":
+                                names[l] = "PyOpenGL"
                             c, hyb, n, np = get_libs_with_deps(names, top_lib, l1, visited, clibs, shlibs, extproc)
                             c_libs.extend(c)
                             hybrid_libs.extend(hyb)
