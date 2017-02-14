@@ -91,6 +91,8 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
         lib_path = top_lib_path+"/"+top_lib+"/"+lib
     elif os.path.isfile(top_lib_path+"/"+lib+".py"):
         lib_path = top_lib+"/"+lib+".py"
+    elif os.path.isfile(top_lib_path+"/_"+lib+".py"):
+        lib_path = top_lib+"/_"+lib+".py"
 
     try:
         if not os.path.isdir(lib_path) and not os.path.isfile(lib_path):
@@ -204,11 +206,10 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
 
                     # remove any 3p imports that are the lib itself
                     # remove any 3p imports of setuptools
-                    if l != lib and l != "setuptools":
+                    # ignore Jython imports
+                    # ignore special modules
+                    if l != lib and l != "setuptools" and not (l.startswith("__") and l.endswith("__")) and not (l == "java" or l == "systemrestart"):
                         l1 = l
-                        # get rid of the annoying pip parse errors
-                        if l.startswith("__") and l.endswith("__"):
-                            pass
                         if l1 in visited:
                             print(l1+" has already been analyzed")
                         else:
@@ -220,6 +221,10 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
                                 names[l] = "pyOpenSSL"
                             elif l1 == "OpenGL":
                                 names[l] = "PyOpenGL"
+                            elif l1 == "dns":
+                                names[l] = "dnspython"
+                            elif l1 == "OpenGL_accelerate":
+                                names[l] = "PyOpenGL_accelerate"
                             c, hyb, n, np = get_libs_with_deps(names, lib, l1, visited, clibs, shlibs, extproc)
                             c_libs.extend(c)
                             hybrid_libs.extend(hyb)

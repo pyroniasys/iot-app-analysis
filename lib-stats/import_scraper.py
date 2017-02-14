@@ -109,6 +109,9 @@ def get_pkg_names(app, target):
         elif "xmlrpc.client" == lib:
             # need to make an exception for stdlib xmlrpc.client
             tlp = lib
+        elif "mock" == lib:
+            # mock is in the stdlib since 3.3 as part of unittest
+            tlp = "unittest.mock"
         elif "pkg_resources" in lib:
             # pkg_resources is a subpackage of setuptools
             tlp = "setuptools"
