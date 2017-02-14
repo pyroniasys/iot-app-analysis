@@ -24,8 +24,6 @@ requests
 scapy
 speech_recognition
 tweepy
-webrtcvad
 websocket
 wolframalpha
 xively
-yaml

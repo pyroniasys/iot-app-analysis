@@ -1,7 +1,9 @@
 APDS9300
 Adafruit_BBIO
 Adafruit_CharLCDPlate
+Adafruit_DHT
 Adafruit_GPIO
+MySQLdb
 PIL
 RPi.GPIO
 alsaaudio
@@ -19,6 +21,7 @@ numpy
 oauth2client
 picamera
 pubnub
+pyaudio
 pygame
 requests
 scapy
