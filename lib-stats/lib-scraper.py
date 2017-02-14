@@ -80,8 +80,11 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
     lib_path = "/tmp/"+lib
     top_lib_path = "/tmp/"+top_lib
 
-    # these two next cases cover downloaded dependencies
-    if os.path.isdir(top_lib_path+"/"+lib):
+    # on rare occasions, the lib is just a python file
+    if os.path.isfile(lib_path+"/"+lib+".py"):
+        lib_path = lib_path+"/"+lib+".py"
+    # these three next cases cover downloaded dependencies
+    elif os.path.isdir(top_lib_path+"/"+lib):
         lib_path = top_lib_path+"/"+lib
     elif os.path.isdir(top_lib_path+"/"+top_lib+"/"+lib):
         # this means that the lib has its own dir
