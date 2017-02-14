@@ -6,6 +6,7 @@ PIL
 RPi.GPIO
 alsaaudio
 boto3
+cec
 cherrypy
 dropbox
 flask
@@ -13,6 +14,7 @@ gevent
 googleapiclient
 gtts
 imutils
+mraa
 numpy
 oauth2client
 picamera

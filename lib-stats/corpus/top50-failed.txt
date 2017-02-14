@@ -1,5 +1,0 @@
-Adafruit_DHT
-MySQLdb
-cec
-mraa
-pyaudio
