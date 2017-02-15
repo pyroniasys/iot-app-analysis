@@ -1,10 +1,6 @@
+....forms
+...forms
 Adapter
 AppKit
-Foundation
-Numeric
-OpenGL_accelerate
+Parser
 code_generators
-dns
-java
-mysql_exceptions
-systemrestart

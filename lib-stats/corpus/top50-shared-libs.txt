@@ -1,3 +1,4 @@
+AWSIoTPythonSDK
 Adafruit_CharLCDPlate
 PIL
 boto3
@@ -9,6 +10,7 @@ imutils
 monotonic
 numpy
 oauth2client
+paho
 picamera
 pubnub
 pygame

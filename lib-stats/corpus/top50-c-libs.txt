@@ -1,4 +1,5 @@
 APDS9300
+AWSIoTPythonSDK
 Adafruit_BBIO
 Adafruit_CharLCDPlate
 Adafruit_DHT
@@ -19,6 +20,7 @@ imutils
 mraa
 numpy
 oauth2client
+paho
 picamera
 pubnub
 pyaudio
