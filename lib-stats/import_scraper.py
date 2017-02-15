@@ -383,7 +383,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
                 visited.append(src)
                 imps = srcs_dict[src]
                 if src.endswith("__init__.py") and len(imps) == 0:
-                    l.append(imp)
+                    pass
                 else:
                     for m in imps:
                         replacements = replace_fp_mod(app, get_super_dir(app, src), get_src_dir(src), m, srcs_dict, visited, is_libs)

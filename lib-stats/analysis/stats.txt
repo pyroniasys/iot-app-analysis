@@ -9,7 +9,7 @@ alsaaudio: 11.8
 cherrypy: 11.8
 % of apps that exec an external proc: 45.9
 % of apps that load shared libs: 4.7
-Number of unused libs (3p): 75 (11)
+Number of unused libs (3p): 73 (12)
 Top 5 unused 3p libs by frequency (in % of apps): 
 Adafruit_GPIO: 2.4
 RPi.GPIO: 2.4

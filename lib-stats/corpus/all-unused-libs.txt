@@ -6,17 +6,16 @@ PIL
 Queue
 RPi.GPIO
 Tkinter
-__future__
 argparse
 array
 asyncio
+athena
 audioop
 base64
 cgi
 collections
 concurrent.futures
 configparser
-contextlib
 ctypes
 datetime
 email
@@ -29,7 +28,6 @@ glob
 hashlib
 http
 importlib
-inspect
 io
 itertools
 json
