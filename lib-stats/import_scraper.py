@@ -184,14 +184,14 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
             mod = "/".join(mods[4:])
             supermod = "/".join(mods[4:len(mods)-1])
             hierarch = super_dir.split("/")
-            pref = "/".join(hierarch[:len(hierarch)-2])
+            pref = "/".join(hierarch[:len(hierarch)-3])
         elif mods[0] == "" and mods[1] == "" and mods[2] == "":
             higher_dir_imp = True
             # we're importing a ...submodule from a higher sibling_dir
             mod = "/".join(mods[3:])
             supermod = "/".join(mods[3:len(mods)-1])
             hierarch = super_dir.split("/")
-            pref = "/".join(hierarch[:len(hierarch)-1])
+            pref = "/".join(hierarch[:len(hierarch)-2])
         elif mods[0] == "" and mods[1] == "":
             sibling_dir_imp = True
             # we're importing a ..submodule from the sibling_dir
