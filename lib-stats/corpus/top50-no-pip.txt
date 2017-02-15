@@ -1,6 +1,2 @@
-....forms
-...forms
 Adapter
-AppKit
-Parser
 code_generators
