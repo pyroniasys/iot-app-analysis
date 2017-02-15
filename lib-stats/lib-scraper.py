@@ -90,9 +90,9 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
         # this means that the lib has its own dir
         lib_path = top_lib_path+"/"+top_lib+"/"+lib
     elif os.path.isfile(top_lib_path+"/"+lib+".py"):
-        lib_path = top_lib+"/"+lib+".py"
+        lib_path = top_lib_path+"/"+lib+".py"
     elif os.path.isfile(top_lib_path+"/_"+lib+".py"):
-        lib_path = top_lib+"/_"+lib+".py"
+        lib_path = top_lib_path+"/_"+lib+".py"
 
     try:
         if not os.path.isdir(lib_path) and not os.path.isfile(lib_path):
