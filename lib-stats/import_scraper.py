@@ -100,15 +100,12 @@ def get_pkg_names(app, target):
     pkgs = []
     for lib in app[target]:
         tlp = get_top_pkg_name(lib)
-        if lib == "RPi.GPIO":
-            # let's make an exception for RPi.GPIO -- that's the pkg name
+        if lib == "RPi.GPIO" or lib == "encodings.idna" or lib == "xmlrpc.client":
+            # let's make an exception for these 3 libs -- that's the pkg name
             tlp = lib
         elif "concurrent.futures" in lib:
             # need to make an exception for stdlib concurrent.futures
             tlp = "concurrent.futures"
-        elif "xmlrpc.client" == lib:
-            # need to make an exception for stdlib xmlrpc.client
-            tlp = lib
         elif "mock" == lib:
             # mock is in the stdlib since 3.3 as part of unittest
             tlp = "unittest.mock"
@@ -377,7 +374,7 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
             srcs = iterSourceCode([higher_subdir])
 
         debug(case)
-            
+
         l = []
         for src in srcs:
             if src in visited:
@@ -468,7 +465,7 @@ def search_c_source(path, lib):
             f_hierarch = f.split("/")
             filename = f_hierarch[len(f_hierarch)-1] # the actual filename is the last element
             if (filename.startswith(lib+".") or filename.startswith("_"+lib+".")) and (filename.endswith(".c") or filename.endswith(".h") or filename.endswith(".cpp") or filename.endswith(".hpp") or filename.endswith(".so")):
-                debug("Found C cource: "+filename)
+                debug("Found C source: "+filename)
                 c.append(filename)
     return c
 
@@ -483,17 +480,6 @@ def search_shared_libs(path, lib):
                 shlibs.append(filename)
     return shlibs
 
-def remove_stdlib_imports(grp):
-    libs_3p = []
-    for l in grp['imports']:
-        l1 = l.strip("'")
-        if l.startswith("_") and not l.startswith("__"):
-            l1 = l[1:]
-        if is_3p_lib(l1) and l1 != "__builtin__" and l1 != "__future__" and l1 != "abcoll":
-            libs_3p.append(l1)
-
-    return libs_3p
-
 def add_mod_init_imports(l, raw_imports, unused):
     mods = l.split(".")
     replaced_imps = OrderedDict()
@@ -505,6 +491,15 @@ def add_mod_init_imports(l, raw_imports, unused):
                 for l_unused in init_unused:
                     if l_unused.startswith(mods[0]+"."):
                         new_i.append(l_unused)
+                    # need to add a special case for wiringpi2 bc
+                    # it's deprecated and uses wiringpi instead,
+                    # which is implemented in c
+                    # otherwise, wiringpi2 is marked as py-only, which is false
+                    if l == "wiringpi2":
+                        print("got here")
+                        if l_unused.startswith("wiringpi"):
+                            print(l_unused)
+                            new_i.append(l_unused)
         else:
             new_i = i
         replaced_imps[src] = new_i

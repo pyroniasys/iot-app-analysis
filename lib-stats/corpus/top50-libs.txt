@@ -45,6 +45,6 @@ sphinxbase, pocketsphinx
 websocket
 wiringpi2
 xively, xively-python
-APDS9300, https://github.com/sensorian/SensorianHubClient/blob/master/APDS9300.py
+APDS9300
 Adafruit_CharLCDPlate, Adafruit-CharLCD
 Adafruit_GPIO

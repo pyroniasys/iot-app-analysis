@@ -1,7 +1,6 @@
 # Gather statistics about the collected IoT apps
 
 import sys
-import os
 from collections import OrderedDict
 
 from util import *
@@ -174,27 +173,27 @@ def top50_lib_stats():
     
     # get % of python libs
     pct_py_libs = "%.1f" % ((len(top50_py_libs)/50)*100)
-    write_str(pct_py_libs, "% of pure python top-50 libs")
+    write_str(pct_py_libs, "% of pure python top-50 libs", filename="analysis/top50-lib-stats.txt")
     
     # get % of C libs
     pct_c_libs = "%.1f" % ((len(top50['c-libs'])/50)*100)
-    write_str(pct_c_libs, "% of top-50 libs implemented in C/C++")
+    write_str(pct_c_libs, "% of top-50 libs implemented in C/C++", filename="analysis/top50-lib-stats.txt")
     
     # get % of hybrid
     pct_hyb_libs = "%.1f" % ((len(top50['hybrid-libs'])/50)*100)
-    write_str(pct_hyb_libs, "% of top-50 libs that load libs thru ctypes")
+    write_str(pct_hyb_libs, "% of top-50 libs that load libs thru ctypes", filename="analysis/top50-lib-stats.txt")
     
     # get % of libs that call an ext proc
     pct_ext_proc_libs = "%.1f" % ((len(top50['ext-proc'])/50)*100)
-    write_str(pct_ext_proc_libs, "% of libs that exec an external proc")
+    write_str(pct_ext_proc_libs, "% of libs that exec an external proc", filename="analysis/top50-lib-stats.txt")
 
     # get the % of libs that have at least two of these properties
     pct_common_libs = "%.1f" % ((len(common_top50)/50)*100)
-    write_str(pct_comon_libs, "% of libs that have at least two of these properties")
+    write_str(pct_common_libs, "% of libs that have at least two of these properties", filename="analysis/top50-lib-stats.txt")
 
 ## MAIN ##
 if len(sys.argv) != 2:
-    print("Usage: python3 gen_stats.py <app|lib>")
+    print("Usage: python3 gen_stats.py <app|top50-lib>")
     exit(-1)
 
 stats_type = str(sys.argv[1])
@@ -206,5 +205,5 @@ if os.path.isfile(STATS_FILE):
 
 if stats_type == "app":
     app_stats()
-elif stats_type == "lib":
+elif stats_type == "top50-lib":
     top50_lib_stats()

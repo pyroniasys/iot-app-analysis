@@ -1,6 +1,7 @@
 # Utility functions for the library stats scripts
 
 import json
+import os
 from collections import OrderedDict
 from stdlib_list import stdlib_list
 
@@ -10,7 +11,7 @@ DEBUG = False
 def debug(msg):
     if DEBUG:
         print(str(msg))
-
+        
 def get_name(p):
     name = p[:p.find(".")]
     return name

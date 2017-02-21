@@ -77,11 +77,18 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
     else:
         downl = lib
 
-    lib_path = "/tmp/"+lib
-    top_lib_path = "/tmp/"+top_lib
+    lib_path = "libs/"+lib
+    top_lib_path = "libs/"+top_lib
 
+    if os.path.isdir(lib_path+"/"+lib):
+        # this means that the lib has its own dir
+        lib_path = lib_path+"/"+lib
+    elif lib == "RPi.GPIO":
+        # make an exception for RPi.GPIO since it's the
+        # only lib that only has a subpackage
+        lib_path = lib_path+"/RPi"
     # on rare occasions, the lib is just a python file
-    if os.path.isfile(lib_path+"/"+lib+".py"):
+    elif os.path.isfile(lib_path+"/"+lib+".py"):
         lib_path = lib_path+"/"+lib+".py"
     # these three next cases cover downloaded dependencies
     elif os.path.isdir(top_lib_path+"/"+lib):
@@ -94,22 +101,14 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
     elif os.path.isfile(top_lib_path+"/_"+lib+".py"):
         lib_path = top_lib_path+"/_"+lib+".py"
 
+    print("Searching for imports in path: "+lib_path)
+
     try:
         if not os.path.isdir(lib_path) and not os.path.isfile(lib_path):
             time.sleep(5) # sleep 5s to make sure we're not clobbering pip
             print("Downloading "+downl)
-            if downl.startswith("https"):
-                os.system("wget -q -P /tmp/"+lib+" --no-directories "+downl)
-            else:
-                subprocess.check_output(["pip3", "install", "-qq", "--no-compile", "-t", "/tmp/"+lib, downl])
+            subprocess.check_output(["pip3", "install", "-qq", "--no-compile", "-t", "libs/"+lib, downl])
 
-        if lib == "RPi.GPIO":
-            # make an exception for RPi.GPIO since it's the
-            # only lib that only has a subpackage
-            lib_path = lib_path+"/RPi"
-        elif os.path.isdir(lib_path+"/"+lib):
-            # this means that the lib has its own dir
-            lib_path = lib_path+"/"+lib
     except subprocess.CalledProcessError:
         # let's see if we can find any sources in the lib path
         if check_for_c_source(top_lib_path, lib):
@@ -120,9 +119,11 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
         print("Did not install through pip: "+lib)
         return [], [], [], no_pip
 
-        print("Searching for imports in path: "+lib_path)
-
-    imports_raw, unused_raw = extract_imports(cat, lib_path, perm="a+")
+    # we might have dependency py files in our lib path
+    search_path = lib_path
+    if "libs/"+lib == top_lib_path and lib_path.endswith(".py"):
+        search_path = top_lib_path
+    imports_raw, unused_raw = extract_imports(cat, search_path, perm="a+")
 
     imps = OrderedDict()
 
@@ -165,38 +166,39 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
             if check_ext_proc_calls(imps):
                 call_native.append(lib)
 
+            # let's do one more check for c sources at this point
+            # in case we missed anything within the current lib pkg
+            # remove any such libs from the imports
+            clean = dict()
+            for src, i in imps['raw_imports'].items():
+                clean[src] = []
+                for l in i:
+                    if check_for_c_source(top_lib_path, l):
+                        print("Found a C-implementation")
+                        c_libs.append(l)
+                    else:
+                        clean[src].append(l)
+
+            imps['raw_imports'] = clean
+
             # this is the main case where we need to replace libs etc
             # make sure to sort the sources to have a deterministic analysis
             imps['raw_imports'] = OrderedDict(sorted(imps['raw_imports'].items(), key=lambda t: t[0]))
 
             imps['imports'] = replace_fp_mod_group(imps, lib_path, 'raw_imports', is_libs=True)
 
-            # let's do one more check for c sources at this point
-            # in case we missed anything within the current lib pkg
-            # remove any such libs from the imports
-            clean = []
-            for l in imps['imports']:
-                if check_for_c_source(lib_path, l) and lib not in hybrid_libs:
-                    print("Found a C-implementation")
-                    c_libs.append(l)
-                else:
-                    clean.append(l)
-
-            imps['imports'] = clean
-
             # we only want to store the pkg names
             imps['imports'] = get_pkg_names(imps, 'imports')
 
             # iterate over all imports and prune away all std lib imports
             print("Removing all python std lib imports")
-            imps['imports'] = remove_stdlib_imports(imps)
+            imps['imports'] = remove_stdlib_imports(imps['imports'])
 
             if len(imps['imports']) == 0:
                 print("No 3p imports")
                 return c_libs, hybrid_libs, call_native, []
             else:
                 print("Found 3-p imports -- more analysis")
-
                 for l in imps['imports']:
                     # by the second iteration, we may already
                     # have all the info we need about the characteristics
@@ -209,28 +211,32 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
                     # ignore Jython imports
                     # ignore special modules
                     if l != lib and l != "setuptools" and not (l.startswith("__") and l.endswith("__")) and not (l == "java" or l == "systemrestart"):
-                        l1 = l
-                        if l1 in visited:
-                            print(l1+" has already been analyzed")
+                        if l in visited:
+                            print(l+" has already been analyzed")
                         else:
-                            visited.append(l1)
+                            visited.append(l)
                             # let's start adding package exceptions
-                            if l1 == "ntlm":
+                            if l == "ntlm":
                                 names[l] = "python-ntlm"
-                            elif l1 == "OpenSSL":
+                            elif l == "OpenSSL":
                                 names[l] = "pyOpenSSL"
-                            elif l1 == "OpenGL":
+                            elif l == "OpenGL":
                                 names[l] = "PyOpenGL"
-                            elif l1 == "dns":
+                            elif l == "dns":
                                 names[l] = "dnspython"
-                            elif l1 == "OpenGL_accelerate":
+                            elif l == "OpenGL_accelerate":
                                 names[l] = "PyOpenGL_accelerate"
-                            c, hyb, n, np = get_libs_with_deps(names, lib, l1, visited, clibs, shlibs, extproc)
+                            elif l == "stackless":
+                                names[l] = "stackless-python"
+                            elif l == "ndg":
+                                names[l] = "ndg-httpsclient"
+                            elif l.startswith("win32"):
+                                names[l] = "pywin32"
+                            c, hyb, n, np = get_libs_with_deps(names, lib, l, visited, clibs, shlibs, extproc)
                             c_libs.extend(c)
                             hybrid_libs.extend(hyb)
                             call_native.append(n)
                             no_pip.extend(np)
-
             return c_libs, hybrid_libs, call_native, no_pip
 
 
@@ -258,21 +264,25 @@ f.close()
 
 print("Number of libs in "+cat+": "+str(len(libs)))
 
-c_libs = []
-call_native = []
-hybrid_libs = []
-no_pip = []
-top_no_pip = []
+# let's load all the libs with their alternative names
 lib_names = OrderedDict()
-py_libs = []
 for l in libs:
     pair = l.split(",")
     lib = pair[0].strip()
     lib_names[lib] = ""
     if len(pair) == 2:
-         lib_names[lib] = pair[1].strip()
+        lib_names[lib] = pair[1].strip()
+
+c_libs = []
+call_native = []
+hybrid_libs = []
+no_pip = []
+top_no_pip = []
+py_libs = []
+for l in libs:
+    pair = l.split(",")
+    lib = pair[0].strip()
     recurs_limit = []
-    #find_pip_name(lib)
     c, hyb, native, np = get_libs_with_deps(lib_names, lib, lib, recurs_limit, c_libs, hybrid_libs, call_native)
 
     if len(c) == 0 and len(hyb) == 0 and len(native) == 0 and len(np) == 0:
@@ -289,13 +299,35 @@ for l in libs:
                 top_no_pip.append(lib)
                 # remove all occurrences of lib from np
                 np = [y for y in np if y != lib]
-            no_pip.extend(np)
 
+            # if we already have all the info we need on this lib
+            # ignore the libs we couldn't download
+            if not (len(c) > 0 and len(hyb) > 0 and len(native) > 0):
+                no_pip.extend(np)
+
+        c_libs.extend(c)
+        hybrid_libs.extend(hyb)
+        call_native.extend(native)
 
 no_pip = remove_dups(no_pip)
 write_list_raw(no_pip, "corpus/"+cat+"-no-pip.txt")
 write_list_raw(top_no_pip, "corpus/"+cat+"-failed.txt")
-write_list_raw(call_native, "corpus/"+cat+"-ext-proc.txt")
-write_list_raw(c_libs, "corpus/"+cat+"-c-libs.txt")
-write_list_raw(hybrid_libs, "corpus/"+cat+"-shared-libs.txt")
 write_list_raw(py_libs, "corpus/"+cat+"-py-libs.txt")
+
+# need to clean up the lists
+c_libs_top = []
+call_native_top = []
+hybrid_libs_top = []
+for l in libs:
+    pair = l.split(",")
+    lib = pair[0].strip()
+    if lib in c_libs:
+        c_libs_top.append(lib)
+    if lib in call_native:
+        call_native_top.append(lib)
+    if lib in hybrid_libs:
+        hybrid_libs_top.append(lib)
+
+write_list_raw(call_native_top, "corpus/"+cat+"-ext-proc.txt")
+write_list_raw(c_libs_top, "corpus/"+cat+"-c-libs.txt")
+write_list_raw(hybrid_libs_top, "corpus/"+cat+"-shared-libs.txt")
