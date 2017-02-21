@@ -184,14 +184,14 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
             mod = "/".join(mods[4:])
             supermod = "/".join(mods[4:len(mods)-1])
             hierarch = super_dir.split("/")
-            pref = "/".join(hierarch[:len(hierarch)-3])
+            pref = "/".join(hierarch[:len(hierarch)-2])
         elif mods[0] == "" and mods[1] == "" and mods[2] == "":
             higher_dir_imp = True
             # we're importing a ...submodule from a higher sibling_dir
             mod = "/".join(mods[3:])
             supermod = "/".join(mods[3:len(mods)-1])
             hierarch = super_dir.split("/")
-            pref = "/".join(hierarch[:len(hierarch)-2])
+            pref = "/".join(hierarch[:len(hierarch)-1])
         elif mods[0] == "" and mods[1] == "":
             sibling_dir_imp = True
             # we're importing a ..submodule from the sibling_dir
@@ -338,43 +338,46 @@ def replace_fp_mod(app, super_dir, src_dir, imp, srcs_dict, visited, is_libs=Fal
     else:
         #print(app+" $ "+pref+" $ "+imp)
         srcs = []
+        case = ""
         if srcs_dict.get(py_file) != None:
-            debug("1")
+            case = "1"
             srcs = [py_file]
         elif srcs_dict.get(sibling_py_file) != None:
-            debug("2")
+            case = "2"
             srcs = [sibling_py_file]
         elif srcs_dict.get(higher_py_file) != None:
-            debug("3")
+            case = "3"
             srcs = [higher_py_file]
         elif srcs_dict.get(init_file) != None:
-            debug("4")
+            case = "4"
             srcs = [init_file]
         elif srcs_dict.get(obj_mod) != None:
-            debug("5")
+            case = "5"
             srcs = [obj_mod]
         elif srcs_dict.get(sibling_obj_mod) != None:
-            debug("6")
+            case = "6"
             srcs = [sibling_obj_mod]
         elif srcs_dict.get(higher_obj_mod) != None:
-            debug("7")
+            case = "7"
             srcs = [higher_obj_mod]
         elif srcs_dict.get(subdir_init_file) != None:
-            debug("8")
+            case = "8"
             srcs = [subdir_init_file]
         elif srcs_dict.get(sibling_init_file) != None:
-            debug("9")
+            case = "9"
             srcs = [sibling_init_file]
         elif os.path.isdir(subdir):
-            debug("10")
+            case = "10"
             srcs = iterSourceCode([subdir])
         elif os.path.isdir(sibling_subdir):
-            debug("11")
+            case = "11"
             srcs = iterSourceCode([sibling_subdir])
         elif os.path.isdir(higher_subdir):
-            debug("12")
+            case = "12"
             srcs = iterSourceCode([higher_subdir])
 
+        debug(case)
+            
         l = []
         for src in srcs:
             if src in visited:
@@ -453,7 +456,7 @@ def scan_source_ctypes(src):
     hybs = []
     for l in lines:
         clean = l.strip()
-        if not clean.startswith("#") and ("CDLL" in clean or "LoadLibrary(" in clean):
+        if not clean.startswith("#") and ("CDLL(" in clean or "LoadLibrary(" in clean):
             debug("Found shared lib load in code: "+clean)
             hybs.append(clean)
     return hybs

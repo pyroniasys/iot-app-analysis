@@ -103,10 +103,10 @@ for a in apps:
     # we only want to store the pkg names
     apps[a]['imports'] = get_pkg_names(apps[a], 'imports')
 
-    # iterate over all imports and prune away all std lib imports
-    print("Removing all python std lib imports")
-    apps[a]['imports'] = remove_stdlib_imports(apps[a])
-
+    # we're no longer removing stdlib imports bc this will be done as part of the
+    # analysis
+    # apps[a]['imports'] = remove_stdlib_imports(apps[a]['imports'])
+                                               
     # iterate of each source's files imports to remove unused imports that actually appear
     # in the list of imports
     if not a.endswith(".py"):

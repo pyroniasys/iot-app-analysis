@@ -4,7 +4,7 @@ import json
 from collections import OrderedDict
 from stdlib_list import stdlib_list
 
-STATS_FILE = "analysis/stats.txt"
+STATS_FILE = "analysis/app-stats.txt"
 DEBUG = False
 
 def debug(msg):
@@ -37,6 +37,17 @@ def is_3p_lib(l):
         return True
     return False
 
+def remove_stdlib_imports(import_list):
+    libs_3p = []
+    for l in import_list:
+        l1 = l.strip("'")
+        if l.startswith("_") and not l.startswith("__"):
+            l1 = l[1:]
+        if is_3p_lib(l1) and l1 != "__builtin__" and l1 != "__future__" and l1 != "abcoll":
+            libs_3p.append(l1)
+
+    return libs_3p
+
 def count_freq(to_count, m=None):
     if m == None:
         m = dict()
@@ -67,25 +78,25 @@ def get_distinct_cat(cat, d):
 # we don't want to include libs['multi'] in this count since
 # we'll be counting domain-unique libs that are used in
 # multi-domain apps as non-unique
-def get_common(libs):
+def get_common(libs, cat1='visual', cat2='audio', cat3='env'):
     # need to check all pairs to get the right count
     common_libs = dict()
-    for lib in libs['visual']:
-        if lib in libs['audio'] or lib in libs['env']:
+    for lib in libs[cat1]:
+        if lib in libs[cat2] or lib in libs[cat3]:
             if common_libs.get(lib) == None:
                 common_libs[lib] = 1
             else:
                 common_libs[lib] += 1
 
-    for lib in libs['audio']:
-        if lib in libs['visual'] or lib in libs['env']:
+    for lib in libs[cat2]:
+        if lib in libs[cat1] or lib in libs[cat3]:
             if common_libs.get(lib) == None:
                 common_libs[lib] = 1
             else:
                 common_libs[lib] += 1
 
-    for lib in libs['env']:
-        if lib in libs['visual'] or lib in libs['audio']:
+    for lib in libs[cat3]:
+        if lib in libs[cat1] or lib in libs[cat2]:
             if common_libs.get(lib) == None:
                 common_libs[lib] = 1
             else:
@@ -96,35 +107,35 @@ def get_common(libs):
 # we don't want to include libs['multi'] in this count since
 # we'll be counting domain-unique libs that are used in
 # multi-domain apps as non-unique
-def get_unique(libs):
+def get_unique(libs, cat1='visual', cat2='audio', cat3='env'):
     # need to check all pairs to get the right count
     unique_libs = dict()
     vis = dict()
-    for lib in libs['visual']:
-        if lib not in libs['audio'] and lib not in libs['env']:
+    for lib in libs[cat1]:
+        if lib not in libs[cat2] and lib not in libs[cat3]:
             if vis.get(lib) == None:
                 vis[lib] = 1
             else:
                 vis[lib] += 1
-    unique_libs['visual'] = vis
+    unique_libs[cat1] = vis
 
     aud = dict()
-    for lib in libs['audio']:
-        if lib not in libs['visual'] and lib not in libs['env']:
+    for lib in libs[cat2]:
+        if lib not in libs[cat1] and lib not in libs[cat3]:
             if aud.get(lib) == None:
                 aud[lib] = 1
             else:
                 aud[lib] += 1
-    unique_libs['audio'] = aud
+    unique_libs[cat2] = aud
 
     env = dict()
-    for lib in libs['env']:
-        if lib not in libs['visual'] and lib not in libs['audio']:
+    for lib in libs[cat3]:
+        if lib not in libs[cat1] and lib not in libs[cat2]:
             if env.get(lib) == None:
                 env[lib] = 1
             else:
                 env[lib] += 1
-    unique_libs['env'] = env
+    unique_libs[cat3] = env
     return unique_libs
 
 # remove duplicate entries from a list
