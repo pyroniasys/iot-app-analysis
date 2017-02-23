@@ -415,7 +415,7 @@ def replace_fp_mod_group(grp_dict, g, target, is_libs=False):
     return remove_dups(libs)
 
 def call_native_proc(l):
-    if "os.system" in l or "os.spawnlp" in l or "os.popen" in l or "subprocess.call" in l or "subprocess.Popen" in l or "subprocess.check_output" in l or "Popen(" in l or "call([" in l:
+    if "os.system" in l or "os.spawn" in l or "os.exec" in l or "os.popen" in l or "subprocess.call" in l or "subprocess.Popen" in l or "subprocess.run" in l or "subprocess.check_output" in l or "Popen(" in l or "call([" in l:
         return True
     return False
 
