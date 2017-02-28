@@ -1,8 +1,8 @@
 Number of analyzed IoT apps: 85
 Number of distinct libs (3p): 366 (270)
 % 3p libs: 73.8
-Avg number of imports per app: 11.7
-Avg number of 3p imports per app: 5.7
+Number of imports per app (min/median/max/mean): 1/7/245/11.7
+Number of 3p imports per app (min/median/max/mean): 0/3/177/5.7
 Top 5 libs by frequency (in % of apps): 
 RPi.GPIO: 44.7
 requests: 23.5

@@ -153,12 +153,15 @@ write_list_raw(li, "corpus/"+cat+"-unused-libs.txt")
 
 # collect per-app libs and lib counts
 lib_counts = OrderedDict()
+lib_3p_counts = OrderedDict()
 p="w+"
 for a in apps:
     write_list(apps[a]['imports'], "corpus/"+cat+"-libs-perapp.txt", name=a, perm=p)
     lib_counts[a] = len(apps[a]['imports'])
+    lib_3p_counts[a] = len(remove_stdlib_imports(apps[a]['imports']))
     if p == "w+":
         # want to set the perm to append after the first app
         p = "a+"
 
 write_freq_map(lib_counts, filename="analysis/"+cat+"-lib-counts.txt", perm="w+")
+write_freq_map(lib_3p_counts, filename="analysis/"+cat+"-3p-lib-counts.txt", perm="w+")
