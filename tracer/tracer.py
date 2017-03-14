@@ -243,3 +243,6 @@ def start_tracer(callback):
         sys.exit(-1)
     except SystemExit:
         pass
+
+if __name__ == "__main__":
+    # get the actual function
