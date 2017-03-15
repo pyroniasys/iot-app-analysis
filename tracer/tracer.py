@@ -1,6 +1,7 @@
 import sys, os, gc, inspect
 import json
 from collections import OrderedDict
+from optparse import OptionParser
 
 _caller_cache = dict()
 level = 0
@@ -113,13 +114,15 @@ def _build_call_graph(level, caller):
 def _collect_call_graph(app_filename):
     global levels
 
-    #print("num levels: "+str(len(levels)-1))
+    print("num levels: "+str(len(levels)-1))
     #print(str(levels))
-    main = levels["0"]["tracer.start_tracer"][0]
+    main = levels["1"]["/Users/marcela/Research/lib-sandboxing/iot-app-analysis/tracer/tracer.py:__main__.runctx"][0]
     #print(main)
-    graph = _build_call_graph(1, main)
+    graph = _build_call_graph(2, main)
 
-    f = open("callgraphs/"+app_filename+"_cg", "w")
+    tmp = app_filename.split(".")
+    app_name = tmp[len(tmp)-1]
+    f = open("callgraphs/"+app_name+"_cg", "w")
     f.write(_to_custom_json(graph)+"\n")
     f.close()
 
@@ -133,15 +136,15 @@ def tracer(frame, event, arg):
     callee_code = frame.f_code
 
     lvl_str = str(level)
-    #print(lvl_str)
 
     if event == "call" or event == "c_call":
+        print(lvl_str)
 
         caller_frame = frame.f_back
 
         caller_code = caller_frame.f_code
 
-        if tlm == None and level == 0:
+        if tlm == None and level == 1:
             tlm = callee_code
 
         if event == "c_call":
@@ -150,33 +153,40 @@ def tracer(frame, event, arg):
             caller_code = callee_code
 
         # get the caller's name
-        caller_name = _get_func_name(caller_code)
+        caller_name = caller_code.co_filename+":"+_get_func_name(caller_code)
+
+        #print(caller_name)
 
         # this is to make up for any in-line imports because calls
         # to the import lib don't call return, so the level isn't
         # brought back to the level that called the import
-        if level > 1 and caller_name == levels["0"]["tracer.start_tracer"][0]:
-            level = 1
+        if level > 2 and caller_name == levels["1"]["/Users/marcela/Research/lib-sandboxing/iot-app-analysis/tracer/tracer.py:__main__.runctx"][0]:
+            level = 2
             lvl_str = str(level)
 
         if last_callers.get(lvl_str) == None:
             # this is the first time we enter this level
             last_callers[lvl_str] = caller_name
 
-        if level > 0 and last_callers[str(level-1)] == caller_name:
+        if level > 1 and last_callers[str(level-1)] == caller_name:
             caller_name = last_callees[str(level-1)]
+
+        # this is used to map into the levels dict
+        if levels.get(lvl_str) == None:
+            levels[lvl_str] = OrderedDict()
+
+        # don't include the importlib plumbing in the callgraph
+        if "frozen importlib._bootstrap" in caller_name:
+            level +=1
+            return tracer
 
         callee_name = ""
         if event == "c_call":
             callee_name = _full_funcname(arg)
         else:
-            callee_name = _get_func_name(callee_code)
+            callee_name = callee_code.co_filename+":"+_get_func_name(callee_code)
 
-        #sys.stdout.write(caller_name+" --> "+callee_name+"\n")
-
-        # this is used to map into the levels dict
-        if levels.get(lvl_str) == None:
-            levels[lvl_str] = OrderedDict()
+        sys.stdout.write(caller_name+" --> "+callee_name+"\n")
 
         # populate the level's call_graph
         lvl_dict = levels[lvl_str]
@@ -192,6 +202,7 @@ def tracer(frame, event, arg):
         return tracer
 
     elif event == "return" or event == "c_return":
+        #print("ret: "+callee_code.co_name)
         level -= 1
 
     return None
@@ -223,16 +234,14 @@ def test_tracer(frame, event, arg):
         return test_tracer
     return None
 
-# adapted from:
-# https://github.com/kantai/passe-framework-prototype/blob/master/django/analysis/tracer.py
-def start_tracer(callback):
+# modeled after https://github.com/python/cpython/blob/3.5/Lib/profile.py
+# runctx()
+def runctx(cmd, globs, locs):
     global tlm
     try:
         sys.setprofile(tracer)
         try:
-            return callback()
-        except Exception as err:
-            print("Failed because %s" % err)
+            exec(cmd, globs, locs)
         finally:
             sys.setprofile(None)
             _collect_call_graph(modname(tlm.co_filename))
@@ -244,5 +253,36 @@ def start_tracer(callback):
     except SystemExit:
         pass
 
+
+# modeled after https://github.com/python/cpython/blob/3.5/Lib/profile.py
+def main():
+    usage = "tracer.py scriptfile"
+    parser = OptionParser(usage=usage)
+    parser.allow_interspersed_args = False
+
+    if not sys.argv[1:]:
+        parser.print_usage()
+        sys.exit(2)
+
+    (options, args) = parser.parse_args()
+    sys.argv[:] = args
+
+    if len(args) > 0:
+        progname = args[0]
+        sys.path.insert(0, os.path.dirname(progname))
+        sys.path.insert(0, "../lib-stats/libs")
+        with open(progname, 'rb') as fp:
+            code = compile(fp.read(), progname, 'exec')
+        globs = {
+            '__file__': progname,
+            '__name__': '__main__',
+            '__package__': None,
+            '__cached__': None,
+        }
+        runctx(code, globs, None)
+    else:
+        parser.print_usage()
+    return parser
+
 if __name__ == "__main__":
-    # get the actual function
+    main()
