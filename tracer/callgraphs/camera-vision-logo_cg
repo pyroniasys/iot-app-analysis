@@ -1,5 +1,5 @@
 {
-  ../apps/visual/camera-vision-logo.py:<module>: [
+  ../apps/visual-py3/camera-vision-logo.py:<module>: [
   {
       <frozen importlib._bootstrap>:_frozen_importlib._find_and_load: [
       _thread.allocate_lock, 
@@ -1834,8 +1834,6 @@
         }
       ]
     }, 
-  {
-      ../apps/visual/camera-vision-logo.py:__main__.main: [ ../apps/visual/camera-vision-logo.py:__main__.takephoto ]
-    }
+  builtins.print
   ]
 }
