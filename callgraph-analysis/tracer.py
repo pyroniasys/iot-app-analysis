@@ -42,11 +42,14 @@ class Tracer:
     Tracer is used to generate the callgraph of the given application.
     '''
 
-    def __init__(self, tracer_dir, app):
+    def __init__(self, tracer_dir, out, fs, app=""):
         # context for this tracer
         self.curdir = tracer_dir
-        self.app_filename = app
+        self.files = fs
+        self.app_filename = ""
+        self.top_app = app
         self.name = self.curdir+"/tracer.py:tracer.Tracer._runctx"
+        self.callgraph_out = out
 
         # data needed to build the per-level callgraph
         self._caller_cache = dict()
@@ -139,7 +142,11 @@ class Tracer:
 
         if graph != None:
             app_name = self._modname(self.app_filename).split(".")
-            f = open(self.curdir+"/callgraphs/"+app_name[len(app_name)-1]+"_cg", "w")
+            if self.top_app == "":
+                cg_out = self.callgraph_out+"/"+app_name[len(app_name)-1]+"_cg"
+            else:
+                cg_out = self.callgraph_out+"/"+self.top_app+"-"+app_name[len(app_name)-1]+"_cg"
+            f = open(cg_out, "w")
             f.write(_to_custom_json(graph)+"\n")
             f.close()
 
@@ -271,14 +278,16 @@ class Tracer:
 
     # adapted from https://github.com/python/cpython/blob/3.5/Lib/profile.py
     def start_tracer(self):
-        sys.path.insert(0, os.path.dirname(self.app_filename))
         sys.path.insert(0, "../libs")
-        with open(self.app_filename, 'rb') as fp:
-            code = compile(fp.read(), self.app_filename, 'exec')
+        for a in self.files:
+            self.app_filename = a
+            sys.path.insert(0, os.path.dirname(self.app_filename))
+            with open(a, 'rb') as fp:
+                code = compile(fp.read(), self.app_filename, 'exec')
             globs = {
                 '__file__': self.app_filename,
                 '__name__': '__main__',
                 '__package__': None,
                 '__cached__': None,
             }
-        self._runctx(code, globs, None)
+            self._runctx(code, globs, None)

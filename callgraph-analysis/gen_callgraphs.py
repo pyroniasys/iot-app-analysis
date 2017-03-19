@@ -18,6 +18,7 @@ cat = sys.argv[1]
 # get the tracer path in order to pass the right path to the
 # callgraph generator
 tracer_path = sys.argv[2]
+callgraph_path = "callgraphs/"+cat
 
 # expect apps to be located in apps/cat/
 app_path = "../apps/"+cat+"-py3"
@@ -35,12 +36,24 @@ for a in app_list:
 
 # for now only collect the callgraph for those apps
 for a in apps:
+    to_trace = []
     if a.endswith(".py"):
         app = app_path+"/"+a
+        to_trace = [app]
     else:
         app = app_path+"/"+a+"/"+a+".py"
+        if not os.isfile(app):
+            for m in os.listdir(a):
+                if m.endswith(".py"):
+                    to_trace.append(app_path+"/"+a+"/"+m)
+        else:
+            to_trace = [app]
+
     # now run the callgraph generator
-    tr = Tracer(tracer_path, app)
+    if len(to_trace) == 1:
+        tr = Tracer(tracer_path, callgraph_path, to_trace)
+    else:
+        tr = Tracer(tracer_path, callgraph_path, to_trace, app=a)
     tr.start_tracer()
 
     # generate the callgraph
