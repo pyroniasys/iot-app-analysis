@@ -1,0 +1,792 @@
+{
+    "apps/env/CyberSafe/createtables.py": [
+        "MySQLdb"
+    ],
+    "apps/env/CyberSafe/nodesens.py": [
+        "socket",
+        "time",
+        "mraa"
+    ],
+    "apps/env/DHT22Logger/Adafruit_Python_DHT/Adafruit_DHT/Beaglebone_Black.py": [
+        "re",
+        ".Beaglebone_Black_Driver",
+        ".common"
+    ],
+    "apps/env/DHT22Logger/Adafruit_Python_DHT/Adafruit_DHT/Raspberry_Pi.py": [
+        ".Raspberry_Pi_Driver",
+        ".common"
+    ],
+    "apps/env/DHT22Logger/Adafruit_Python_DHT/Adafruit_DHT/Raspberry_Pi_2.py": [
+        ".Raspberry_Pi_2_Driver",
+        ".common"
+    ],
+    "apps/env/DHT22Logger/Adafruit_Python_DHT/Adafruit_DHT/Test.py": [
+        ".Test_Driver",
+        ".common"
+    ],
+    "apps/env/DHT22Logger/Adafruit_Python_DHT/Adafruit_DHT/__init__.py": [],
+    "apps/env/DHT22Logger/Adafruit_Python_DHT/Adafruit_DHT/common.py": [
+        ".Beaglebone_Black",
+        ".Raspberry_Pi_2",
+        ".Raspberry_Pi",
+        "time",
+        ".platform_detect"
+    ],
+    "apps/env/DHT22Logger/Adafruit_Python_DHT/Adafruit_DHT/platform_detect.py": [
+        "re",
+        "platform"
+    ],
+    "apps/env/DHT22Logger/Adafruit_Python_DHT/examples/AdafruitDHT.py": [
+        "sys",
+        "Adafruit_DHT"
+    ],
+    "apps/env/DHT22Logger/Adafruit_Python_DHT/examples/google_spreadsheet.py": [
+        "oauth2client.service_account.ServiceAccountCredentials",
+        "datetime",
+        "sys",
+        "time",
+        "Adafruit_DHT",
+        "gspread"
+    ],
+    "apps/env/DHT22Logger/Adafruit_Python_DHT/examples/simpletest.py": [
+        "Adafruit_DHT"
+    ],
+    "apps/env/DHT22Logger/DHT22logger.py": [
+        "datetime.timedelta",
+        "datetime",
+        "sys",
+        "re",
+        "json",
+        "MySQLdb",
+        "smtplib",
+        "subprocess",
+        "os"
+    ],
+    "apps/env/EchoPiWeather/DHT22.py": [
+        "atexit",
+        "pigpio",
+        "time"
+    ],
+    "apps/env/EchoPiWeather/awstemp.py": [
+        "AWSIoTPythonSDK.MQTTLib.AWSIoTMQTTShadowClient",
+        "pigpio",
+        "time",
+        "DHT22"
+    ],
+    "apps/env/EmailiPhoneNetworkPresence.py": [
+        "datetime.datetime",
+        "email.mime.text.MIMEText",
+        "time",
+        "smtplib",
+        "os"
+    ],
+    "apps/env/HomeControlCenterBBGW/FlaskWebProject1/__init__.py": [
+        "flask.Flask"
+    ],
+    "apps/env/HomeControlCenterBBGW/FlaskWebProject1/sensor.py": [
+        "pyupm_grove",
+        "time",
+        "mraa"
+    ],
+    "apps/env/HomeControlCenterBBGW/FlaskWebProject1/views.py": [
+        "FlaskWebProject1.app",
+        "datetime.datetime",
+        "flask.render_template"
+    ],
+    "apps/env/HomeControlCenterBBGW/runserver.py": [
+        "flask_socketio.SocketIO",
+        "FlaskWebProject1.app",
+        "flask.session",
+        "gevent.monkey",
+        "sensor",
+        "threading.Thread",
+        "flask.request",
+        "time",
+        "flask_socketio.emit"
+    ],
+    "apps/env/HomeControlCenterBBGW/sensor.py": [
+        "pyupm_grove",
+        "time",
+        "mraa"
+    ],
+    "apps/env/HomeTempThingspeak.py": [
+        "httplib",
+        "ctypes.c_short",
+        "urllib",
+        "time",
+        "smbus"
+    ],
+    "apps/env/HomeVentilation/Ventilation.py": [
+        "datetime",
+        "time.sleep",
+        "RPi.GPIO",
+        "Adafruit_Nokia_LCD",
+        "PIL.ImageDraw",
+        "Adafruit_GPIO.SPI",
+        "w1thermsensor.W1ThermSensor",
+        "Adafruit_DHT",
+        "ouimeaux.environment.Environment",
+        "atexit",
+        "PIL.Image",
+        "PIL.ImageFont",
+        "time.strftime"
+    ],
+    "apps/env/HomeVentilation/test_code/DHT22-test-01.py": [
+        "Adafruit_DHT"
+    ],
+    "apps/env/HomeVentilation/test_code/DHT22-test-02.py": [
+        "datetime",
+        "time.sleep",
+        "Adafruit_DHT"
+    ],
+    "apps/env/HomeVentilation/test_code/ds1820-test-01.py": [
+        "w1thermsensor.W1ThermSensor"
+    ],
+    "apps/env/HomeVentilation/test_code/lcd-text.py": [
+        "PIL.ImageFont",
+        "PIL.Image",
+        "PIL.ImageDraw",
+        "Adafruit_GPIO.SPI",
+        "Adafruit_Nokia_LCD",
+        "time"
+    ],
+    "apps/env/HomeVentilation/test_code/pwm-test-01.py": [
+        "RPi.GPIO",
+        "time.sleep"
+    ],
+    "apps/env/HomeVentilation/test_code/wemo_test_01.py": [
+        "ouimeaux.environment.Environment",
+        "time.sleep"
+    ],
+    "apps/env/IoTRPiArduino/AdafruitDHT.py": [
+        "sys",
+        "Adafruit_DHT"
+    ],
+    "apps/env/IoTRPiArduino/ardu_pi_serial.py": [
+        "serial"
+    ],
+    "apps/env/IoTRPiArduino/iot_temp_hum_light.py": [
+        "urllib2",
+        "Adafruit_DHT",
+        "time.sleep",
+        "RPi.GPIO"
+    ],
+    "apps/env/IoTRPiArduino/iot_temp_hum_light_pot.py": [
+        "urllib2",
+        "Adafruit_DHT",
+        "time.sleep",
+        "time",
+        "RPi.GPIO"
+    ],
+    "apps/env/IoTRPiArduino/iot_temp_hum_light_pot_ardu.py": [
+        "Adafruit_DHT",
+        "time.sleep",
+        "RPi.GPIO",
+        "serial",
+        "urllib2",
+        "time"
+    ],
+    "apps/env/IoTRPiArduino/temp_hum_test.py": [
+        "urllib2",
+        "Adafruit_DHT",
+        "sys",
+        "time.sleep"
+    ],
+    "apps/env/IoTTempHumidityMonitor/humidity_monitor.py": [
+        "Adafruit_DHT",
+        "time.sleep",
+        "ubidots.ApiClient",
+        "ImageDraw",
+        "math",
+        "sys",
+        "ImageFont",
+        "time.strftime"
+    ],
+    "apps/env/IoTTempHumidityMonitor/settings_screen.py": [],
+    "apps/env/IoTTempHumidityMonitor/settings_sensor.py": [],
+    "apps/env/NetworkMonitoringWithAWSIoT.py": [
+        "subprocess",
+        "json",
+        "paho.mqtt.client",
+        "ssl",
+        "time"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/dataSpark/test.py": [
+        "httplib2",
+        "urllib2",
+        "urllib",
+        "urlparse.urlparse",
+        "json",
+        "time"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/__init__.py": [
+        "devicehive.utils.parse_url",
+        "twisted.internet.reactor",
+        "devicehive.interfaces.IDeviceInfo",
+        "devicehive.interfaces.IDeviceClass",
+        "twisted.python.log",
+        "devicehive.interfaces.ICommand",
+        "twisted.web.client.Request",
+        "twisted.web.http_headers.Headers",
+        "devicehive.utils.url_path",
+        "devicehive.interfaces.IEquipment",
+        "zope.interface.implements",
+        "twisted.internet.ssl",
+        "devicehive.interfaces.INotification",
+        "devicehive.utils.EmptyDataProducer",
+        "OpenSSL.SSL",
+        "devicehive.interfaces.INetwork"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/auto.py": [
+        "zope.interface.implements",
+        "devicehive.utils.parse_url",
+        "twisted.web.client.HTTP11ClientProtocol",
+        "twisted.python.log",
+        "devicehive.device.ws.WebSocketFactory",
+        "devicehive.poll.PollFactory",
+        "devicehive.interfaces.IProtoFactory",
+        "devicehive.utils.TextDataConsumer",
+        "devicehive.utils.JsonDataConsumer",
+        "twisted.internet.defer.Deferred",
+        "twisted.internet.protocol.ClientFactory",
+        "devicehive.interfaces.IProtoHandler",
+        "devicehive.ApiInfoRequest",
+        "devicehive.utils.parse_date",
+        "twisted.internet.reactor"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/client/__init__.py": [],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/client/ws.py": [
+        "twisted.internet.reactor",
+        "devicehive.ws.WebSocketDeviceHiveProtocol",
+        "devicehive.ws.IWebSocketProtocolCallback",
+        "twisted.python.log",
+        "devicehive.BaseCommand",
+        "devicehive.Notification",
+        "devicehive.interfaces.IClientApp",
+        "urlparse.urljoin",
+        "twisted.internet.defer.Deferred",
+        "zope.interface.implements",
+        "devicehive.interfaces.IClientTransport",
+        "urlparse.urlparse",
+        "twisted.internet.protocol.ClientFactory"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/device/__init__.py": [],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/device/ws.py": [
+        "devicehive.ws.IWebSocketMessanger",
+        "twisted.internet.reactor",
+        "devicehive.interfaces.IDeviceInfo",
+        "devicehive.ws.WebSocketDeviceHiveProtocol",
+        "devicehive.interfaces.IDeviceClass",
+        "devicehive.ws.IWebSocketProtocolCallback",
+        "twisted.python.log",
+        "devicehive.interfaces.IProtoFactory",
+        "devicehive.BaseCommand",
+        "devicehive.interfaces.ICommand",
+        "devicehive.CommandResult",
+        "devicehive.DhError",
+        "twisted.internet.defer.Deferred",
+        "zope.interface.implements",
+        "devicehive.ws.WebSocketError",
+        "twisted.internet.protocol.ClientFactory",
+        "devicehive.interfaces.IProtoHandler",
+        "devicehive.interfaces.INetwork"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/dhjson.py": [
+        "collections.OrderedDict"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/gateway/__init__.py": [
+        "zope.interface.implements",
+        "devicehive.interfaces.IProtoHandler",
+        "zope.interface.Interface",
+        "twisted.python.log"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/gateway/binary.py": [
+        "uuid",
+        "devicehive.Notification",
+        "twisted.internet.protocol.Protocol",
+        "collections.Iterable",
+        "devicehive.CommandResult",
+        "twisted.internet.interfaces",
+        "struct",
+        "devicehive.dhjson",
+        "array",
+        "devicehive.DeviceClass",
+        "twisted.python.log",
+        "devicehive.DeviceInfo",
+        "twisted.internet.protocol.ServerFactory",
+        "zope.interface.implements",
+        "devicehive.Equipment"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/gateway/i2c.py": [
+        "zope.interface.implements",
+        "twisted.internet.protocol.Protocol",
+        "twisted.internet.reactor",
+        "thread.allocate_lock",
+        "devicehive.Notification",
+        "twisted.internet.interfaces",
+        "twisted.internet.protocol.ServerFactory",
+        "twisted.internet.threads",
+        "array.array",
+        "twisted.python.log"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/gateway/xbeeapi.py": [
+        "struct"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/interfaces.py": [
+        "zope.interface.Attribute",
+        "zope.interface.Interface"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/poll.py": [
+        "twisted.web.iweb.IBodyProducer",
+        "twisted.internet.reactor",
+        "utils.parse_url",
+        "datetime.datetime",
+        "twisted.internet.defer.fail",
+        "twisted.web.client.HTTP11ClientProtocol",
+        "twisted.python.log",
+        "devicehive.interfaces.IProtoFactory",
+        "devicehive.BaseCommand",
+        "json",
+        "zope.interface.Interface",
+        "devicehive.CommandResult",
+        "devicehive.DhError",
+        "twisted.web.client.Request",
+        "devicehive.utils.JsonDataConsumer",
+        "twisted.web.http_headers.Headers",
+        "twisted.internet.defer.succeed",
+        "utils.url_path",
+        "zope.interface.implements",
+        "twisted.internet.defer.Deferred",
+        "zope.interface.Attribute",
+        "devicehive.utils.TextDataConsumer",
+        "twisted.internet.protocol.ClientFactory",
+        "devicehive.interfaces.IProtoHandler",
+        "utils.parse_date"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/utils.py": [
+        "urlparse.urljoin",
+        "zope.interface.implements",
+        "twisted.web.iweb.IBodyProducer",
+        "twisted.internet.protocol.Protocol",
+        "urlparse.urlsplit",
+        "datetime.datetime",
+        "json",
+        "twisted.internet.defer.succeed",
+        "twisted.internet.defer.fail"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/ws.py": [
+        "twisted.internet.reactor",
+        "sys.maxint",
+        "twisted.internet.defer.fail",
+        "array.array",
+        "struct",
+        "base64",
+        "json",
+        "zope.interface.Interface",
+        "devicehive.DhError",
+        "twisted.python.constants.ValueConstant",
+        "twisted.internet.defer.Deferred",
+        "twisted.python.constants.Values",
+        "twisted.python.log",
+        "zope.interface.implements",
+        "twisted.protocols.basic.LineReceiver",
+        "twisted.internet.protocol.Protocol",
+        "random.Random",
+        "urlparse",
+        "sha",
+        "time.time"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/basic_gateway_example.py": [
+        "argparse",
+        "twisted.python.log",
+        "devicehive",
+        "sys",
+        "serial.STOPBITS_ONE",
+        "serial.EIGHTBITS",
+        "serial.PARITY_NONE",
+        "os",
+        "twisted.internet.reactor"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/client_example.py": [
+        "zope.interface.implements",
+        "twisted.python.log",
+        "devicehive",
+        "sys",
+        "os",
+        "twisted.internet.reactor"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/gallileo.py": [
+        "twisted.internet.reactor",
+        "devicehive",
+        "time.sleep",
+        "twisted.python.log",
+        "sys",
+        "zope.interface.implements",
+        "twisted.internet.task",
+        "os"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/i2c_gateway.py": [
+        "argparse",
+        "twisted.python.log",
+        "devicehive",
+        "sys",
+        "os",
+        "twisted.internet.reactor"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/mongodb_client.py": [
+        "zope.interface.implements",
+        "twisted.python.log",
+        "devicehive",
+        "sys",
+        "pymongo.MongoClient",
+        "twisted.internet.reactor"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/ping_pong_example.py": [
+        "zope.interface.implements",
+        "argparse",
+        "serial.PARITY_NONE",
+        "devicehive",
+        "datetime.datetime",
+        "sys",
+        "serial.STOPBITS_ONE",
+        "serial.EIGHTBITS",
+        "time.time",
+        "os",
+        "twisted.internet.reactor"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/raspi_led_thermo.py": [
+        "twisted.internet.reactor",
+        "time.sleep",
+        "twisted.python.log",
+        "glob",
+        "sys",
+        "devicehive",
+        "zope.interface.implements",
+        "twisted.internet.task",
+        "time"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/rpi_example.py": [
+        "zope.interface.implements",
+        "urlparse.urlparse",
+        "httplib2",
+        "twisted.python.log",
+        "twisted.internet.reactor",
+        "sys",
+        "json",
+        "devicehive",
+        "os",
+        "ConfigParser.ConfigParser"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/virtual_led_example.py": [
+        "zope.interface.implements",
+        "twisted.python.log",
+        "devicehive",
+        "sys",
+        "ConfigParser.ConfigParser",
+        "os",
+        "twisted.internet.reactor"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/ws_devicehive_example.py": [
+        "zope.interface.implements",
+        "twisted.python.log",
+        "devicehive",
+        "sys",
+        "time",
+        "os",
+        "twisted.internet.reactor"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py": [
+        "twisted.test.proto_helpers.StringTransport",
+        "devicehive.gateway.binary",
+        "unittest"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_client_ws_factory.py": [
+        "zope.interface.implements",
+        "devicehive.client.ws.WebSocketFactory",
+        "devicehive.interfaces",
+        "unittest.TestCase"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_client_wscommand.py": [
+        "unittest.TestCase",
+        "devicehive.client.ws.WsCommand"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_command.py": [
+        "devicehive.device.ws",
+        "unittest",
+        "devicehive",
+        "devicehive.poll"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_connectdevicehive.py": [
+        "devicehive.connectDeviceHive",
+        "devicehive.reactor",
+        "mock.patch",
+        "unittest.TestCase",
+        "mock.Mock"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_dhjson.py": [
+        "unittest",
+        "devicehive.dhjson.Parser"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_proto.py": [
+        "zope.interface.implements",
+        "twisted.web.client.HTTP11ClientProtocol",
+        "twisted.test.proto_helpers.StringTransport",
+        "unittest",
+        "devicehive",
+        "json",
+        "twisted.internet.reactor"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_utils.py": [
+        "unittest",
+        "devicehive.utils"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_wsdev.py": [
+        "zope.interface.implements",
+        "devicehive.device.ws.WebSocketFactory",
+        "struct",
+        "devicehive.ws.WS_OPCODE_TEXT_FRAME",
+        "devicehive.interfaces.IDeviceInfo",
+        "unittest",
+        "random.Random",
+        "devicehive",
+        "twisted.internet.defer.Deferred",
+        "json",
+        "devicehive.ws.WebSocketDeviceHiveProtocol",
+        "devicehive.interfaces.IProtoHandler",
+        "array.array",
+        "twisted.test.proto_helpers.StringTransport"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_wsparser.py": [
+        "zope.interface.implements",
+        "unittest",
+        "devicehive.ws"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_wsproto.py": [
+        "zope.interface.implements",
+        "twisted.test.proto_helpers.StringTransport",
+        "unittest",
+        "devicehive.ws",
+        "array.array"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/emoncms/emoncms.py": [
+        "httplib",
+        "httplib2",
+        "urllib",
+        "datetime",
+        "urlparse.urlparse",
+        "json",
+        "time"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/thingspeak/thingspeak.py": [
+        "httplib",
+        "httplib2",
+        "urllib",
+        "datetime",
+        "urlparse.urlparse",
+        "json",
+        "time"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/xively/livXively.py": [
+        "httplib2",
+        "datetime",
+        "urlparse.urlparse",
+        "json",
+        "time",
+        "xively"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/livAPIs/livAPIs.py": [
+        "flask.Flask",
+        "flask.render_template",
+        "sqlite3",
+        "matplotlib.pyplot",
+        "matplotlib",
+        "logging",
+        "flask.g",
+        "StringIO",
+        "flask.jsonify",
+        "flask.send_file",
+        "time",
+        "os",
+        "time.strftime"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/livDB/airPressureSensor.py": [
+        "Adafruit_Python_BMP.Adafruit_BMP.BMP085"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/livDB/co2Sensor.py": [
+        "serial",
+        "time"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/livDB/livDB.py": [
+        "sqlite3",
+        "airPressureSensor.airPressureSensor",
+        "ConfigParser",
+        "logging",
+        "co2Sensor.co2Sensor",
+        "time",
+        "temperatureHumiditySensor.temperatureHumiditySensor",
+        "time.strftime"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/livDB/temperatureHumiditySensor.py": [
+        "logging",
+        "subprocess",
+        "sys",
+        "re",
+        "time"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/livLCD/lcd16x2.py": [
+        "smbus",
+        "time"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/livLCD/livLCD.py": [
+        "lcd16x2.lcd16x2",
+        "sqlite3",
+        "sys",
+        "ConfigParser",
+        "logging",
+        "time"
+    ],
+    "apps/env/PiIndoorAirQualityMonitor/liv/livXMPP/livXMPP.py": [
+        "xmpp",
+        "threading",
+        "json",
+        "httplib2",
+        "sys",
+        "ConfigParser",
+        "logging",
+        "urlparse.urlparse",
+        "time"
+    ],
+    "apps/env/RPiPIRSensor.py": [
+        "time",
+        "RPi.GPIO",
+        "smtplib"
+    ],
+    "apps/env/RPiRoomTempMonitorGnuplot.py": [
+        "Gnuplot",
+        "time"
+    ],
+    "apps/env/SensorianIoTDashboard.py": [
+        "flask.Flask",
+        "ctypes",
+        "flask.jsonify",
+        "datetime",
+        "APDS9300",
+        "MPL3115A2",
+        "time",
+        "flask.render_template"
+    ],
+    "apps/env/SitSat/SitSat_precise.py": [
+        "datetime",
+        "time",
+        "RPi.GPIO"
+    ],
+    "apps/env/SitSat/SitSat_test.py": [
+        "datetime",
+        "time",
+        "RPi.GPIO"
+    ],
+    "apps/env/WirelessDoorbell.py": [
+        "scapy.all",
+        "urllib.request"
+    ],
+    "apps/env/beerfridge/beerfridge.py": [
+        "subprocess",
+        "RPi.GPIO",
+        "collections",
+        "glob",
+        "sys",
+        "bluetooth",
+        "thread",
+        "ISStreamer.Streamer.Streamer",
+        "time",
+        "os"
+    ],
+    "apps/env/beerfridge/beerfridge_make.py": [
+        "subprocess",
+        "RPi.GPIO",
+        "collections",
+        "bluetooth",
+        "sys",
+        "ISStreamer.Streamer.Streamer",
+        "time"
+    ],
+    "apps/env/beerfridge/switch_test.py": [
+        "RPi.GPIO"
+    ],
+    "apps/env/beerfridge/temperature_test.py": [
+        "glob",
+        "time",
+        "os"
+    ],
+    "apps/env/beerfridge/wiiboard_test.py": [
+        "subprocess",
+        "collections",
+        "bluetooth",
+        "sys",
+        "time"
+    ],
+    "apps/env/detect_bluetooth.py": [
+        "bluetooth",
+        "time",
+        "Adafruit_BBIO.GPIO"
+    ],
+    "apps/env/grove_IOT.py": [
+        "grovepi",
+        "datetime",
+        "time",
+        "xively"
+    ],
+    "apps/env/homeRoomTempHumMonitor.py": [
+        "RPi.GPIO",
+        "json",
+        "httplib",
+        "time"
+    ],
+    "apps/env/intelligentDoor.py": [
+        "thread",
+        "ssl",
+        "paho.mqtt.client",
+        "adxl345.ADXL345",
+        "time"
+    ],
+    "apps/env/smartScale/smartscale.py": [
+        "subprocess",
+        "random.randint",
+        "collections",
+        "bluetooth",
+        "sys",
+        "ISStreamer.Streamer.Streamer",
+        "time"
+    ],
+    "apps/env/smartScale/wiiboard_test.py": [
+        "subprocess",
+        "collections",
+        "bluetooth",
+        "sys",
+        "time"
+    ],
+    "apps/env/thermostatRaspBerryPi/setTemp.py": [
+        "sys",
+        "time",
+        "sqlite3",
+        "getopt"
+    ],
+    "apps/env/thermostatRaspBerryPi/thermo.py": [
+        "datetime.datetime",
+        "time.sleep",
+        "RPi.GPIO",
+        "Adafruit_DHT",
+        "Adafruit_CharLCDPlate.Adafruit_CharLCDPlate",
+        "sqlite3",
+        "random",
+        "subprocess",
+        "threading.Thread",
+        "Queue.Queue"
+    ],
+    "apps/env/weatherStation.py": [
+        "time",
+        "RPi.GPIO",
+        "smtplib",
+        "Adafruit_DHT"
+    ]
+}

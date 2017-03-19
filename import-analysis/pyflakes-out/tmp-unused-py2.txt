@@ -1,0 +1,17 @@
+{
+    "/tmp/Adafruit_GPIO/Adafruit_Python_GPIO-master/Adafruit_GPIO/GPIO.py": [], 
+    "/tmp/Adafruit_GPIO/Adafruit_Python_GPIO-master/Adafruit_GPIO/PCF8574.py": [], 
+    "/tmp/Adafruit_GPIO/Adafruit_Python_GPIO-master/Adafruit_GPIO/MCP230xx.py": [
+        "Adafruit_GPIO.I2C"
+    ], 
+    "/tmp/Adafruit_GPIO/Adafruit_Python_GPIO-master/Adafruit_GPIO/SPI.py": [
+        "time"
+    ], 
+    "/tmp/Adafruit_GPIO/Adafruit_Python_GPIO-master/Adafruit_GPIO/I2C.py": [], 
+    "/tmp/Adafruit_GPIO/Adafruit_Python_GPIO-master/Adafruit_GPIO/Platform.py": [], 
+    "/tmp/Adafruit_GPIO/Adafruit_Python_GPIO-master/Adafruit_GPIO/FT232H.py": [], 
+    "/tmp/Adafruit_GPIO/Adafruit_Python_GPIO-master/Adafruit_GPIO/PWM.py": [], 
+    "/tmp/Adafruit_GPIO/Adafruit_Python_GPIO-master/Adafruit_GPIO/__init__.py": [
+        "Adafruit_GPIO.GPIO"
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "/tmp/Adafruit_GPIO/Adafruit_Python_GPIO-master/Adafruit_GPIO/GPIO.py": [
+        "RPi.GPIO", 
+        "mraa", 
+        "Adafruit_BBIO.GPIO", 
+        "Adafruit_GPIO.Platform"
+    ], 
+    "/tmp/Adafruit_GPIO/Adafruit_Python_GPIO-master/Adafruit_GPIO/PCF8574.py": [
+        "Adafruit_GPIO", 
+        "Adafruit_GPIO.I2C"
+    ], 
+    "/tmp/Adafruit_GPIO/Adafruit_Python_GPIO-master/Adafruit_GPIO/MCP230xx.py": [
+        "Adafruit_GPIO.I2C", 
+        "Adafruit_GPIO", 
+        "math"
+    ], 
+    "/tmp/Adafruit_GPIO/Adafruit_Python_GPIO-master/Adafruit_GPIO/SPI.py": [
+        "spidev", 
+        "mraa", 
+        "operator", 
+        "Adafruit_GPIO"
+    ], 
+    "/tmp/Adafruit_GPIO/Adafruit_Python_GPIO-master/Adafruit_GPIO/I2C.py": [
+        "Adafruit_PureIO.smbus", 
+        "logging", 
+        "subprocess", 
+        "Adafruit_GPIO.Platform"
+    ], 
+    "/tmp/Adafruit_GPIO/Adafruit_Python_GPIO-master/Adafruit_GPIO/Platform.py": [
+        "mraa", 
+        "re", 
+        "platform"
+    ], 
+    "/tmp/Adafruit_GPIO/Adafruit_Python_GPIO-master/Adafruit_GPIO/FT232H.py": [
+        "subprocess", 
+        "atexit", 
+        "GPIO", 
+        "math", 
+        "ftdi1", 
+        "sys", 
+        "logging", 
+        "time", 
+        "os"
+    ], 
+    "/tmp/Adafruit_GPIO/Adafruit_Python_GPIO-master/Adafruit_GPIO/PWM.py": [
+        "RPi.GPIO", 
+        "Adafruit_BBIO.PWM", 
+        "Adafruit_GPIO.Platform"
+    ], 
+    "/tmp/Adafruit_GPIO/Adafruit_Python_GPIO-master/Adafruit_GPIO/__init__.py": [
+        "__future__.absolute_import"
+    ]
+}

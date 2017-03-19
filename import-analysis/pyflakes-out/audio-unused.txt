@@ -1,0 +1,251 @@
+{
+    "apps/audio/AWShome/AlexaPi/auth_web.py": [
+        "cherrypy.process.servers"
+    ],
+    "apps/audio/AWShome/AlexaPi/creds.py": [
+        "os"
+    ],
+    "apps/audio/AWShome/AlexaPi/lights.py": [],
+    "apps/audio/AWShome/AlexaPi/main.py": [
+        "random",
+        "re",
+        "cgi",
+        "wave"
+    ],
+    "apps/audio/AWShome/awshome.py": [],
+    "apps/audio/AWShome/codes.py": [],
+    "apps/audio/AWShome/handler.py": [],
+    "apps/audio/AlexaCoffeeMachine/AlexaPi.py": [
+        "datetime",
+        "sys"
+    ],
+    "apps/audio/AlexaCoffeeMachine/CoffeeMachine.py": [
+        "sys"
+    ],
+    "apps/audio/AlexaCoffeeMachine/creds.py": [
+        "os"
+    ],
+    "apps/audio/AlexaPhone/AlexaPi/auth_web.py": [
+        "cherrypy.process.servers"
+    ],
+    "apps/audio/AlexaPhone/AlexaPi/creds.py": [
+        "os"
+    ],
+    "apps/audio/AlexaPhone/AlexaPi/main.py": [
+        "random",
+        "wave"
+    ],
+    "apps/audio/AlexaPiMQTTSmartHub/AlexaPi/auth_web.py": [
+        "cherrypy.process.servers"
+    ],
+    "apps/audio/AlexaPiMQTTSmartHub/AlexaPi/creds.py": [
+        "os"
+    ],
+    "apps/audio/AlexaPiMQTTSmartHub/AlexaPi/main.py": [
+        "random",
+        "wave"
+    ],
+    "apps/audio/AlexaWithRaspioProHat/AlexaPi/auth_web.py": [
+        "cherrypy.process.servers"
+    ],
+    "apps/audio/AlexaWithRaspioProHat/AlexaPi/creds.py": [
+        "os"
+    ],
+    "apps/audio/AlexaWithRaspioProHat/AlexaPi/main.py": [
+        "random",
+        "wave"
+    ],
+    "apps/audio/Alexabot/AlexaPi/alexapi/__init__.py": [],
+    "apps/audio/Alexabot/AlexaPi/alexapi/bcolors.py": [],
+    "apps/audio/Alexabot/AlexaPi/alexapi/config.py": [],
+    "apps/audio/Alexabot/AlexaPi/alexapi/device_platforms/__init__.py": [],
+    "apps/audio/Alexabot/AlexaPi/alexapi/device_platforms/baseplatform.py": [],
+    "apps/audio/Alexabot/AlexaPi/alexapi/device_platforms/chip.py": [],
+    "apps/audio/Alexabot/AlexaPi/alexapi/device_platforms/desktop.py": [],
+    "apps/audio/Alexabot/AlexaPi/alexapi/device_platforms/dummy.py": [],
+    "apps/audio/Alexabot/AlexaPi/alexapi/device_platforms/magicmirror.py": [],
+    "apps/audio/Alexabot/AlexaPi/alexapi/device_platforms/orangepi.py": [],
+    "apps/audio/Alexabot/AlexaPi/alexapi/device_platforms/raspberrypi.py": [],
+    "apps/audio/Alexabot/AlexaPi/alexapi/device_platforms/rpilike.py": [],
+    "apps/audio/Alexabot/AlexaPi/alexapi/playback_handlers/__init__.py": [],
+    "apps/audio/Alexabot/AlexaPi/alexapi/playback_handlers/basehandler.py": [],
+    "apps/audio/Alexabot/AlexaPi/alexapi/playback_handlers/vlchandler.py": [],
+    "apps/audio/Alexabot/AlexaPi/alexapi/tunein.py": [],
+    "apps/audio/Alexabot/AlexaPi/auth_web.py": [],
+    "apps/audio/Alexabot/AlexaPi/main.py": [],
+    "apps/audio/Alexabot/alexabot-flask-app.py": [],
+    "apps/audio/AudioServer&Recorder.py": [
+        "subprocess",
+        "signal"
+    ],
+    "apps/audio/BlokBot.py": [
+        "sys",
+        "Adafruit_GPIO.SPI",
+        "os"
+    ],
+    "apps/audio/ControlTVWithVoice/raspberrypi_voice_control.py": [],
+    "apps/audio/DIYAmazonAlexa/alexa_voice_demo.py": [
+        "random",
+        "time"
+    ],
+    "apps/audio/DIYAmazonAlexa/auth_web.py": [
+        "cherrypy.process.servers"
+    ],
+    "apps/audio/DIYAmazonAlexa/creds.py": [],
+    "apps/audio/GettingStartedWithReSpeaker/examples/bing_translator.py": [],
+    "apps/audio/GettingStartedWithReSpeaker/examples/offline_voice_assistant.py": [],
+    "apps/audio/GettingStartedWithReSpeaker/respeaker/__init__.py": [
+        "microphone.Microphone",
+        "player.Player",
+        "spi.spi",
+        "spi.SPI",
+        "pixel_ring.pixel_ring",
+        "pixel_ring.PixelRing"
+    ],
+    "apps/audio/GettingStartedWithReSpeaker/respeaker/bing_speech_api.py": [],
+    "apps/audio/GettingStartedWithReSpeaker/respeaker/fft.py": [],
+    "apps/audio/GettingStartedWithReSpeaker/respeaker/gpio.py": [],
+    "apps/audio/GettingStartedWithReSpeaker/respeaker/microphone.py": [],
+    "apps/audio/GettingStartedWithReSpeaker/respeaker/pixel_ring.py": [],
+    "apps/audio/GettingStartedWithReSpeaker/respeaker/player.py": [
+        "pixel_ring.pixel_ring"
+    ],
+    "apps/audio/GettingStartedWithReSpeaker/respeaker/spectrum_analyzer.py": [],
+    "apps/audio/GettingStartedWithReSpeaker/respeaker/spi.py": [],
+    "apps/audio/GettingStartedWithReSpeaker/respeaker/usb_hid/__init__.py": [],
+    "apps/audio/GettingStartedWithReSpeaker/respeaker/usb_hid/hidapi_backend.py": [],
+    "apps/audio/GettingStartedWithReSpeaker/respeaker/usb_hid/interface.py": [],
+    "apps/audio/GettingStartedWithReSpeaker/respeaker/usb_hid/pyusb_backend.py": [],
+    "apps/audio/GettingStartedWithReSpeaker/respeaker/usb_hid/pywinusb_backend.py": [],
+    "apps/audio/GettingStartedWithReSpeaker/respeaker/vad.py": [],
+    "apps/audio/HeyAthena/athena/__init__.py": [],
+    "apps/audio/HeyAthena/athena/__main__.py": [],
+    "apps/audio/HeyAthena/athena/api_library/__init__.py": [],
+    "apps/audio/HeyAthena/athena/api_library/geo_info_api.py": [],
+    "apps/audio/HeyAthena/athena/api_library/ifttt_api.py": [],
+    "apps/audio/HeyAthena/athena/api_library/sms_text_api.py": [],
+    "apps/audio/HeyAthena/athena/api_library/user_api.py": [],
+    "apps/audio/HeyAthena/athena/api_library/voice_browse_api.py": [],
+    "apps/audio/HeyAthena/athena/apis.py": [],
+    "apps/audio/HeyAthena/athena/brain.py": [],
+    "apps/audio/HeyAthena/athena/classes/__init__.py": [],
+    "apps/audio/HeyAthena/athena/classes/api.py": [],
+    "apps/audio/HeyAthena/athena/classes/input_field.py": [],
+    "apps/audio/HeyAthena/athena/classes/module.py": [],
+    "apps/audio/HeyAthena/athena/classes/response.py": [],
+    "apps/audio/HeyAthena/athena/classes/task.py": [],
+    "apps/audio/HeyAthena/athena/config.py": [],
+    "apps/audio/HeyAthena/athena/log.py": [],
+    "apps/audio/HeyAthena/athena/mods.py": [],
+    "apps/audio/HeyAthena/athena/modules/__init__.py": [],
+    "apps/audio/HeyAthena/athena/modules/active/__init__.py": [],
+    "apps/audio/HeyAthena/athena/modules/active/athena_control.py": [],
+    "apps/audio/HeyAthena/athena/modules/active/conversation.py": [],
+    "apps/audio/HeyAthena/athena/modules/active/geo_info.py": [],
+    "apps/audio/HeyAthena/athena/modules/active/google.py": [],
+    "apps/audio/HeyAthena/athena/modules/active/hello_world.py": [],
+    "apps/audio/HeyAthena/athena/modules/active/music.py": [],
+    "apps/audio/HeyAthena/athena/modules/active/shop.py": [],
+    "apps/audio/HeyAthena/athena/modules/active/sms_text.py": [],
+    "apps/audio/HeyAthena/athena/modules/active/twitter.py": [],
+    "apps/audio/HeyAthena/athena/modules/active/uber.py": [],
+    "apps/audio/HeyAthena/athena/modules/active/voice_browse.py": [],
+    "apps/audio/HeyAthena/athena/modules/active/wolfram.py": [],
+    "apps/audio/HeyAthena/athena/modules/passive/__init__.py": [],
+    "apps/audio/HeyAthena/athena/settings.py": [
+        "sys"
+    ],
+    "apps/audio/HeyAthena/athena/stt.py": [
+        "sphinxbase.sphinxbase.Config",
+        "sphinxbase.sphinxbase.Config_swigregister"
+    ],
+    "apps/audio/HeyAthena/athena/tests/__init__.py": [],
+    "apps/audio/HeyAthena/athena/tests/dependencies_test.py": [
+        "wolframalpha",
+        "pyaudio",
+        "athena",
+        "gtts.gTTS",
+        "pyglet",
+        "pocketsphinx.pocketsphinx.Decoder",
+        "speech_recognition",
+        "requests.exceptions.HTTPError",
+        "sphinxbase.sphinxbase.Config",
+        "sphinxbase.sphinxbase.Config_swigregister"
+    ],
+    "apps/audio/HeyAthena/athena/tests/input_test.py": [],
+    "apps/audio/HeyAthena/athena/tests/mic_test.py": [],
+    "apps/audio/HeyAthena/athena/tts.py": [],
+    "apps/audio/HeyAthena/tools/make_input.py": [],
+    "apps/audio/HeyAthena/tools/make_response.py": [],
+    "apps/audio/JarvisInPython.py": [],
+    "apps/audio/PiHomeMaster/AlexaPi/auth_web.py": [
+        "cherrypy.process.servers"
+    ],
+    "apps/audio/PiHomeMaster/AlexaPi/creds.py": [
+        "os"
+    ],
+    "apps/audio/PiHomeMaster/AlexaPi/main.py": [
+        "random",
+        "wave"
+    ],
+    "apps/audio/PiHomeMaster/mqtt-receiver.py": [
+        "json",
+        "time"
+    ],
+    "apps/audio/PiTranslate/PiTranslate.py": [],
+    "apps/audio/PiTranslate/text-to-translate.py": [],
+    "apps/audio/RPiAlexa/AlexaPi/auth_web.py": [
+        "cherrypy.process.servers"
+    ],
+    "apps/audio/RPiAlexa/AlexaPi/creds.py": [
+        "os"
+    ],
+    "apps/audio/RPiAlexa/AlexaPi/main.py": [
+        "random",
+        "wave"
+    ],
+    "apps/audio/RPiPersonalAssistant/queryprocess.py": [],
+    "apps/audio/ReSpeakerMessenger/respeaker/bing_voice.py": [],
+    "apps/audio/ReSpeakerMessenger/respeaker/messenger.py": [
+        "urllib.urlencode",
+        "settings.MQTT_SERVER",
+        "time"
+    ],
+    "apps/audio/ReSpeakerMessenger/respeaker/player.py": [],
+    "apps/audio/ReSpeakerMessenger/respeaker/settings.py": [],
+    "apps/audio/STTIntelIoT.py": [],
+    "apps/audio/TalkingGanesha/FHRILVHIEKJ0SZZ.py": [
+        "sys"
+    ],
+    "apps/audio/TalkingGanesha/queryProcess.py": [
+        "os.path"
+    ],
+    "apps/audio/VintageIntercom/auth_web.py": [
+        "cherrypy.process.servers"
+    ],
+    "apps/audio/VintageIntercom/creds.py": [
+        "os"
+    ],
+    "apps/audio/VintageIntercom/main.py": [
+        "random",
+        "wave"
+    ],
+    "apps/audio/VoiceControlRoombaHue/configuration.py": [],
+    "apps/audio/VoiceControlRoombaHue/hue.py": [
+        "gevent"
+    ],
+    "apps/audio/VoiceControlRoombaHue/insteon.py": [
+        "gevent"
+    ],
+    "apps/audio/VoiceControlRoombaHue/main.py": [],
+    "apps/audio/VoiceControlRoombaHue/pocket_sphinx_listen.py": [],
+    "apps/audio/VoiceControlRoombaHue/pocket_sphinx_listener.py": [
+        "gevent"
+    ],
+    "apps/audio/VoiceControlRoombaHue/roomba.py": [],
+    "apps/audio/babynap.py": [
+        "paho.mqtt.publish",
+        "sys"
+    ],
+    "apps/audio/soundSensorPhilippsHue.py": []
+}

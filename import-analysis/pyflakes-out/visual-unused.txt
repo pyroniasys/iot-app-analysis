@@ -1,0 +1,189 @@
+{
+    "apps/visual/360_pi_cam/new_dewarp.py": [
+        "SimpleCV.Camera",
+        "SimpleCV.VideoStream",
+        "SimpleCV.Color",
+        "time"
+    ],
+    "apps/visual/360_pi_cam/streamer.py": [],
+    "apps/visual/CodeYourOwnPhotobooth.py": [
+        "tkinter.filedialog",
+        "os",
+        "PIL.Image"
+    ],
+    "apps/visual/EasyRPISecCam.py": [
+        "time"
+    ],
+    "apps/visual/Fishtank/Camera.py": [],
+    "apps/visual/Fishtank/Config.py": [],
+    "apps/visual/Fishtank/Container.py": [],
+    "apps/visual/Fishtank/Event.py": [
+        "traceback",
+        "sys"
+    ],
+    "apps/visual/Fishtank/EventList.py": [],
+    "apps/visual/Fishtank/FishFeeder.py": [],
+    "apps/visual/Fishtank/FishTank.py": [
+        "sys"
+    ],
+    "apps/visual/Fishtank/FlaskServer.py": [
+        "flask.ext.login"
+    ],
+    "apps/visual/Fishtank/FoodStore.py": [],
+    "apps/visual/Fishtank/Lights.py": [],
+    "apps/visual/Fishtank/Log.py": [],
+    "apps/visual/Fishtank/elro.py": [],
+    "apps/visual/Fishtank/keys.py": [],
+    "apps/visual/Fishtank/pushbullet.py": [],
+    "apps/visual/Fishtank/server.py": [
+        "Log",
+        "FlaskServer.app"
+    ],
+    "apps/visual/GPIO&PiCameraUsingTelegram.py": [
+        "sys",
+        "shlex"
+    ],
+    "apps/visual/HomeSecurityEmailAlert.py": [
+        "numpy",
+        "time"
+    ],
+    "apps/visual/LegoRobot/server/keys.py": [],
+    "apps/visual/LegoRobot/server/robot.py": [
+        "sys.exit"
+    ],
+    "apps/visual/PiNoculars/cam.py": [],
+    "apps/visual/PiScream.py": [],
+    "apps/visual/RPiIoTDoorbell/IOTNOTIFY2.py": [
+        "smtplib.SMTP"
+    ],
+    "apps/visual/RPiIoTDoorbell/bell.py": [
+        "glob"
+    ],
+    "apps/visual/RPiLaserSecurity.py": [
+        "subprocess"
+    ],
+    "apps/visual/RPiPhotobooth/boothcam.py": [
+        "tkFileDialog",
+        "oauth2client.file.Storage",
+        "datetime.datetime",
+        "time.sleep",
+        "gdata",
+        "oauth2client.client.flow_from_clientsecrets",
+        "datetime.timedelta",
+        "webbrowser",
+        "httplib2",
+        "constants.WHITE",
+        "constants.BLACK"
+    ],
+    "apps/visual/RPiPhotobooth/config.py": [],
+    "apps/visual/RPiPhotobooth/constants.py": [],
+    "apps/visual/RPiPhotobooth/countdown_test.py": [],
+    "apps/visual/RPiPhotobooth/credentials.py": [
+        "os"
+    ],
+    "apps/visual/RPiPhotobooth/custom.py": [],
+    "apps/visual/RPiPhotobooth/cv2_camera.py": [
+        "numpy"
+    ],
+    "apps/visual/RPiPhotobooth/email_logger.py": [],
+    "apps/visual/RPiPhotobooth/listalbums.py": [],
+    "apps/visual/RPiPhotobooth/mailfile.py": [
+        "email.Encoders.encode_base64"
+    ],
+    "apps/visual/RPiPhotobooth/matchbox_test.py": [],
+    "apps/visual/RPiPhotobooth/photobooth_gui.py": [
+        "config"
+    ],
+    "apps/visual/RPiPhotobooth/screenshot.py": [
+        "time"
+    ],
+    "apps/visual/RPiPhotobooth/tkkb.py": [],
+    "apps/visual/RefrigeratorSecurity/Face.py": [
+        "base64"
+    ],
+    "apps/visual/RefrigeratorSecurity/Person.py": [
+        "base64"
+    ],
+    "apps/visual/RefrigeratorSecurity/PersonGroup.py": [
+        "base64"
+    ],
+    "apps/visual/RefrigeratorSecurity/access.py": [],
+    "apps/visual/RefrigeratorSecurity/getImage.py": [
+        "base64",
+        "urllib.request"
+    ],
+    "apps/visual/RefrigeratorSecurity/main.py": [],
+    "apps/visual/RefrigeratorSecurity/recognition.py": [
+        "PersonGroup"
+    ],
+    "apps/visual/RefrigeratorSecurity/sendData.py": [
+        "base64",
+        "urllib.request"
+    ],
+    "apps/visual/SecurityCam/Overlay/overlay.py": [],
+    "apps/visual/SecurityCam/detector.py": [
+        "sys"
+    ],
+    "apps/visual/SecurityCam/pirCam.py": [],
+    "apps/visual/SecurityCam/pirCamLite.py": [
+        "detector.Detector"
+    ],
+    "apps/visual/SendingReceivingPicsMqtt.py": [],
+    "apps/visual/TwitterPhotoLiveFeed.py": [],
+    "apps/visual/WhoIsAtCoffeeMachine/lcd/__init__.py": [
+        "screen",
+        "display",
+        "backlight"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/lcd/backlight.py": [],
+    "apps/visual/WhoIsAtCoffeeMachine/lcd/display.py": [],
+    "apps/visual/WhoIsAtCoffeeMachine/lcd/screen.py": [],
+    "apps/visual/WhoIsAtCoffeeMachine/opencv/__init__.py": [
+        "config",
+        "face"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/opencv/capture-positives.py": [],
+    "apps/visual/WhoIsAtCoffeeMachine/opencv/config.py": [],
+    "apps/visual/WhoIsAtCoffeeMachine/opencv/face.py": [],
+    "apps/visual/WhoIsAtCoffeeMachine/opencv/picam.py": [
+        "time"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/opencv/train.py": [],
+    "apps/visual/WhoIsAtCoffeeMachine/run.py": [
+        "datetime",
+        "lcd.screen",
+        "argparse"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/sigfox/__init__.py": [
+        "sendsigfox"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/sigfox/sendreceivesigfox.py": [
+        "time"
+    ],
+    "apps/visual/WhoIsAtCoffeeMachine/sigfox/sendsigfox.py": [
+        "time"
+    ],
+    "apps/visual/WifiPhotobooth/photobooth_control.py": [
+        "pygame.locals"
+    ],
+    "apps/visual/camera-vision-logo.py": [
+        "argparse"
+    ],
+    "apps/visual/monitordoorbell.py": [
+        "os"
+    ],
+    "apps/visual/pi-home-surveillance/pi_surveillance.py": [],
+    "apps/visual/pi-home-surveillance/pyimagesearch/__init__.py": [],
+    "apps/visual/pi-home-surveillance/pyimagesearch/tempimage.py": [],
+    "apps/visual/pidoorbell.py": [
+        "subprocess",
+        "fcntl",
+        "struct"
+    ],
+    "apps/visual/smartJpegCamera.py": [],
+    "apps/visual/surocam.py": [],
+    "apps/visual/vintage_raspi_cam/python_camera.py": [],
+    "apps/visual/vintage_raspi_cam/python_dropbox.py": [
+        "sys"
+    ]
+}

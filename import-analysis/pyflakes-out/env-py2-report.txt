@@ -1,0 +1,444 @@
+apps/env/CyberSafe/listen.py:6:10: invalid syntax
+TCP_IP = *RASPBERRY PI IP ADDRESS HERE*
+         ^
+apps/env/CyberSafe/raspi_paas.py:115:70: invalid syntax
+        db = MySQLdb.connect('localhost','root',*MYSQL_PASSWORD_HERE*,*DATABASE_NAME_HERE*)
+                                                                     ^
+apps/env/EmailiPhoneNetworkPresence.py:4: 'socket' imported but unused
+apps/env/grove_IOT.py:26: 'sys' imported but unused
+apps/env/homeRoomTempHumMonitor.py:83: undefined name 'no_data'
+apps/env/HomeTempThingspeak.py:6: redefinition of unused 'time' from line 4
+apps/env/HomeTempThingspeak.py:38: local variable 'REG_LSB' is assigned to but never used
+apps/env/HomeTempThingspeak.py:58: local variable 'MB' is assigned to but never used
+apps/env/HomeTempThingspeak.py:122: local variable 'data' is assigned to but never used
+apps/env/intelligentDoor.py:7: 'json' imported but unused
+apps/env/NetworkMonitoringWithAWSIoT.py:25: 'os' imported but unused
+apps/env/RPiRoomTempMonitorGnuplot.py:3: 'from time import *' used; unable to detect undefined names
+apps/env/RPiRoomTempMonitorGnuplot.py:4: 'time' imported but unused
+apps/env/RPiRoomTempMonitorGnuplot.py:5: 'serial' imported but unused
+apps/env/RPiRoomTempMonitorGnuplot.py:6: 'smtplib' imported but unused
+apps/env/RPiRoomTempMonitorGnuplot.py:8: 'os' imported but unused
+apps/env/RPiRoomTempMonitorGnuplot.py:9: 'sys' imported but unused
+apps/env/RPiRoomTempMonitorGnuplot.py:20: 'strftime' may be undefined, or defined from star imports: time
+apps/env/RPiRoomTempMonitorGnuplot.py:20: 'localtime' may be undefined, or defined from star imports: time
+apps/env/RPiRoomTempMonitorGnuplot.py:22: 'debug' may be undefined, or defined from star imports: time
+apps/env/RPiRoomTempMonitorGnuplot.py:24: 'path' may be undefined, or defined from star imports: time
+apps/env/SensorianIoTDashboard.py:5: 'math' imported but unused
+apps/env/SensorianIoTDashboard.py:10: 'RPi.GPIO' imported but unused
+apps/env/SensorianIoTDashboard.py:12: 'from ctypes import *' used; unable to detect undefined names
+apps/env/SensorianIoTDashboard.py:16: 'CDLL' may be undefined, or defined from star imports: ctypes
+apps/env/SensorianIoTDashboard.py:36: local variable 'response' is assigned to but never used
+apps/env/weatherStation.py:7: 'os' imported but unused
+apps/env/WirelessDoorbell.py:9: 'from scapy.all import *' used; unable to detect undefined names
+apps/env/WirelessDoorbell.py:17: 'ARP' may be undefined, or defined from star imports: scapy.all
+apps/env/WirelessDoorbell.py:18: 'ARP' may be undefined, or defined from star imports: scapy.all
+apps/env/WirelessDoorbell.py:19: 'ARP' may be undefined, or defined from star imports: scapy.all
+apps/env/WirelessDoorbell.py:21: 'ARP' may be undefined, or defined from star imports: scapy.all
+apps/env/WirelessDoorbell.py:28: local variable 'response' is assigned to but never used
+apps/env/WirelessDoorbell.py:32: 'sniff' may be undefined, or defined from star imports: scapy.all
+apps/env/beerfridge/beerfridge_make.py:10: 'os' imported but unused
+apps/env/CyberSafe/nodesens.py:3: 'sys' imported but unused
+apps/env/DHT22Logger/DHT22logger.py:41: 'email.MIMEMultipart.MIMEMultipart' imported but unused
+apps/env/DHT22Logger/DHT22logger.py:42: 'email.MIMEText.MIMEText' imported but unused
+apps/env/DHT22Logger/DHT22logger.py:182: local variable 'lastSensor' is assigned to but never used
+apps/env/DHT22Logger/DHT22logger.py:183: local variable 'triggedLimit' is assigned to but never used
+apps/env/DHT22Logger/Adafruit_Python_DHT/Adafruit_DHT/__init__.py:21: '.common.read' imported but unused
+apps/env/DHT22Logger/Adafruit_Python_DHT/Adafruit_DHT/__init__.py:21: '.common.DHT22' imported but unused
+apps/env/DHT22Logger/Adafruit_Python_DHT/Adafruit_DHT/__init__.py:21: '.common.AM2302' imported but unused
+apps/env/DHT22Logger/Adafruit_Python_DHT/Adafruit_DHT/__init__.py:21: '.common.read_retry' imported but unused
+apps/env/DHT22Logger/Adafruit_Python_DHT/Adafruit_DHT/__init__.py:21: '.common.DHT11' imported but unused
+apps/env/DHT22Logger/Adafruit_Python_DHT/examples/google_spreadsheet.py:36: 'json' imported but unused
+apps/env/HomeControlCenterBBGW/runserver.py:11: 'flask.render_template' imported but unused
+apps/env/HomeControlCenterBBGW/runserver.py:12: 'flask_socketio.rooms' imported but unused
+apps/env/HomeControlCenterBBGW/runserver.py:12: 'flask_socketio.close_room' imported but unused
+apps/env/HomeControlCenterBBGW/runserver.py:12: 'flask_socketio.disconnect' imported but unused
+apps/env/HomeControlCenterBBGW/runserver.py:12: 'flask_socketio.leave_room' imported but unused
+apps/env/HomeControlCenterBBGW/runserver.py:12: 'flask_socketio.join_room' imported but unused
+apps/env/HomeControlCenterBBGW/FlaskWebProject1/__init__.py:8: 'FlaskWebProject1.views' imported but unused
+apps/env/HomeVentilation/Ventilation.py:47: 'ouimeaux' imported but unused
+apps/env/HomeVentilation/Ventilation.py:51: 'from datetime import *' used; unable to detect undefined names
+apps/env/HomeVentilation/Ventilation.py:178: 'get_temperature' may be undefined, or defined from star imports: datetime
+apps/env/HomeVentilation/Ventilation.py:308: 'datetime' may be undefined, or defined from star imports: datetime
+apps/env/HomeVentilation/Ventilation.py:346: 'datetime' may be undefined, or defined from star imports: datetime
+apps/env/HomeVentilation/test_code/DHT22-test-02.py:7: 'time.strftime' imported but unused
+apps/env/HomeVentilation/test_code/DHT22-test-02.py:8: 'from datetime import *' used; unable to detect undefined names
+apps/env/HomeVentilation/test_code/DHT22-test-02.py:14: 'd' may be undefined, or defined from star imports: datetime
+apps/env/HomeVentilation/test_code/DHT22-test-02.py:17: 't3' may be undefined, or defined from star imports: datetime
+apps/env/HomeVentilation/test_code/DHT22-test-02.py:17: 'h3' may be undefined, or defined from star imports: datetime
+apps/env/HomeVentilation/test_code/DHT22-test-02.py:18: 't4' may be undefined, or defined from star imports: datetime
+apps/env/HomeVentilation/test_code/DHT22-test-02.py:18: 'h4' may be undefined, or defined from star imports: datetime
+apps/env/HomeVentilation/test_code/DHT22-test-02.py:19: 't5' may be undefined, or defined from star imports: datetime
+apps/env/HomeVentilation/test_code/DHT22-test-02.py:19: 'h5' may be undefined, or defined from star imports: datetime
+apps/env/HomeVentilation/test_code/DHT22-test-02.py:28: 'datetime' may be undefined, or defined from star imports: datetime
+apps/env/HomeVentilation/test_code/wemo_test_01.py:1: 'ouimeaux' imported but unused
+apps/env/IoTRPiArduino/iot_temp_hum_light.py:14: 'sys' imported but unused
+apps/env/IoTRPiArduino/iot_temp_hum_light.py:16: 'os' imported but unused
+apps/env/IoTRPiArduino/iot_temp_hum_light.py:17: 'time' imported but unused
+apps/env/IoTRPiArduino/iot_temp_hum_light_pot.py:14: 'sys' imported but unused
+apps/env/IoTRPiArduino/iot_temp_hum_light_pot.py:16: 'os' imported but unused
+apps/env/IoTRPiArduino/iot_temp_hum_light_pot_ardu.py:14: 'sys' imported but unused
+apps/env/IoTRPiArduino/iot_temp_hum_light_pot_ardu.py:16: 'os' imported but unused
+apps/env/IoTRPiArduino/temp_hum_test.py:14: 'RPi.GPIO' imported but unused
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:25: 'Adafruit_GPIO.SPI' imported but unused
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:26: 'Adafruit_SSD1306' imported but unused
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:29: 'Image' imported but unused
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:55: undefined name 'image'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:74: undefined name 'sensor'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:74: undefined name 'pin'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:77: undefined name 'width'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:77: undefined name 'height'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:80: undefined name 'x'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:80: undefined name 'top'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:84: undefined name 'x'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:84: undefined name 'top'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:88: undefined name 'width'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:93: undefined name 'width'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:112: undefined name 'x'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:112: undefined name 'top'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:115: undefined name 'disp'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:115: undefined name 'image'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:116: undefined name 'disp'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:126: undefined name 'width'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:136: undefined name 'width'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:137: undefined name 'height'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:140: undefined name 'height'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:143: undefined name 'width'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:143: undefined name 'height'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:145: undefined name 'width'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:146: undefined name 'width'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:146: undefined name 'width'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:149: undefined name 'height'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:153: undefined name 'disp'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:153: undefined name 'image'
+apps/env/IoTTempHumidityMonitor/humidity_monitor.py:154: undefined name 'disp'
+apps/env/IoTTempHumidityMonitor/settings_screen.py:56: undefined name 'Adafruit_SSD1306'
+apps/env/IoTTempHumidityMonitor/settings_screen.py:56: undefined name 'SPI'
+apps/env/IoTTempHumidityMonitor/settings_screen.py:75: undefined name 'Image'
+apps/env/IoTTempHumidityMonitor/settings_sensor.py:24: undefined name 'Adafruit_DHT'
+apps/env/IoTTempHumidityMonitor/settings_sensor.py:25: undefined name 'Adafruit_DHT'
+apps/env/IoTTempHumidityMonitor/settings_sensor.py:26: undefined name 'Adafruit_DHT'
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/dataSpark/test.py:63: undefined name 'URLError'
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/__init__.py:6: 'devicehive.interfaces.IProtoHandler' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/auto.py:9: 'twisted.internet.protocol.Protocol' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/auto.py:89: undefined name 'datetime'
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/utils.py:8: 'twisted.internet.defer.Deferred' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/ws.py:17: 'zope.interface.Attribute' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/client/ws.py:8: 'sys.maxint' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/client/ws.py:13: 'twisted.internet.defer.fail' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/client/ws.py:14: 'twisted.internet.protocol.Protocol' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/client/ws.py:17: 'devicehive.DhError' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/client/ws.py:18: 'devicehive.ws.IWebSocketCallback' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/device/ws.py:12: 'twisted.internet.defer.fail' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/gateway/__init__.py:4: 'twisted.internet.reactor' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/gateway/__init__.py:6: 'devicehive' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/gateway/__init__.py:8: 'zope.interface.Attribute' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/gateway/binary.py:16: 'uuid.UUID' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/gateway/binary.py:17: 'collections.OrderedDict' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/devicehive/gateway/binary.py:32: 'devicehive.gateway.IGateway' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/gallileo.py:16: 'time' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/mongodb_client.py:6: 'os' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/mongodb_client.py:8: 'time.sleep' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/ping_pong_example.py:8: 'twisted.python.log' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/ping_pong_example.py:9: 'twisted.internet.task' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/raspi_led_thermo.py:15: 'os' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/rpi_example.py:12: 'threading' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/rpi_example.py:14: 'time.sleep' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/rpi_example.py:26: redefinition of unused 'devicehive' from line 22
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/virtual_led_example.py:69: undefined name 'data'
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/examples/ws_devicehive_example.py:15: redefinition of unused 'devicehive' from line 12
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:8: 'from devicehive.gateway.binary import *' used; unable to detect undefined names
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:13: 'Packet' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:13: 'PACKET_SIGNATURE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:19: 'PACKET_SIGNATURE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:28: 'Packet' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:28: 'PACKET_SIGNATURE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:32: 'PACKET_SIGNATURE_HI' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:32: 'PACKET_SIGNATURE_LO' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:37: 'Packet' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:46: 'PACKET_SIGNATURE_HI' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:46: 'PACKET_SIGNATURE_LO' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:48: 'Packet' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:50: 'InvalidCRCError' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:56: 'Packet' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:58: 'IncompletePacketError' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:62: 'PACKET_SIGNATURE_HI' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:62: 'PACKET_SIGNATURE_LO' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:64: 'Packet' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:66: 'InvalidPacketLengthError' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:72: 'Packet' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:74: 'InvalidSignatureError' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:80: 'PACKET_SIGNATURE_HI' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:80: 'PACKET_SIGNATURE_LO' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:81: 'BinaryPacketBuffer' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:87: 'PACKET_SIGNATURE_HI' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:87: 'PACKET_SIGNATURE_LO' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:88: 'BinaryPacketBuffer' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:95: 'PACKET_SIGNATURE_HI' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:95: 'PACKET_SIGNATURE_LO' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:96: 'BinaryPacketBuffer' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:103: 'BinaryPacketBuffer' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:111: 'PACKET_SIGNATURE_HI' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:111: 'PACKET_SIGNATURE_LO' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:111: 'PACKET_SIGNATURE_HI' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:111: 'PACKET_SIGNATURE_LO' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:112: 'BinaryPacketBuffer' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:118: 'PACKET_SIGNATURE_HI' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:118: 'PACKET_SIGNATURE_LO' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:118: 'PACKET_SIGNATURE_HI' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:119: 'BinaryPacketBuffer' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:121: 'PACKET_SIGNATURE_HI' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:125: 'PACKET_SIGNATURE_HI' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:125: 'PACKET_SIGNATURE_LO' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:125: 'PACKET_SIGNATURE_HI' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:125: 'PACKET_SIGNATURE_LO' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:126: 'BinaryPacketBuffer' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:139: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:139: 'DATA_TYPE_SWORD' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:150: 'uuid' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:151: 'uuid' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:161: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:161: 'DATA_TYPE_BYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:162: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:162: 'DATA_TYPE_WORD' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:163: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:163: 'DATA_TYPE_DWORD' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:164: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:164: 'DATA_TYPE_BOOL' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:165: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:165: 'DATA_TYPE_BOOL' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:166: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:166: 'DATA_TYPE_STRING' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:167: 'array_binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:167: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:168: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:168: 'DATA_TYPE_GUID' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:169: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:169: 'DATA_TYPE_GUID' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:183: 'uuid' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:200: 'BinaryFormatter' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:204: 'BinaryFormatter' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:215: 'uuid' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:225: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:225: 'DATA_TYPE_ARRAY' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:227: local variable 'invalidbin' is assigned to but never used
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:229: 'BinaryFormatter' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:229: local variable 'res' is assigned to but never used
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:231: 'BinaryDeserializationError' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:236: 'BinaryFormatter' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:237: 'uuid' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:256: 'DATA_TYPE_STRING' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:258: 'DATA_TYPE_BOOL' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:265: 'DATA_TYPE_STRING' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:267: 'DATA_TYPE_BOOL' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:271: 'BinaryFormatter' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:275: 'DATA_TYPE_ARRAY' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:276: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:277: 'DATA_TYPE_STRING' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:281: 'BinaryFormatter' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:285: 'DATA_TYPE_OBJECT' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:287: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:288: 'DATA_TYPE_STRING' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:292: 'BinaryFormatter' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:295: 'DATA_TYPE_ARRAY' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:296: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:299: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:300: 'DATA_TYPE_STRING' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:304: 'BinaryFormatter' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:307: 'DATA_TYPE_ARRAY' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:308: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:309: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:314: 'DATA_TYPE_ARRAY' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:315: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:316: 'DATA_TYPE_STRING' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:321: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:321: 'DATA_TYPE_BYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:323: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:323: 'DATA_TYPE_BYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:324: 'object_binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:325: 'array_binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:325: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:325: 'DATA_TYPE_BYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:326: 'array_binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:326: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:327: 'array_binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:327: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:327: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:327: 'DATA_TYPE_BYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:328: 'array_binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:328: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:328: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:339: 'ArrayContainer' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:339: 'DATA_TYPE_BYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:339: 'ArrayContainer' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:339: 'DATA_TYPE_BYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:340: 'ArrayContainer' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:342: 'BinaryFormatter' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:348: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:348: 'DATA_TYPE_BOOL' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:352: 'Parameter' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:352: 'DATA_TYPE_WORD' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:353: 'Parameter' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:353: 'DATA_TYPE_BYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:354: 'Parameter' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:354: 'DATA_TYPE_ARRAY' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:354: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:354: 'DATA_TYPE_BYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:355: 'Parameter' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:355: 'DATA_TYPE_OBJECT' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:356: 'Command' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:361: 'ToDictionary' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:364: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:367: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:370: 'array_binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:371: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:372: 'DATA_TYPE_BYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:375: 'object_binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:385: 'ToDictionary' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:386: 'ToDictionary' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:387: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:387: 'DATA_TYPE_SBYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:389: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:389: 'DATA_TYPE_BYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:390: 'object_binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:391: 'array_binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:391: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:391: 'DATA_TYPE_WORD' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:392: 'array_binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:392: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:393: 'array_binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:393: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:393: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:393: 'DATA_TYPE_BYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:408: 'ArrayContainer' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:408: 'ArrayContainer' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:449: 'Updateable' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:451: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:451: 'DATA_TYPE_SBYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:455: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:455: 'DATA_TYPE_BYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:458: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:458: 'DATA_TYPE_BYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:459: 'object_binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:460: 'array_binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:460: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:460: 'DATA_TYPE_BYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:461: 'array_binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:461: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:462: 'array_binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:462: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:462: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:462: 'DATA_TYPE_WORD' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:490: 'ArrayContainer' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:491: 'DATA_TYPE_WORD' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:513: 'Updateable' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:514: 'array_binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:514: 'ArrayQualifier' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:514: 'DATA_TYPE_BYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:523: 'Updateable' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:524: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:524: 'DATA_TYPE_BYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:543: 'uuid' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:544: 'RegistrationPayload' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:550: 'Equipment' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:551: 'Notification' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:551: 'Parameter' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:551: 'DATA_TYPE_WORD' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:551: 'Parameter' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:551: 'DATA_TYPE_BYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:552: 'Command' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:552: 'Parameter' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:552: 'DATA_TYPE_SWORD' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:553: 'BinaryFormatter' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:554: 'Packet' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:554: 'PACKET_SIGNATURE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:554: 'SYS_INTENT_REGISTER' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:563: 'BinaryFactory' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:569: 'Packet' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:570: 'PACKET_SIGNATURE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:572: 'SYS_INTENT_REQUEST_REGISTRATION' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:577: 'BinaryFactory' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:600: 'DATA_TYPE_WORD' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:601: 'DATA_TYPE_BYTE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:609: 'DATA_TYPE_SWORD' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:625: 'BinaryFormatter' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:627: 'Command' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:630: 'BinaryConstructable' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:633: 'AbstractBinaryProperty' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:635: 'AbstractBinaryProperty' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:638: 'BinaryConstructable' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:641: 'AbstractBinaryProperty' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:642: 'DATA_TYPE_STRING' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:647: 'array_binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:648: 'DATA_TYPE_STRING' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:689: 'Packet' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:689: 'PACKET_SIGNATURE' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:689: 'struct' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:689: 'BinaryFormatter' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:690: local variable 'bin_pkt' is assigned to but never used
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:695: 'BinaryFormatterError' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:696: 'BinarySerializationError' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:697: 'BinaryDeserializationError' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:703: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:703: 'DATA_TYPE_DWORD' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:704: 'binary_property' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_binary.py:704: 'DATA_TYPE_QWORD' may be undefined, or defined from star imports: devicehive.gateway.binary
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_command.py:46: local variable 'tmp' is assigned to but never used
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_command.py:66: local variable 'tmp' is assigned to but never used
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_dhjson.py:30: redefinition of unused 'test_parse_number_8' from line 26
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_dhjson.py:42: redefinition of unused 'test_parse_identifier_2' from line 38
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_dhjson.py:58: redefinition of unused 'test_empty_array_1' from line 54
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_wsdev.py:123: local variable 'defer' is assigned to but never used
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_wsdev.py:134: local variable 'defer' is assigned to but never used
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/devicehive/tests/test_wsdev.py:143: local variable 'defer' is assigned to but never used
+apps/env/PiIndoorAirQualityMonitor/liv/iotConnectors/xively/livXively.py:9: undefined name 'YOUR_FEED'
+apps/env/PiIndoorAirQualityMonitor/liv/livAPIs/livAPIs.py:10: 'flask.abort' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livAPIs/livAPIs.py:10: 'flask.redirect' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livAPIs/livAPIs.py:10: 'flask.flash' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livAPIs/livAPIs.py:10: 'flask.url_for' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livAPIs/livAPIs.py:10: 'flask.request' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livAPIs/livAPIs.py:10: 'flask.session' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livAPIs/livAPIs.py:13: 'time.localtime' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livAPIs/livAPIs.py:13: 'time.gmtime' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livAPIs/livAPIs.py:19: 'from pylab import *' used; unable to detect undefined names
+apps/env/PiIndoorAirQualityMonitor/liv/livAPIs/livAPIs.py:19: 'pylab' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livAPIs/livAPIs.py:20: 'optparse.OptionParser' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livDB/livDB.py:6: 'subprocess' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livDB/livDB.py:7: 're' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livDB/livDB.py:8: 'sys' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livDB/livDB.py:10: 'time.localtime' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livDB/livDB.py:10: 'time.gmtime' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livDB/livDB.py:11: 'datetime' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livDB/livDB.py:12: 'serial' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livDB/livDB.py:13: 'os' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livDB/livDB.py:18: 'smbus' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livDB/livDB.py:19: 'RPi.GPIO' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livDB/livDB.py:20: 'Adafruit_Python_BMP.Adafruit_BMP.BMP085' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livLCD/livLCD.py:6: 're' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livLCD/livLCD.py:9: 'time.localtime' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livLCD/livLCD.py:9: 'time.gmtime' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livLCD/livLCD.py:9: 'time.strftime' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livLCD/livLCD.py:10: 'datetime' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livLCD/livLCD.py:11: 'serial' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livLCD/livLCD.py:12: 'os' imported but unused
+apps/env/PiIndoorAirQualityMonitor/liv/livXMPP/livXMPP.py:7: 'os' imported but unused
+apps/env/SitSat/SitSat_precise.py:1: 'os' imported but unused
+apps/env/SitSat/SitSat_precise.py:4: 'subprocess' imported but unused
+apps/env/SitSat/SitSat_test.py:1: 'os' imported but unused
+apps/env/SitSat/SitSat_test.py:4: 'subprocess' imported but unused
+apps/env/thermostatRaspBerryPi/thermo.py:4: 'Adafruit_I2C.Adafruit_I2C' imported but unused
+apps/env/thermostatRaspBerryPi/thermo.py:5: 'Adafruit_MCP230xx.Adafruit_MCP230XX' imported but unused
+apps/env/thermostatRaspBerryPi/thermo.py:8: 'from subprocess import *' used; unable to detect undefined names
+apps/env/thermostatRaspBerryPi/thermo.py:9: 'time.strftime' imported but unused
+apps/env/thermostatRaspBerryPi/thermo.py:12: 'from random import *' used; unable to detect undefined names
+apps/env/thermostatRaspBerryPi/thermo.py:16: 'smbus' imported but unused
+apps/env/thermostatRaspBerryPi/thermo.py:19: 'os' imported but unused
+apps/env/thermostatRaspBerryPi/thermo.py:20: 'time' imported but unused
+apps/env/thermostatRaspBerryPi/thermo.py:21: 'glob' imported but unused
+apps/env/thermostatRaspBerryPi/thermo.py:231: 'choice' may be undefined, or defined from star imports: random, subprocess
+apps/env/thermostatRaspBerryPi/thermo.py:231: 'c' may be undefined, or defined from star imports: random, subprocess
+apps/env/thermostatRaspBerryPi/thermo.py:339: local variable 'output' is assigned to but never used
+apps/env/thermostatRaspBerryPi/thermo.py:400: 'mpc_play' may be undefined, or defined from star imports: random, subprocess
+apps/env/thermostatRaspBerryPi/thermo.py:408: local variable 'output' is assigned to but never used
+apps/env/thermostatRaspBerryPi/thermo.py:418: 'Popen' may be undefined, or defined from star imports: random, subprocess
+apps/env/thermostatRaspBerryPi/thermo.py:418: 'PIPE' may be undefined, or defined from star imports: random, subprocess
+apps/env/thermostatRaspBerryPi/thermo.py:418: 'STDOUT' may be undefined, or defined from star imports: random, subprocess
