@@ -1,11 +1,11 @@
 SecurityCam, https://www.pubnub.com/blog/2015-06-30-create-realtime-raspberry-pi-security-camera-w-parse/
-pi-home-surveillance, http://www.pyimagesearch.com/2015/06/01/home-surveillance-and-motion-detection-with-the-raspberry-pi-python-and-opencv/
+pi_home_surveillance, http://www.pyimagesearch.com/2015/06/01/home-surveillance-and-motion-detection-with-the-raspberry-pi-python-and-opencv/
 GPIO&PiCameraUsingTelegram.py, https://www.hackster.io/idreams/control-gpio-and-pi-camera-using-raspberry-pi-telegram-app-3a776a
 SendingReceivingPicsMqtt.py, https://developer.ibm.com/recipes/tutorials/sending-and-receiving-pictures-from-a-raspberry-pi-via-mqtt/
 HomeSecurityEmailAlert.py, http://www.instructables.com/id/Home-Security-Email-Alert-System-using-Raspberry-P/?ALLSTEPS
 PiScream.py, https://hackaday.io/project/5721-piscream
 surocam.py, https://hackaday.io/project/2483-surveillance-robot-camera-a
-Fishtank, https://hackaday.io/project/7173-internet-connected-fishtank
+IoTFishtank, https://hackaday.io/project/7173-internet-connected-fishtank
 pidoorbell.py, https://www.hackster.io/pidoorbell-team/pidoorbell-7ef917
 monitordoorbell.py, https://www.hackster.io/Hoefnix/monitoring-the-doorbell-6a2000
 RPiPhotobooth, https://www.hackster.io/kevino/raspberry-pi-photo-booth-for-your-next-party-b8e76d
