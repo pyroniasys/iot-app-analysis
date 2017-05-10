@@ -12,11 +12,14 @@ from collections import OrderedDict
 from util import *
 from import_scraper import *
 
+APP_DIR = "../apps"
+RAW_DATA_DIR = "raw"
+
 # pass in the category: visual, audio or env
 cat = sys.argv[1]
 
 # expect apps to be located in apps/cat/
-app_path = "apps/"+cat+"/"
+app_path = APP_DIR+"/"+cat+"/"
 
 imports_raw, unused_raw = extract_imports(cat, app_path)
 
@@ -134,29 +137,29 @@ for a in apps:
 
     apps[a]['unused'] = pruned_unused
 
-write_map(call_to_native, "corpus/"+cat+"-call-native.txt", perm="w+", sort=True)
-write_map(hybrid, "corpus/"+cat+"-hybrid-apps.txt", perm="w+", sort=True)
+write_map(call_to_native, RAW_DATA_DIR+"/"+cat+"-call-native.txt", perm="w+", sort=True)
+write_map(hybrid, RAW_DATA_DIR+"/"+cat+"-hybrid-apps.txt", perm="w+", sort=True)
 
 li = []
 for a in apps:
     for i in sorted(apps[a]['imports']):
         li.append(i)
 
-write_list_raw(li, "corpus/"+cat+"-libs.txt")
+write_list_raw(li, RAW_DATA_DIR+"/"+cat+"-libs.txt")
 
 li = []
 for a in apps:
     for i in sorted(apps[a]['unused']):
         li.append(i)
 
-write_list_raw(li, "corpus/"+cat+"-unused-libs.txt")
+write_list_raw(li, RAW_DATA_DIR+"/"+cat+"-unused-libs.txt")
 
 # collect per-app libs and lib counts
 lib_counts = OrderedDict()
 lib_3p_counts = OrderedDict()
 p="w+"
 for a in apps:
-    write_list(apps[a]['imports'], "corpus/"+cat+"-libs-perapp.txt", name=a, perm=p)
+    write_list(apps[a]['imports'], RAW_DATA_DIR+"/"+cat+"-libs-perapp.txt", name=a, perm=p)
     lib_counts[a] = len(apps[a]['imports'])
     lib_3p_counts[a] = len(remove_stdlib_imports(apps[a]['imports']))
     if p == "w+":

@@ -1,5 +1,6 @@
 import sys, os, gc, inspect, traceback
 from collections import OrderedDict
+import subprocess
 
 INDENT = 2
 SPACE = " "
@@ -59,6 +60,8 @@ class Tracer:
         # this helps us detect if we're in an infinite loop
         self.call_freq = dict()
         self.inf_thresh = 20
+        # this helps us retry after certain kinds of errors
+        self.retry_after_error = True
 
         # want to keep track of each level's call dict
         # this contains a per-level representation of the callgraph
@@ -269,19 +272,37 @@ class Tracer:
             sys.setprofile(self.tracer)
             try:
                 exec(cmd, globs, locs)
+                # got here, so we're done
+                self.retry_after_error = False
+            except SyntaxError as e:
+                # Ugh, we're dealing with a Python2 lib
+                # TODO: get the offending lib
+                lib = "/tmp/libs/SimpleCV"
+                os.system("2to3 -w "+lib)
+            except ImportError as e:
+                # we might land here if our top 50 imports don't
+                # include the triggering module
+                # so let's fix this for future runs
+                tmp = str(e).split()
+                lib = tmp[len(tmp)-1].strip("'")
+                print("Downloading "+lib)
+                subprocess.check_output(["pip3", "install", "-qq", "--no-compile", "-t", "../libs/"+lib, lib])
+                os.system("cp -r ../libs/"+lib+" /tmp/libs")
+                sys.path.append("/tmp/libs/"+lib)
             except Exception:
                 print("Encountered error: "+traceback.format_exc())
+                self.retry_after_error = False
             finally:
                 sys.setprofile(None)
         except SystemExit:
+            self.retry_after_error = False
             pass
 
     # adapted from https://github.com/python/cpython/blob/3.5/Lib/profile.py
     def start_tracer(self):
-        sys.path.insert(0, "../libs")
         for a in self.files:
             self.app_filename = a
-            sys.path.insert(0, os.path.dirname(self.app_filename))
+            sys.path.append(os.path.dirname(self.app_filename))
             with open(a, 'rb') as fp:
                 code = compile(fp.read(), self.app_filename, 'exec')
             globs = {
@@ -290,4 +311,5 @@ class Tracer:
                 '__package__': None,
                 '__cached__': None,
             }
-            self._runctx(code, globs, None)
+            while self.retry_after_error:
+                self._runctx(code, globs, None)

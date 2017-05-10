@@ -15,6 +15,9 @@ from collections import OrderedDict
 from util import *
 from import_scraper import *
 
+LIB_DIR = "../libs"
+RAW_DATA_DIR = "raw"
+
 # this goes through the entire lib hierarchy and looks for
 # a C-implementation of the lib
 def check_for_c_source(path, lib):
@@ -77,8 +80,8 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
     else:
         downl = lib
 
-    lib_path = "libs/"+lib
-    top_lib_path = "libs/"+top_lib
+    lib_path = LIB_DIR+"/"+lib
+    top_lib_path = LIB_DIR+"/"+top_lib
 
     if os.path.isdir(lib_path+"/"+lib):
         # this means that the lib has its own dir
@@ -121,7 +124,7 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
 
     # we might have dependency py files in our lib path
     search_path = lib_path
-    if "libs/"+lib == top_lib_path and lib_path.endswith(".py"):
+    if top_lib_path == LIB_DIR+"/"+lib and lib_path.endswith(".py"):
         search_path = top_lib_path
     imports_raw, unused_raw = extract_imports(cat, search_path, perm="a+")
 
@@ -258,7 +261,7 @@ if os.path.isfile(py3_report_f):
 if os.path.isfile(py2_report_f):
     os.remove(py2_report_f)
 
-f = open("corpus/"+cat+"-libs.txt", "r")
+f = open(RAW_DATA_DIR+"/"+cat+"-libs.txt", "r")
 libs = f.readlines()
 f.close()
 
@@ -310,9 +313,9 @@ for l in libs:
         call_native.extend(native)
 
 no_pip = remove_dups(no_pip)
-write_list_raw(no_pip, "corpus/"+cat+"-no-pip.txt")
-write_list_raw(top_no_pip, "corpus/"+cat+"-failed.txt")
-write_list_raw(py_libs, "corpus/"+cat+"-py-libs.txt")
+write_list_raw(no_pip, RAW_DATA_DIR+"/"+cat+"-no-pip.txt")
+write_list_raw(top_no_pip, RAW_DATA_DIR+"/"+cat+"-failed.txt")
+write_list_raw(py_libs, RAW_DATA_DIR+"/"+cat+"-py-libs.txt")
 
 # need to clean up the lists
 c_libs_top = []
@@ -328,6 +331,6 @@ for l in libs:
     if lib in hybrid_libs:
         hybrid_libs_top.append(lib)
 
-write_list_raw(call_native_top, "corpus/"+cat+"-ext-proc.txt")
-write_list_raw(c_libs_top, "corpus/"+cat+"-c-libs.txt")
-write_list_raw(hybrid_libs_top, "corpus/"+cat+"-shared-libs.txt")
+write_list_raw(call_native_top, RAW_DATA_DIR+"/"+cat+"-ext-proc.txt")
+write_list_raw(c_libs_top, RAW_DATA_DIR+"/"+cat+"-c-libs.txt")
+write_list_raw(hybrid_libs_top, RAW_DATA_DIR+"/"+cat+"-shared-libs.txt")
