@@ -62,6 +62,7 @@ class Tracer:
         self.inf_thresh = 20
         # this helps us retry after certain kinds of errors
         self.retry_after_error = True
+        self.retry_num = 5 # set some reasonable boundary
 
         # want to keep track of each level's call dict
         # this contains a per-level representation of the callgraph
@@ -279,6 +280,7 @@ class Tracer:
                 # TODO: get the offending lib
                 lib = "/tmp/libs/SimpleCV"
                 os.system("2to3 -w "+lib)
+                self.retry_num -= 1
             except ImportError as e:
                 # we might land here if our top 50 imports don't
                 # include the triggering module
@@ -289,6 +291,7 @@ class Tracer:
                 subprocess.check_output(["pip3", "install", "-qq", "--no-compile", "-t", "../libs/"+lib, lib])
                 os.system("cp -r ../libs/"+lib+" /tmp/libs")
                 sys.path.append("/tmp/libs/"+lib)
+                self.retry_num -= 1
             except Exception:
                 print("Encountered error: "+traceback.format_exc())
                 self.retry_after_error = False
@@ -311,5 +314,5 @@ class Tracer:
                 '__package__': None,
                 '__cached__': None,
             }
-            while self.retry_after_error:
+            while self.retry_after_error and self.retry_num > 0:
                 self._runctx(code, globs, None)
