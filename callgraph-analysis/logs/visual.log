@@ -1,1 +1,79 @@
-[collect_callgraphs] Done
+[collect_callgraphs] PID = 24978
+[collect_callgraphs] Collecting data for IoTFishtank
+debug ../apps/visual-py3/IoTFishtank
+Encountered error: Traceback (most recent call last):
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/configparser.py", line 1135, in _unify_values
+    sectiondict = self._sections[section]
+KeyError: 'general'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 275, in _runctx
+    exec(cmd, globs, locs)
+  File "../apps/visual-py3/IoTFishtank/IoTFishtank.py", line 6, in <module>
+    import FishTank
+  File "../apps/visual-py3/IoTFishtank/FishTank.py", line 6, in <module>
+    import FoodStore
+  File "../apps/visual-py3/IoTFishtank/FoodStore.py", line 2, in <module>
+    import Config
+  File "../apps/visual-py3/IoTFishtank/Config.py", line 6, in <module>
+    path = config.get('general', 'path')
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/configparser.py", line 778, in get
+    d = self._unify_values(section, vars)
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/configparser.py", line 1138, in _unify_values
+    raise NoSectionError(section)
+configparser.NoSectionError: No section: 'general'
+
+[collect_callgraphs] Collecting data for pi_home_surveillance
+debug ../apps/visual-py3/pi_home_surveillance
+Traceback (most recent call last):
+  File "collect-callgraphs.py", line 83, in <module>
+    tr.start_tracer()
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 319, in start_tracer
+    self._runctx(code, globs, None)
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 275, in _runctx
+    exec(cmd, globs, locs)
+  File "../apps/visual-py3/pi_home_surveillance/pi_home_surveillance.py", line 6, in <module>
+    from dropbox.client import DropboxOAuth2FlowNoRedirect
+  File "/tmp/libs/dropbox/dropbox/__init__.py", line 3, in <module>
+    from .dropbox import __version__, Dropbox, DropboxTeam, create_session
+  File "/tmp/libs/dropbox/dropbox/dropbox.py", line 17, in <module>
+    import requests
+  File "/tmp/libs/genapi/requests/__init__.py", line 52, in <module>
+    from .packages.urllib3.contrib import pyopenssl
+  File "/tmp/libs/genapi/requests/packages/urllib3/contrib/pyopenssl.py", line 46, in <module>
+    import OpenSSL.SSL
+  File "/tmp/libs/service_identity/OpenSSL/__init__.py", line 8, in <module>
+    from OpenSSL import rand, crypto, SSL
+  File "/tmp/libs/service_identity/OpenSSL/crypto.py", line 13, in <module>
+    from cryptography.hazmat.primitives.asymmetric import dsa, rsa
+  File "/tmp/libs/jwt/cryptography/hazmat/primitives/asymmetric/rsa.py", line 14, in <module>
+    from cryptography.hazmat.backends.interfaces import RSABackend
+  File "/tmp/libs/jwt/cryptography/hazmat/backends/__init__.py", line 7, in <module>
+    import pkg_resources
+  File "/tmp/libs/jwt/pkg_resources/__init__.py", line 3036, in <module>
+    @_call_aside
+  File "/tmp/libs/jwt/pkg_resources/__init__.py", line 3020, in _call_aside
+    f(*args, **kwargs)
+  File "/tmp/libs/jwt/pkg_resources/__init__.py", line 3049, in _initialize_master_working_set
+    working_set = WorkingSet._build_master()
+  File "/tmp/libs/jwt/pkg_resources/__init__.py", line 645, in _build_master
+    ws = cls()
+  File "/tmp/libs/jwt/pkg_resources/__init__.py", line 638, in __init__
+    self.add_entry(entry)
+  File "/tmp/libs/jwt/pkg_resources/__init__.py", line 694, in add_entry
+    for dist in find_distributions(entry, True):
+  File "/tmp/libs/jwt/pkg_resources/__init__.py", line 2016, in find_on_path
+    path_item_entries = _by_version_descending(os.listdir(path_item))
+  File "/tmp/libs/jwt/pkg_resources/__init__.py", line 2000, in _by_version_descending
+    return sorted(names, key=_by_version, reverse=True)
+  File "/tmp/libs/jwt/packaging/version.py", line 47, in __lt__
+    def __lt__(self, other):
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 226, in tracer
+    callee_name = callee_code.co_filename+":"+self._get_func_name(callee_code)
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 180, in _get_func_name
+    f = self._get_func(code)
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 165, in _get_func
+    funcs = [f for f in gc.get_referrers(code)
+KeyboardInterrupt

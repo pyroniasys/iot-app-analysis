@@ -1,13 +1,17 @@
 /home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/python {
+
+# allows reads from libc, lib and the linker cache
+/lib/x86_64-linux-gnu/lib*.so r,
+/lib/x86_64-linux-gnu/lib*.so.* r,
+/usr/lib/x86_64-linux-gnu/lib*.so.* r,
 /etc/ld.so.cache r,
-/lib/x86_64-linux-gnu/libc-2.23.so r,
-/lib/x86_64-linux-gnu/libpthread-2.23.so r,
-/lib/x86_64-linux-gnu/libdl-2.23.so r,
-/lib/x86_64-linux-gnu/libutil-2.23.so r,
-/lib/x86_64-linux-gnu/libm-2.23.so r,
 /usr/lib/locale/locale-archive r,
 /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache r,
+/usr/share/zoneinfo/posixrules r,
+
+# allow reads from the python lib
+/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/ r,
+/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib** r,
 /home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/pybuilddir.txt r,
-/usr/local/lib/python3.5/ r,
-/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/build/lib.linux-x86_64-3.5/ r,
+/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/build/lib.linux-x86_64-3.5** r,
 }

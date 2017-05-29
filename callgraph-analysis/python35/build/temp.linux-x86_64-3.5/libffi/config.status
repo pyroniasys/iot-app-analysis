@@ -441,7 +441,7 @@ Copyright (C) 2012 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/cpython/python3.5/build/temp.linux-x86_64-3.5/libffi'
+ac_pwd='/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/cpython/build/temp.linux-x86_64-3.5/libffi'
 srcdir='/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/cpython/Modules/_ctypes/libffi'
 INSTALL='/usr/bin/install -c'
 MKDIR_P='/bin/mkdir -p'

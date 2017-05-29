@@ -30,7 +30,7 @@ tracer_path = os.getcwd() # this allows us to run this script on any machine
 app_path = APP_DIR+"/"+cat+"-py3"
 
 # meh, convert everything to python3 to normalize the analysis
-os.system("2to3 --output-dir="+app_path+" -w -n "+APP_DIR+"/"+cat)
+os.system("2to3 --output-dir="+app_path+" -W -n "+APP_DIR+"/"+cat)
 
 # let's get a list of apps we want to analyze
 app_list = os.listdir(app_path)
@@ -54,7 +54,9 @@ for l in lib_list:
 # redirect stdout and stderr to the log file
 LOG = "logs/"+cat+".log"
 sys.stdout = open(LOG, "w+")
-sys.stderr = open(LOG, "w+")
+sys.stderr = sys.stdout
+
+print("[collect_callgraphs] PID = "+str(os.getpid()))
 
 for a in apps:
     print("[collect_callgraphs] Collecting data for "+a)
@@ -88,4 +90,3 @@ print("[collect_callgraphs] Done")
 # cleanup: remove the converted apps and close log file fds
 os.system("rm -rf "+app_path)
 sys.stdout.close()
-sys.stderr.close()

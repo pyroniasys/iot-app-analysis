@@ -27,10 +27,10 @@ MODLIBS=        $(LOCALMODLIBS) $(BASEMODLIBS)
 
 # === Variables set by configure
 VERSION=	3.5
-srcdir=		..
-VPATH=		..
-abs_srcdir=	/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/cpython/python3.5/..
-abs_builddir=	/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/cpython/python3.5
+srcdir=		.
+
+abs_srcdir=	/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/cpython
+abs_builddir=	/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/cpython
 
 
 CC=		gcc -pthread
@@ -76,7 +76,7 @@ MAKESETUP=      $(srcdir)/Modules/makesetup
 # Compiler options
 OPT=		-DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes
 BASECFLAGS=	 -Wno-unused-result -Wsign-compare
-BASECPPFLAGS=	-IObjects -IInclude -IPython
+BASECPPFLAGS=	
 CONFIGURE_CFLAGS=	
 # CFLAGS_NODIST is used for building the interpreter and stdlib C extensions.
 # Use it when a compiler flag should _not_ be part of the distutils CFLAGS
