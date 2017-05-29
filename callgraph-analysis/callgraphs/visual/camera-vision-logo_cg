@@ -1,0 +1,641 @@
+{
+  ../apps/visual-py3/camera-vision-logo.py:<module>: [
+  {
+      <frozen importlib._bootstrap>:_frozen_importlib._find_and_load: [
+      _thread.allocate_lock, 
+      _imp.release_lock, 
+      _thread.get_ident, 
+      str.rpartition, 
+      _imp.acquire_lock, 
+      _imp.is_builtin, 
+      _imp.is_frozen, 
+      builtins.isinstance, 
+      builtins.hasattr, 
+      posix.stat, 
+      str.rstrip, 
+      str.join, 
+      str.format, 
+      builtins.getattr, 
+      str.endswith, 
+      builtins.len, 
+      FileIO.read, 
+      int.from_bytes, 
+      marshal.loads, 
+      _imp._fix_co_filename, 
+      {
+          builtins.exec: [
+          {
+              /usr/lib/python3.5/argparse.py:<module>: [
+              {
+                  <frozen importlib._bootstrap>:_frozen_importlib._find_and_load: [
+                  _thread.allocate_lock, 
+                  _imp.release_lock, 
+                  _thread.get_ident, 
+                  str.rpartition, 
+                  _imp.acquire_lock, 
+                  _imp.is_builtin, 
+                  builtins.hasattr, 
+                  _imp.is_frozen, 
+                  builtins.isinstance, 
+                  posix.stat, 
+                  str.rstrip, 
+                  str.join, 
+                  str.format, 
+                  builtins.getattr, 
+                  str.endswith, 
+                  builtins.len, 
+                  _imp.create_builtin, 
+                  FileIO.read, 
+                  int.from_bytes, 
+                  marshal.loads, 
+                  _imp._fix_co_filename, 
+                  {
+                      builtins.exec: [
+                      {
+                          /usr/lib/python3.5/copy.py:<module>: [
+                          builtins.hasattr, 
+                          {
+                              builtins.__build_class__: [ /usr/lib/python3.5/copy.py:copy.Error ]
+                            }, 
+                          {
+                              <frozen importlib._bootstrap>:_frozen_importlib._find_and_load: [
+                              _thread.allocate_lock, 
+                              _imp.release_lock, 
+                              _thread.get_ident, 
+                              str.rpartition, 
+                              {
+                                  builtins.__import__: [
+                                  {
+                                      <frozen importlib._bootstrap>:_frozen_importlib._find_and_load: [
+                                      _thread.allocate_lock, 
+                                      _imp.release_lock, 
+                                      _thread.get_ident, 
+                                      str.rpartition, 
+                                      {
+                                          builtins.__import__: [
+                                          {
+                                              <frozen importlib._bootstrap>:_frozen_importlib._find_and_load: [
+                                              _thread.allocate_lock, 
+                                              _imp.release_lock, 
+                                              _thread.get_ident, 
+                                              str.rpartition, 
+                                              _imp.acquire_lock, 
+                                              _imp.is_builtin, 
+                                              _imp.is_frozen, 
+                                              builtins.isinstance, 
+                                              posix.stat, 
+                                              {
+                                                  list.extend: []
+                                                }, 
+                                              builtins.hasattr, 
+                                              str.rstrip, 
+                                              str.join, 
+                                              str.format, 
+                                              posix.listdir, 
+                                              str.startswith
+                                              ]
+                                            }
+                                          ]
+                                        }, 
+                                      {
+                                          builtins.exec: [
+                                          {
+                                              /usr/lib/python3.5/locale.py:<module>: [
+                                              builtins.hasattr, 
+                                              builtins.globals, 
+                                              /usr/lib/python3.5/functools.py:functools.wraps, 
+                                              {
+                                                  /usr/lib/python3.5/functools.py:functools.update_wrapper: [
+                                                  {
+                                                      builtins.getattr: [
+                                                      builtins.getattr, 
+                                                      dict.update
+                                                      ]
+                                                    }, 
+                                                  builtins.setattr, 
+                                                  {
+                                                      /usr/lib/python3.5/re.py:re.compile: [
+                                                      {
+                                                          /usr/lib/python3.5/re.py:re._compile: [
+                                                          builtins.isinstance, 
+                                                          {
+                                                              /usr/lib/python3.5/sre_compile.py:sre_compile.isstring: [ builtins.isinstance ]
+                                                            }, 
+                                                          {
+                                                              /usr/lib/python3.5/sre_compile.py:sre_compile.compile: [
+                                                              {
+                                                                  /usr/lib/python3.5/sre_compile.py:sre_compile.isstring: [ builtins.isinstance ]
+                                                                }, 
+                                                              {
+                                                                  /usr/lib/python3.5/sre_parse.py:sre_parse.parse: [
+                                                                  {
+                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.__init__: [
+                                                                      builtins.isinstance, 
+                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.__next
+                                                                      ]
+                                                                    }, 
+                                                                  /usr/lib/python3.5/sre_parse.py:sre_parse.Pattern.__init__, 
+                                                                  {
+                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse._parse_sub: [
+                                                                      {
+                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.tell: [
+                                                                          {
+                                                                              builtins.len: [
+                                                                              {
+                                                                                  /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__len__: [
+                                                                                  {
+                                                                                      builtins.len: [
+                                                                                      {
+                                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__len__: [
+                                                                                          {
+                                                                                              builtins.len: [
+                                                                                              {
+                                                                                                  /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__len__: [ builtins.len ]
+                                                                                                }
+                                                                                              ]
+                                                                                            }
+                                                                                          ]
+                                                                                        }
+                                                                                      ]
+                                                                                    }
+                                                                                  ]
+                                                                                }
+                                                                              ]
+                                                                            }
+                                                                          ]
+                                                                        }, 
+                                                                      {
+                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse._parse: [
+                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__init__, 
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.get: [ /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.__next ]
+                                                                            }, 
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.tell: [ builtins.len ]
+                                                                            }, 
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.match: [ /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.__next ]
+                                                                            }, 
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.Pattern.groups: [ builtins.len ]
+                                                                            }, 
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse._parse_sub: [
+                                                                              {
+                                                                                  /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.tell: [
+                                                                                  {
+                                                                                      builtins.len: []
+                                                                                    }
+                                                                                  ]
+                                                                                }, 
+                                                                              {
+                                                                                  /usr/lib/python3.5/sre_parse.py:sre_parse._parse: [
+                                                                                  /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__init__, 
+                                                                                  {
+                                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.get: [ /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.__next ]
+                                                                                    }, 
+                                                                                  {
+                                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.tell: [ builtins.len ]
+                                                                                    }, 
+                                                                                  {
+                                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.match: [ /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.__next ]
+                                                                                    }, 
+                                                                                  list.append, 
+                                                                                  {
+                                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse._class_escape: [ dict.get ]
+                                                                                    }, 
+                                                                                  {
+                                                                                      builtins.len: []
+                                                                                    }, 
+                                                                                  {
+                                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.append: [ list.append ]
+                                                                                    }, 
+                                                                                  {
+                                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__len__: [ builtins.len ]
+                                                                                    }, 
+                                                                                  {
+                                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__getitem__: [
+                                                                                      builtins.isinstance, 
+                                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__init__
+                                                                                      ]
+                                                                                    }, 
+                                                                                  /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__setitem__, 
+                                                                                  builtins.ord, 
+                                                                                  {
+                                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse._escape: [
+                                                                                      dict.get, 
+                                                                                      builtins.len, 
+                                                                                      builtins.ord
+                                                                                      ]
+                                                                                    }, 
+                                                                                  {
+                                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.getuntil: [ /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.__next ]
+                                                                                    }, 
+                                                                                  str.isidentifier, 
+                                                                                  {
+                                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse.Pattern.opengroup: [
+                                                                                      {
+                                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse.Pattern.groups: [
+                                                                                          {
+                                                                                              builtins.len: []
+                                                                                            }
+                                                                                          ]
+                                                                                        }, 
+                                                                                      list.append, 
+                                                                                      dict.get
+                                                                                      ]
+                                                                                    }, 
+                                                                                  {
+                                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse._parse_sub: [
+                                                                                      {
+                                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.tell: [
+                                                                                          {
+                                                                                              builtins.len: []
+                                                                                            }
+                                                                                          ]
+                                                                                        }, 
+                                                                                      {
+                                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse._parse: [
+                                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__init__, 
+                                                                                          {
+                                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.get: [ /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.__next ]
+                                                                                            }, 
+                                                                                          {
+                                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.append: [ list.append ]
+                                                                                            }, 
+                                                                                          {
+                                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.tell: [ builtins.len ]
+                                                                                            }, 
+                                                                                          {
+                                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__len__: [ builtins.len ]
+                                                                                            }, 
+                                                                                          {
+                                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__getitem__: [
+                                                                                              builtins.isinstance, 
+                                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__init__
+                                                                                              ]
+                                                                                            }, 
+                                                                                          {
+                                                                                              builtins.len: []
+                                                                                            }, 
+                                                                                          {
+                                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.match: [ /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.__next ]
+                                                                                            }, 
+                                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__setitem__
+                                                                                          ]
+                                                                                        }, 
+                                                                                      list.append, 
+                                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.match, 
+                                                                                      builtins.len
+                                                                                      ]
+                                                                                    }, 
+                                                                                  {
+                                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse.Pattern.closegroup: [
+                                                                                      {
+                                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.getwidth: [
+                                                                                          {
+                                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.getwidth: [ builtins.min ]
+                                                                                            }, 
+                                                                                          builtins.min
+                                                                                          ]
+                                                                                        }
+                                                                                      ]
+                                                                                    }
+                                                                                  ]
+                                                                                }, 
+                                                                              list.append, 
+                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.match, 
+                                                                              builtins.len
+                                                                              ]
+                                                                            }, 
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.append: [ list.append ]
+                                                                            }, 
+                                                                          list.append, 
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse._class_escape: [
+                                                                              dict.get, 
+                                                                              builtins.len, 
+                                                                              builtins.ord
+                                                                              ]
+                                                                            }, 
+                                                                          {
+                                                                              builtins.len: []
+                                                                            }, 
+                                                                          builtins.ord, 
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__len__: [ builtins.len ]
+                                                                            }, 
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__getitem__: [
+                                                                              builtins.isinstance, 
+                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__init__
+                                                                              ]
+                                                                            }, 
+                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__setitem__, 
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse._escape: [ dict.get ]
+                                                                            }, 
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.getuntil: [ /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.__next ]
+                                                                            }, 
+                                                                          str.isidentifier, 
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.Pattern.opengroup: [
+                                                                              {
+                                                                                  /usr/lib/python3.5/sre_parse.py:sre_parse.Pattern.groups: [
+                                                                                  {
+                                                                                      builtins.len: []
+                                                                                    }
+                                                                                  ]
+                                                                                }, 
+                                                                              list.append, 
+                                                                              dict.get
+                                                                              ]
+                                                                            }, 
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.Pattern.closegroup: [
+                                                                              {
+                                                                                  /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.getwidth: [
+                                                                                  {
+                                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.getwidth: [ builtins.min ]
+                                                                                    }, 
+                                                                                  builtins.min
+                                                                                  ]
+                                                                                }
+                                                                              ]
+                                                                            }
+                                                                          ]
+                                                                        }, 
+                                                                      list.append, 
+                                                                      {
+                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.match: [ /usr/lib/python3.5/sre_parse.py:sre_parse.Tokenizer.__next ]
+                                                                        }, 
+                                                                      {
+                                                                          builtins.len: [
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__len__: []
+                                                                            }
+                                                                          ]
+                                                                        }, 
+                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__init__, 
+                                                                      {
+                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__len__: [
+                                                                          {
+                                                                              builtins.len: []
+                                                                            }
+                                                                          ]
+                                                                        }, 
+                                                                      {
+                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__getitem__: [ builtins.isinstance ]
+                                                                        }, 
+                                                                      {
+                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.append: [ list.append ]
+                                                                        }
+                                                                      ]
+                                                                    }, 
+                                                                  {
+                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse.fix_flags: [ builtins.isinstance ]
+                                                                    }
+                                                                  ]
+                                                                }, 
+                                                              {
+                                                                  /usr/lib/python3.5/sre_compile.py:sre_compile._code: [
+                                                                  {
+                                                                      /usr/lib/python3.5/sre_compile.py:sre_compile._compile_info: [
+                                                                      {
+                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.getwidth: [
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.getwidth: [
+                                                                              builtins.min, 
+                                                                              {
+                                                                                  /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.getwidth: []
+                                                                                }
+                                                                              ]
+                                                                            }, 
+                                                                          builtins.min, 
+                                                                          builtins.max
+                                                                          ]
+                                                                        }, 
+                                                                      {
+                                                                          builtins.len: []
+                                                                        }, 
+                                                                      list.append, 
+                                                                      builtins.min, 
+                                                                      list.extend, 
+                                                                      {
+                                                                          /usr/lib/python3.5/sre_compile.py:sre_compile._generate_overlap_table: [
+                                                                          {
+                                                                              builtins.len: []
+                                                                            }
+                                                                          ]
+                                                                        }
+                                                                      ]
+                                                                    }, 
+                                                                  {
+                                                                      /usr/lib/python3.5/sre_compile.py:sre_compile._compile: [
+                                                                      {
+                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__getitem__: []
+                                                                        }, 
+                                                                      list.append, 
+                                                                      {
+                                                                          builtins.len: []
+                                                                        }, 
+                                                                      {
+                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.getwidth: []
+                                                                        }, 
+                                                                      {
+                                                                          /usr/lib/python3.5/sre_compile.py:sre_compile._compile: [
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__getitem__: []
+                                                                            }, 
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_compile.py:sre_compile._simple: [
+                                                                              {
+                                                                                  /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.getwidth: []
+                                                                                }, 
+                                                                              {
+                                                                                  /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__getitem__: [ builtins.isinstance ]
+                                                                                }
+                                                                              ]
+                                                                            }, 
+                                                                          list.append, 
+                                                                          {
+                                                                              builtins.len: []
+                                                                            }, 
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_compile.py:sre_compile._compile: [
+                                                                              {
+                                                                                  /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__getitem__: []
+                                                                                }, 
+                                                                              list.append, 
+                                                                              builtins.len, 
+                                                                              {
+                                                                                  /usr/lib/python3.5/sre_compile.py:sre_compile._compile_charset: [
+                                                                                  {
+                                                                                      /usr/lib/python3.5/sre_compile.py:sre_compile._optimize_charset: [
+                                                                                      list.append, 
+                                                                                      bytearray.find, 
+                                                                                      builtins.len, 
+                                                                                      {
+                                                                                          /usr/lib/python3.5/sre_compile.py:sre_compile._mk_bitmap: [
+                                                                                          bytearray.translate, 
+                                                                                          {
+                                                                                              builtins.len: []
+                                                                                            }, 
+                                                                                          /usr/lib/python3.5/sre_compile.py:sre_compile._mk_bitmap.<locals>.<listcomp>
+                                                                                          ]
+                                                                                        }
+                                                                                      ]
+                                                                                    }, 
+                                                                                  list.append, 
+                                                                                  list.extend
+                                                                                  ]
+                                                                                }, 
+                                                                              {
+                                                                                  /usr/lib/python3.5/sre_compile.py:sre_compile._compile: [
+                                                                                  {
+                                                                                      /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__getitem__: []
+                                                                                    }, 
+                                                                                  {
+                                                                                      /usr/lib/python3.5/sre_compile.py:sre_compile._simple: [
+                                                                                      {
+                                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.getwidth: []
+                                                                                        }, 
+                                                                                      {
+                                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__getitem__: [ builtins.isinstance ]
+                                                                                        }
+                                                                                      ]
+                                                                                    }, 
+                                                                                  list.append, 
+                                                                                  {
+                                                                                      builtins.len: []
+                                                                                    }, 
+                                                                                  {
+                                                                                      /usr/lib/python3.5/sre_compile.py:sre_compile._compile: [
+                                                                                      {
+                                                                                          /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__getitem__: []
+                                                                                        }, 
+                                                                                      list.append
+                                                                                      ]
+                                                                                    }
+                                                                                  ]
+                                                                                }
+                                                                              ]
+                                                                            }, 
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_compile.py:sre_compile._compile_charset: [
+                                                                              {
+                                                                                  /usr/lib/python3.5/sre_compile.py:sre_compile._optimize_charset: [
+                                                                                  list.append, 
+                                                                                  bytearray.find, 
+                                                                                  {
+                                                                                      builtins.len: []
+                                                                                    }
+                                                                                  ]
+                                                                                }, 
+                                                                              list.append
+                                                                              ]
+                                                                            }
+                                                                          ]
+                                                                        }, 
+                                                                      {
+                                                                          /usr/lib/python3.5/sre_compile.py:sre_compile._compile_charset: [
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_compile.py:sre_compile._optimize_charset: [
+                                                                              list.append, 
+                                                                              bytearray.find, 
+                                                                              builtins.len, 
+                                                                              {
+                                                                                  /usr/lib/python3.5/sre_compile.py:sre_compile._mk_bitmap: [
+                                                                                  bytearray.translate, 
+                                                                                  {
+                                                                                      builtins.len: []
+                                                                                    }, 
+                                                                                  /usr/lib/python3.5/sre_compile.py:sre_compile._mk_bitmap.<locals>.<listcomp>
+                                                                                  ]
+                                                                                }
+                                                                              ]
+                                                                            }, 
+                                                                          list.append, 
+                                                                          list.extend
+                                                                          ]
+                                                                        }, 
+                                                                      dict.get, 
+                                                                      {
+                                                                          /usr/lib/python3.5/sre_compile.py:sre_compile._simple: [
+                                                                          {
+                                                                              /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.getwidth: []
+                                                                            }
+                                                                          ]
+                                                                        }
+                                                                      ]
+                                                                    }, 
+                                                                  list.append
+                                                                  ]
+                                                                }, 
+                                                              {
+                                                                  /usr/lib/python3.5/sre_parse.py:sre_parse.Pattern.groups: [ builtins.len ]
+                                                                }, 
+                                                              dict.items, 
+                                                              _sre.compile
+                                                              ]
+                                                            }, 
+                                                          {
+                                                              builtins.len: [
+                                                              {
+                                                                  /usr/lib/python3.5/sre_parse.py:sre_parse.SubPattern.__len__: [ builtins.len ]
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }, 
+                                                  str.startswith, 
+                                                  dict.items, 
+                                                  builtins.sorted, 
+                                                  str.replace, 
+                                                  dict.setdefault, 
+                                                  list.append
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }, 
+                  _imp.exec_builtin, 
+                  {
+                      builtins.any: []
+                    }
+                  ]
+                }
+              ]
+            }, 
+          {
+              /usr/lib/python3.5/base64.py:<module>: [
+              {
+                  <frozen importlib._bootstrap>:_frozen_importlib._find_and_load: []
+                }, 
+              bytes.maketrans
+              ]
+            }
+          ]
+        }, 
+      {
+          builtins.any: []
+        }
+      ]
+    }
+  ]
+}

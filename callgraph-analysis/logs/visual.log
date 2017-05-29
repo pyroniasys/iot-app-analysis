@@ -1,6 +1,5 @@
-[collect_callgraphs] PID = 24978
+[collect_callgraphs] PID = 5901
 [collect_callgraphs] Collecting data for IoTFishtank
-debug ../apps/visual-py3/IoTFishtank
 Encountered error: Traceback (most recent call last):
   File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/configparser.py", line 1135, in _unify_values
     sectiondict = self._sections[section]
@@ -26,54 +25,71 @@ Traceback (most recent call last):
 configparser.NoSectionError: No section: 'general'
 
 [collect_callgraphs] Collecting data for pi_home_surveillance
-debug ../apps/visual-py3/pi_home_surveillance
+Encountered error: Traceback (most recent call last):
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 275, in _runctx
+    exec(cmd, globs, locs)
+  File "../apps/visual-py3/pi_home_surveillance/pi_home_surveillance.py", line 8, in <module>
+    from picamera.array import PiRGBArray
+  File "/tmp/libs/picamera/picamera/__init__.py", line 72, in <module>
+    from picamera.exc import (
+  File "/tmp/libs/picamera/picamera/exc.py", line 41, in <module>
+    import picamera.mmal as mmal
+  File "/tmp/libs/picamera/picamera/mmal.py", line 47, in <module>
+    _lib = ct.CDLL('libmmal.so')
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/ctypes/__init__.py", line 351, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: libmmal.so: cannot open shared object file: No such file or directory
+
+[collect_callgraphs] Collecting data for RPiLaserSecurity.py
+Encountered error: Traceback (most recent call last):
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 275, in _runctx
+    exec(cmd, globs, locs)
+  File "../apps/visual-py3/RPiLaserSecurity.py", line 10, in <module>
+    import RPi.GPIO as GPIO  #we need this so we can access the pins
+  File "/tmp/libs/RPi.GPIO/RPi/GPIO/__init__.py", line 23, in <module>
+    from RPi._GPIO import *
+RuntimeError: This module can only be run on a Raspberry Pi!
+
+[collect_callgraphs] Collecting data for PiScream.py
+Encountered error: Traceback (most recent call last):
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 275, in _runctx
+    exec(cmd, globs, locs)
+  File "../apps/visual-py3/PiScream.py", line 4, in <module>
+    import picamera
+  File "/tmp/libs/picamera/picamera/__init__.py", line 72, in <module>
+    from picamera.exc import (
+  File "/tmp/libs/picamera/picamera/exc.py", line 41, in <module>
+    import picamera.mmal as mmal
+  File "/tmp/libs/picamera/picamera/mmal.py", line 47, in <module>
+    _lib = ct.CDLL('libmmal.so')
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/ctypes/__init__.py", line 351, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: libmmal.so: cannot open shared object file: No such file or directory
+
+[collect_callgraphs] Collecting data for RPiPhotobooth
+Downloading _tkinter
+Traceback (most recent call last):
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 275, in _runctx
+    exec(cmd, globs, locs)
+  File "../apps/visual-py3/RPiPhotobooth/RPiPhotobooth.py", line 9, in <module>
+    from tkkb import Tkkb
+  File "../apps/visual-py3/RPiPhotobooth/tkkb.py", line 1, in <module>
+    from tkinter import *
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/tkinter/__init__.py", line 35, in <module>
+    import _tkinter # If this fails your Python may not be configured for Tk
+ImportError: No module named '_tkinter'
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "collect-callgraphs.py", line 83, in <module>
     tr.start_tracer()
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 319, in start_tracer
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 318, in start_tracer
     self._runctx(code, globs, None)
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 275, in _runctx
-    exec(cmd, globs, locs)
-  File "../apps/visual-py3/pi_home_surveillance/pi_home_surveillance.py", line 6, in <module>
-    from dropbox.client import DropboxOAuth2FlowNoRedirect
-  File "/tmp/libs/dropbox/dropbox/__init__.py", line 3, in <module>
-    from .dropbox import __version__, Dropbox, DropboxTeam, create_session
-  File "/tmp/libs/dropbox/dropbox/dropbox.py", line 17, in <module>
-    import requests
-  File "/tmp/libs/genapi/requests/__init__.py", line 52, in <module>
-    from .packages.urllib3.contrib import pyopenssl
-  File "/tmp/libs/genapi/requests/packages/urllib3/contrib/pyopenssl.py", line 46, in <module>
-    import OpenSSL.SSL
-  File "/tmp/libs/service_identity/OpenSSL/__init__.py", line 8, in <module>
-    from OpenSSL import rand, crypto, SSL
-  File "/tmp/libs/service_identity/OpenSSL/crypto.py", line 13, in <module>
-    from cryptography.hazmat.primitives.asymmetric import dsa, rsa
-  File "/tmp/libs/jwt/cryptography/hazmat/primitives/asymmetric/rsa.py", line 14, in <module>
-    from cryptography.hazmat.backends.interfaces import RSABackend
-  File "/tmp/libs/jwt/cryptography/hazmat/backends/__init__.py", line 7, in <module>
-    import pkg_resources
-  File "/tmp/libs/jwt/pkg_resources/__init__.py", line 3036, in <module>
-    @_call_aside
-  File "/tmp/libs/jwt/pkg_resources/__init__.py", line 3020, in _call_aside
-    f(*args, **kwargs)
-  File "/tmp/libs/jwt/pkg_resources/__init__.py", line 3049, in _initialize_master_working_set
-    working_set = WorkingSet._build_master()
-  File "/tmp/libs/jwt/pkg_resources/__init__.py", line 645, in _build_master
-    ws = cls()
-  File "/tmp/libs/jwt/pkg_resources/__init__.py", line 638, in __init__
-    self.add_entry(entry)
-  File "/tmp/libs/jwt/pkg_resources/__init__.py", line 694, in add_entry
-    for dist in find_distributions(entry, True):
-  File "/tmp/libs/jwt/pkg_resources/__init__.py", line 2016, in find_on_path
-    path_item_entries = _by_version_descending(os.listdir(path_item))
-  File "/tmp/libs/jwt/pkg_resources/__init__.py", line 2000, in _by_version_descending
-    return sorted(names, key=_by_version, reverse=True)
-  File "/tmp/libs/jwt/packaging/version.py", line 47, in __lt__
-    def __lt__(self, other):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 226, in tracer
-    callee_name = callee_code.co_filename+":"+self._get_func_name(callee_code)
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 180, in _get_func_name
-    f = self._get_func(code)
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 165, in _get_func
-    funcs = [f for f in gc.get_referrers(code)
-KeyboardInterrupt
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 291, in _runctx
+    subprocess.check_output(["pip3", "install", "-qq", "--no-compile", "-t", "../libs/"+lib, lib])
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/subprocess.py", line 316, in check_output
+    **kwargs).stdout
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/subprocess.py", line 398, in run
+    output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['pip3', 'install', '-qq', '--no-compile', '-t', '../libs/_tkinter', '_tkinter']' returned non-zero exit status 1
