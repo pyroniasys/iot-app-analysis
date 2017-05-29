@@ -1,41 +1,11 @@
 import sys, os, gc, inspect, traceback
 from collections import OrderedDict
 import subprocess
+import json
 
 INDENT = 2
 SPACE = " "
 NEWLINE = "\n"
-
-# custom JSON serializer for printing small lists and dictionaries
-# Source: http://stackoverflow.com/questions/21866774/pretty-print-json-dumps
-def _to_custom_json(o, level=0):
-    ret = ""
-    if isinstance(o, dict):
-        ret += "{" + NEWLINE
-        comma = ""
-        for k,v in o.items():
-            ret += comma
-            comma = ","+NEWLINE
-            ret += SPACE * INDENT * (level+1)
-            ret += str(k) + ':' + SPACE
-            ret += _to_custom_json(v, level + 1)
-
-        ret += NEWLINE + SPACE * INDENT * level + "}"
-    elif isinstance(o, str):
-        ret += o
-    elif isinstance(o, list):
-        if len(o) == 0:
-            ret += "[]"
-        elif len(o) == 1 and isinstance(o[0], str):
-            ret += "[ " + o[0] + " ]"
-        else:
-            ret += "["+NEWLINE + (SPACE * INDENT * level)
-            comma = ", "+NEWLINE+ (SPACE * INDENT * level)
-            ret += comma.join([_to_custom_json(e, level+1) for e in o])
-            ret += NEWLINE + SPACE * INDENT * level + "]"
-    else:
-        raise TypeError("Unknown type '%s' for json serialization" % str(type(o)))
-    return ret
 
 class Tracer:
     '''IoT app analysis tracer class.
@@ -45,12 +15,15 @@ class Tracer:
 
     def __init__(self, tracer_dir, out, fs, app=""):
         # context for this tracer
+        self.pid = "0"
         self.curdir = tracer_dir
         self.files = fs
         self.app_filename = ""
         self.top_app = app
         self.name = self.curdir+"/tracer.py:tracer.Tracer._runctx"
+        self.app_name = ""
         self.callgraph_out = out
+        self.success = False
 
         # data needed to build the per-level callgraph
         self._caller_cache = dict()
@@ -147,11 +120,13 @@ class Tracer:
         if graph != None:
             app_name = self._modname(self.app_filename).split(".")
             if self.top_app == "":
-                cg_out = self.callgraph_out+"/"+app_name[len(app_name)-1]+"_cg"
+                self.app_name = app_name[len(app_name)-1]
             else:
-                cg_out = self.callgraph_out+"/"+self.top_app+"-"+app_name[len(app_name)-1]+"_cg"
+                self.app_name = self.top_app+"-"+app_name[len(app_name)-1]
+            cg_out = self.callgraph_out+"/"+self.app_name+"_cg"
             f = open(cg_out, "w")
-            f.write(_to_custom_json(graph)+"\n")
+            # want regular json serialization so we can process later
+            f.write(json.dumps(graph)+"\n")
             f.close()
 
     ''' Helper functions to get the right function
@@ -275,6 +250,7 @@ class Tracer:
                 exec(cmd, globs, locs)
                 # got here, so we're done
                 self.retry_after_error = False
+                self.success = True
             except SyntaxError as e:
                 # Ugh, we're dealing with a Python2 lib
                 # TODO: get the offending lib
@@ -294,16 +270,20 @@ class Tracer:
                 self.retry_num -= 1
             except Exception:
                 print("Encountered error: "+traceback.format_exc())
+                self.success = False
                 self.retry_after_error = False
             finally:
                 sys.setprofile(None)
         except SystemExit:
             self.retry_after_error = False
+            self.success = False
             pass
 
     # adapted from https://github.com/python/cpython/blob/3.5/Lib/profile.py
     def start_tracer(self):
+        self.pid = os.getpid()
         for a in self.files:
+            print("[tracer] Collecting data for "+a+" (pid="+self.pid+")")
             self.app_filename = a
             sys.path.append(os.path.dirname(self.app_filename))
             with open(a, 'rb') as fp:

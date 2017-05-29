@@ -2,11 +2,11 @@
 # this executes them while running a tracing function (tracer/tracer.py)
 # which collects the callgraph of the app
 
-import subprocess
 import time
 import sys
 import os
 import signal
+from multiprocessing import Process
 
 from collections import OrderedDict
 
@@ -18,8 +18,10 @@ LIB_DIR = "../libs"
 # pass in the category: visual, audio or env
 cat = sys.argv[1]
 callgraph_path = "callgraphs/"+cat
+apparmor_log_path = "aa-logs/"+cat
 
 os.makedirs(callgraph_path, exist_ok=True)
+os.makedirs(apparmor_log_path, exist_ok=True)
 os.makedirs("logs", exist_ok=True)
 
 # get the tracer path in order to pass the right path to the
@@ -56,10 +58,8 @@ LOG = "logs/"+cat+".log"
 sys.stdout = open(LOG, "w+")
 sys.stderr = sys.stdout
 
-print("[collect_callgraphs] PID = "+str(os.getpid()))
-
+num_success = 0
 for a in apps:
-    print("[collect_callgraphs] Collecting data for "+a)
     to_trace = []
     if a.endswith(".py"):
         app = app_path+"/"+a
@@ -80,12 +80,22 @@ for a in apps:
         tr = Tracer(tracer_path, callgraph_path, to_trace)
     else:
         tr = Tracer(tracer_path, callgraph_path, to_trace, app=a)
-    tr.start_tracer()
 
-    # generate the callgraph
-    tr.collect_call_graph()
+    p = Process(target=tr.start_tracer)
+    p.start()
+    p.join()
 
-print("[collect_callgraphs] Done")
+    # only collect the call graph if the trace was successful
+    if tr.success:
+        num_success += 1
+
+        # generate the callgraph
+        tr.collect_call_graph()
+
+        # collect the apparmor logs
+        os.system('cat dmesg | grep apparmor | grep "pid='+tr.pid+'" > '+apparmor_log_path+'/'+tr.app_name+'_aa')
+
+print("[collect_callgraphs] Done ("+str(num_success)+" successful)")
 
 # cleanup: remove the converted apps and close log file fds
 os.system("rm -rf "+app_path)

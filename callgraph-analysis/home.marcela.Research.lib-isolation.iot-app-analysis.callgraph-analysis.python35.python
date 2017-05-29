@@ -14,4 +14,10 @@
 /home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib** r,
 /home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/pybuilddir.txt r,
 /home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/build/lib.linux-x86_64-3.5** r,
+
+# callgraph analysis-specific accesses
+/tmp/libs/** rw,
+
+/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/python rix,
+
 }
