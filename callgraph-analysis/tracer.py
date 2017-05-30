@@ -281,7 +281,7 @@ class Tracer:
 
     # adapted from https://github.com/python/cpython/blob/3.5/Lib/profile.py
     def start_tracer(self):
-        self.pid = os.getpid()
+        self.pid = str(os.getpid())
         for a in self.files:
             print("[tracer] Collecting data for "+a+" (pid="+self.pid+")")
             self.app_filename = a

@@ -29,8 +29,8 @@ MODLIBS=        $(LOCALMODLIBS) $(BASEMODLIBS)
 VERSION=	3.5
 srcdir=		.
 
-abs_srcdir=	/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/cpython
-abs_builddir=	/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/cpython
+abs_srcdir=	/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35
+abs_builddir=	/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35
 
 
 CC=		gcc -pthread
@@ -42,9 +42,9 @@ RANLIB=		ranlib
 READELF=	readelf
 SOABI=		cpython-35m-x86_64-linux-gnu
 LDVERSION=	$(VERSION)$(ABIFLAGS)
-GITVERSION=	git -C $(srcdir) rev-parse --short HEAD
-GITTAG=		git -C $(srcdir) describe --all --always --dirty
-GITBRANCH=	git -C $(srcdir) name-rev --name-only HEAD
+GITVERSION=	
+GITTAG=		
+GITBRANCH=	
 PGO_PROF_GEN_FLAG=-fprofile-generate
 PGO_PROF_USE_FLAG=-fprofile-use -fprofile-correction
 LLVM_PROF_MERGER=true
@@ -82,7 +82,7 @@ CONFIGURE_CFLAGS=
 # Use it when a compiler flag should _not_ be part of the distutils CFLAGS
 # once Python is installed (Issue #21121).
 CONFIGURE_CFLAGS_NODIST= -Werror=declaration-after-statement
-CONFIGURE_CPPFLAGS=	
+CONFIGURE_CPPFLAGS=	-I/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/tcl/include -I/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/tk/include
 CONFIGURE_LDFLAGS=	
 # Avoid assigning CFLAGS, LDFLAGS, etc. so users can use them on the
 # command line to append to these values without stomping the pre-set
@@ -184,7 +184,7 @@ EXEMODE=	755
 FILEMODE=	644
 
 # configure script arguments
-CONFIG_ARGS=	
+CONFIG_ARGS=	 'CPPFLAGS=-I/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/tcl/include -I/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/tk/include'
 
 
 # Subdirectories with code

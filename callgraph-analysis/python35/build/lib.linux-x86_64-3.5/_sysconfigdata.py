@@ -26,17 +26,23 @@ build_time_vars = {'ABIFLAGS': 'm',
                 'Makefile.pre.in',
  'CONFIGURE_CFLAGS': '',
  'CONFIGURE_CFLAGS_NODIST': '-Werror=declaration-after-statement',
- 'CONFIGURE_CPPFLAGS': '',
+ 'CONFIGURE_CPPFLAGS': '-I/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/tcl/include '
+                       '-I/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/tk/include',
  'CONFIGURE_LDFLAGS': '',
- 'CONFIG_ARGS': '',
+ 'CONFIG_ARGS': "'CPPFLAGS=-I/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/tcl/include "
+                "-I/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/tk/include'",
  'CONFINCLUDEDIR': '/usr/local/include',
  'CONFINCLUDEPY': '/usr/local/include/python3.5m',
  'COREPYTHONPATH': ':plat-linux',
- 'COVERAGE_INFO': '/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/cpython/coverage.info',
- 'COVERAGE_REPORT': '/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/cpython/lcov-report',
+ 'COVERAGE_INFO': '/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/coverage.info',
+ 'COVERAGE_REPORT': '/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/lcov-report',
  'COVERAGE_REPORT_OPTIONS': '--no-branch-coverage --title "CPython lcov '
                             'report"',
- 'CPPFLAGS': '-I. -I./Include',
+ 'CPPFLAGS': '-I. -I./Include '
+             '-I/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/tcl/include '
+             '-I/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/tk/include '
+             '-I/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/tcl/include '
+             '-I/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/tk/include',
  'CXX': 'g++ -pthread',
  'DESTDIRS': '/usr/local /usr/local/lib /usr/local/lib/python3.5 '
              '/usr/local/lib/python3.5/lib-dynload',
@@ -67,9 +73,9 @@ build_time_vars = {'ABIFLAGS': 'm',
  'FLOCK_NEEDS_LIBBSD': 0,
  'GETPGRP_HAVE_ARG': 0,
  'GETTIMEOFDAY_NO_TZ': 0,
- 'GITBRANCH': 'git -C . name-rev --name-only HEAD',
- 'GITTAG': 'git -C . describe --all --always --dirty',
- 'GITVERSION': 'git -C . rev-parse --short HEAD',
+ 'GITBRANCH': '',
+ 'GITTAG': '',
+ 'GITVERSION': '',
  'GNULD': 'yes',
  'HAVE_ACCEPT4': 1,
  'HAVE_ACOSH': 1,
@@ -568,9 +574,17 @@ build_time_vars = {'ABIFLAGS': 'm',
  'PY_CFLAGS_NODIST': '-Werror=declaration-after-statement',
  'PY_CORE_CFLAGS': '-Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 '
                    '-Wall -Wstrict-prototypes '
-                   '-Werror=declaration-after-statement -I. -I./Include  '
+                   '-Werror=declaration-after-statement -I. -I./Include '
+                   '-I/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/tcl/include '
+                   '-I/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/tk/include '
+                   '-I/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/tcl/include '
+                   '-I/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/tk/include  '
                    '-DPy_BUILD_CORE',
- 'PY_CPPFLAGS': '-I. -I./Include',
+ 'PY_CPPFLAGS': '-I. -I./Include '
+                '-I/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/tcl/include '
+                '-I/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/tk/include '
+                '-I/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/tcl/include '
+                '-I/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/tk/include',
  'PY_FORMAT_LONG_LONG': '"ll"',
  'PY_FORMAT_SIZE_T': '"z"',
  'PY_LDFLAGS': '',
@@ -650,8 +664,8 @@ build_time_vars = {'ABIFLAGS': 'm',
  'WITH_VALGRIND': 0,
  'X87_DOUBLE_ROUNDING': 0,
  'XMLLIBSUBDIRS': 'xml xml/dom xml/etree xml/parsers xml/sax',
- 'abs_builddir': '/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/cpython',
- 'abs_srcdir': '/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/cpython',
+ 'abs_builddir': '/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35',
+ 'abs_srcdir': '/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35',
  'datarootdir': '/usr/local/share',
  'exec_prefix': '/usr/local',
  'prefix': '/usr/local',
