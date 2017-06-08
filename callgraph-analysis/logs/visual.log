@@ -1,4 +1,4 @@
-[tracer] Collecting data for ../apps/visual-py3/IoTFishtank/IoTFishtank.py (pid=21515)
+[tracer] Collecting data for ../apps/visual-py3/IoTFishtank/IoTFishtank.py (pid=25117)
 Encountered error: Traceback (most recent call last):
   File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/configparser.py", line 1135, in _unify_values
     sectiondict = self._sections[section]
@@ -7,7 +7,7 @@ KeyError: 'general'
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 250, in _runctx
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 255, in _runctx
     exec(cmd, globs, locs)
   File "../apps/visual-py3/IoTFishtank/IoTFishtank.py", line 6, in <module>
     import FishTank
@@ -23,239 +23,98 @@ Traceback (most recent call last):
     raise NoSectionError(section)
 configparser.NoSectionError: No section: 'general'
 
-[tracer] Collecting data for ../apps/visual-py3/pi_home_surveillance/pi_home_surveillance.py (pid=21516)
-Encountered error: Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 250, in _runctx
-    exec(cmd, globs, locs)
-  File "../apps/visual-py3/pi_home_surveillance/pi_home_surveillance.py", line 8, in <module>
-    from picamera.array import PiRGBArray
-  File "/tmp/libs/picamera/picamera/__init__.py", line 72, in <module>
-    from picamera.exc import (
-  File "/tmp/libs/picamera/picamera/exc.py", line 41, in <module>
-    import picamera.mmal as mmal
-  File "/tmp/libs/picamera/picamera/mmal.py", line 47, in <module>
-    _lib = ct.CDLL('libmmal.so')
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/ctypes/__init__.py", line 351, in __init__
-    self._handle = _dlopen(self._name, mode)
-OSError: libmmal.so: cannot open shared object file: No such file or directory
-
-[tracer] Collecting data for ../apps/visual-py3/RPiLaserSecurity.py (pid=21570)
-Encountered error: Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 250, in _runctx
-    exec(cmd, globs, locs)
-  File "../apps/visual-py3/RPiLaserSecurity.py", line 10, in <module>
-    import RPi.GPIO as GPIO  #we need this so we can access the pins
-  File "/tmp/libs/RPi.GPIO/RPi/GPIO/__init__.py", line 23, in <module>
-    from RPi._GPIO import *
-RuntimeError: This module can only be run on a Raspberry Pi!
-
-[tracer] Collecting data for ../apps/visual-py3/PiScream.py (pid=21571)
-Encountered error: Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 250, in _runctx
-    exec(cmd, globs, locs)
-  File "../apps/visual-py3/PiScream.py", line 4, in <module>
-    import picamera
-  File "/tmp/libs/picamera/picamera/__init__.py", line 72, in <module>
-    from picamera.exc import (
-  File "/tmp/libs/picamera/picamera/exc.py", line 41, in <module>
-    import picamera.mmal as mmal
-  File "/tmp/libs/picamera/picamera/mmal.py", line 47, in <module>
-    _lib = ct.CDLL('libmmal.so')
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/ctypes/__init__.py", line 351, in __init__
-    self._handle = _dlopen(self._name, mode)
-OSError: libmmal.so: cannot open shared object file: No such file or directory
-
-[tracer] Collecting data for ../apps/visual-py3/RPiPhotobooth/RPiPhotobooth.py (pid=21572)
+RPi-only: 0
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/pi_home_surveillance/pi_home_surveillance.py (pid=25246)
+RPi-only OSError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/RPiLaserSecurity.py (pid=25375)
+RPi-only (RuntimeError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/PiScream.py (pid=25382)
+RPi-only OSError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/RPiPhotobooth/RPiPhotobooth.py (pid=25389)
 Downloading ImageTk
-Process Process-5:
-Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 250, in _runctx
-    exec(cmd, globs, locs)
-  File "../apps/visual-py3/RPiPhotobooth/RPiPhotobooth.py", line 13, in <module>
-    import ImageTk
-ImportError: No module named 'ImageTk'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/multiprocessing/process.py", line 249, in _bootstrap
-    self.run()
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/multiprocessing/process.py", line 93, in run
-    self._target(*self._args, **self._kwargs)
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 298, in start_tracer
-    self._runctx(code, globs, None)
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 267, in _runctx
-    subprocess.check_output(["pip3", "install", "-qq", "--no-compile", "-t", "../libs/"+lib, lib])
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/subprocess.py", line 316, in check_output
-    **kwargs).stdout
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/subprocess.py", line 398, in run
-    output=stdout, stderr=stderr)
-subprocess.CalledProcessError: Command '['pip3', 'install', '-qq', '--no-compile', '-t', '../libs/ImageTk', 'ImageTk']' returned non-zero exit status 1
-[tracer] Collecting data for ../apps/visual-py3/WhoIsAtCoffeeMachine/WhoIsAtCoffeeMachine.py (pid=21580)
-Process Process-6:
-Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/multiprocessing/process.py", line 249, in _bootstrap
-    self.run()
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/multiprocessing/process.py", line 93, in run
-    self._target(*self._args, **self._kwargs)
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 290, in start_tracer
-    code = compile(fp.read(), self.app_filename, 'exec')
-  File "../apps/visual-py3/WhoIsAtCoffeeMachine/WhoIsAtCoffeeMachine.py", line 59
-    frame = vs.read()
-                    ^
-TabError: inconsistent use of tabs and spaces in indentation
-[tracer] Collecting data for ../apps/visual-py3/HomeSecurityEmailAlert.py (pid=21581)
-Encountered error: Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 250, in _runctx
-    exec(cmd, globs, locs)
-  File "../apps/visual-py3/HomeSecurityEmailAlert.py", line 3, in <module>
-    import RPi.GPIO as GPIO
-  File "/tmp/libs/RPi.GPIO/RPi/GPIO/__init__.py", line 23, in <module>
-    from RPi._GPIO import *
-RuntimeError: This module can only be run on a Raspberry Pi!
-
-[tracer] Collecting data for ../apps/visual-py3/pidoorbell.py (pid=21582)
-Process Process-8:
-Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/multiprocessing/process.py", line 249, in _bootstrap
-    self.run()
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/multiprocessing/process.py", line 93, in run
-    self._target(*self._args, **self._kwargs)
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 290, in start_tracer
-    code = compile(fp.read(), self.app_filename, 'exec')
-  File "../apps/visual-py3/pidoorbell.py", line 79
-    now = datetime.datetime.now()
-                                ^
-TabError: inconsistent use of tabs and spaces in indentation
-[tracer] Collecting data for ../apps/visual-py3/monitordoorbell.py (pid=21583)
-Encountered error: Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 250, in _runctx
-    exec(cmd, globs, locs)
-  File "../apps/visual-py3/monitordoorbell.py", line 4, in <module>
-    import RPi.GPIO as GPIO
-  File "/tmp/libs/RPi.GPIO/RPi/GPIO/__init__.py", line 23, in <module>
-    from RPi._GPIO import *
-RuntimeError: This module can only be run on a Raspberry Pi!
-
-[tracer] Collecting data for ../apps/visual-py3/surocam.py (pid=21584)
+Could not download ImageTk
+RPi-only: 0
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/WhoIsAtCoffeeMachine/WhoIsAtCoffeeMachine.py (pid=25403)
+RPi-only OSError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/HomeSecurityEmailAlert.py (pid=25534)
+RPi-only (RuntimeError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/pidoorbell.py (pid=25541)
+RPi-only (RuntimeError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/monitordoorbell.py (pid=25548)
+RPi-only (RuntimeError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/surocam.py (pid=25555)
 Downloading webiopi
-Process Process-10:
-Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 250, in _runctx
-    exec(cmd, globs, locs)
-  File "../apps/visual-py3/surocam.py", line 4, in <module>
-    import webiopi
-ImportError: No module named 'webiopi'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/multiprocessing/process.py", line 249, in _bootstrap
-    self.run()
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/multiprocessing/process.py", line 93, in run
-    self._target(*self._args, **self._kwargs)
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 298, in start_tracer
-    self._runctx(code, globs, None)
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 267, in _runctx
-    subprocess.check_output(["pip3", "install", "-qq", "--no-compile", "-t", "../libs/"+lib, lib])
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/subprocess.py", line 316, in check_output
-    **kwargs).stdout
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/subprocess.py", line 398, in run
-    output=stdout, stderr=stderr)
-subprocess.CalledProcessError: Command '['pip3', 'install', '-qq', '--no-compile', '-t', '../libs/webiopi', 'webiopi']' returned non-zero exit status 1
-[tracer] Collecting data for ../apps/visual-py3/WifiPhotobooth/WifiPhotobooth.py (pid=21592)
-Process Process-11:
-Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/multiprocessing/process.py", line 249, in _bootstrap
-    self.run()
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/multiprocessing/process.py", line 93, in run
-    self._target(*self._args, **self._kwargs)
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 290, in start_tracer
-    code = compile(fp.read(), self.app_filename, 'exec')
-  File "../apps/visual-py3/WifiPhotobooth/WifiPhotobooth.py", line 120
-    img = Image.open("QR.png")
-                             ^
-TabError: inconsistent use of tabs and spaces in indentation
-[tracer] Collecting data for ../apps/visual-py3/CodeYourOwnPhotobooth.py (pid=21593)
-Encountered error: Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 250, in _runctx
-    exec(cmd, globs, locs)
-  File "../apps/visual-py3/CodeYourOwnPhotobooth.py", line 7, in <module>
-    import RPi.GPIO as GPIO
-  File "/tmp/libs/RPi.GPIO/RPi/GPIO/__init__.py", line 23, in <module>
-    from RPi._GPIO import *
-RuntimeError: This module can only be run on a Raspberry Pi!
-
-[tracer] Collecting data for ../apps/visual-py3/GPIO&PiCameraUsingTelegram.py (pid=21594)
-Encountered error: Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 250, in _runctx
-    exec(cmd, globs, locs)
-  File "../apps/visual-py3/GPIO&PiCameraUsingTelegram.py", line 7, in <module>
-    import picamera
-  File "/tmp/libs/picamera/picamera/__init__.py", line 72, in <module>
-    from picamera.exc import (
-  File "/tmp/libs/picamera/picamera/exc.py", line 41, in <module>
-    import picamera.mmal as mmal
-  File "/tmp/libs/picamera/picamera/mmal.py", line 47, in <module>
-    _lib = ct.CDLL('libmmal.so')
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/ctypes/__init__.py", line 351, in __init__
-    self._handle = _dlopen(self._name, mode)
-OSError: libmmal.so: cannot open shared object file: No such file or directory
-
-[tracer] Collecting data for ../apps/visual-py3/LegoRobot/LegoRobot.py (pid=21595)
-Process Process-14:
-Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/multiprocessing/process.py", line 249, in _bootstrap
-    self.run()
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/multiprocessing/process.py", line 93, in run
-    self._target(*self._args, **self._kwargs)
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 290, in start_tracer
-    code = compile(fp.read(), self.app_filename, 'exec')
-  File "../apps/visual-py3/LegoRobot/LegoRobot.py", line 55
-    GPIO.output(20, True)
-                        ^
-TabError: inconsistent use of tabs and spaces in indentation
-[tracer] Collecting data for ../apps/visual-py3/PiNoculars/PiNoculars.py (pid=21596)
-Encountered error: Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 250, in _runctx
-    exec(cmd, globs, locs)
-  File "../apps/visual-py3/PiNoculars/PiNoculars.py", line 32, in <module>
-    import picamera
-  File "/tmp/libs/picamera/picamera/__init__.py", line 72, in <module>
-    from picamera.exc import (
-  File "/tmp/libs/picamera/picamera/exc.py", line 41, in <module>
-    import picamera.mmal as mmal
-  File "/tmp/libs/picamera/picamera/mmal.py", line 47, in <module>
-    _lib = ct.CDLL('libmmal.so')
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/ctypes/__init__.py", line 351, in __init__
-    self._handle = _dlopen(self._name, mode)
-OSError: libmmal.so: cannot open shared object file: No such file or directory
-
-[tracer] Collecting data for ../apps/visual-py3/smartJpegCamera.py (pid=21597)
-Process Process-16:
-Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/multiprocessing/process.py", line 249, in _bootstrap
-    self.run()
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/multiprocessing/process.py", line 93, in run
-    self._target(*self._args, **self._kwargs)
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 290, in start_tracer
-    code = compile(fp.read(), self.app_filename, 'exec')
-  File "../apps/visual-py3/smartJpegCamera.py", line 18
-    now = datetime.datetime.now()
-                                ^
-TabError: inconsistent use of tabs and spaces in indentation
-[tracer] Collecting data for ../apps/visual-py3/TwitterPhotoLiveFeed.py (pid=21598)
+Could not download webiopi
+RPi-only: 0
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/WifiPhotobooth/WifiPhotobooth.py (pid=25569)
+RPi-only OSError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/CodeYourOwnPhotobooth.py (pid=25587)
+RPi-only (RuntimeError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/GPIO&PiCameraUsingTelegram.py (pid=25594)
+RPi-only OSError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/LegoRobot/LegoRobot.py (pid=25601)
+RPi-only (RuntimeError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/PiNoculars/PiNoculars.py (pid=25608)
+RPi-only OSError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/smartJpegCamera.py (pid=25615)
+RPi-only (RuntimeError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/TwitterPhotoLiveFeed.py (pid=25622)
 Encountered error: Traceback (most recent call last):
   File "/tmp/libs/tweepy/tweepy/api.py", line 1303, in _pack_image
     if os.path.getsize(filename) > (max_size * 1024):
   File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/genericpath.py", line 50, in getsize
     return os.stat(filename).st_size
-FileNotFoundError: [Errno 2] No such file or directory: '/tmp/20170529-192813.jpg'
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/20170605-212558.jpg'
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 250, in _runctx
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 255, in _runctx
     exec(cmd, globs, locs)
   File "../apps/visual-py3/TwitterPhotoLiveFeed.py", line 43, in <module>
     api.update_with_media(photo_path, status=status)
@@ -265,122 +124,54 @@ Traceback (most recent call last):
     raise TweepError('Unable to access file: %s' % e.strerror)
 tweepy.error.TweepError: Unable to access file: No such file or directory
 
-[tracer] Collecting data for ../apps/visual-py3/RefrigeratorSecurity/RefrigeratorSecurity.py (pid=21613)
-Encountered error: Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 250, in _runctx
-    exec(cmd, globs, locs)
-  File "../apps/visual-py3/RefrigeratorSecurity/RefrigeratorSecurity.py", line 9, in <module>
-    import RPi.GPIO as GPIO
-  File "/tmp/libs/RPi.GPIO/RPi/GPIO/__init__.py", line 23, in <module>
-    from RPi._GPIO import *
-RuntimeError: This module can only be run on a Raspberry Pi!
-
-[tracer] Collecting data for ../apps/visual-py3/SecurityCam/SecurityCam.py (pid=21614)
+RPi-only: 0
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/RefrigeratorSecurity/RefrigeratorSecurity.py (pid=25670)
+RPi-only (RuntimeError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/SecurityCam/SecurityCam.py (pid=25677)
 Downloading Pubnub
 Downloading Pubnub
 Downloading Pubnub
 Downloading Pubnub
 Downloading Pubnub
-[tracer] Collecting data for ../apps/visual-py3/RPiIoTDoorbell/RPiIoTDoorbell.py (pid=21866)
-Encountered error: Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 250, in _runctx
-    exec(cmd, globs, locs)
-  File "../apps/visual-py3/RPiIoTDoorbell/RPiIoTDoorbell.py", line 1, in <module>
-    import RPi.GPIO as GPIO
-  File "/tmp/libs/RPi.GPIO/RPi/GPIO/__init__.py", line 23, in <module>
-    from RPi._GPIO import *
-RuntimeError: This module can only be run on a Raspberry Pi!
-
-[tracer] Collecting data for ../apps/visual-py3/SendingReceivingPicsMqtt.py (pid=21867)
-Encountered error: Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 250, in _runctx
-    exec(cmd, globs, locs)
-  File "../apps/visual-py3/SendingReceivingPicsMqtt.py", line 3, in <module>
-    import picamera
-  File "/tmp/libs/picamera/picamera/__init__.py", line 72, in <module>
-    from picamera.exc import (
-  File "/tmp/libs/picamera/picamera/exc.py", line 41, in <module>
-    import picamera.mmal as mmal
-  File "/tmp/libs/picamera/picamera/mmal.py", line 47, in <module>
-    _lib = ct.CDLL('libmmal.so')
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/ctypes/__init__.py", line 351, in __init__
-    self._handle = _dlopen(self._name, mode)
-OSError: libmmal.so: cannot open shared object file: No such file or directory
-
-[tracer] Collecting data for ../apps/visual-py3/camera-vision-logo.py (pid=21868)
-Encountered error: Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 250, in _runctx
-    exec(cmd, globs, locs)
-  File "../apps/visual-py3/camera-vision-logo.py", line 13, in <module>
-    import picamera
-  File "/tmp/libs/picamera/picamera/__init__.py", line 72, in <module>
-    from picamera.exc import (
-  File "/tmp/libs/picamera/picamera/exc.py", line 41, in <module>
-    import picamera.mmal as mmal
-  File "/tmp/libs/picamera/picamera/mmal.py", line 47, in <module>
-    _lib = ct.CDLL('libmmal.so')
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/ctypes/__init__.py", line 351, in __init__
-    self._handle = _dlopen(self._name, mode)
-OSError: libmmal.so: cannot open shared object file: No such file or directory
-
-[tracer] Collecting data for ../apps/visual-py3/EasyRPISecCam.py (pid=21870)
-Encountered error: Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 250, in _runctx
-    exec(cmd, globs, locs)
-  File "../apps/visual-py3/EasyRPISecCam.py", line 4, in <module>
-    import picamera
-  File "/tmp/libs/picamera/picamera/__init__.py", line 72, in <module>
-    from picamera.exc import (
-  File "/tmp/libs/picamera/picamera/exc.py", line 41, in <module>
-    import picamera.mmal as mmal
-  File "/tmp/libs/picamera/picamera/mmal.py", line 47, in <module>
-    _lib = ct.CDLL('libmmal.so')
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/ctypes/__init__.py", line 351, in __init__
-    self._handle = _dlopen(self._name, mode)
-OSError: libmmal.so: cannot open shared object file: No such file or directory
-
-[tracer] Collecting data for ../apps/visual-py3/360_pi_cam/new_dewarp.py (pid=21878)
-Downloading scipy
+RPi-only: 0
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/RPiIoTDoorbell/RPiIoTDoorbell.py (pid=25729)
+RPi-only (RuntimeError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/SendingReceivingPicsMqtt.py (pid=25736)
+RPi-only OSError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/camera-vision-logo.py (pid=25743)
+RPi-only OSError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/EasyRPISecCam.py (pid=25750)
+RPi-only OSError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/360_pi_cam/new_dewarp.py (pid=25786)
 Downloading IntType
-Process Process-24:
-Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 250, in _runctx
-    exec(cmd, globs, locs)
-  File "../apps/visual-py3/360_pi_cam/new_dewarp.py", line 1, in <module>
-    from SimpleCV import Camera, VideoStream, Color, Display, Image, VirtualCamera
-  File "/tmp/libs/SimpleCV/SimpleCV/__init__.py", line 3, in <module>
-    from SimpleCV.base import *
-  File "/tmp/libs/SimpleCV/SimpleCV/base.py", line 44, in <module>
-    from types import IntType, LongType, FloatType, InstanceType
-ImportError: cannot import name 'IntType'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/multiprocessing/process.py", line 249, in _bootstrap
-    self.run()
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/multiprocessing/process.py", line 93, in run
-    self._target(*self._args, **self._kwargs)
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 298, in start_tracer
-    self._runctx(code, globs, None)
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 267, in _runctx
-    subprocess.check_output(["pip3", "install", "-qq", "--no-compile", "-t", "../libs/"+lib, lib])
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/subprocess.py", line 316, in check_output
-    **kwargs).stdout
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/subprocess.py", line 398, in run
-    output=stdout, stderr=stderr)
-subprocess.CalledProcessError: Command '['pip3', 'install', '-qq', '--no-compile', '-t', '../libs/IntType', 'IntType']' returned non-zero exit status 1
-[tracer] Collecting data for ../apps/visual-py3/vintage_raspi_cam/vintage_raspi_cam.py (pid=21925)
-Process Process-25:
-Traceback (most recent call last):
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/multiprocessing/process.py", line 249, in _bootstrap
-    self.run()
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/multiprocessing/process.py", line 93, in run
-    self._target(*self._args, **self._kwargs)
-  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 290, in start_tracer
-    code = compile(fp.read(), self.app_filename, 'exec')
-  File "../apps/visual-py3/vintage_raspi_cam/vintage_raspi_cam.py", line 56
-    curr_time = strftime("%Y%m%d-%H%M%S")
-                                        ^
-TabError: inconsistent use of tabs and spaces in indentation
-[collect_callgraphs] Done (0 successful)
+Could not download IntType
+[tracer] Collecting data for ../apps/visual-py3/360_pi_cam/streamer.py (pid=25786)
+RPi-only: 0
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/vintage_raspi_cam/vintage_raspi_cam.py (pid=25832)
+RPi-only (RuntimeError
+RPi-only: 1
+successes: 0
+0, 0
+[collect_callgraphs] Done (0/26)
+[collect_callgraphs] # of RPi-only apps: 0

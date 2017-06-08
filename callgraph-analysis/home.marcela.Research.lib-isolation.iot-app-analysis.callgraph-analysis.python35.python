@@ -17,6 +17,12 @@
 
 # callgraph analysis-specific accesses
 /tmp/libs/** rw,
+/home/marcela/.local/lib/python3.5/site-packages/** r,
+/home/marcela/Research/lib-isolation/iot-app-analysis/apps/** r,
+/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py r,
+/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/callgraphs/** rw,
+/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/logs/** rw,
+/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/aa-logs/** rw,
 
 /home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/python rix,
 

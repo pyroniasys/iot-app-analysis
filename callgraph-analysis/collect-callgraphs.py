@@ -58,7 +58,9 @@ LOG = "logs/"+cat+".log"
 sys.stdout = open(LOG, "w+")
 sys.stderr = sys.stdout
 
-num_success = 0
+num_traces_goal = 0
+num_traces_actual = 0
+num_rpi_only = 0
 for a in apps:
     to_trace = []
     if a.endswith(".py"):
@@ -77,25 +79,18 @@ for a in apps:
 
     # now run the callgraph generator
     if len(to_trace) == 1:
-        tr = Tracer(tracer_path, callgraph_path, to_trace)
+        tr = Tracer(tracer_path, callgraph_path, apparmor_log_path, to_trace)
     else:
-        tr = Tracer(tracer_path, callgraph_path, to_trace, app=a)
+        tr = Tracer(tracer_path, callgraph_path, apparmor_log_path, to_trace, app=a)
 
+    num_traces_goal += len(to_trace)
     p = Process(target=tr.start_tracer)
     p.start()
     p.join()
-
-    # only collect the call graph if the trace was successful
-    if tr.success:
-        num_success += 1
-
-        # generate the callgraph
-        tr.collect_call_graph()
-
-        # collect the apparmor logs
-        os.system('cat dmesg | grep apparmor | grep "pid='+tr.pid+'" > '+apparmor_log_path+'/'+tr.app_name+'_aa')
-
-print("[collect_callgraphs] Done ("+str(num_success)+" successful)")
+    print(str(tr.num_success)+", "+str(tr.num_rpi_only))
+    
+print("[collect_callgraphs] Done ("+str(num_traces_actual)+"/"+str(num_traces_goal)+")")
+print("[collect_callgraphs] # of RPi-only apps: "+str(num_rpi_only))
 
 # cleanup: remove the converted apps and close log file fds
 os.system("rm -rf "+app_path)

@@ -13,7 +13,7 @@ class Tracer:
     Tracer is used to generate the callgraph of the given application.
     '''
 
-    def __init__(self, tracer_dir, out, fs, app=""):
+    def __init__(self, tracer_dir, out, aa_out, fs, app=""):
         # context for this tracer
         self.pid = "0"
         self.curdir = tracer_dir
@@ -23,7 +23,12 @@ class Tracer:
         self.name = self.curdir+"/tracer.py:tracer.Tracer._runctx"
         self.app_name = ""
         self.callgraph_out = out
+        self.apparmor_out = aa_out
+
+        # keep some stats
+        self.num_success = 0
         self.success = False
+        self.num_rpi_only = 0
 
         # data needed to build the per-level callgraph
         self._caller_cache = dict()
@@ -111,7 +116,7 @@ class Tracer:
         return filename
 
     # build the call graph and pretty print it in json
-    def collect_call_graph(self):
+    def collect_callgraph(self):
         #print("num levels: "+str(len(levels)-1))
         #print(str(levels))
         #print(main)
@@ -251,23 +256,49 @@ class Tracer:
                 # got here, so we're done
                 self.retry_after_error = False
                 self.success = True
+                print("Successful data collection")
             except SyntaxError as e:
                 # Ugh, we're dealing with a Python2 lib
                 # TODO: get the offending lib
+                '''
                 lib = "/tmp/libs/SimpleCV"
-                os.system("2to3 -w "+lib)
-                self.retry_num -= 1
+                os.system("2to3 -W "+lib)
+                '''
+                print("SyntaxErr: "+str(e))
+                self.retry_after_error = False
             except ImportError as e:
                 # we might land here if our top 50 imports don't
                 # include the triggering module
                 # so let's fix this for future runs
-                tmp = str(e).split()
-                lib = tmp[len(tmp)-1].strip("'")
-                print("Downloading "+lib)
-                subprocess.check_output(["pip3", "install", "-qq", "--no-compile", "-t", "../libs/"+lib, lib])
-                os.system("cp -r ../libs/"+lib+" /tmp/libs")
-                sys.path.append("/tmp/libs/"+lib)
-                self.retry_num -= 1
+                tmp = str(e).split("'")
+                lib = tmp[1]
+                try:
+                    print("Downloading "+lib)
+                    subprocess.check_output(["pip3", "install", "-qq", "--no-compile", "-t", "../libs/"+lib, lib])
+                    os.system("cp -r ../libs/"+lib+" /tmp/libs")
+                    sys.path.append("/tmp/libs/"+lib)
+                    self.retry_num -= 1
+                except subprocess.CalledProcessError:
+                    # the lib name is not in the pip repo, is inconsistent
+                    # with the name in the pip repo, or is a python2 lib
+                    print("Could not download "+lib)
+                    self.retry_after_error = False
+                    self.success = False
+            # these two errors capture raspberry pi-only apps/libs
+            except OSError as e:
+                if "libmmal.so" in str(e):
+                    print("RPi-only OSError")
+                    self.num_rpi_only += 1
+                else:
+                    print("OSError: "+str(e))
+                self.retry_after_error = False
+            except RuntimeError as e:
+                if "This module can only be run on a Raspberry Pi!" in str(e):
+                    print("RPi-only (RuntimeError")
+                    self.num_rpi_only += 1
+                else:
+                    print("RuntimeError "+str(e))
+                self.retry_after_error = False
             except Exception:
                 print("Encountered error: "+traceback.format_exc())
                 self.success = False
@@ -275,6 +306,7 @@ class Tracer:
             finally:
                 sys.setprofile(None)
         except SystemExit:
+            print("System exit")
             self.retry_after_error = False
             self.success = False
             pass
@@ -286,13 +318,26 @@ class Tracer:
             print("[tracer] Collecting data for "+a+" (pid="+self.pid+")")
             self.app_filename = a
             sys.path.append(os.path.dirname(self.app_filename))
+            # in case the file contains any mixed tabs/spaces, do this
+            os.system("python -m reindent -n "+self.app_filename)
             with open(a, 'rb') as fp:
                 code = compile(fp.read(), self.app_filename, 'exec')
             globs = {
-                '__file__': self.app_filename,
-                '__name__': '__main__',
-                '__package__': None,
-                '__cached__': None,
+                    '__file__': self.app_filename,
+                    '__name__': '__main__',
+                    '__package__': None,
+                    '__cached__': None,
             }
             while self.retry_after_error and self.retry_num > 0:
                 self._runctx(code, globs, None)
+
+            # gyeh, just collect what we have
+            self.collect_callgraph()
+            # collect the apparmor logs
+            os.system('dmesg | grep apparmor | grep "pid='+self.pid+'" > '+self.apparmor_out+'/'+self.app_name+'_aa')
+                
+            if self.success:
+                self.num_success += 1
+
+        print("RPi-only: "+str(self.num_rpi_only))
+        print("successes: "+str(self.num_success))
