@@ -1,7 +1,0 @@
-OpenSSL
-oauth2client
-jwt
-keyring
-libnacl
-oauthlib
-passlib

@@ -1,8 +1,0 @@
-cec
-vlc
-Adafruit_SSD1306
-Adafruit_CharLCDPlate
-Adafruit_Nokia_LCD
-picamera
-haffmpeg
-hikvision

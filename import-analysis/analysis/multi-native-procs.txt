@@ -1,6 +1,0 @@
-aplay
-flac
-espeak
-espeak
-play
-sox
