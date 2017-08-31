@@ -1,40 +1,11 @@
 import sys, os, gc, inspect, traceback
 from collections import OrderedDict
+import subprocess
+import json
 
 INDENT = 2
 SPACE = " "
 NEWLINE = "\n"
-
-# custom JSON serializer for printing small lists and dictionaries
-# Source: http://stackoverflow.com/questions/21866774/pretty-print-json-dumps
-def _to_custom_json(o, level=0):
-    ret = ""
-    if isinstance(o, dict):
-        ret += "{" + NEWLINE
-        comma = ""
-        for k,v in o.items():
-            ret += comma
-            comma = ","+NEWLINE
-            ret += SPACE * INDENT * (level+1)
-            ret += str(k) + ':' + SPACE
-            ret += _to_custom_json(v, level + 1)
-
-        ret += NEWLINE + SPACE * INDENT * level + "}"
-    elif isinstance(o, str):
-        ret += o
-    elif isinstance(o, list):
-        if len(o) == 0:
-            ret += "[]"
-        elif len(o) == 1 and isinstance(o[0], str):
-            ret += "[ " + o[0] + " ]"
-        else:
-            ret += "["+NEWLINE + (SPACE * INDENT * level)
-            comma = ", "+NEWLINE+ (SPACE * INDENT * level)
-            ret += comma.join([_to_custom_json(e, level+1) for e in o])
-            ret += NEWLINE + SPACE * INDENT * level + "]"
-    else:
-        raise TypeError("Unknown type '%s' for json serialization" % str(type(o)))
-    return ret
 
 class Tracer:
     '''IoT app analysis tracer class.
@@ -42,14 +13,22 @@ class Tracer:
     Tracer is used to generate the callgraph of the given application.
     '''
 
-    def __init__(self, tracer_dir, out, fs, app=""):
+    def __init__(self, tracer_dir, out, aa_out, fs, app=""):
         # context for this tracer
+        self.pid = "0"
         self.curdir = tracer_dir
         self.files = fs
         self.app_filename = ""
         self.top_app = app
         self.name = self.curdir+"/tracer.py:tracer.Tracer._runctx"
+        self.app_name = ""
         self.callgraph_out = out
+        self.apparmor_out = aa_out
+
+        # keep some stats
+        self.num_success = 0
+        self.success = False
+        self.num_rpi_only = 0
 
         # data needed to build the per-level callgraph
         self._caller_cache = dict()
@@ -59,6 +38,9 @@ class Tracer:
         # this helps us detect if we're in an infinite loop
         self.call_freq = dict()
         self.inf_thresh = 20
+        # this helps us retry after certain kinds of errors
+        self.retry_after_error = True
+        self.retry_num = 5 # set some reasonable boundary
 
         # want to keep track of each level's call dict
         # this contains a per-level representation of the callgraph
@@ -134,7 +116,7 @@ class Tracer:
         return filename
 
     # build the call graph and pretty print it in json
-    def collect_call_graph(self):
+    def collect_callgraph(self):
         #print("num levels: "+str(len(levels)-1))
         #print(str(levels))
         #print(main)
@@ -143,11 +125,13 @@ class Tracer:
         if graph != None:
             app_name = self._modname(self.app_filename).split(".")
             if self.top_app == "":
-                cg_out = self.callgraph_out+"/"+app_name[len(app_name)-1]+"_cg"
+                self.app_name = app_name[len(app_name)-1]
             else:
-                cg_out = self.callgraph_out+"/"+self.top_app+"-"+app_name[len(app_name)-1]+"_cg"
+                self.app_name = self.top_app+"-"+app_name[len(app_name)-1]
+            cg_out = self.callgraph_out+"/"+self.app_name+"_cg"
             f = open(cg_out, "w")
-            f.write(_to_custom_json(graph)+"\n")
+            # want regular json serialization so we can process later
+            f.write(json.dumps(graph)+"\n")
             f.close()
 
     ''' Helper functions to get the right function
@@ -269,25 +253,91 @@ class Tracer:
             sys.setprofile(self.tracer)
             try:
                 exec(cmd, globs, locs)
+                # got here, so we're done
+                self.retry_after_error = False
+                self.success = True
+                print("Successful data collection")
+            except SyntaxError as e:
+                # Ugh, we're dealing with a Python2 lib
+                # TODO: get the offending lib
+                '''
+                lib = "/tmp/libs/SimpleCV"
+                os.system("2to3 -W "+lib)
+                '''
+                print("SyntaxErr: "+str(e))
+                self.retry_after_error = False
+            except ImportError as e:
+                # we might land here if our top 50 imports don't
+                # include the triggering module
+                # so let's fix this for future runs
+                tmp = str(e).split("'")
+                lib = tmp[1]
+                try:
+                    print("Downloading "+lib)
+                    subprocess.check_output(["pip3", "install", "-qq", "--no-compile", "-t", "../libs/"+lib, lib])
+                    os.system("cp -r ../libs/"+lib+" /tmp/libs")
+                    sys.path.append("/tmp/libs/"+lib)
+                    self.retry_num -= 1
+                except subprocess.CalledProcessError:
+                    # the lib name is not in the pip repo, is inconsistent
+                    # with the name in the pip repo, or is a python2 lib
+                    print("Could not download "+lib)
+                    self.retry_after_error = False
+                    self.success = False
+            # these two errors capture raspberry pi-only apps/libs
+            except OSError as e:
+                if "libmmal.so" in str(e):
+                    print("RPi-only OSError")
+                    self.num_rpi_only += 1
+                else:
+                    print("OSError: "+str(e))
+                self.retry_after_error = False
+            except RuntimeError as e:
+                if "This module can only be run on a Raspberry Pi!" in str(e):
+                    print("RPi-only (RuntimeError")
+                    self.num_rpi_only += 1
+                else:
+                    print("RuntimeError "+str(e))
+                self.retry_after_error = False
             except Exception:
                 print("Encountered error: "+traceback.format_exc())
+                self.success = False
+                self.retry_after_error = False
             finally:
                 sys.setprofile(None)
         except SystemExit:
+            print("System exit")
+            self.retry_after_error = False
+            self.success = False
             pass
 
     # adapted from https://github.com/python/cpython/blob/3.5/Lib/profile.py
     def start_tracer(self):
-        sys.path.insert(0, "../libs")
+        self.pid = str(os.getpid())
         for a in self.files:
+            print("[tracer] Collecting data for "+a+" (pid="+self.pid+")")
             self.app_filename = a
-            sys.path.insert(0, os.path.dirname(self.app_filename))
+            sys.path.append(os.path.dirname(self.app_filename))
+            # in case the file contains any mixed tabs/spaces, do this
+            os.system("python -m reindent -n "+self.app_filename)
             with open(a, 'rb') as fp:
                 code = compile(fp.read(), self.app_filename, 'exec')
             globs = {
-                '__file__': self.app_filename,
-                '__name__': '__main__',
-                '__package__': None,
-                '__cached__': None,
+                    '__file__': self.app_filename,
+                    '__name__': '__main__',
+                    '__package__': None,
+                    '__cached__': None,
             }
-            self._runctx(code, globs, None)
+            while self.retry_after_error and self.retry_num > 0:
+                self._runctx(code, globs, None)
+
+            # gyeh, just collect what we have
+            self.collect_callgraph()
+            # collect the apparmor logs
+            os.system('dmesg | grep apparmor | grep "pid='+self.pid+'" > '+self.apparmor_out+'/'+self.app_name+'_aa')
+                
+            if self.success:
+                self.num_success += 1
+
+        print("RPi-only: "+str(self.num_rpi_only))
+        print("successes: "+str(self.num_success))

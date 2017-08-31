@@ -1,0 +1,177 @@
+[tracer] Collecting data for ../apps/visual-py3/IoTFishtank/IoTFishtank.py (pid=25117)
+Encountered error: Traceback (most recent call last):
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/configparser.py", line 1135, in _unify_values
+    sectiondict = self._sections[section]
+KeyError: 'general'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 255, in _runctx
+    exec(cmd, globs, locs)
+  File "../apps/visual-py3/IoTFishtank/IoTFishtank.py", line 6, in <module>
+    import FishTank
+  File "../apps/visual-py3/IoTFishtank/FishTank.py", line 6, in <module>
+    import FoodStore
+  File "../apps/visual-py3/IoTFishtank/FoodStore.py", line 2, in <module>
+    import Config
+  File "../apps/visual-py3/IoTFishtank/Config.py", line 6, in <module>
+    path = config.get('general', 'path')
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/configparser.py", line 778, in get
+    d = self._unify_values(section, vars)
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/configparser.py", line 1138, in _unify_values
+    raise NoSectionError(section)
+configparser.NoSectionError: No section: 'general'
+
+RPi-only: 0
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/pi_home_surveillance/pi_home_surveillance.py (pid=25246)
+RPi-only OSError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/RPiLaserSecurity.py (pid=25375)
+RPi-only (RuntimeError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/PiScream.py (pid=25382)
+RPi-only OSError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/RPiPhotobooth/RPiPhotobooth.py (pid=25389)
+Downloading ImageTk
+Could not download ImageTk
+RPi-only: 0
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/WhoIsAtCoffeeMachine/WhoIsAtCoffeeMachine.py (pid=25403)
+RPi-only OSError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/HomeSecurityEmailAlert.py (pid=25534)
+RPi-only (RuntimeError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/pidoorbell.py (pid=25541)
+RPi-only (RuntimeError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/monitordoorbell.py (pid=25548)
+RPi-only (RuntimeError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/surocam.py (pid=25555)
+Downloading webiopi
+Could not download webiopi
+RPi-only: 0
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/WifiPhotobooth/WifiPhotobooth.py (pid=25569)
+RPi-only OSError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/CodeYourOwnPhotobooth.py (pid=25587)
+RPi-only (RuntimeError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/GPIO&PiCameraUsingTelegram.py (pid=25594)
+RPi-only OSError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/LegoRobot/LegoRobot.py (pid=25601)
+RPi-only (RuntimeError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/PiNoculars/PiNoculars.py (pid=25608)
+RPi-only OSError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/smartJpegCamera.py (pid=25615)
+RPi-only (RuntimeError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/TwitterPhotoLiveFeed.py (pid=25622)
+Encountered error: Traceback (most recent call last):
+  File "/tmp/libs/tweepy/tweepy/api.py", line 1303, in _pack_image
+    if os.path.getsize(filename) > (max_size * 1024):
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/Lib/genericpath.py", line 50, in getsize
+    return os.stat(filename).st_size
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/20170605-212558.jpg'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/tracer.py", line 255, in _runctx
+    exec(cmd, globs, locs)
+  File "../apps/visual-py3/TwitterPhotoLiveFeed.py", line 43, in <module>
+    api.update_with_media(photo_path, status=status)
+  File "/tmp/libs/tweepy/tweepy/api.py", line 219, in update_with_media
+    headers, post_data = API._pack_image(filename, 3072, form_field='media[]', f=f)
+  File "/tmp/libs/tweepy/tweepy/api.py", line 1306, in _pack_image
+    raise TweepError('Unable to access file: %s' % e.strerror)
+tweepy.error.TweepError: Unable to access file: No such file or directory
+
+RPi-only: 0
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/RefrigeratorSecurity/RefrigeratorSecurity.py (pid=25670)
+RPi-only (RuntimeError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/SecurityCam/SecurityCam.py (pid=25677)
+Downloading Pubnub
+Downloading Pubnub
+Downloading Pubnub
+Downloading Pubnub
+Downloading Pubnub
+RPi-only: 0
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/RPiIoTDoorbell/RPiIoTDoorbell.py (pid=25729)
+RPi-only (RuntimeError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/SendingReceivingPicsMqtt.py (pid=25736)
+RPi-only OSError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/camera-vision-logo.py (pid=25743)
+RPi-only OSError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/EasyRPISecCam.py (pid=25750)
+RPi-only OSError
+RPi-only: 1
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/360_pi_cam/new_dewarp.py (pid=25786)
+Downloading IntType
+Could not download IntType
+[tracer] Collecting data for ../apps/visual-py3/360_pi_cam/streamer.py (pid=25786)
+RPi-only: 0
+successes: 0
+0, 0
+[tracer] Collecting data for ../apps/visual-py3/vintage_raspi_cam/vintage_raspi_cam.py (pid=25832)
+RPi-only (RuntimeError
+RPi-only: 1
+successes: 0
+0, 0
+[collect_callgraphs] Done (0/26)
+[collect_callgraphs] # of RPi-only apps: 0
