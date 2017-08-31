@@ -22,8 +22,8 @@ def check_for_c_source(path, lib):
     for m in mods:
         c = search_c_source(path, m)
         if len(c) > 0:
-            return True
-    return False
+            return True, c
+    return False, c
 
 def check_ctypes_wrapper(imps):
     for src, i in imps.items():
@@ -35,11 +35,20 @@ def check_ctypes_wrapper(imps):
                     return True
     return False
 
-def check_shared_libs(path, lib):
-    shlibs = search_shared_libs(path, lib)
-    if len(shlibs) > 0:
-        return True
-    return False
+def get_shared_libs(c_list):
+    shlibs = []
+    for s in c_list:
+        if s.endswith(".so"):
+            shlibs.append(s)
+
+import_freq = dict()
+def count_shared_lib_freq(srcs):
+    shlibs = get_shared_libs(srcs)
+    for l in shlibs:
+        if import_freq.get(l) == None:
+            import_freq[l] = 1
+        else:
+            import_freq[l] += 1
 
 def check_ext_proc_calls(imps):
     for src, i in imps['raw_imports'].items():
@@ -51,7 +60,8 @@ def check_ext_proc_calls(imps):
                     return True
     return False
 
-def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
+def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc, lvl):
+    lvl += 1
     no_pip = []
 
     print("---- "+lib)
@@ -69,6 +79,7 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
             s = [lib]
         if lib in extproc:
             n = [lib]
+            lvl -= 1
         return c, s, n, no_pip
 
     # the alternative name
@@ -111,7 +122,9 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
 
     except subprocess.CalledProcessError:
         # let's see if we can find any sources in the lib path
-        if check_for_c_source(top_lib_path, lib):
+        has_c, srcs = check_for_c_source(top_lib_path, lib)
+        if has_c:
+            count_shared_lib_freq(srcs)
             print("Found dependency C-lib")
             return [lib], [], [], []
 
@@ -173,7 +186,9 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
             for src, i in imps['raw_imports'].items():
                 clean[src] = []
                 for l in i:
-                    if check_for_c_source(top_lib_path, l):
+                    has_c, srcs = check_for_c_source(top_lib_path, l)
+                    if has_c:
+                        count_shared_lib_freq(srcs)
                         print("Found a C-implementation")
                         c_libs.append(l)
                     else:
@@ -239,7 +254,6 @@ def get_libs_with_deps(names, top_lib, lib, visited, clibs, shlibs, extproc):
                             no_pip.extend(np)
             return c_libs, hybrid_libs, call_native, no_pip
 
-
 #### MAIN ###
 
 cat = sys.argv[1]
@@ -283,7 +297,7 @@ for l in libs:
     pair = l.split(",")
     lib = pair[0].strip()
     recurs_limit = []
-    c, hyb, native, np = get_libs_with_deps(lib_names, lib, lib, recurs_limit, c_libs, hybrid_libs, call_native)
+    c, hyb, native, np = get_libs_with_deps(lib_names, lib, lib, recurs_limit, c_libs, hybrid_libs, call_native, 0)
 
     if len(c) == 0 and len(hyb) == 0 and len(native) == 0 and len(np) == 0:
         py_libs.append(lib)
@@ -314,6 +328,7 @@ write_list_raw(no_pip, "corpus/"+cat+"-no-pip.txt")
 write_list_raw(top_no_pip, "corpus/"+cat+"-failed.txt")
 write_list_raw(py_libs, "corpus/"+cat+"-py-libs.txt")
 
+
 # need to clean up the lists
 c_libs_top = []
 call_native_top = []
@@ -330,4 +345,5 @@ for l in libs:
 
 write_list_raw(call_native_top, "corpus/"+cat+"-ext-proc.txt")
 write_list_raw(c_libs_top, "corpus/"+cat+"-c-libs.txt")
-write_list_raw(hybrid_libs_top, "corpus/"+cat+"-shared-libs.txt")
+write_list_raw(hybrid_libs_top, "corpus/"+cat+"-ctypes.txt")
+write_freq_map(import_freq, "analysis/"+cat+"-shared-lib_freq.txt", "w+")
