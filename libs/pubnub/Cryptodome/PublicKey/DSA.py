@@ -58,7 +58,7 @@ them from known components. DSA keys allows you to perform basic signing and
 verification.
 
     >>> from Cryptodome.PublicKey import DSA
-    >>> from Cryptodome.Signature.DSS
+    >>> from Cryptodome.Signature import DSS
     >>> from Cryptodome.Hash import SHA256
     >>>
     >>> message = b"Hello"
@@ -396,7 +396,7 @@ class DsaKey(object):
     def unblind(self, M, B):
         raise NotImplementedError
 
-    def size():
+    def size(self):
         raise NotImplementedError
 
 

@@ -43,18 +43,18 @@ The CCM mode optionally allows the header of the message to remain in the clear,
 whilst still being authenticated. The encryption is done as follows:
 
     >>> from Cryptodome.Cipher import AES
-    >>> from Cryptodome.Random import get_random_bytes
-    >>>
     >>>
     >>> hdr = b'To your eyes only'
     >>> plaintext = b'Attack at dawn'
     >>> key = b'Sixteen byte key'
-    >>> cipher = AES.new(key, AES.MODE_CCM, nonce)
+    >>> cipher = AES.new(key, AES.MODE_CCM)
     >>> cipher.update(hdr)
     >>> msg = cipher.nonce, hdr, cipher.encrypt(plaintext), cipher.digest()
 
 We assume that the tuple ``msg`` is transmitted to the receiver:
 
+    >>> from Cryptodome.Cipher import AES
+    >>>
     >>> nonce, hdr, ciphertext, mac = msg
     >>> key = b'Sixteen byte key'
     >>> cipher = AES.new(key, AES.MODE_CCM, nonce)
@@ -66,9 +66,13 @@ We assume that the tuple ``msg`` is transmitted to the receiver:
     >>> except ValueError:
     >>>     print "Key incorrect or message corrupted"
 
+If no ``nonce`` is supplied initially, a 11 bytes random ``nonce`` is generated,
+which is good for a maximum message size of 4G. See CCM_.
+
 .. __: http://en.wikipedia.org/wiki/Advanced_Encryption_Standard
 .. _NIST: http://csrc.nist.gov/publications/fips/fips197/fips-197.pdf
 .. _AEAD: http://blog.cryptographyengineering.com/2012/05/how-to-choose-authenticated-encryption.html
+.. _CCM: Cryptodome.Cipher._mode_ccm.CcmMode-class.html
 
 :undocumented: __package__
 """
