@@ -134,7 +134,7 @@ def scan_source_fs_resource(src):
     for l in lines:
         if "print(" in l or "printf(" in l:
             continue
-        m = re.search("(= )?(\w+\()?[\'\"](?<!https:)(?<!http:)(?<!/)(?<!\w)((/[^\s]+)?/\w+\.\D+)[\'\"]", l)
+        m = re.search("[\'\"](?<!https:)(?<!http:)(?<!/)(?<!\w)((/[^\s]+)?/\w+\.\D+)[\'\"]", l)
         if m:
             fs_rsrcs.append(m.group(0))
     return fs_rsrcs
