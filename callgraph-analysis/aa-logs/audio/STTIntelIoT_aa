@@ -1,1 +1,0 @@
-[686539.459803] audit: type=1400 audit(1496707896.252:1097952): apparmor="ALLOWED" operation="open" profile="/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/python" name="/proc/25461/mounts" pid=25461 comm="python" requested_mask="r" denied_mask="r" fsuid=1000 ouid=1000

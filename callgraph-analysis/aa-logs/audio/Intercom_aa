@@ -1,1 +1,0 @@
-[686530.830876] audit: type=1400 audit(1496707887.620:1097803): apparmor="ALLOWED" operation="open" profile="/home/marcela/Research/lib-isolation/iot-app-analysis/callgraph-analysis/python35/python" name="/proc/cpuinfo" pid=25454 comm="python" requested_mask="r" denied_mask="r" fsuid=1000 ouid=0
