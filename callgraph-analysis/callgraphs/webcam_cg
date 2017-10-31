@@ -1,3 +1,0 @@
-{
-  __main__.take_pic: [ posix.system ]
-}
