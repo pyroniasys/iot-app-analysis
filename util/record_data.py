@@ -25,6 +25,11 @@ def write_str(v, s, filename, perm="a+"):
     f.write(s+": "+str(v)+"\n")
     f.close()
 
+def write_empty_line(filename, perm="a+"):
+    f = open(filename, perm)
+    f.write("\n")
+    f.close()
+
 def write_list(l, filename, name=None, perm="a+"):
     f = open(filename, perm)
     if name != None:
