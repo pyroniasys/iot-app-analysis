@@ -25,3 +25,15 @@ def map2list_int(m):
     for k, v in m.items():
         l.append(k+": "+str(v))
     return l
+
+def install_lib_pip(lib):
+    no_pip = []
+    try:
+        subprocess.check_output(["sudo", "pip", "install", "-U", lib])
+    except subprocess.CalledProcessError as e:
+        # the lib name is not in the pip repo, is inconsistent
+        # with the name in the pip repo
+        print("[collect_callgraphs] Could not download "+lib)
+        no_pip.append(lib)
+
+    return no_pip
