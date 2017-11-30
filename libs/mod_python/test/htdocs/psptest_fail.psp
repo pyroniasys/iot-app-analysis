@@ -1,4 +1,0 @@
-fail
-<%
-session['dummy'] = 1
-%>

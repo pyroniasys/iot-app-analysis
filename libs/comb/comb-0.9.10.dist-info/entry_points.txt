@@ -1,3 +1,0 @@
-[console_scripts]
-comb = comb.main:main
-
