@@ -1,0 +1,5 @@
+__pycache__/
+*~
+apps/tweetpic/oauth.txt
+*.pyc
+.DS_Store

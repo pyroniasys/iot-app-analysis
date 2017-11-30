@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+
+import sys
+import os
+
+if len(sys.argv) < 2:
+   print("Usage: ./setup-pi <collection-type>")
+
+collection_type = sys.argv[1]
+
+callgraph_files = ["collect-callgraphs.py", "tracer.py", "lib-pipnames.txt", "run-collection"]
+strace_files = ["collect-strace.py", "strace_wrapper.py", "lib-pipnames.txt", "run-collection"]
+
+os.system("rsync -rzcv apps/sample pi@ceres.cs.princeton.edu:~/apps")
+
+to_send = []
+if collection_type == "callgraph_analysis":
+   to_send = callgraph_files
+elif collection_type == "resource_analysis":
+   to_send = strace_files
+
+for f in to_send:
+   os.system("rsync -zcvp "+collection_type+"/"+f+" pi@ceres.cs.princeton.edu:~/"+collection_type)

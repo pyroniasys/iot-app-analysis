@@ -1,0 +1,25 @@
+#!/usr/bin/python3
+
+import sys
+import os
+
+if len(sys.argv) < 2:
+   print("Usage: ./retrieve-pi-data <collection-type>")
+
+collection_type = sys.argv[1]
+
+callgraph_files = ["callgraphs", "logs/sample.log"]
+strace_files = ["straces", "logs/sample_*.log"]
+
+to_retrieve = []
+if collection_type == "callgraph_analysis":
+   to_retrieve = callgraph_files
+   os.makedirs(collection_type+"/callgraphs/sample", exist_ok=True)
+   os.makedirs(collection_type+"/logs", exist_ok=True)
+elif collection_type == "resource_analysis":
+   to_retrieve = strace_files
+   os.makedirs(collection_type+"/straces/sample", exist_ok=True)
+   os.makedirs(collection_type+"/logs", exist_ok=True)
+   
+os.system("rsync -rzcv pi@ceres.cs.princeton.edu:~/"+collection_type+"/"+to_retrieve[0]+"/sample "+collection_type+"/"+to_retrieve[0])
+os.system("rsync -rzcv pi@ceres.cs.princeton.edu:~/"+collection_type+"/"+to_retrieve[1]+" "+collection_type+"/logs")
