@@ -1,0 +1,12 @@
+[submodule "py-import-analysis"]
+	path = py-import-analysis
+	url = git@github.com:masomel/py-import-analysis.git
+[submodule "py-resource-analysis"]
+	path = py-resource-analysis
+	url = git@github.com:masomel/py-resource-analysis.git
+[submodule "py-iot-apps"]
+	path = py-iot-apps
+	url = git@github.com:masomel/py-iot-apps.git
+[submodule "py-callgraph-profiler"]
+	path = py-callgraph-profiler
+	url = git@github.com:LedgeDash/py-callgraph-profiler.git
